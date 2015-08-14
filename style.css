@@ -2274,7 +2274,13 @@ div.bbp-template-notice p, div.indicator-hint p {
     display: none;
 }
 
-
+.topic-reply .content p .quote {
+  background: url('img/quote.png') no-repeat top left #f7f7f7;
+  display: block;
+  padding: 14px 20px 14px 40px;
+  margin-bottom: 14px;
+  font-size: 15px;
+}
   
   
   /*end/*
