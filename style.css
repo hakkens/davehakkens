@@ -1355,8 +1355,9 @@ ul.bbp-topic-revision-log li {
 }
 .alt-forum-sidebar li.widget {
   float: left;
-  width: 30%;
-  padding: 10px;
+    width: 25%;
+    padding: 4%;
+  
 }
 
 
