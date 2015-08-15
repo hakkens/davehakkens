@@ -1195,7 +1195,7 @@ ul.bbp-topic-revision-log li {
   color: #bbb;
   float: left;
   font-size: 10px;
-      padding: 20px 20px 10px 40px;
+      padding: 20px 20px 0px 40px;
   text-transform: uppercase;
 }
 .topic-reply .content .bbp-admin-links {
@@ -1205,8 +1205,9 @@ ul.bbp-topic-revision-log li {
   padding: 10px;
 }
 .topic-reply .content p {
-    padding: 24px 18px 18px 40px;
-  font-size: 18px;
+    padding: 5px 18px 5px 40px;
+  font-size: 16px;
+      margin-top: 30px;
 }
 #bbpress-forums fieldset.bbp-form {
   margin-bottom: 60px !important;
