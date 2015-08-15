@@ -116,9 +116,7 @@ if (!$user_ID) { //block logged in users
 
     get_template_part('navbar'); ?>
 
-    <div class="forum-sidebar">
-      <?php dynamic_sidebar('forum-sidebar'); ?>
-    </div>
+
 
     <div id="content">
 
@@ -167,10 +165,7 @@ if (!$user_ID) { //block logged in users
         <?php endwhile; endif; ?>
       </div>
 
-      <div class="alt-forum-sidebar">
-        <?php dynamic_sidebar('forum-sidebar'); ?>
-      </div>
-
+     
     </div> <!-- #content -->
 
     <?php

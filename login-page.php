@@ -9,9 +9,7 @@ get_header();
 
 get_template_part('navbar'); ?>
 
-  <div class="forum-sidebar">
-    <?php dynamic_sidebar('forum-sidebar'); ?>
-  </div>
+
 
   <div id="content">
 
@@ -46,9 +44,7 @@ get_template_part('navbar'); ?>
       <?php endwhile; endif; ?>
     </div>
 
-    <div class="alt-forum-sidebar">
-      <?php dynamic_sidebar('forum-sidebar'); ?>
-    </div>
+   
 
   </div>
 
