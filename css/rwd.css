@@ -1,4 +1,4 @@
-@media screen and (max-width: 1700px) {
+@media screen and (max-width: 1920px) {
 
   .single .post .thumbnail {
       height: 500px;
@@ -18,7 +18,7 @@
 }
 
 #post-grid .item {
-    width: 47%;
+    width: 30%;
 }
 
 #user-menu .content {
@@ -78,7 +78,17 @@
 
 }
 
+
+@media screen and (max-width: 1700px) {
+	
+#post-grid .item {
+    width: 47%;
+}}
+	
+	
 @media screen and (max-width: 1140px) {
+
+
   .page-template-page-with-sidebar #content {
     margin-left: 0;
     margin-right: 0;
