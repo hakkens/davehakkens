@@ -83,10 +83,18 @@
 	
 #post-grid .item {
     width: 47%;
-}}
+}
+
+
+
+}
 	
 	
 @media screen and (max-width: 1140px) {
+
+.activity #buddypress {
+    width: 80%;
+}
 
 
   .page-template-page-with-sidebar #content {

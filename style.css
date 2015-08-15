@@ -892,6 +892,27 @@ div.bbp-template-notice a {
   text-align: center;
 }
 
+#buddypress .activity-list li.mini .activity-avatar img.avatar {
+    height: 50px!important;
+    margin-left: 0px!important;
+    width: auto!important;
+}
+
+#buddypress ul.activity-list li {
+    background-color: white!important;
+}
+
+#buddypress ul.item-list li {
+    border-bottom: 1px dashed #757575!important;
+    padding: 30px 0!important;
+}
+
+.activity #buddypress {
+    width: 760px;
+}
+
+
+
 
 /*
  * BBpress
@@ -1271,7 +1292,9 @@ ul.bbp-topic-revision-log li {
 }
 /* change font activity*/
 #buddypress #activity-stream p {
-  font-size: 14px;
+  font-size: 14px;   
+   margin: 13px 0!important;
+  
 }
 #buddypress #activity-stream a {
   color:#88A7D7;
@@ -2239,8 +2262,6 @@ div.bbp-template-notice p, div.indicator-hint p {
 .bbp-forum-freshness .topic-desc p, .bbp-topic-freshness .topic-desc p, .bbp-topic-title .topic-desc p {
   margin-bottom: 0;
 }
-.page-template-login-page #content,
-.page-template-reset-password #content,
 .page-template-page-with-sidebar #content {
   margin-left: 250px;
   margin-right: 400px;
