@@ -13,6 +13,7 @@ Text Domain: davehakkens
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
+
 html, body {
   /* background: #f8f8f8; */
   font-family: 'Open Sans', sans-serif;
@@ -31,9 +32,48 @@ p, .post-content li, .content li {
   color: #424242;
   font-weight: lighter;
 }
+
+
+
+  /* Text Styling Single post pages*/
+
+
+p.wp-caption-text {
+    font-size: 13px!important;
+    padding: 5px 0px 10px;
+    font-weight: 400;
+    color: grey;}
+	
+	
 .single-post p {
   font-size: 18px;
 }
+.single-post p a {
+  text-decoration:none;
+  color:#6CADE8;
+}
+.single-post  h1{ 
+    font-weight: 200;
+    padding: 23px 0px 10px 0px;
+	
+}
+.single-post h2{    
+    font-weight: 200;
+    color: #868686;
+    line-height: 1.8;
+    font-size: 28px;
+	font-style: italic;
+	padding: 70px 20px 70px 20px;
+	 }
+.single-post  h3{ }
+.single-post  h4{ }
+.single-post  h5{ }
+.single-post  h6{}
+
+
+
+
+
 .post-content ul {
   margin: 0 0 30px 0;
 }
@@ -53,6 +93,7 @@ img.aligncenter {
     height: auto;
     display: inline-block;
     max-width: 150%;
+	    padding: 50px 0px 50px 0px;
 }
 
 
@@ -393,10 +434,12 @@ a:hover {
 }
 .page .post .thumbnail .meta,
 .single .post .thumbnail .meta {
-  bottom: 20px;
-  left: 0;
-  position: absolute;
-  width: 100%;
+    bottom: 30%;
+    /* left: 0; */
+    position: absolute;
+    width: 92%;
+    /* margin: 0 auto; */
+    padding: 4%;
 }
 .page .post .thumbnail h1,
 .page .post .thumbnail h3,
@@ -409,8 +452,8 @@ a:hover {
 }
 .page .post .thumbnail h1,
 .single .post .thumbnail h1 {
-  font-size: 48px;
-  font-weight: 600;
+  font-size: 70px;
+  font-weight: 200;
 }
 .page .post .thumbnail h3,
 .single .post .thumbnail h3 {
@@ -419,7 +462,9 @@ a:hover {
 }
 .page .post .thumbnail .shadow,
 .single .post .thumbnail .shadow {
-  background: url('img/cover-shadow.png') bottom left repeat-x;
+ /* background: url('img/cover-shadow.png') bottom left repeat-x; */
+      background-color: black;
+    opacity: 0.3;
   background-size: contain;
   height: 100%;
   left: 0;
@@ -457,6 +502,9 @@ a:hover {
   height: auto;
   max-width: 100%;
 }
+
+
+
 
 
 
@@ -1246,7 +1294,7 @@ ul.bbp-topic-revision-log li {
   padding: 10px;
 }
 .topic-reply .content p {
-    padding: 5px 18px 5px 40px;
+    padding: 5px 40px 5px 40px;
   font-size: 16px;
       margin-top: 10px;
 }
@@ -1348,6 +1396,12 @@ ul.bbp-topic-revision-log li {
 
 #profile-edit-form{font-size:14px}
 
+
+.fancybox-close {
+    top: 15px!important;
+    right: 20px!important;
+
+}
 
 
 

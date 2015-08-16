@@ -1,8 +1,6 @@
 @media screen and (max-width: 1920px) {
 
-  .single .post .thumbnail {
-      height: 500px;
-  }
+
   .page-forum .post {
     padding-bottom: 80px;
   }
@@ -86,12 +84,19 @@
 }
 
 
+  
+  
+
 
 }
 	
 	
 @media screen and (max-width: 1140px) {
 
+  .single .post .thumbnail {
+      height: 500px;
+  }
+  
 .activity #buddypress {
     width: 80%;
 }
@@ -490,7 +495,9 @@ position: inherit;
   
   @media screen and (max-width: 540px) {
 	 
-	 
+	 .single .post .thumbnail h1 {
+    font-size: 50px;
+}
 	 
 	 .comment-body .comment-author {
 
