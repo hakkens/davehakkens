@@ -904,13 +904,16 @@ div.bbp-template-notice a {
 
 #buddypress ul.item-list li {
     border-bottom: 1px dashed #757575!important;
-    padding: 30px 0!important;
+    padding: 20px 0!important;
 }
 
 .activity #buddypress {
     width: 760px;
 }
 
+li#activity-favorites {
+    display: none;
+}
 
 
 
@@ -2113,21 +2116,22 @@ div.bbp-template-notice p, div.indicator-hint p {
   padding: 0 !important;
 }
 #buddypress #admins-list li, #buddypress #members-list li, #buddypress #mods-list li {
-  border: none;
-  float: left;
-  width: 32%;
-  margin: 0.5%;
-  padding: 0;
-  overflow: hidden !important;
-  /* height: 100px; */
-  background: #fff;
+    border: none;
+    float: left;
+    width: 32%;
+    margin: 0.5%;
+    padding: 0;
+    overflow: hidden !important;
+    /* height: 100px; */
+    background: #fff;
 }
 #buddypress #admins-list li a, #buddypress #members-list li a, #buddypress #mods-list li a {
   text-decoration: none;
 }
 #buddypress #admins-list li .item-avatar, #buddypress #members-list li .item-avatar, #buddypress #mods-list li .item-avatar {
-  float: left;
-  width: 40%;
+     width: 50%;
+    margin-left: 25%;
+    display: inline-block;
 }
 #buddypress #admins-list li .item-avatar img, #buddypress #members-list li .item-avatar img, #buddypress #mods-list li .item-avatar img {
   height: auto;
@@ -2137,12 +2141,11 @@ div.bbp-template-notice p, div.indicator-hint p {
   margin: 20px;
 }
 #buddypress #admins-list li .item, #buddypress #members-list li .item, #buddypress #mods-list li .item {
-  float: left;
-  width: 60%
+  text-align:center;
 }
-#buddypress #admins-list li .item .inner, #buddypress #members-list li .item .inner, #buddypress #mods-list li .item .inner {
+/*#buddypress #admins-list li .item .inner, #buddypress #members-list li .item .inner, #buddypress #mods-list li .item .inner {
   margin: 34px 10px 10px 10px;
-}
+}*/
 #buddypress #admins-list li .item .item-meta, #buddypress #members-list li .item .item-meta, #buddypress #mods-list li .item .item-meta {
   font-size: 12px;
 }
@@ -2183,6 +2186,7 @@ div.bbp-template-notice p, div.indicator-hint p {
     margin-left: 9px!important;
     /* padding: 3px 6px!important; */
     vertical-align: inherit!important;
+	    padding: 0px 10px 0px 0px!important;
 }
 
 
