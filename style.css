@@ -36,7 +36,8 @@ p, .post-content li, .content li {
 
 
   /* Text Styling Single post pages*/
-
+.wp-caption{
+	width:100%!important;}
 
 p.wp-caption-text {
     font-size: 13px!important;
