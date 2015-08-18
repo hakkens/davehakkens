@@ -1123,9 +1123,12 @@ div.bbp-template-notice, div.indicator-hint {
 margin: 5px 0 15px !important;
 }*/
 #new-post {
-  float: right;
-  width: 70%;
-  padding-right: 16%;
+    /* float: right; */
+    width: 60%;
+    /* padding-right: 16%; */
+    margin: 0 auto;
+    max-width: 800px;
+
 }
 .bbp-form legend {
   font-size: 16px;
