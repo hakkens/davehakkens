@@ -1186,6 +1186,7 @@ margin: 5px 0 15px !important;
   margin: 20px auto 0 auto;
   width: 60%;
   padding-bottom:100px;
+      max-width: 800px;
 }
 .topic-lead .actions .bbp-admin-links {
   float: right;
@@ -1329,6 +1330,7 @@ ul.bbp-topic-revision-log li {
   margin-bottom: 20px;
   width: 60%;
   margin: 0 auto;
+  max-width: 800px;
 }
 
 /* replies profile page */
@@ -2172,7 +2174,7 @@ div.bbp-template-notice p, div.indicator-hint p {
 #buddypress #admins-list li, #buddypress #members-list li, #buddypress #mods-list li {
     border: none;
     float: left;
-    width: 32%;
+    width: 24%;
     margin: 0.5%;
     padding: 0;
     overflow: hidden !important;

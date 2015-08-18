@@ -12,7 +12,8 @@
   }
   .alt-forum-sidebar {
     display: block;
-    padding-left: 30px;
+    padding: 0px 3% 10px 3%;
+    width: 94%;
 }
 
 #post-grid .item {
