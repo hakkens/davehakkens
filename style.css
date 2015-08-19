@@ -15,7 +15,7 @@ Text Domain: davehakkens
 
 
 html, body {
-  /* background: #f8f8f8; */
+  /* background: #edefed; */
   font-family: 'Open Sans', sans-serif;
   height: 100%;
 }
@@ -1328,7 +1328,7 @@ ul.bbp-topic-revision-log li {
   /* background: #fff; */
 }
 .list-replies {
-  background-color: #f8f8f8;
+  background-color: #edefed;
   padding-top: 20px;
   padding-bottom: 40px;
   margin-bottom: 20px;
@@ -1412,7 +1412,7 @@ ul.bbp-topic-revision-log li {
 
 
 .bbp-reply-form {
-  background-color: #f8f8f8;
+  background-color: #edefed;
   overflow: hidden;
   padding-top: 40px;
 }
@@ -1501,7 +1501,7 @@ li.widget .bbp-forum-title {
   padding-bottom: 100PX!important;
 }
 .bbp-topic-form {
-  background: #f8f8f8;
+  background: #edefed;
   overflow: hidden;
   padding-top: 40px;
       padding-bottom: 100px;
@@ -1880,7 +1880,7 @@ div.bbp-template-notice p, div.indicator-hint p {
   margin-left: 110px !important;
 }
 .list-replies-container {
-  background: #f8f8f8;
+  background: #edefed;
   padding-bottom: 20px;
 }
 #members-list img {
@@ -1931,7 +1931,7 @@ div.bbp-template-notice p, div.indicator-hint p {
   width: 100%;
 }
 #buddypress #item-header {
-  /* background: #f8f8f8; */
+  /* background: #edefed; */
   /* padding: 120px 50px; */
   position: relative;
   text-align: center;
@@ -1975,7 +1975,7 @@ div.bbp-template-notice p, div.indicator-hint p {
   font-size: 12px;
 }
 .bp-user #buddypress #item-body div.item-list-tabs ul li:hover a {
-  background: #f8f8f8;
+  background: #edefed;
 }
 .bp-user #buddypress div.item-list-tabs#subnav ul li.last {
   margin-top: 15px;
@@ -2152,7 +2152,7 @@ div.bbp-template-notice p, div.indicator-hint p {
   padding: 15px;
 }
 .bbp-search #bbpress-forums {
-  background: #f8f8f8;
+  background: #edefed;
   padding-top: 30px;
   margin-bottom: 0 !important;
   padding-bottom: 80px;
@@ -2259,7 +2259,7 @@ div.bbp-template-notice p, div.indicator-hint p {
 .registration,
 .bp-user,
 .members {
-  background: #f8f8f8;
+  background: #edefed;
 }
 #members-order-select {
   float: right !important;
