@@ -31,7 +31,7 @@ get_template_part('navbar'); ?>
           <?php if ($_GET['login'] == 'failed'): ?>
             <p class="centered">Wrong username / password!</p>
           <?php endif; ?>
-          <?php wp_login_form(array('redirect' => 'http://davehakkens.nl/community/forums/')); ?>
+          <?php wp_login_form(array('redirect' => 'https://davehakkens.nl/community/forums/')); ?>
           <div class="forgot_password">
             <a href="/community/forgot-password/">Forgot your password?</a>
           </div>
