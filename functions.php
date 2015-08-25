@@ -1,6 +1,8 @@
 <?php
+include dirname(__FILE__) . '/includes/meta-boxes.php';
+
 add_theme_support( 'post-thumbnails' );
-add_theme_support( 'post-formats', array( 'aside', 'gallery', 'image', 'quote', 'status', 'video', 'link' ) );
+add_theme_support( 'post-formats', array('image', 'status', 'video', 'link'));
 
 add_action( 'init', 'register_project_post_type' );
 add_action( 'init', 'register_challenge_post_type' );
@@ -137,3 +139,4 @@ function dave_hakkens_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'dave_hakkens_scripts');
+

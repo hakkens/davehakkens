@@ -14,7 +14,7 @@ DaveHakkens.Main = function(){
   var $loader;
   var loading;
   var page;
-
+  var skipPosts;
   var userMenuTimeout;
 
   var init = function(){
@@ -31,6 +31,7 @@ DaveHakkens.Main = function(){
     $window = $(window);
     loading = true;
     page = 1;
+    skipPosts = '';
 
     initBreadcrumbs();
     initMobileMenu();
@@ -42,6 +43,9 @@ DaveHakkens.Main = function(){
     initWidgets();
 
     lazyLoadYt();
+    lazyLoadVimeo();
+    lazyLoadVine();
+
     initAjaxLoader();
 
     if (!$('body').hasClass('no-touch')){
@@ -110,6 +114,43 @@ DaveHakkens.Main = function(){
     });
   };
 
+  var lazyLoadVine = function(){
+
+    $(document).on('click', '.vine-container a', function(e){
+
+      e.preventDefault();
+
+      var $this = $(this);
+      var videocode = $this.attr('href');
+      var $container = $this.parent();
+      var $content = $("#post-grid");
+      var width = $container.width();
+      var height = width;
+
+      var video_iframe = '<iframe src="https://vine.co/v/' + videocode + '/embed/simple" width="' + width + '" height="' + height + '" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>';
+
+      $container.html(video_iframe);
+    });
+  };
+
+  var lazyLoadVimeo = function(){
+
+    $(document).on('click', '.vimeo-container a', function(e){
+
+      e.preventDefault();
+
+      var $this = $(this);
+      var videocode = $this.attr('href');
+      var $container = $this.parent();
+      var $content = $("#post-grid");
+
+      var video_iframe = '<iframe src="https://player.vimeo.com/video/' + videocode + '?autoplay=1&color=ffffff" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
+
+      $container.html(video_iframe);
+      $content.isotope();
+    });
+  };
+
   var lazyLoadYt = function(){
 
      $(document).on('click', '.youtube-container a', function(e){
@@ -162,7 +203,6 @@ DaveHakkens.Main = function(){
 
     $(document).on('click', '#post-filter a, #post-grid .item .post_meta a', function(){
       var category = '.' + $(this).attr('href').replace('#', '');
-      //console.log(category);
       $postFilter.find('.active').removeClass('active');
       $(this).parent().addClass('active');
 
@@ -170,10 +210,18 @@ DaveHakkens.Main = function(){
         category = '*';
       }
       $postGrid.isotope({ filter: category });
-    });
-    $postGrid.isotope( 'on', 'arrangeComplete', function(filteredItems){
-      if(filteredItems.length === 0){
-        loadPosts();
+
+      if($('#post-grid .item' + category).length < 10){
+        setTimeout(function(){
+          skipPosts = '';
+          $('#post-grid .item' + category).each(function(){
+            var id = $(this).attr('id').replace('post-', '');
+            skipPosts += id + '|';
+          });
+          skipPosts = skipPosts.substr(0, (skipPosts.length-1));
+          loadPosts(10 - $('#post-grid .item' + category).length);
+        }, 500);
+
       }
     });
     if ($postGrid.length > 0) {
@@ -181,21 +229,20 @@ DaveHakkens.Main = function(){
         if (!loading && ($(window).scrollTop() + $(window).height() == $(document).height())) {
           loading = true;
           page++;
-          loadPosts();
+          loadPosts(10);
         }
       });
-      loadPosts();
+      loadPosts(10);
     }
   };
 
-  var loadPosts = function(){
+  var loadPosts = function(numPosts){
 
     var hash = window.location.hash.replace('#', '');
-    //console.log(page);
     $('#overlay').show();
     $.ajax({
       type       : "GET",
-      data       : {numPosts : 10, pageNumber: page, tag: hash},
+      data       : {numPosts : numPosts, pageNumber: page, tag: hash, skipPosts: skipPosts},
       dataType   : "html",
       url        : homeURL + "/wp-content/themes/davehakkens/loopHandler.php",
       beforeSend : function(){

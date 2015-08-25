@@ -608,8 +608,7 @@ a:hover {
 }
 .post-content .video iframe,
 #post-grid .item.video iframe {
-  min-height: 350px;
-  width: 100%;
+
 }
 iframe.vine-embed {
   /* min-height: 300px; */
@@ -1995,9 +1994,15 @@ div.bbp-template-notice p, div.indicator-hint p {
   top: 50%;
   margin-left: -100px;
 }
+.post-content .vine-container,
+.post-content .vimeo-container,
 .post-content .youtube-container {
   margin-bottom: 40px;
 }
+.post-content .vine-container,
+#post-grid .item .vine-container,
+.post-content .vimeo-container,
+#post-grid .item .vimeo-container,
 .post-content .youtube-container,
 #post-grid .item .youtube-container {
   position: relative;
@@ -2005,6 +2010,10 @@ div.bbp-template-notice p, div.indicator-hint p {
 #post-grid .item .youtube-container a {
 
 }
+.post-content .vine-container a img,
+#post-grid .item .vine-container a img,
+.post-content .vimeo-container a img,
+#post-grid .item .vimeo-container a img,
 .post-content .youtube-container a img,
 #post-grid .item .youtube-container a img {
   height: 62px;
@@ -2015,6 +2024,10 @@ div.bbp-template-notice p, div.indicator-hint p {
   top: 50%;
   width: 90px;
 }
+.post-content .vine-container a:hover img,
+#post-grid .item .vine-container a:hover img,
+.post-content .vimeo-container a:hover img,
+#post-grid .item .vimeo-container a:hover img,
 .post-content .youtube-container a:hover img,
 #post-grid .item .youtube-container a:hover img {
   opacity: 1;
