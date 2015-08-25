@@ -147,7 +147,7 @@ DaveHakkens.Main = function(){
       var video_iframe = '<iframe src="https://player.vimeo.com/video/' + videocode + '?autoplay=1&color=ffffff" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>';
 
       $container.html(video_iframe);
-      $content.isotope();
+
     });
   };
 
@@ -165,7 +165,7 @@ DaveHakkens.Main = function(){
        var video_iframe = '<iframe class="yt" width="100%" height="350" src="https://www.youtube.com/embed/' + videocode + '?autoplay=1" frameborder="0" allowfullscreen></iframe>';
 
        $container.html(video_iframe);
-       $content.isotope();
+
      });
   };
 
@@ -219,6 +219,7 @@ DaveHakkens.Main = function(){
             skipPosts += id + '|';
           });
           skipPosts = skipPosts.substr(0, (skipPosts.length-1));
+          page = 1;
           loadPosts(10 - $('#post-grid .item' + category).length);
         }, 500);
 
