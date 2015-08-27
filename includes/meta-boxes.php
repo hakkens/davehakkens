@@ -76,4 +76,24 @@ function remove_metaboxes(){
   remove_meta_box('postcustom', 'post', 'normal');
   remove_meta_box('authordiv', 'post', 'normal');
   remove_meta_box('slugdiv', 'post', 'normal');
+  remove_meta_box('postexcerpt', 'post', 'normal');
 }
+
+function toggle_metaboxes() {
+
+    $script = <<< EOF
+    <script type='text/javascript'>
+      jQuery(document).ready(function($) {
+        if(!$('#post-format-video').is(':checked')){
+          $('#youtube_video, #vimeo_video, #vine_video').hide();
+        }
+        $('input.post-format').click(function(){
+          $('#youtube_video, #vimeo_video, #vine_video').toggle($('#post-format-video').is(':checked'));
+        });
+      });
+    </script>
+EOF;
+
+    echo $script;
+}
+add_action('admin_footer', 'toggle_metaboxes');
