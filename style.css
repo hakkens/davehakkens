@@ -1283,22 +1283,22 @@ ul.bbp-topic-revision-log li {
   min-height: 150px;
   margin-left: 110px;
   position: relative;
+      padding: 40px;
 }
 .topic-reply .content .reply-date {
   color: #bbb;
   float: left;
   font-size: 10px;
-      padding: 20px 20px 0px 40px;
+      padding: 0px 20px 0px 0px;
   text-transform: uppercase;
 }
 .topic-reply .content .bbp-admin-links {
   display: block;
   text-align: right;
   float: none;
-  padding: 10px;
 }
 .topic-reply .content p {
-    padding: 5px 40px 5px 40px;
+    padding: 5px 0px 5px 0px;
   font-size: 16px;
       margin-top: 10px;
 }
