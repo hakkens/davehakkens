@@ -1154,6 +1154,14 @@ margin: 5px 0 15px !important;
   text-decoration: none;
   text-transform: none;
 }
+
+
+
+button.give-btn.give-btn-reveal {
+    display: inherit!important;
+}
+
+
 .btn, button:not(#searchsubmit):not(.update-cover-photo), input[type="submit"], input[type="button"]:not(.button-small), input[type="reset"], article.post-password-required input[type=submit], li.bypostauthor cite span, a.button, #create-group-form .remove, #buddypress ul.button-nav li a, #buddypress div.generic-button a, #buddypress .comment-reply-link, .entry-title a.button, span.create-a-group > a, #buddypress div.activity-comments form input[disabled] {
   color: #fff;
   font-size: 14px;
@@ -2306,6 +2314,12 @@ div.bbp-template-notice p, div.indicator-hint p {
 .page-template-page-normal #content {
  
 }
+
+.page-template-page-empty #content {
+    margin-left: 0px;
+}
+
+
 #signup_form {
   background: #fff;
   width: 70%;
