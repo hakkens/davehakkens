@@ -44,8 +44,8 @@ p.wp-caption-text {
     padding: 5px 0px 10px;
     font-weight: 400;
     color: grey;}
-	
-	
+
+
 .single-post p {
   font-size: 18px;
 }
@@ -53,12 +53,12 @@ p.wp-caption-text {
   text-decoration:none;
   color:#6CADE8;
 }
-.single-post  h1{ 
+.single-post  h1{
     font-weight: 200;
     padding: 23px 0px 10px 0px;
-	
+
 }
-.single-post h2{    
+.single-post h2{
     font-weight: 200;
     color: #868686;
     line-height: 1.8;
@@ -206,7 +206,7 @@ a:hover {
   margin-left: -20px;
   font-size: 0;
   width: 100%;
-  
+
 }
 #mobile-menu ul li li a,
 #navbar > ul > li li a {
@@ -643,12 +643,12 @@ iframe.vine-embed {
 /*
  * Post formats - status
  */
- 
+
 
 #post-grid > .status >.post_meta a{
 	color: #FFF;
 }
- 
+
 #post-grid > .status > .post_meta{
     color: #FFF;
     position: absolute;
@@ -659,7 +659,7 @@ iframe.vine-embed {
 }
 
 #post-grid > .status > p{
-    margin: 0px; 
+    margin: 0px;
     font-size: 20px;
     position: absolute;
       text-shadow: 2px 2px 3px grey;
@@ -682,18 +682,18 @@ iframe.vine-embed {
     width: 100%;
 	pointer-events: none;
 	opacity: 0.7;}
-	
-	
-	
+
+
+
 	/*
  * Post formats - Image
 
- 
+
 
 #post-grid > .image >.post_meta a{
 	color: #FFF;
 }
- 
+
 #post-grid > .image > .post_meta{
     color: #FFF;
     position: absolute;
@@ -704,7 +704,7 @@ iframe.vine-embed {
 }
 
 #post-grid > .image > p{
-    margin: 0px; 
+    margin: 0px;
     font-size: 20px;
     position: absolute;
       text-shadow: 2px 2px 3px grey;
@@ -724,10 +724,10 @@ iframe.vine-embed {
     width: 100%;
 	pointer-events: none;
 	opacity: 0.7;}
-	
-	
-	
-	
+
+
+
+
  */
 
 
@@ -996,13 +996,13 @@ li#activity-favorites {
 /*
 #bbpress-forums li.bbp-footer{
      padding: 21px!important;}
-	 
+
 	*/
 	li.bbp-forum-freshness {
     padding-left: 20px;
 }
 
-	 
+
 #bbpress-forums li.bbp-header {
     background: none!important;
     border-bottom: 1px dashed;
@@ -1021,7 +1021,7 @@ li#activity-favorites {
 	     padding: 0px!important;
    /* padding-top: 20px!important;*/
 }
-	 
+
 
 
 
@@ -1036,7 +1036,7 @@ li#activity-favorites {
 }
 
 #bbpress-forums .bbp-attachments ol li.bbp-atthumb .wp-caption p.wp-caption-text {
- 
+
     display: none!important;
 }
 
@@ -1140,7 +1140,7 @@ margin: 5px 0 15px !important;
   font-size: 12px;
   background-color: #9FBCCE;
   color: #fff;
-  margin: 0 20px 10px 0;
+  margin: 0 0px 0px 0;
   padding: 4px 13px;
   border-radius: 4px;
   text-decoration: none;
@@ -1193,7 +1193,7 @@ button.give-btn.give-btn-reveal {
   display: none;
 }
 .topic-lead {
- 
+
   margin: 20px auto 0 auto;
   width: 60%;
   padding-bottom:100px;
@@ -1209,7 +1209,7 @@ button.give-btn.give-btn-reveal {
 .date, .topic-lead {
   text-align:left;
   color:#bbb;
- 
+
   }
 
 .topic-lead .author {
@@ -1356,9 +1356,9 @@ ul.bbp-topic-revision-log li {
 }
 /* change font activity*/
 #buddypress #activity-stream p {
-  font-size: 14px;   
+  font-size: 14px;
    margin: 13px 0!important;
-  
+
 }
 #buddypress #activity-stream a {
   color:#88A7D7;
@@ -1427,7 +1427,7 @@ ul.bbp-topic-revision-log li {
   float: left;
     width: 25%;
     padding: 4%;
-  
+
 }
 
 
@@ -1436,7 +1436,7 @@ ul.bbp-topic-revision-log li {
     margin: 0% 4% 4% 0% !important;
     float: left!important;
 }
-	
+
 .alt-forum-sidebar  .widget_display_search
 {
     margin-left: 33%;}
@@ -1559,7 +1559,7 @@ li.widget .bbp-forum-title {
  white-space: nowrap;
  overflow: hidden;
 
-} 
+}
 
 
 .widget_display_topics .topic-author .bbp-author-avatar img,
@@ -1626,7 +1626,7 @@ li.widget .bbp-forum-title {
     font-family: Open Sans!important;
     border-radius: 3px!important;
     margin-top: -4px!important;
-	
+
 }
 
 
@@ -1648,7 +1648,7 @@ li.widget .bbp-forum-title {
 #form-validation-field-0{
   background-color: white;
   text-align: center;
- 
+
 
 }
 
@@ -2045,7 +2045,7 @@ div.bbp-template-notice p, div.indicator-hint p {
   font-size: 11px;
   margin-top: -26px;
   text-align: right;
-  
+
   padding: 00px 10px 10px 0px;
 }
 
@@ -2273,7 +2273,7 @@ div.bbp-template-notice p, div.indicator-hint p {
 
 #buddypress div.item-list-tabs ul li a, #buddypress div.item-list-tabs ul li span{
 	padding:0px!important}
-	
+
 #pag-bottom {
   margin-bottom: 30px !important;
 }
@@ -2312,7 +2312,7 @@ div.bbp-template-notice p, div.indicator-hint p {
 }
 .error404 #content,
 .page-template-page-normal #content {
- 
+
 }
 
 .page-template-page-empty #content {
@@ -2412,6 +2412,6 @@ div.bbp-template-notice p, div.indicator-hint p {
   margin-bottom: 14px;
   font-size: 15px;
 }
-  
-  
+
+
   /*end/*
