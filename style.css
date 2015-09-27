@@ -646,11 +646,11 @@ iframe.vine-embed {
 
 
 #post-grid > .status >.post_meta a{
-	color: #FFF;
+	color: #C3C3C3;
 }
 
 #post-grid > .status > .post_meta{
-    color: #FFF;
+    color: #C3C3C3;
     position: absolute;
        bottom: 20px;
     left: 0;
@@ -685,17 +685,18 @@ iframe.vine-embed {
 
 
 
-	/*
- * Post formats - Image
+
+  /*
+   * Post formats - image
+   */
 
 
-
-#post-grid > .image >.post_meta a{
-	color: #FFF;
-}
+ #post-grid > .image > .post_meta a {
+     color: #C3C3C3;
+ }
 
 #post-grid > .image > .post_meta{
-    color: #FFF;
+    color: #C3C3C3;
     position: absolute;
        bottom: 20px;
     left: 0;
@@ -707,7 +708,7 @@ iframe.vine-embed {
     margin: 0px;
     font-size: 20px;
     position: absolute;
-      text-shadow: 2px 2px 3px grey;
+    text-shadow: 2px 0px 7px black;
     bottom: 0;
     left: 0;
     color: white;
@@ -715,7 +716,7 @@ iframe.vine-embed {
 }
 
 .image div.shadow{
-    background: url('http://davehakkens.nl/wp-content/themes/davehakkens/img/cover-shadow.png') bottom left repeat-x;
+    background: url('https://davehakkens.nl/wp-content/themes/davehakkens/img/cover-shadow.png') bottom left repeat-x;
     background-size: contain;
     height: 100%;
     left: 0;
@@ -723,12 +724,12 @@ iframe.vine-embed {
     top: 0;
     width: 100%;
 	pointer-events: none;
-	opacity: 0.7;}
+	opacity: 0.9;}
 
 
 
 
- */
+
 
 
 
@@ -952,8 +953,25 @@ div.bbp-template-notice a {
 
 #buddypress ul.item-list li {
     border-bottom: 1px dashed #757575!important;
-    padding: 20px 0!important;
+    padding: 10px 20px 10px 20px!important;
 }
+
+#buddypress #members-list li{
+  padding:40px 0px 40px 0px!important
+
+}
+
+#buddypress #members-list li .item-avatar img{
+    width: 100%!important;
+    border: 4px solid rgba(255, 255, 255, 0)!important;
+
+}
+
+
+#buddypress ul.item-list li img.avatar{
+    margin: 15px 10px 0 0!important;
+  }
+
 
 .activity #buddypress {
     width: 760px;
@@ -962,6 +980,16 @@ div.bbp-template-notice a {
 li#activity-favorites {
     display: none;
 }
+
+/*
+ * Challenges
+ */
+
+/* hide post new topic for other users*/
+.postid-62269 #new-topic-0 {
+    display:none;
+}
+
 
 
 
@@ -975,8 +1003,18 @@ li#activity-favorites {
 .bbp-forum-freshness{padding-top:10px;}
 
 
-#bbpress-forums li.bbp-header
-{padding:15px!important;}
+#bbpress-forums li.bbp-header{
+    padding:15px!important;}
+
+
+
+
+span.bbp-admin-links a {
+    color: #FFF!important;
+    background-color: #C9DEEA !important;
+    padding: 5px!important;
+    border-radius: 5px!important;
+}
 
 
 
@@ -1025,8 +1063,26 @@ li#activity-favorites {
 
 
 
-#bbpress-forums ul.odd{
-	background-color:white!important;}
+#bbpress-forums div.odd,
+#bbpress-forums ul.odd {
+ background-color: #fff!important;
+}
+
+  #bbpress-forums .status-closed {
+    background-color: #A9CC9C!important;
+}
+
+#bbpress-forums .status-closed a {
+    color: #117121!important;}
+
+#bbpress-forums .bbp-forum-info .bbp-forum-content{
+  margin:0px;}
+}
+
+
+
+
+
 
 #bbpress-forums li.bbp-body ul.topic{
     border-top: none!important;
@@ -1388,9 +1444,7 @@ ul.bbp-topic-revision-log li {
 
 
 
-#buddypress table.profile-fields {
-  margin: 40px!important;
-}
+
 
 #buddypress td.data {
   background: #FFFFFF;
@@ -1405,7 +1459,9 @@ ul.bbp-topic-revision-log li {
 
 
 #settings-form{
-  font-size:14px;}
+  font-size: 14px;
+  padding: 0 50px 50px;
+}
 
 #profile-edit-form{font-size:14px}
 
@@ -1488,6 +1544,7 @@ li.widget .bbp-forum-title {
   background: #fff !important;
   /* border-top: none !important; */
   border-color: #fff !important;
+  padding: 40px!important;
 }
 
 .bbp-pagination {
@@ -1531,7 +1588,7 @@ li.widget .bbp-forum-title {
 }
 #bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer {
   border-top: none !important;
-      margin-bottom: 20px!important;
+
 }
 
 
@@ -1839,6 +1896,12 @@ ol.comment-list ol.children {
   float: left;
     margin: 0px 15px 10px 15px;
 }
+
+.bbp-topic-title .author-avatar {
+    margin-left: 40px;
+}
+
+
 .bbp-forum-freshness .topic-desc,
 .bbp-topic-freshness .topic-desc,
 .bbp-topic-title .topic-desc {
@@ -1939,7 +2002,7 @@ div.bbp-template-notice p, div.indicator-hint p {
 }
 #buddypress #item-header {
   /* background: #edefed; */
-  /* padding: 120px 50px; */
+  padding: 60px 0px 20px 20px;
   position: relative;
   text-align: center;
 }
@@ -1959,11 +2022,27 @@ div.bbp-template-notice p, div.indicator-hint p {
 #buddypress #item-body #mycred-users-badges img {
   height: auto;
   max-width: 25%;
-  background-color: white;
-  padding: 10px;
-  margin: 2%;
+  background-color: #BCD3DA;
+  padding: 5px;
+  margin: 3%;
   border-radius: 100%;
 }
+
+div#mycred-users-badges {
+    margin-top: 60px;
+    margin-bottom: 50px;
+
+}
+
+
+
+
+#item-header img.mycred-badge.earned{
+  width:50px;
+}
+
+
+
 #buddypress #item-body .item-list-tabs {
 
   border-top: 1px dashed #C3C3C3;
@@ -2105,7 +2184,7 @@ div.bbp-template-notice p, div.indicator-hint p {
 #buddypress div#item-header img.avatar {
   float: none !important;
   border-radius: 100%;
-  border: 4px solid #ccc;
+  border: 4px solid rgba(255, 255, 255, 0);
 }
 #item-header-content #latest-update,
 #item-header-content .mycred-balance,
@@ -2116,7 +2195,7 @@ div.bbp-template-notice p, div.indicator-hint p {
   display: none !important;
 }
 #buddypress div.profile {
-  padding: 0 10px;
+  padding: 0 50px;
 }
 
 #buddypress div.profile p{
@@ -2170,7 +2249,7 @@ div.bbp-template-notice p, div.indicator-hint p {
   min-height: 100px;
   margin-left: 130px;
   position: relative;
-  padding: 15px;
+  padding: 40px;
 }
 .bbp-search #bbpress-forums {
   background: #edefed;
@@ -2206,6 +2285,11 @@ div.bbp-template-notice p, div.indicator-hint p {
     /* height: 100px; */
     background: #fff;
 }
+
+
+
+
+
 #buddypress #admins-list li a, #buddypress #members-list li a, #buddypress #mods-list li a {
   text-decoration: none;
 }
@@ -2238,11 +2322,9 @@ div.bbp-template-notice p, div.indicator-hint p {
 #buddypress ul.item-list li div.action .generic-button a {
   padding: 5px 10px !important;
 }
-#buddypress ul.item-list {
-  width: 103% !important;
-  left: -1%;
-  position: relative;
-}
+
+
+
 #members_search {
   padding: 2px 5px!important;
   top: 1px;
@@ -2306,9 +2388,10 @@ div.bbp-template-notice p, div.indicator-hint p {
 .bp-user .post #buddypress {
   background: #fff;
   margin-bottom: 100px;
-  padding: 40px;
+  /* padding: 40px; */
   width: 60%;
   max-width: 600px;
+  border: 1px dashed;
 }
 .error404 #content,
 .page-template-page-normal #content {

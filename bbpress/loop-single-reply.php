@@ -15,6 +15,7 @@
     <?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
     <?php bbp_reply_author_link( array( 'sep' => '<br />', 'show_role' => false ) ); ?>
     <?php do_action( 'bbp_theme_after_reply_author_details' ); ?>
+
   </div>
   <div class="content">
     <div class="reply-date">
