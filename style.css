@@ -1424,6 +1424,11 @@ ul.bbp-topic-revision-log li {
   font-size: 14px;}
 
 
+
+
+
+
+
 .activity-button .mention{display:none;}
 
 
@@ -2021,7 +2026,7 @@ div.bbp-template-notice p, div.indicator-hint p {
 }
 #buddypress #item-body #mycred-users-badges img {
   height: auto;
-  max-width: 25%;
+  max-width: 24%;
   background-color: #BCD3DA;
   padding: 5px;
   margin: 3%;
@@ -2059,6 +2064,7 @@ div#mycred-users-badges {
 .bp-user #buddypress #item-body div.item-list-tabs ul li {
   margin: 10px 10px 0 10px;
   font-size: 12px;
+  display:none;
 }
 .bp-user #buddypress #item-body div.item-list-tabs ul li:hover a {
   background: #edefed;
@@ -2196,11 +2202,45 @@ div#mycred-users-badges {
 }
 #buddypress div.profile {
   padding: 0 50px;
+  word-break: break-word;
 }
 
 #buddypress div.profile p{
-  font-size: 16px;
+  font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+  text-align: center;
 }
+
+
+#buddypress div.profile
+  .profile-fields td.data {
+      display: inline;
+  }
+
+  .profile-fields td.label {
+      width: 100%!important;
+      display: inline;
+      border-right: 0px!important;
+      color: grey;
+    font-size: 12px;
+  }
+
+  #buddypress div.profile a {
+    text-decoration: none;
+}
+
+
+
+
+
+table.profile-fields {
+    text-align: center;
+}
+
+
+
+
 
 
 #buddypress table.forum tr td.label, #buddypress table.messages-notices tr td.label, #buddypress table.notifications tr td.label, #buddypress table.notifications-settings tr td.label, #buddypress table.profile-fields tr td.label, #buddypress table.wp-profile-fields tr td.label {
