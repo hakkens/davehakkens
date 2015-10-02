@@ -309,9 +309,18 @@ position: inherit;
 
 
 .topic-reply .content .bbp-admin-links {
-        text-align: right;
+    text-align: right;
     padding: 0px;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
+
+#bbpress-forums ul.bbp-threaded-replies {
+    margin-left: 40px !important;
+}
+
+
+
 
 .topic-reply .content p {
     font-size: 14px;
@@ -334,45 +343,21 @@ position: inherit;
     margin-left: 75px;
 }
 
-
-
-
-
-
-
-  .topic-reply .author img {
-	  border:none;
-    height: 40px;
-    width: auto;
-        margin-left: -31px;
-	padding:19px;
+.topic-reply .author img {
+	border:none;
+  height: 40px;
+  width: auto;
+  padding:19px;
 	margin-bottom:0px;
 }
 
-
-
-
-
-
-
-
- #mycred-my-rank{
-	 width: auto;
-    display: none;}
-
-
-
-
-  .topic-reply .content {
-	      border: none;
-		  }
-
-.bbpress #user-menu {
-
+#mycred-my-rank{
+	width: auto;
+  display: none;
 }
-
-
-
+.topic-reply .content {
+  border: none;
+}
   .topic-reply .content {
     margin-left: 0;
 

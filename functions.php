@@ -140,3 +140,15 @@ function dave_hakkens_scripts() {
 
 add_action('wp_enqueue_scripts', 'dave_hakkens_scripts');
 
+
+ // reduce excerpt length
+function custom_excerpt_length( $length ) {
+	return 27;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+ // change read-more excerpt
+function new_excerpt_more( $more ) {
+	return ' <a class="read-more" href="' . get_permalink( get_the_ID() ) . '">' . __( '..more', 'your-text-domain' ) . '</a>';
+}
+add_filter( 'excerpt_more', 'new_excerpt_more' );
