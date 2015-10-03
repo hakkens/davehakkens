@@ -38,6 +38,7 @@ $current_url = $_SERVER["REQUEST_URI"];
         <li><a class="forums<?php echo strpos($current_url, 'forums') ? ' current' : '' ; ?>" href="/community/forums/">Forums</a></li>
 <!--        <li><a class="challenges" href="/community/challenges/">Challenges</a></li>-->
         <li><a class="members<?php echo strpos($current_url, 'members') ? ' current' : '' ; ?>" href="/community/members/">Members</a></li>
+          <li><a class="helpus" href="/community/forums/forum/general/help-building-our-projects/">Help us</a></li>
         <li><a class="what<?php echo strpos($current_url, 'what') ? ' current' : '' ; ?>" href="/community/what/">What?</a></li>
       </ul>
     </li>
@@ -48,11 +49,11 @@ $current_url = $_SERVER["REQUEST_URI"];
     <a href="http://www.twitter.com/davehakkens" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/social_twitter.png"></a>
     <a href="http://www.liekeland.nl" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/social_liekeland.png"></a>
     <a href="/mailinglist/"><img src="<?php bloginfo('template_url'); ?>/img/social_mail.png"></a>
-    
+
    <div id="user-menu">
   <?php if (!is_user_logged_in()): ?>
     <a href="<?php bloginfo('url'); ?>/community/login/" class="user-toggle"></a>
-    
+
   <?php else: ?>
     <?php global $current_user; get_currentuserinfo(); ?>
     <div class="user">
@@ -70,4 +71,3 @@ $current_url = $_SERVER["REQUEST_URI"];
 
   </div>
 </div>
-

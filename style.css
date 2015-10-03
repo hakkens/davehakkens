@@ -279,6 +279,11 @@ a:hover {
   background: url('img/buttons_11.png') center left no-repeat;
   background-size: contain;
 }
+#mobile-menu li a.helpus,
+#navbar li a.helpus {
+  background: url('img/buttons_15.png') center left no-repeat;
+  background-size: contain;
+}
 #mobile-menu li a.what,
 #navbar li a.what {
   background: url('img/buttons_14.png') center left no-repeat;
