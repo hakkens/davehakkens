@@ -589,6 +589,14 @@ a.read-more {
 }
 
 
+#post-grid .highlight {
+    background-color: #FFFFBE;
+    border: 1px solid;
+}
+
+
+
+
 #post-grid .item a:hover {
   text-decoration: underline;
 }
