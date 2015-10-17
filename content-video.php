@@ -35,9 +35,8 @@
       echo '<iframe src="https://vine.co/v/' . $video_code . '/embed/simple" width="800" height="800" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>';
 
     }
-    the_content();
-
-    ?>
+    the_content();?>
+    <?php edit_post_link(); ?>
   </div>
 
 </div>
