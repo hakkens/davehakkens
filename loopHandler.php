@@ -59,7 +59,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
         <?php the_post_thumbnail('medium'); ?>
       </a>
       <h3><a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a></h3>
-      <?php the_excerpt(); ?>
+      <?php the_content(); ?>
       <div class="read_more">
         <a href="<?php echo get_post_permalink(); ?>">Read full story &rarr;</a>
       </div>
@@ -136,7 +136,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
         <?php the_post_thumbnail('medium'); ?>
       </a>
       <div class="shadow"></div>
-      <?php the_excerpt(); ?>
+
+      <?php the_content() ?>
     <?php endif; ?>
 
     <div class="post_meta">

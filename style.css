@@ -583,6 +583,16 @@ a:hover {
   text-decoration: none;
 }
 
+#post-grid .item p a {
+    color: #6A90C1;
+}
+
+#post-grid .item p a:hover {
+    color: #35404E;
+    text-decoration: none;
+}
+
+
 a.read-more {
     color: #6A90C1!important;
     letter-spacing: 0px;
@@ -590,7 +600,7 @@ a.read-more {
 
 
 #post-grid .highlight {
-    background-color: #FFFFBE;
+    background-color: #FFFFE2;
     border: 1px solid;
 }
 
@@ -736,6 +746,7 @@ iframe.vine-embed {
     margin: 0px 30px 70px 30px;
 }
 
+
 .image div.shadow{
     background: url('https://davehakkens.nl/wp-content/themes/davehakkens/img/cover-shadow.png') bottom left repeat-x;
     background-size: contain;
@@ -744,11 +755,9 @@ iframe.vine-embed {
     position: absolute;
     top: 0;
     width: 100%;
-	pointer-events: none;
-	opacity: 0.9;}
-
-
-
+	  pointer-events: none;
+	  opacity: 0.9;
+}
 
 
 
