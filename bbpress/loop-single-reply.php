@@ -12,9 +12,16 @@
 
 <div class="topic-reply">
   <div class="author">
+
     <?php do_action( 'bbp_theme_before_reply_author_details' ); ?>
-    <?php bbp_reply_author_link( array( 'sep' => '<br />', 'show_role' => false ) ); ?>
+    <?php bbp_reply_author_link( array( 'sep' => '
+    ', 'show_role' => false, 'type' => 'avatar' ) ); ?>
     <?php do_action( 'bbp_theme_after_reply_author_details' ); ?>
+    <?php $user = get_userdata( bbp_get_reply_author_id() );
+    if ( !empty( $user->user_nicename ) ) {
+    $user_nicename = $user->user_nicename;
+    echo "@".$user_nicename;
+    } ?>
 
   </div>
   <div class="content">

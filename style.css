@@ -646,6 +646,13 @@ iframe.vine-embed {
   width: 100%;
   /* height: 482px; */
 }
+
+iframe, video {
+    width: 100%;
+    min-height: 300px;
+}
+
+
 #post-grid .post_meta {
   color: #999;
   font-size: 10px;
