@@ -19,6 +19,10 @@ html, body {
   font-family: 'Open Sans', sans-serif;
   height: 100%;
 }
+body.home-page {
+    background: #edefed;
+}
+
 .no-touch body {
   box-sizing: border-box; /* paulirish.com/2012/box-sizing-border-box-ftw/ */
 }
@@ -33,7 +37,13 @@ p, .post-content li, .content li {
   font-weight: lighter;
 }
 
-
+blockquote {
+    background-color: #F1F1F1;
+    margin: 0;
+    padding: 10px 25px;
+    font-style: italic;
+    margin-top: 8px;
+}
 
   /* Text Styling Single post pages*/
 .wp-caption{
@@ -571,7 +581,7 @@ a:hover {
 }
 #post-grid .item {
   background: #fff;
-  border: 1px dashed #ccc;
+  border: 1px dashed #505050;;
   float: left;
   width: 31%;
   height: auto;
