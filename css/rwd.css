@@ -142,9 +142,43 @@ position: inherit;
   #loginform {
     width: 90%;
   }
-  #topbar {
-    display: none;
+ #topbar {
+    padding: 13px 0px;
   }
+
+  #topbar #breadcrumbs {
+    font-size: 12px;
+    padding: 0px 30px;
+  }
+#topbar #breadcrumbs > span > span > a {
+      margin-left: 0;
+      padding-left: 0px!important;
+  }
+
+  #topbar #breadcrumbs .breadcrumb_last {
+    background: none;
+    color: #B1B1B1;
+    padding: 0px;
+    margin: 0px;
+}
+#topbar #breadcrumbs a {
+    background: url('../img/mobile_breadcrumb.png') no-repeat right center;
+    background-size: 450px;
+    margin-left: 0px;
+    padding: 1px 16px 3px 3px;
+    text-decoration: none;
+    color: #6A90C1;
+}
+#topbar #breadcrumbs a.one-but-last {
+    background: url('../img/mobile_breadcrumb.png') no-repeat right center;
+    background-size: 450px;
+}
+
+
+
+
+
+
   #mobile-navbar {
     display: block;
   }
@@ -156,7 +190,7 @@ position: inherit;
   }
   #content {
     margin-left: 0;
-    padding-top: 40px;
+    padding-top: 55px;
 
     height: auto;
   }
@@ -469,6 +503,11 @@ position: inherit;
 
 /* forum topic styling*/
 
+.bbp-pagination {
+    width: 90% !important;
+    padding: 5%;
+}
+
 .list-replies-container {
     width: 90%;
     padding: 5%;
@@ -521,6 +560,9 @@ position: inherit;
 
 }
 
+#topbar #breadcrumbs {
+  padding: 0px 15px;
+}
 
 
 	 .single .post .commentlist {
