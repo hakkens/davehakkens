@@ -1059,8 +1059,8 @@ li#activity-favorites {
 span.bbp-admin-links a {
     color: #FFF!important;
     background-color: #C9DEEA !important;
-    padding: 5px!important;
-    border-radius: 5px!important;
+    padding: 4px!important;
+    border-radius: 4px!important;
 }
 
 
@@ -1425,10 +1425,34 @@ ul.bbp-topic-revision-log li {
       padding: 0px 20px 0px 0px;
   text-transform: uppercase;
 }
+
+.replyheader {
+    vertical-align: middle;
+    height: 40px;
+}
+
+
+.smallrank {
+    float: left;
+    display: inline;
+    margin-right: 10px;
+    color:grey;
+}
+
+.smallusername {
+  float: left;
+    margin-right: 10px;
+    font-size: 12px;
+    display: inline;
+    font-weight: 700;
+}
+
+
+
 .topic-reply .content .bbp-admin-links {
   display: block;
   text-align: right;
-  float: none;
+  float: right;
 }
 .topic-reply .content p {
     padding: 5px 0px 5px 0px;
@@ -2112,7 +2136,6 @@ div.bbp-template-notice, div.indicator-hint {
   background-color: #F7EF9D !important;
   width: 100%;
   margin: 0 auto!important;
-  display: none;
 }
 
 
@@ -2580,7 +2603,8 @@ table.profile-fields {
 
 
 #buddypress div.item-list-tabs ul li a, #buddypress div.item-list-tabs ul li span{
-	padding:0px!important}
+	padding:0px!important;
+  background-color: rgba(255, 255, 255, 0)!important;}
 
 #pag-bottom {
   margin-bottom: 30px !important;

@@ -147,7 +147,7 @@ position: inherit;
   }
 
   #topbar #breadcrumbs {
-    font-size: 12px;
+    font-size: 10px;
     padding: 0px 30px;
   }
 #topbar #breadcrumbs > span > span > a {
@@ -163,7 +163,7 @@ position: inherit;
 }
 #topbar #breadcrumbs a {
     background: url('../img/mobile_breadcrumb.png') no-repeat right center;
-    background-size: 450px;
+    background-size: 350px;
     margin-left: 0px;
     padding: 1px 16px 3px 3px;
     text-decoration: none;
@@ -171,7 +171,7 @@ position: inherit;
 }
 #topbar #breadcrumbs a.one-but-last {
     background: url('../img/mobile_breadcrumb.png') no-repeat right center;
-    background-size: 450px;
+    background-size: 350px;
 }
 
 
@@ -512,6 +512,13 @@ position: inherit;
     width: 90%;
     padding: 5%;
 }
+
+
+.smallusername {
+    padding: 11px 0px 0px 50px;
+}
+
+
 
 .topic-reply .content{
     margin-left: 0;
