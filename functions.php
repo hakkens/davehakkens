@@ -139,3 +139,6 @@ function dave_hakkens_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'dave_hakkens_scripts');
+
+// JPG compression high
+add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );
