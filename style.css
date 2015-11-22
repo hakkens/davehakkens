@@ -12,7 +12,7 @@ Text Domain: davehakkens
 */
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
-
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 html, body {
   /* background: #edefed; */
@@ -122,6 +122,8 @@ a:hover {
 .padding-left-10 {
   padding-left: 40px !important;
   color:black;
+  font-family: 'Montserrat';
+  letter-spacing: 0.7px;
 }
 .padding-left-20 {
   padding-left: 50px !important;
@@ -538,6 +540,8 @@ a:hover {
 #post-filter {
   padding: 40px 0;
   text-align: center;
+  font-family: 'Montserrat';
+  font-weight: 400;
 }
 #post-filter ul, #post-filter li {
   list-style: none;
@@ -581,7 +585,6 @@ a:hover {
 }
 #post-grid .item {
   background: #fff;
-  border: 1px dashed #505050;;
   float: left;
   width: 31%;
   height: auto;
@@ -611,7 +614,6 @@ a.read-more {
 
 #post-grid .highlight {
     background-color: #FFFFE2;
-    border: 1px solid;
 }
 
 
@@ -629,6 +631,8 @@ a.read-more {
   color: #424242;
   margin: 20px 30px 0 30px;
   font-weight:200;
+  font-family: 'Montserrat';
+  letter-spacing: 0.7px;
 
 }
 #post-grid .item p {
@@ -710,11 +714,12 @@ iframe, video {
     margin: 0px;
     font-size: 20px;
     position: absolute;
-      text-shadow: 2px 2px 3px grey;
     bottom: 0;
     left: 0;
     color: white;
     margin: 0px 30px 70px 30px;
+    font-family: 'Montserrat';
+    letter-spacing: 0.7px;
 }
 
 
@@ -756,11 +761,12 @@ iframe, video {
     margin: 0px;
     font-size: 20px;
     position: absolute;
-    text-shadow: 2px 0px 7px black;
     bottom: 0;
     left: 0;
     color: white;
     margin: 0px 30px 70px 30px;
+    font-family: 'Montserrat';
+    letter-spacing: 0.7px;
 }
 
 
@@ -798,6 +804,8 @@ iframe, video {
   top: 30%;
   text-align: center;
   width: 100%;
+  font-family: 'Montserrat';
+  letter-spacing: 0.7px;
 }
 .page-template-projects #content .project .caption h2 {
   font-size: 72px;
@@ -1157,9 +1165,8 @@ span.bbp-admin-links a {
   white-space: nowrap;
 }
 .bbp-forum-info {
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 400;
-  text-transform: uppercase;
 }
 .bbp-forum-info a {
   text-decoration: none;
@@ -1212,7 +1219,9 @@ color: #5A5A5A}
   font-weight: 400;
   margin: 30px 0 10px 00px;
   text-align: center;
-  font-size:32px;
+  font-size:38px;
+  font-family: 'Montserrat';
+  letter-spacing: 0.7px;
 
 }
 .single-topic h1 {
@@ -1693,7 +1702,8 @@ li.widget h2.widgettitle {
   color: #fff;
   font-weight: 300;
   font-size: 17px;
-  text-transform: uppercase;
+  font-family: 'Montserrat';
+  letter-spacing: 0.7px;
 }
 li.widget .bbp-reply-topic-title,
 li.widget .bbp-forum-title {
@@ -2205,6 +2215,8 @@ div.bbp-template-notice p, div.indicator-hint p {
   padding: 60px 0px 20px 20px;
   position: relative;
   text-align: center;
+  font-family: 'Montserrat';
+  letter-spacing: 0.7px;
 }
 #buddypress #item-nav {
   padding-left: 5px;
