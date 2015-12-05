@@ -58,11 +58,18 @@ DaveHakkens.Main = function(){
     }
 
     $('.bbpress #content a').each(function(){
+      
       var $this = $(this);
       var href = $this.attr('href');
+
+      if( !href ) {
+        return;
+      }
+
       if (href.indexOf('davehakkens') < 0 && href.indexOf('community') < 0 && (href.indexOf('#') < 0 || href.indexOf('#') > 0)){
         $this.attr('target', '_blank');
       }
+
     });
     
   };

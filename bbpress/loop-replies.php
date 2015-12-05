@@ -11,7 +11,6 @@
 
 <?php do_action( 'bbp_template_before_replies_loop' ); ?>
 
-
   <div class="list-replies">
 
     <?php if ( bbp_thread_replies() ) : ?>
@@ -27,5 +26,7 @@
       <?php endwhile; ?>
 
     <?php endif; ?>
+    
   </div>
-  <?php do_action( 'bbp_template_after_replies_loop' ); ?>
+
+<?php do_action( 'bbp_template_after_replies_loop' ); ?>
