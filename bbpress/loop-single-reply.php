@@ -88,5 +88,7 @@
 			do_action( 'bbp_theme_after_reply_content' );
 		?>
 
+		<a href="#toggle-replies">Toggle replies</a>
+
 	</div>
 </div>

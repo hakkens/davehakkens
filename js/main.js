@@ -285,6 +285,24 @@ DaveHakkens.Main = function(){
 
 jQuery(document).ready(function(){
 
+  var $ = jQuery;
   DaveHakkens.Main.init();
+
+
+  $( '.list-replies li' ).each( function( reply ) {
+
+    if( $( this ).find( 'ul.bbp-threaded-replies' ).length == 0 ) {
+      return;
+    }
+
+    $( this ).find( '> .topic-reply [href="#toggle-replies"]' ).addClass( 'activated' );
+
+  });
+
+  $( '.list-replies li [href="#toggle-replies"]' ).click( function(event) {
+    $( this ).toggleClass( 'on' );
+    $( this ).closest( '.topic-reply' ).next( '.bbp-threaded-replies' ).slideToggle();
+    event.preventDefault();
+  });
 
 });

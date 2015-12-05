@@ -2107,6 +2107,28 @@ div.indicator-hint p {
 	display: none;
 }
 
+#bbpress-forums [href="#toggle-replies"] {
+	display: none;
+	text-decoration: none;
+	color: #fff;
+	background: #C9DEEA;
+	text-transform: uppercase;
+	padding: 8px 12px;
+	border-radius: 5px;
+	margin-top: 25px;
+	-webkit-transition: .3s ease;
+	transition: .3s ease;
+}
+
+#bbpress-forums [href="#toggle-replies"].on,
+#bbpress-forums [href="#toggle-replies"]:hover {
+	background: #afc1cc;
+}
+
+#bbpress-forums [href="#toggle-replies"].activated {
+	display: inline-block;
+}
+
 .list-replies-container {
 	background: #edefed;
 	padding-bottom: 20px;
