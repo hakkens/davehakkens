@@ -1056,6 +1056,21 @@ span.bbp-admin-links a {
 	border-radius: 4px !important;
 }
 
+.bbp-threaded-replies span.bbp-admin-links {
+	font-size: 0;
+}
+
+.bbp-threaded-replies span.bbp-admin-links a {
+	font-size: 10px;
+	margin-left: 10px;
+}
+
+.bbp-threaded-replies span.bbp-admin-links .bbp-topic-split-link,
+.bbp-threaded-replies span.bbp-admin-links .bbp-reply-trash-link,
+.bbp-threaded-replies span.bbp-admin-links .bbp-reply-move-link {
+	display: none;
+}
+
 #whats-new-form {
 	display: none;
 }
