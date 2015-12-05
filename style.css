@@ -165,7 +165,6 @@ a:hover {
 	background: url( 'img/breadcrumb.png' ) no-repeat right center;
 	display: inline-block;
 	line-height: 30px;
-	margin-left: -4px;
 	position: relative;
 	padding: 0 24px 0 10px;
 	text-decoration: none;
@@ -187,6 +186,15 @@ a:hover {
 	margin-left: -4px;
 	padding: 0 24px 0 10px;
 	font-weight: 400;
+}
+
+#topbar #breadcrumbs {
+	font-size: 0;
+}
+
+#topbar #breadcrumbs a,
+#topbar #breadcrumbs .breadcrumb_last {
+	font-size: 13px;
 }
 
 #navbar {
