@@ -13,6 +13,7 @@
 
 
   <div class="list-replies">
+
     <?php if ( bbp_thread_replies() ) : ?>
 
       <?php bbp_list_replies(); ?>

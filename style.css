@@ -4,7 +4,7 @@
 	Author: Internetbureau Conkreet
 	Author URI: https://conkreetinternet.nl
 	Description: Theme for the Dave Hakkens community
-	Version: 1.0
+	Version: 1.0.0
 	License: GNU General Public License v2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 	Text Domain: davehakkens
@@ -16,6 +16,10 @@
 html, body {
 	font-family: 'Open Sans', sans-serif;
 	height: 100%;
+}
+
+body {
+	overflow: auto;
 }
 
 body.home-page {
@@ -2092,6 +2096,7 @@ div.indicator-hint p {
 
 #bbpress-forums ul.bbp-threaded-replies {
 	margin-left: 110px !important;
+	display: none;
 }
 
 .list-replies-container {
