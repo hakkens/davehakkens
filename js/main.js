@@ -299,11 +299,18 @@ jQuery(document).ready(function(){
 
   $( '.list-replies li' ).each( function( reply ) {
 
-    if( $( this ).find( 'ul.bbp-threaded-replies' ).length == 0 ) {
+    var replies = $( this ).find( 'ul.bbp-threaded-replies' );
+
+    if( replies.length == 0 ) {
       return;
     }
 
-    $( this ).find( '> .topic-reply [href="#toggle-replies"]' ).addClass( 'activated' );
+    var button = $( this ).find( '> .topic-reply [href="#toggle-replies"]' ),
+        oldContent = button.html(),
+        howMany = replies.find( '> li' ).length;
+
+    button.addClass( 'activated' );
+    button.html( oldContent + ' (' + howMany + ')' );
 
   });
 
