@@ -75,12 +75,11 @@ DaveHakkens.Main = function(){
   };
 
   var initAjaxLoader = function(){
-    $(document).ajaxStart(function(){
-      $loader.show();
-    });
+
     $(document).ajaxStop(function(){
       $loader.hide();
     });
+
   };
 
   var initLogin = function(){
@@ -247,7 +246,9 @@ DaveHakkens.Main = function(){
   var loadPosts = function(numPosts){
 
     var hash = window.location.hash.replace('#', '');
+
     $('#overlay').show();
+
     $.ajax({
       type       : "GET",
       data       : {numPosts : numPosts, pageNumber: page, tag: hash, skipPosts: skipPosts},
