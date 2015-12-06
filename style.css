@@ -2123,7 +2123,7 @@ div.indicator-hint p {
 }
 
 #bbpress-forums ul.bbp-threaded-replies .wpulike {
-	display: none;
+	display: none !important;
 }
 
 #bbpress-forums [href="#toggle-replies"] {
