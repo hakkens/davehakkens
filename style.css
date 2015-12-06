@@ -2122,6 +2122,10 @@ div.indicator-hint p {
 	display: none;
 }
 
+#bbpress-forums ul.bbp-threaded-replies .wpulike {
+	display: none;
+}
+
 #bbpress-forums [href="#toggle-replies"] {
 	display: none;
 	text-decoration: none;
