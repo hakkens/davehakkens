@@ -83,10 +83,15 @@
 		<?php endif; ?>
 
 		<?php
+		
 			do_action( 'bbp_theme_before_reply_content' );
 			bbp_reply_content();
-			if( function_exists( 'wp_ulike' ) ) wp_ulike( 'get' ); 
+
+			$post->ID = bbp_get_reply_id();
+			if( function_exists( 'wp_ulike_bbpress' ) ) wp_ulike_bbpress( 'get' );
+
 			do_action( 'bbp_theme_after_reply_content' );
+
 		?>
 
 		<a href="#toggle-replies">Toggle replies</a>
