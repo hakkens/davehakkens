@@ -1745,9 +1745,9 @@ span.page-numbers.current{
 	overflow: hidden;
 }
 
-.widget_display_replies li {
+.widget_display_replies li,
+#menu-community-sidebar-1 li {
 	position: relative;
-	font-size: 0;
 	height: 28px;
 	vertical-align: middle;
 	white-space: nowrap;
@@ -1760,6 +1760,14 @@ span.page-numbers.current{
 	height: auto;
 	border-radius: 100%;
 	margin-bottom: 5px;
+}
+
+.sidebarmenuhiglight a {
+  background-color: #E0E072;
+  padding: 5px;
+  color: black;
+  text-decoration: none;
+  font-weight: 400;
 }
 
 code {
@@ -1780,7 +1788,8 @@ code {
 }
 
 .widget_display_topics > ul,
-.widget_display_replies > ul {
+.widget_display_replies > ul,
+#menu-community-sidebar-1 {
 	list-style: none;
 	margin-left: -40px;
 }
