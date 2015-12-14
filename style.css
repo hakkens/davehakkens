@@ -2773,3 +2773,14 @@ table.profile-fields {
 	margin-bottom: 14px;
 	font-size: 15px;
 }
+
+/*temporary*/
+/*hide reply function on vote new plastic logo*/
+
+div#new-reply-64293 {
+   display: none;
+}
+
+.postid-64293 a.bbp-reply-to-link {
+  display: none;
+}
