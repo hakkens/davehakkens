@@ -549,8 +549,13 @@ position: inherit;
 }
 
 
+#bbpress-forums .bbp-attachments ol{
+    overflow: inherit!important;
+}
 
-
+.bbp-attachments{
+   overflow: inherit!important;
+}
 
 
 
