@@ -26,7 +26,7 @@
       <?php endwhile; ?>
 
     <?php endif; ?>
-    
+
   </div>
 
 <?php do_action( 'bbp_template_after_replies_loop' ); ?>

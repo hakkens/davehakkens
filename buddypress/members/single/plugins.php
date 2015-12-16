@@ -10,57 +10,57 @@
  */
 ?>
 
-		<?php
+    <?php
 
-		/**
-		 * Fires at the start of the member plugin template.
-		 *
-		 * @since BuddyPress (1.2.0)
-		 */
-		do_action( 'bp_before_member_plugin_template' ); ?>
+    /**
+     * Fires at the start of the member plugin template.
+     *
+     * @since BuddyPress (1.2.0)
+     */
+    do_action( 'bp_before_member_plugin_template' ); ?>
 
-		<?php if ( ! bp_is_current_component_core() ) : ?>
+    <?php if ( ! bp_is_current_component_core() ) : ?>
 
-		<div class="item-list-tabs no-ajax" id="subnav">
-			<ul>
-				<?php bp_get_options_nav(); ?>
+    <div class="item-list-tabs no-ajax" id="subnav">
+      <ul>
+        <?php bp_get_options_nav(); ?>
 
-				<?php
+        <?php
 
-				/**
-				 * Fires inside the member plugin template nav <ul> tag.
-				 *
-				 * @since BuddyPress (1.2.2)
-				 */
-				do_action( 'bp_member_plugin_options_nav' ); ?>
-			</ul>
-		</div><!-- .item-list-tabs -->
+        /**
+         * Fires inside the member plugin template nav <ul> tag.
+         *
+         * @since BuddyPress (1.2.2)
+         */
+        do_action( 'bp_member_plugin_options_nav' ); ?>
+      </ul>
+    </div><!-- .item-list-tabs -->
 
-		<?php endif; ?>
+    <?php endif; ?>
 
-		<h3><?php
+    <h3><?php
 
-			/**
-			 * Fires inside the member plugin template <h3> tag.
-			 *
-			 * @since BuddyPress (1.0.0)
-			 */
-			do_action( 'bp_template_title' ); ?></h3>
+      /**
+       * Fires inside the member plugin template <h3> tag.
+       *
+       * @since BuddyPress (1.0.0)
+       */
+      do_action( 'bp_template_title' ); ?></h3>
 
-		<?php
+    <?php
 
-		/**
-		 * Fires and displays the member plugin template content.
-		 *
-		 * @since BuddyPress (1.0.0)
-		 */
-		do_action( 'bp_template_content' ); ?>
+    /**
+     * Fires and displays the member plugin template content.
+     *
+     * @since BuddyPress (1.0.0)
+     */
+    do_action( 'bp_template_content' ); ?>
 
-		<?php
+    <?php
 
-		/**
-		 * Fires at the end of the member plugin template.
-		 *
-		 * @since BuddyPress (1.2.0)
-		 */
-		do_action( 'bp_after_member_plugin_template' ); ?>
+    /**
+     * Fires at the end of the member plugin template.
+     *
+     * @since BuddyPress (1.2.0)
+     */
+    do_action( 'bp_after_member_plugin_template' ); ?>

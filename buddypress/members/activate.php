@@ -1,73 +1,73 @@
 <div id="buddypress">
 
-	<?php
+  <?php
 
-	/**
-	 * Fires before the display of the member activation page.
-	 *
-	 * @since BuddyPress (1.1.0)
-	 */
-	do_action( 'bp_before_activation_page' ); ?>
+  /**
+   * Fires before the display of the member activation page.
+   *
+   * @since BuddyPress (1.1.0)
+   */
+  do_action( 'bp_before_activation_page' ); ?>
 
-	<div class="page" id="activate-page">
+  <div class="page" id="activate-page">
 
-		<?php
+    <?php
 
-		/** This action is documented in bp-templates/bp-legacy/buddypress/activity/index.php */
-		do_action( 'template_notices' ); ?>
+    /** This action is documented in bp-templates/bp-legacy/buddypress/activity/index.php */
+    do_action( 'template_notices' ); ?>
 
-		<?php
+    <?php
 
-		/**
-		 * Fires before the display of the member activation page content.
-		 *
-		 * @since BuddyPress (1.1.0)
-		 */
-		do_action( 'bp_before_activate_content' ); ?>
+    /**
+     * Fires before the display of the member activation page content.
+     *
+     * @since BuddyPress (1.1.0)
+     */
+    do_action( 'bp_before_activate_content' ); ?>
 
-		<?php if ( bp_account_was_activated() ) : ?>
+    <?php if ( bp_account_was_activated() ) : ?>
 
-			<?php if ( isset( $_GET['e'] ) ) : ?>
-				<p><?php _e( 'Your account was activated successfully! Your account details have been sent to you in a separate email.', 'buddypress' ); ?></p>
-			<?php else : ?>
-				<p><?php printf( __( 'Your account was activated successfully! You can now <a href="%s">log in</a> with the username and password you provided when you signed up.', 'buddypress' ), wp_login_url( bp_get_root_domain() ) ); ?></p>
-			<?php endif; ?>
+      <?php if ( isset( $_GET['e'] ) ) : ?>
+        <p><?php _e( 'Your account was activated successfully! Your account details have been sent to you in a separate email.', 'buddypress' ); ?></p>
+      <?php else : ?>
+        <p><?php printf( __( 'Your account was activated successfully! You can now <a href="%s">log in</a> with the username and password you provided when you signed up.', 'buddypress' ), wp_login_url( bp_get_root_domain() ) ); ?></p>
+      <?php endif; ?>
 
-		<?php else : ?>
+    <?php else : ?>
 
-			<p><?php _e( 'Please provide a valid activation key.', 'buddypress' ); ?></p>
+      <p><?php _e( 'Please provide a valid activation key.', 'buddypress' ); ?></p>
 
-			<form action="" method="get" class="standard-form" id="activation-form">
+      <form action="" method="get" class="standard-form" id="activation-form">
 
-				<label for="key"><?php _e( 'Activation Key:', 'buddypress' ); ?></label>
-				<input type="text" name="key" id="key" value="" />
+        <label for="key"><?php _e( 'Activation Key:', 'buddypress' ); ?></label>
+        <input type="text" name="key" id="key" value="" />
 
-				<p class="submit">
-					<input type="submit" name="submit" value="<?php esc_attr_e( 'Activate', 'buddypress' ); ?>" />
-				</p>
+        <p class="submit">
+          <input type="submit" name="submit" value="<?php esc_attr_e( 'Activate', 'buddypress' ); ?>" />
+        </p>
 
-			</form>
+      </form>
 
-		<?php endif; ?>
+    <?php endif; ?>
 
-		<?php
+    <?php
 
-		/**
-		 * Fires after the display of the member activation page content.
-		 *
-		 * @since BuddyPress (1.1.0)
-		 */
-		do_action( 'bp_after_activate_content' ); ?>
+    /**
+     * Fires after the display of the member activation page content.
+     *
+     * @since BuddyPress (1.1.0)
+     */
+    do_action( 'bp_after_activate_content' ); ?>
 
-	</div><!-- .page -->
+  </div><!-- .page -->
 
-	<?php
+  <?php
 
-	/**
-	 * Fires after the display of the member activation page.
-	 *
-	 * @since BuddyPress (1.1.0)
-	 */
-	do_action( 'bp_after_activation_page' ); ?>
+  /**
+   * Fires after the display of the member activation page.
+   *
+   * @since BuddyPress (1.1.0)
+   */
+  do_action( 'bp_after_activation_page' ); ?>
 
 </div><!-- #buddypress -->

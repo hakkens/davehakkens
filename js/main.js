@@ -58,7 +58,7 @@ DaveHakkens.Main = function(){
     }
 
     $('.bbpress #content a').each(function(){
-      
+
       var $this = $(this);
       var href = $this.attr('href');
 
@@ -71,7 +71,7 @@ DaveHakkens.Main = function(){
       }
 
     });
-    
+
   };
 
   var initAjaxLoader = function(){

@@ -2,25 +2,25 @@
 
 <div style="background-image: url('<?= $thumbnail_url; ?>');" class="thumbnail">
 
-	<div class="shadow"></div>
+  <div class="shadow"></div>
 
-	<div class="meta">
+  <div class="meta">
 
-		<h1><?php the_title(); ?></h1>
+    <h1><?php the_title(); ?></h1>
 
-		<?php if( isset( $post_meta['subtitle'][0] ) ): ?>
-			<h3><?= $post_meta['subtitle'][0]; ?></h3>
-		<?php endif; ?>
+    <?php if( isset( $post_meta['subtitle'][0] ) ): ?>
+      <h3><?= $post_meta['subtitle'][0]; ?></h3>
+    <?php endif; ?>
 
-	</div>
+  </div>
 
 </div>
 
 <div class="post-content">
-	<?php the_content(); ?>
-	<?php edit_post_link(); ?>
+  <?php the_content(); ?>
+  <?php edit_post_link(); ?>
 </div>
 
 <div class="post-comments">
-	<?php comments_template(); ?>
+  <?php comments_template(); ?>
 </div>

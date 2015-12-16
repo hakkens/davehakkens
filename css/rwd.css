@@ -63,7 +63,7 @@
 
 
 #buddypress span.activity {
-	    font-size: 9px;
+      font-size: 9px;
 }
 
   .page-template-page-with-sidebar #content {
@@ -323,17 +323,17 @@ position: inherit;
   }
   .topic-reply .author {
     float: left;
-	background-color:white;
+  background-color:white;
 
-		    display: inline-block;
+        display: inline-block;
 
   }
 
 
   .topic-reply .content .reply-date {
     text-align: right;
-	    float: inherit;
-		padding: 12px 0px 0px 0px;
+      float: inherit;
+    padding: 12px 0px 0px 0px;
 
 }
 
@@ -358,13 +358,13 @@ position: inherit;
 
 .topic-reply .content p {
     font-size: 14px;
-	padding: 10px 0px 10px 0px;
+  padding: 10px 0px 10px 0px;
 }
 
 .topic-reply .author a {
 
     position: absolute;
-	    z-index: 2;
+      z-index: 2;
 
 }
 
@@ -378,15 +378,15 @@ position: inherit;
 }
 
 .topic-reply .author img {
-	border:none;
+  border:none;
   height: 40px;
   width: auto;
   padding:19px;
-	margin-bottom:0px;
+  margin-bottom:0px;
 }
 
 #mycred-my-rank{
-	width: auto;
+  width: auto;
   display: none;
 }
 .topic-reply .content {
@@ -526,11 +526,11 @@ position: inherit;
 }
 
 #post-grid > .status{
-	margin-bottom:100px;}
+  margin-bottom:100px;}
 
 
-	.single .post .post-content img.aligncenter {
-	margin-left: -5%;
+  .single .post .post-content img.aligncenter {
+  margin-left: -5%;
     max-width: 110%;
 
 }
@@ -561,11 +561,11 @@ position: inherit;
 
   @media screen and (max-width: 540px) {
 
-	 .single .post .thumbnail h1 {
+   .single .post .thumbnail h1 {
     font-size: 50px;
 }
 
-	 .comment-body .comment-author {
+   .comment-body .comment-author {
 
     position: static;
     display: inline;
@@ -577,11 +577,11 @@ position: inherit;
 }
 
 
-	 .single .post .commentlist {
+   .single .post .commentlist {
     padding-left: 0px;
 }
 
-	 .comment-body .comment-author img {
+   .comment-body .comment-author img {
     border: none;
     width: 30px;
     height: auto;
@@ -594,23 +594,23 @@ position: inherit;
 
 .comment-body .comment-author cite {
     display: inline;
-	    padding-left: 10px;
+      padding-left: 10px;
 
 
 }
 
-	 .topic-lead .content p {
+   .topic-lead .content p {
     font-size: 16px;
 }
 
 
 
-	 .topic-reply .content p {
+   .topic-reply .content p {
     font-size: 13px;
 }
 
 
-	 .single-post p {
+   .single-post p {
     font-size: 16px;
 }
 
@@ -654,9 +654,9 @@ p, .post-content li, .content li {
 }
 
 #mobile-navbar #menu-toggle {
-	background-repeat:no-repeat;
+  background-repeat:no-repeat;
     background-size: 23px 23px;
- 	margin: 12px 2px 0px 10px;
+   margin: 12px 2px 0px 10px;
 
 }
 
@@ -669,13 +669,13 @@ p, .post-content li, .content li {
 }
 
 
-	  #post-grid {
+    #post-grid {
     width: 100%;
 }
 
 #post-grid .item {
     border-top: 1px dashed #ccc;
-	border-bottom:none;
+  border-bottom:none;
 }
 
 
@@ -683,14 +683,14 @@ p, .post-content li, .content li {
 
 
 
-	   #bbpress-forums li {
+     #bbpress-forums li {
     float: none !important;
     width: 100%;
   }
 
 
 
-	#bbpress-forums li.bbp-body ul.topic {
+  #bbpress-forums li.bbp-body ul.topic {
     padding-left: 0px!important;
 }
 
@@ -704,7 +704,7 @@ p, .post-content li, .content li {
   }
 
 
-	  .bbp-forum-title img {
+    .bbp-forum-title img {
     width: 50px;
     height: auto;
     padding: 10px;
@@ -720,7 +720,7 @@ p, .post-content li, .content li {
   #buddypress #members-list li, #buddypress #mods-list li {
   /* border: 1px dashed; */
     margin-bottom: 20px;
-	font-size: 20px;
+  font-size: 20px;
 }
 #buddypress span.activity {
     font-size: 13px!important;

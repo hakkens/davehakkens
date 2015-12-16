@@ -10,70 +10,70 @@ add_action( 'init', 'register_challenge_post_type' );
 
 function register_project_post_type(){
 
-	register_post_type( 'projects', array(
+  register_post_type( 'projects', array(
 
-		'labels' => array(
-			'name' => __( 'Projects' ),
-			'singular_name' => __( 'Project' )
-		),
+    'labels' => array(
+      'name' => __( 'Projects' ),
+      'singular_name' => __( 'Project' )
+    ),
 
-		'public' => true,
-		'has_archive' => false,
-		'rewrite' => array(
-			'slug' => 'project',
-		),
+    'public' => true,
+    'has_archive' => false,
+    'rewrite' => array(
+      'slug' => 'project',
+    ),
 
-		'supports' => array(
-			'title',
-			'author',
-			'excerpt',
-			'editor',
-			'thumbnail',
-			'revisions',
-			'custom-fields',
-		)
+    'supports' => array(
+      'title',
+      'author',
+      'excerpt',
+      'editor',
+      'thumbnail',
+      'revisions',
+      'custom-fields',
+    )
 
-	));
+  ));
 
 }
 
 function register_challenge_post_type() {
 
-	register_post_type( 'challenges', array(
+  register_post_type( 'challenges', array(
 
-		'labels' => array(
-			'name' => __( 'Challenges' ),
-			'singular_name' => __( 'Challenge' )
-		),
+    'labels' => array(
+      'name' => __( 'Challenges' ),
+      'singular_name' => __( 'Challenge' )
+    ),
 
-		'public' => true,
-		'has_archive' => true,
-		'rewrite' => array( 'slug' => 'community/challenges' ),
+    'public' => true,
+    'has_archive' => true,
+    'rewrite' => array( 'slug' => 'community/challenges' ),
 
-		'supports' => array(
-			'title',
-			'author',
-			'excerpt',
-			'editor',
-			'thumbnail',
-			'revisions',
-			'custom-fields',
-			'comments',
-		)
+    'supports' => array(
+      'title',
+      'author',
+      'excerpt',
+      'editor',
+      'thumbnail',
+      'revisions',
+      'custom-fields',
+      'comments',
+    )
 
-	));
+  ));
 
 }
 
 $args = [
-	'name' => __( 'Forum sidebar' ),
-	'id' => "forum-sidebar",
-	'description' => '',
-	'class' => '',
-	'before_widget' => '<li id="%1$s" class="widget %2$s">',
-	'after_widget' => "</li>\n",
-	'before_title' => '<h2 class="widgettitle">',
-	'after_title' => "</h2>\n",
+  'name' => __( 'Forum sidebar' ),
+  'id' => "forum-sidebar",
+  'description' => '',
+  'class' => '',
+  'before_widget' => '<li id="%1$s" class="widget %2$s">',
+  'after_widget' => "</li>\n",
+  'before_title' => '<h2 class="widgettitle">',
+  'after_title' => "</h2>\n",
 ];
 
 register_sidebar( $args );
@@ -82,8 +82,8 @@ add_post_type_support( 'forum', [ 'thumbnail' ] );
 add_post_type_support( 'topic', [ 'thumbnail' ] );
 
 function custom_bbp_show_lead_topic( $show_lead ) {
-	$show_lead[] = 'true';
-	return $show_lead;
+  $show_lead[] = 'true';
+  return $show_lead;
 }
 
 add_filter( 'bbp_show_lead_topic', 'custom_bbp_show_lead_topic' );
@@ -91,24 +91,24 @@ add_action( 'wp_login_failed', 'my_front_end_login_fail' );
 
 function my_front_end_login_fail( $username ) {
 
-	$referrer = $_SERVER['HTTP_REFERER'];
+  $referrer = $_SERVER['HTTP_REFERER'];
 
-	if ( !empty( $referrer ) && !strstr( $referrer, 'wp-login' ) && !strstr( $referrer, 'wp-admin' ) ) {
-		wp_redirect( $referrer . '?login=failed' );
-		exit;
-	}
+  if ( !empty( $referrer ) && !strstr( $referrer, 'wp-login' ) && !strstr( $referrer, 'wp-admin' ) ) {
+    wp_redirect( $referrer . '?login=failed' );
+    exit;
+  }
 
 }
 
 function wcs_post_thumbnails_in_feeds( $content ) {
 
-	global $post;
+  global $post;
 
-	if( has_post_thumbnail( $post->ID ) ) {
-		$content = '<p>' . get_the_post_thumbnail( $post->ID ) . '</p>' . get_the_content();
-	}
+  if( has_post_thumbnail( $post->ID ) ) {
+    $content = '<p>' . get_the_post_thumbnail( $post->ID ) . '</p>' . get_the_content();
+  }
 
-	return $content;
+  return $content;
 
 }
 
@@ -116,43 +116,43 @@ add_filter( 'the_excerpt_rss', 'wcs_post_thumbnails_in_feeds' );
 add_filter( 'the_content_feed', 'wcs_post_thumbnails_in_feeds' );
 
 register_nav_menus([
-	'grid_filter' => 'Filter for post grid',
+  'grid_filter' => 'Filter for post grid',
 ]);
 
 add_filter( 'wp_mail', 'my_wp_mail_filter' );
 
 function my_wp_mail_filter( $args ) {
 
-	$header = file_get_contents( dirname(__FILE__) . '/emailtemplate/header.html' );
-	$footer = file_get_contents( dirname(__FILE__) . '/emailtemplate/footer.html' );
+  $header = file_get_contents( dirname(__FILE__) . '/emailtemplate/header.html' );
+  $footer = file_get_contents( dirname(__FILE__) . '/emailtemplate/footer.html' );
 
-	$new_wp_mail = [
-		'to' => $args['to'],
-		'subject' => $args['subject'],
-		'message' => $header . nl2br( $args['message'] ) . $footer,
-		'headers' => $args['headers'],
-		'attachments' => $args['attachments']
-	];
+  $new_wp_mail = [
+    'to' => $args['to'],
+    'subject' => $args['subject'],
+    'message' => $header . nl2br( $args['message'] ) . $footer,
+    'headers' => $args['headers'],
+    'attachments' => $args['attachments']
+  ];
 
-	return $new_wp_mail;
+  return $new_wp_mail;
 
 }
 
 add_filter( 'wp_mail_content_type', 'set_content_type' );
 
 function set_content_type( $content_type ) {
-	return 'text/html';
+  return 'text/html';
 }
 
 function dave_hakkens_scripts() {
-	wp_enqueue_script( 'jcrop', '/wp-includes/js/jcrop/jquery.Jcrop.min.js', array( 'jquery' ) );
-	wp_enqueue_script( 'fancybox', get_bloginfo( 'template_url' ) . '/js/vendor/fancybox/jquery.fancybox.pack.js', array( 'jquery' ) );
-	wp_enqueue_script( 'isotope', get_bloginfo( 'template_url' ) . '/js/vendor/isotope.pkgd.min.js', array( 'jquery' ) );
-	wp_enqueue_script( 'scroll_to', get_bloginfo( 'template_url' ) . '/js/vendor/jquery.scroll_to.js', array( 'jquery' ) );
-	wp_enqueue_script( 'mousewheel', get_bloginfo( 'template_url' ) . '/js/vendor/jquery.mousewheel.min.js', array( 'jquery' ) );
-	wp_enqueue_script( 'snapscroll', get_bloginfo( 'template_url' ) . '/js/vendor/jquery.snapscroll.min.js', array( 'jquery' ) );
-	wp_enqueue_script( 'dh_plugins', get_bloginfo( 'template_url' ) . '/js/plugins.js', array( 'jquery' ) );
-	wp_enqueue_script( 'dh_main', get_bloginfo( 'template_url' ) . '/js/main.js', array( 'jquery', 'fancybox', 'isotope', 'scroll_to', 'snapscroll', 'mousewheel', 'dh_plugins' ) );
+  wp_enqueue_script( 'jcrop', '/wp-includes/js/jcrop/jquery.Jcrop.min.js', array( 'jquery' ) );
+  wp_enqueue_script( 'fancybox', get_bloginfo( 'template_url' ) . '/js/vendor/fancybox/jquery.fancybox.pack.js', array( 'jquery' ) );
+  wp_enqueue_script( 'isotope', get_bloginfo( 'template_url' ) . '/js/vendor/isotope.pkgd.min.js', array( 'jquery' ) );
+  wp_enqueue_script( 'scroll_to', get_bloginfo( 'template_url' ) . '/js/vendor/jquery.scroll_to.js', array( 'jquery' ) );
+  wp_enqueue_script( 'mousewheel', get_bloginfo( 'template_url' ) . '/js/vendor/jquery.mousewheel.min.js', array( 'jquery' ) );
+  wp_enqueue_script( 'snapscroll', get_bloginfo( 'template_url' ) . '/js/vendor/jquery.snapscroll.min.js', array( 'jquery' ) );
+  wp_enqueue_script( 'dh_plugins', get_bloginfo( 'template_url' ) . '/js/plugins.js', array( 'jquery' ) );
+  wp_enqueue_script( 'dh_main', get_bloginfo( 'template_url' ) . '/js/main.js', array( 'jquery', 'fancybox', 'isotope', 'scroll_to', 'snapscroll', 'mousewheel', 'dh_plugins' ) );
 }
 
 add_action( 'wp_enqueue_scripts', 'dave_hakkens_scripts' );

@@ -11,37 +11,37 @@
 
 <ul id="bbp-topic-<?php bbp_topic_id(); ?>" <?php bbp_topic_class(); ?>>
 
-	<li class="bbp-topic-title">
+  <li class="bbp-topic-title">
 
-		<?php if ( bbp_is_user_home() ) : ?>
+    <?php if ( bbp_is_user_home() ) : ?>
 
-			<?php if ( bbp_is_favorites() ) : ?>
+      <?php if ( bbp_is_favorites() ) : ?>
 
-				<span class="bbp-row-actions">
+        <span class="bbp-row-actions">
 
-					<?php do_action( 'bbp_theme_before_topic_favorites_action' ); ?>
+          <?php do_action( 'bbp_theme_before_topic_favorites_action' ); ?>
 
-					<?php bbp_topic_favorite_link( array( 'before' => '', 'favorite' => '+', 'favorited' => '&times;' ) ); ?>
+          <?php bbp_topic_favorite_link( array( 'before' => '', 'favorite' => '+', 'favorited' => '&times;' ) ); ?>
 
-					<?php do_action( 'bbp_theme_after_topic_favorites_action' ); ?>
+          <?php do_action( 'bbp_theme_after_topic_favorites_action' ); ?>
 
-				</span>
+        </span>
 
-			<?php elseif ( bbp_is_subscriptions() ) : ?>
+      <?php elseif ( bbp_is_subscriptions() ) : ?>
 
-				<span class="bbp-row-actions">
+        <span class="bbp-row-actions">
 
-					<?php do_action( 'bbp_theme_before_topic_subscription_action' ); ?>
+          <?php do_action( 'bbp_theme_before_topic_subscription_action' ); ?>
 
-					<?php bbp_topic_subscription_link( array( 'before' => '', 'subscribe' => '+', 'unsubscribe' => '&times;' ) ); ?>
+          <?php bbp_topic_subscription_link( array( 'before' => '', 'subscribe' => '+', 'unsubscribe' => '&times;' ) ); ?>
 
-					<?php do_action( 'bbp_theme_after_topic_subscription_action' ); ?>
+          <?php do_action( 'bbp_theme_after_topic_subscription_action' ); ?>
 
-				</span>
+        </span>
 
-			<?php endif; ?>
+      <?php endif; ?>
 
-		<?php endif; ?>
+    <?php endif; ?>
 
     <div class="author-avatar">
       <?php echo bbp_get_topic_author_avatar(bbp_get_topic_id(), 50); ?>
@@ -84,11 +84,11 @@
     </div>
   </li>
 
-	<li class="bbp-topic-voice-count"><?php bbp_topic_voice_count(); ?></li>
+  <li class="bbp-topic-voice-count"><?php bbp_topic_voice_count(); ?></li>
 
-	<li class="bbp-topic-reply-count"><?php bbp_show_lead_topic() ? bbp_topic_reply_count() : bbp_topic_post_count(); ?></li>
+  <li class="bbp-topic-reply-count"><?php bbp_show_lead_topic() ? bbp_topic_reply_count() : bbp_topic_post_count(); ?></li>
 
-	<li class="bbp-topic-freshness">
+  <li class="bbp-topic-freshness">
 
     <div class="author-avatar">
       <?php
@@ -116,6 +116,6 @@
 
     </div>
 
-	</li>
+  </li>
 
 </ul><!-- #bbp-topic-<?php bbp_topic_id(); ?> -->

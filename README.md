@@ -7,8 +7,6 @@ We wanted to have a place online which is truly ours, we are in control. No adds
 It's running on Wordpress.
 Couple of key plugins we use to make this community happen
 - BBpress for the forums
-- Buddypress for the community parts 
+- Buddypress for the community parts
 - Mycred for gamification
 - GD bbPress Attachments for forum attachments
-
-

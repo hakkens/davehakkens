@@ -165,7 +165,7 @@ if (!$user_ID) { //block logged in users
         <?php endwhile; endif; ?>
       </div>
 
-     
+
     </div> <!-- #content -->
 
     <?php

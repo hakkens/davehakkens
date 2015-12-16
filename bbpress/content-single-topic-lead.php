@@ -14,7 +14,7 @@
     <?php bbp_topic_author_link( array( 'sep' => '', 'show_role' => false ) ); ?>
     <?php do_action( 'bbp_theme_after_topic_author_details' ); ?>
   </div>
-  
+
   <div class="content">
     <?php do_action( 'bbp_template_before_lead_topic' ); ?>
     <?php do_action( 'bbp_theme_before_topic_content' ); ?>
@@ -29,6 +29,3 @@
   </div>
     <div class="date"><?php bbp_topic_post_date(); ?></div>
 </div>
-
-
-
