@@ -53,7 +53,7 @@
         </div>
 
         <?php if( $_SERVER['REQUEST_URI'] != '/community/forums/' ): ?>
-          <h1><?php the_title(); ?></h1>
+          <h1><?= str_replace( 'Reply To: ', '', get_the_title() ); ?></h1>
         <?php endif; ?>
 
       <?php endif; ?>
