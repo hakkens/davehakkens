@@ -2738,7 +2738,7 @@ table.profile-fields {
   padding-top: 60px;
 }
 
-#project-nav {
+.slick-dots {
   border-radius: 3px;
   padding: 8px 8px 0 8px;
   position: fixed;
@@ -2746,25 +2746,26 @@ table.profile-fields {
   right: 10px;
 }
 
-#project-nav ul, #project-nav li {
+.slick-dots, .slick-dots li {
   list-style: none;
   margin: 0;
   padding: 0px
 }
 
-#project-nav li {
+.slick-dots li {
   margin-bottom: 25px;
 }
 
-#project-nav li a {
-  background: #fff;
+.slick-dots > li > button {
+  background-color: #fff !important;
   border-radius: 100%;
   display: block;
   height: 11px;
+  padding: 0 !important;
   width: 11px;
 }
 
-#project-nav li a.current {
+.slick-dots li button.current {
   background: #ccc;
 }
 

@@ -107,7 +107,21 @@ DaveHakkens.Main = function(){
   };
 
   var initProjects = function(){
-    if ($projects.length > 0) $projects.snapscroll();
+
+    if( $projects.length > 0 ) {
+
+      $projects.slick({
+        dots: !0,
+        infinite: !1,
+        speed: Modernizr.touch ? 600: 800,
+        arrows: !1,
+        slide: '.project',
+        cssEase: "ease",
+        vertical: Modernizr.touch?!1: !0,
+        draggable: !0,
+      });
+
+    }
 
     $('#project-nav').css({ marginTop: ($('#project-nav').height() / 2 * -1) });
 
