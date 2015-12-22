@@ -1251,7 +1251,6 @@ button.give-btn.give-btn-reveal {
 }
 
 .btn,
-button:not(#searchsubmit):not(.update-cover-photo),
 input[type="submit"],
 input[type="button"]:not(.button-small),
 input[type="reset"],
@@ -1884,7 +1883,7 @@ code {
   padding: 4px 15px 4px !important;
 }
 
-.btn, button:not(#searchsubmit):not(.update-cover-photo),
+.btn,
 input[type="submit"],
 input[type="button"]:not(.button-small),
 input[type="reset"],
@@ -2756,19 +2755,6 @@ table.profile-fields {
   margin-bottom: 25px;
 }
 
-.slick-dots > li > button {
-  background-color: #fff !important;
-  border-radius: 100%;
-  display: block;
-  height: 11px;
-  padding: 0 !important;
-  width: 11px;
-}
-
-.slick-dots li button.current {
-  background: #ccc;
-}
-
 .single-format-image .post-thumbnail {
   margin-bottom: 40px;
 }
@@ -2785,16 +2771,17 @@ table.profile-fields {
   font-size: 15px;
 }
 
-/*temporary*/
-/*hide reply function on vote new plastic logo*/
+/* temporary - start */
 
 div#new-reply-64293 {
-   display: none;
+  display: none;
 }
 
 .postid-64293 a.bbp-reply-to-link {
   display: none;
 }
+
+/* temporary - end */
 
 .widget.widget_nav_menu ul {
   list-style: none;
@@ -2813,4 +2800,62 @@ div#new-reply-64293 {
   padding: 0;
   font-weight: bold;
   color: #E0E072;
+}
+
+#content.projects-page {
+  padding-top: 0;
+}
+
+#content.projects-page .slick-dots li > button {
+  background: transparent;
+  width: 14px;
+  border-radius: 100%;
+  height: 14px;
+  margin: -2px 0 0 -2px;
+  padding: 0;
+  border: 2px solid #fff;
+  text-indent: -99999px;
+}
+
+#content.projects-page .slick-dots li > button:focus {
+  outline: none;
+}
+
+#content.projects-page .slick-dots li.slick-active > button {
+  background: #fff;
+}
+
+html.touch #content.projects-page {
+  position: relative;
+}
+
+html.touch #content.projects-page .slick-dots {
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  top: auto;
+  text-align: center;
+}
+
+html.touch #content.projects-page .slick-dots li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+@media (min-width: 992px) {
+
+  body.page-template-projects {
+    overflow: hidden;
+  }
+
+  #content.projects-page .slick-dots {
+    right: 30px;
+    top: calc(50% - 50px);
+  }
+
+  #content.projects-page .slick-dots li {
+    margin: 7px 0;
+  }
+
 }

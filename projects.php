@@ -29,22 +29,4 @@ get_template_part( 'navbar' );
 
 </div>
 
-<div id="project-nav">
-  <ul>
-
-    <?php
-      $args = array( 'post_type' => 'projects', 'posts_per_page' => 10 );
-      $loop = new WP_Query( $args );
-      $i = 1;
-
-      while ( $loop->have_posts() ) : $loop->the_post();
-    ?>
-
-      <li><a<?php echo $i == 1 ? ' class="current"' : '' ; ?> title="<?php the_title(); ?>" href="#project-<?php echo strtolower(str_replace(' ', '-', get_the_title())); ?>"></a></li>
-
-    <?php $i++; endwhile; ?>
-
-  </ul>
-</div>
-
 <?php get_footer(); ?>
