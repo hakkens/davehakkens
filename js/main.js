@@ -109,9 +109,9 @@ DaveHakkens.Main = function(){
   var initProjects = function(){
 
     if( $projects.length > 0 ) {
-
-      $projects.fullpage();
-
+      $projects.fullpage({
+        navigation: true
+      });
     }
 
     $('#project-nav').css({ marginTop: ($('#project-nav').height() / 2 * -1) });

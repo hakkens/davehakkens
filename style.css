@@ -2737,24 +2737,6 @@ table.profile-fields {
   padding-top: 60px;
 }
 
-.slick-dots {
-  border-radius: 3px;
-  padding: 8px 8px 0 8px;
-  position: fixed;
-  top: 50%;
-  right: 10px;
-}
-
-.slick-dots, .slick-dots li {
-  list-style: none;
-  margin: 0;
-  padding: 0px
-}
-
-.slick-dots li {
-  margin-bottom: 25px;
-}
-
 .single-format-image .post-thumbnail {
   margin-bottom: 40px;
 }
@@ -2806,56 +2788,43 @@ div#new-reply-64293 {
   padding-top: 0;
 }
 
-#content.projects-page .slick-dots li > button {
-  background: transparent;
-  width: 14px;
-  border-radius: 100%;
-  height: 14px;
-  margin: -2px 0 0 -2px;
-  padding: 0;
-  border: 2px solid #fff;
-  text-indent: -99999px;
-}
-
-#content.projects-page .slick-dots li > button:focus {
-  outline: none;
-}
-
-#content.projects-page .slick-dots li.slick-active > button {
-  background: #fff;
-}
-
 html.touch #content.projects-page {
   position: relative;
 }
 
-html.touch #content.projects-page .slick-dots {
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  height: 20px;
-  top: auto;
-  text-align: center;
+#fp-nav.right {
+  right: 30px;
 }
 
-html.touch #content.projects-page .slick-dots li {
-  display: inline-block;
-  margin: 0 5px;
+#fp-nav ul li {
+  margin: 15px 0;
+  display: block;
+}
+
+#fp-nav ul li:hover a span,
+#fp-nav ul li a span,
+#fp-nav ul li a.active span,
+#fp-nav ul li a.active:hover span {
+  background: transparent;
+  width: 14px;
+  display: block;
+  position: relative;
+  height: 14px;
+  margin: 0;
+  border: 2px solid #fff;
+  box-sizing: border-box;
+  transition: background 0.4s;
+}
+
+#fp-nav ul li a.active:hover span,
+#fp-nav ul li a.active span {
+  background: #fff;
 }
 
 @media (min-width: 992px) {
 
   body.page-template-projects {
     overflow: hidden;
-  }
-
-  #content.projects-page .slick-dots {
-    right: 30px;
-    top: calc(50% - 50px);
-  }
-
-  #content.projects-page .slick-dots li {
-    margin: 7px 0;
   }
 
 }
