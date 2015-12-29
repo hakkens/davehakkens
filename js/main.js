@@ -110,42 +110,7 @@ DaveHakkens.Main = function(){
 
     if( $projects.length > 0 ) {
 
-      $projects.slick({
-        dots: !0,
-        infinite: !1,
-        speed: 700,
-        arrows: !1,
-        slide: '.project',
-        cssEase: 'linear',
-        vertical: Modernizr.touch?!1: !0,
-        draggable: !0,
-      });
-
-      var canScroll = true,
-          scrollTimeout;
-
-      $projects.on('mousewheel', function(event, delta) {
-
-        event.preventDefault();
-
-        if( !canScroll || $projects.find('.slick-track').is(':animated')) {
-          return;
-        }
-
-        if (event.originalEvent.wheelDelta >= 0) {
-          $projects.slick('slickPrev');
-        } else {
-          $projects.slick('slickNext');
-        }
-
-        canScroll = false;
-
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(function() {
-          canScroll = true;
-        }, 700);
-
-      });
+      $projects.fullpage();
 
     }
 

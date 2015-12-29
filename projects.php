@@ -17,7 +17,7 @@ get_template_part( 'navbar' );
   $loop = new WP_Query( $args );
   while ( $loop->have_posts() ) : $loop->the_post(); ?>
 
-    <div id="project-<?php echo strtolower(str_replace(' ', '-', get_the_title())); ?>" class="project" style="background-image: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>');">
+    <div id="project-<?php echo strtolower(str_replace(' ', '-', get_the_title())); ?>" class="project section" style="background-image: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>');">
       <div class="caption">
         <div><?php the_content(); ?></div>
         <h2><?php the_title(); ?></h2>
