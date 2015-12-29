@@ -1,5 +1,9 @@
 <?php
 
+if (WP_DEBUG) {
+  header('Access-Control-Allow-Origin: *');
+}
+
 define( 'WP_USE_THEMES', false );
 require_once( '../../../wp-load.php' );
 
