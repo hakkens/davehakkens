@@ -108,11 +108,28 @@ DaveHakkens.Main = function(){
 
   var initProjects = function(){
 
-    if( $projects.length > 0 ) {
+    function setSnap() {
+
+      if ($projects.length < 0 || $(window).width() < 992) {
+        if ($.fn.fullpage) {
+          $.fn.fullpage.destroy('all');
+        }
+
+        return;
+      }
+
+      if ($projects.hasClass('fullpage-wrapper') && !$projects.hasClass('fp-destroyed')) {
+        return;
+      }
+
       $projects.fullpage({
         navigation: true
       });
+
     }
+
+    $(window).resize(setSnap);
+    setSnap();
 
     $('#project-nav').css({ marginTop: ($('#project-nav').height() / 2 * -1) });
 
