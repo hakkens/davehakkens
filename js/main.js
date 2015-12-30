@@ -110,11 +110,7 @@ DaveHakkens.Main = function(){
 
     function setSnap() {
 
-      if ($projects.length < 0 || $(window).width() < 992) {
-        if ($.fn.fullpage) {
-          $.fn.fullpage.destroy('all');
-        }
-
+      if ($projects.length < 0) {
         return;
       }
 

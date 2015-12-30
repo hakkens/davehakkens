@@ -252,9 +252,15 @@ position: inherit;
   body {
     overflow-x: hidden;
   }
+
   #content {
     overflow-x: hidden;
   }
+
+  #content.projects-page {
+    overflow: visible;
+  }
+
   .page .post .post-content,
   .single .post .post-content {
     margin: 40px auto;
