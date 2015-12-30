@@ -412,7 +412,16 @@
   }
 
   .page-template-projects #content .project .caption h2 {
-    font-size: 40px;
+    font-size: 30px;
+    margin-top: 5px;
+  }
+
+  .page-template-projects #content .project .btn {
+    margin-top: 20px;
+  }
+
+  #fp-nav {
+    display: none;
   }
 
   #buddypress #admins-list li,
