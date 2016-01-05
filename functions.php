@@ -154,6 +154,3 @@ function dave_hakkens_scripts() {
   wp_enqueue_script( 'dh_plugins', get_bloginfo( 'template_url' ) . '/js/plugins.js', array( 'jquery' ) );
   wp_enqueue_script( 'dh_main', get_bloginfo( 'template_url' ) . '/js/main.js', array( 'jquery', 'fancybox', 'isotope', 'scroll_to', 'mousewheel', 'dh_plugins' ) );
 }
-
-add_action( 'wp_enqueue_scripts', 'dave_hakkens_scripts' );
-add_filter( 'jpeg_quality', create_function( '', 'return 100;' ) );
