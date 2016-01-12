@@ -1560,6 +1560,7 @@ ul.bbp-topic-revision-log li {
 .bbp-reply-form {
   background-color: #edefed;
   padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .alt-forum-sidebar li.widget {
@@ -1597,6 +1598,15 @@ ul.bbp-topic-revision-log li {
   height: 30px;
   box-shadow: none;
   margin-top: 10px !important;
+}
+
+button#bbp_reply_submit {
+    padding: 7px 14px;
+    background-color: #9FBCCE;
+    border: none;
+    font-size: 14px;
+    border-radius: 3px;
+    color: white;
 }
 
 input#qt_bbp_reply_content_li,
