@@ -2763,6 +2763,14 @@ div#new-reply-64293 {
   display: none;
 }
 
+div#new-reply-64502 {
+  display: none;
+}
+
+.postid-64502 a.bbp-reply-to-link {
+  display: none;
+}
+
 /* temporary - end */
 
 .widget.widget_nav_menu ul {
