@@ -201,6 +201,15 @@
     margin-top: 22px;
   }
 
+  .topic-lead {
+      padding-bottom: 0px;
+  }
+
+  .topic-reply {
+    margin: 40px auto 0 auto;
+  }
+
+
   .bbpress h1 {
     margin: 0 0 20px 0;
   }
@@ -251,7 +260,6 @@
 
   .page .post .post-content,
   .single .post .post-content {
-    margin: 40px auto;
     width: 90%;
   }
 
@@ -566,6 +574,10 @@
     font-size: 50px;
   }
 
+  #content {
+    padding-top: 45px;
+  }
+
   .comment-body .comment-author {
     position: static;
     display: inline;
@@ -577,6 +589,10 @@
 
   .single .post .commentlist {
     padding-left: 0px;
+  }
+
+  .post-comments {
+    padding-bottom: 60px;
   }
 
   .comment-body .comment-author img {
@@ -612,6 +628,10 @@
 
   p, .post-content li, .content li {
     font-size: 14px;
+  }
+
+  p.wp-caption-text {
+    padding: 10px 0px 40px;
   }
 
   .bbp-forum-title {

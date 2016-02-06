@@ -156,3 +156,11 @@ function dave_hakkens_scripts() {
 }
 
 add_action( 'wp_enqueue_scripts', 'dave_hakkens_scripts' );
+
+
+//Remove "Billing Details" for all gateways give plugin
+function give_remove_billing_fields(){
+	remove_action( 'give_after_cc_fields', 'give_default_cc_address_fields' );
+}
+
+add_action('init', 'give_remove_billing_fields');

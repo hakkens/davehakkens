@@ -10,6 +10,7 @@
 ?>
 <div class="topic-lead">
   <div class="author">
+
     <?php do_action( 'bbp_theme_before_topic_author_details' ); ?>
     <?php bbp_topic_author_link( array( 'sep' => '', 'show_role' => false ) ); ?>
     <?php do_action( 'bbp_theme_after_topic_author_details' ); ?>
