@@ -1271,6 +1271,14 @@ span.create-a-group > a,
   width: 250px !important;
 }
 
+body.bbp-search.forum-search.bbpress {
+    background-color: #EDEFED;
+}
+
+.search-result .bbp-topic-title a {
+    color: #6A90C1;
+}
+
 #buddypress .standard-form#signup_form div div.error {
   background: none !important;
   color: #FF8282 !important;

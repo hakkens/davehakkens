@@ -713,4 +713,12 @@
     font-size: 13px !important;
   }
 
+  .activity #buddypress {
+    width: 90%;
+  }
+
+  #buddypress ul.item-list li {
+    padding: 10px 0px 10px 0px !important;
+  }
+
 }
