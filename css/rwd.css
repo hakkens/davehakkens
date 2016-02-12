@@ -201,6 +201,14 @@
     margin-top: 22px;
   }
 
+  .bbp-topic-form {
+    padding-top: 50px!important;
+    margin: 0 auto;
+    padding: 0px;
+    background: #edefed;
+    padding-bottom: 50px;
+  }
+
   .topic-lead {
       padding-bottom: 0px;
   }
@@ -209,6 +217,9 @@
     margin: 40px auto 0 auto;
   }
 
+  div#relatedposts li {
+    width: 44%;
+  }
 
   .bbpress h1 {
     margin: 0 0 20px 0;

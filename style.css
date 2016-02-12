@@ -1101,6 +1101,7 @@ li.bbp-forum-freshness {
   margin-bottom:0px !important;
   max-width:1200px;
   margin:0 auto;
+  overflow: inherit!important;
 }
 
 .bbp-search-form {
@@ -1700,10 +1701,10 @@ span.page-numbers.current{
 }
 
 .bbp-topic-form {
+  padding-top: 50px!important;
+  margin: 0 -9999rem;
+  padding: 0.25rem 9999rem 100px;
   background: #edefed;
-  overflow: hidden;
-  padding-top: 40px;
-  padding-bottom: 100px;
 }
 
 .center {
@@ -2759,97 +2760,149 @@ table.profile-fields {
 }
 
 .give-input  {
-    padding: 10px;
-    background-color: #FFFFFF;
-    border: none;
-    font-size: none;
-    border: 1px solid #C5C5C5;
-    border-radius: 5px!important;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border: none;
+  font-size: none;
+  border: 1px solid #C5C5C5;
+  border-radius: 5px!important;
 }
 
 form[id*=give-form] select.give-select-level {
-    height:40px;
-    display: block;
-    margin: 0 auto!important;
-    margin-bottom: 60px!important;
+  height:40px;
+  display: block;
+  margin: 0 auto!important;
+  margin-bottom: 60px!important;
 }
 
 #give_secure_site_wrapper {
-    color: #87BF87;
+  color: #87BF87;
 }
 
 form[id*=give-form] #give-final-total-wrap .give-donation-total-label {
-    padding: 0px 0px!important;
-    font-weight: 400;
-    height: 50px!important;
-    background-color:rgba(255, 255, 255, 0)!important;
-    border: none!important;
+  padding: 0px 0px!important;
+  font-weight: 400;
+  height: 50px!important;
+  background-color:rgba(255, 255, 255, 0)!important;
+  border: none!important;
 }
 
 form[id*=give-form] #give-final-total-wrap .give-final-total-amount {
-    padding: 0px 10px!important;
-    font-weight: 400;
-    height: 50px!important;
-    background-color:rgba(255, 255, 255, 0)!important;
-    border: none!important;
+  padding: 0px 10px!important;
+  font-weight: 400;
+  height: 50px!important;
+  background-color:rgba(255, 255, 255, 0)!important;
+  border: none!important;
 }
 
 .give-form-content-wrap p {
-    text-align: center!important;
+  text-align: center!important;
 }
 
 .give-form-title {
-    text-align: center!important;
-    display: none;
+  text-align: center!important;
+  display: none;
 }
 
 button.give-btn.give-btn-reveal, .give-btn.give-btn-modal {
-    background-color: #9FCEB7;
-    border: 0px;
-    padding: 19px;
-    color: white;
-    font-size: 18px;
-    letter-spacing: 1px;
-    border-radius: 5px;
-    margin: 0 auto!important;
-    margin-bottom: 50px!important;
-    display: block;
+  background-color: #9FCEB7;
+  border: 0px;
+  padding: 19px;
+  color: white;
+  font-size: 18px;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  margin: 0 auto!important;
+  margin-bottom: 50px!important;
+  display: block;
 }
 
 .give-donation-amount.form-row-wide {
-    width: 200px;
-    margin-left: auto!important;
-    margin-right: auto!important;
-    box-sizing: inherit!important;
+  width: 200px;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  box-sizing: inherit!important;
 }
 
 input#give-amount {
-    margin-bottom: 10px!important;
-    text-align: center!important;
-    border-radius: 0px!important;
-    box-sizing: inherit!important;
+  margin-bottom: 10px!important;
+  text-align: center!important;
+  border-radius: 0px!important;
+  box-sizing: inherit!important;
 }
 
 span#give-amount-text {
-    box-sizing: inherit!important;
+  box-sizing: inherit!important;
 }
 
 span.give-currency-symbol.give-currency-position-before {
-    padding: 0 12px!important;
-    box-sizing: inherit!important;
+  padding: 0 12px!important;
+  box-sizing: inherit!important;
 }
 
 .give-modal .mfp-inline-holder .mfp-content{
-    width:auto!important;
+  width:auto!important;
 }
 
 .give-form {
-    text-align: center;
+  text-align: center;
 }
 
 p.give-custom-amount-text {
-    text-align: center;
+  text-align: center;
 }
+
+select#bbp_stick_topic_select, select#bbp_topic_status_select  {
+  padding: 10px;
+  background-color: white;
+  border:none;
+}
+
+button#bbp_topic_submit {
+  padding: 10px 20px;
+  background-color: #9FBCCE;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+a.d4p-attachment-addfile {
+  color: #212121;
+  background-color: white;
+  padding: 3px 8px;
+  font-size: 11px;
+  border-radius: 5px;
+  border: 1px solid #B3B3B3;
+}
+
+.bbp-attachments-form input {
+  margin-bottom: 20px!important;
+  font-size: 12px;
+}
+
+div#relatedposts li {
+  width: 20%;
+  height: auto;
+  display: inline-block;
+  font-size: 10px;
+  padding: 2%;
+  margin: 0 auto;
+}
+
+div#relatedposts h3 {
+  text-align: center;
+}
+
+div#relatedposts {
+  padding-top: 50px;
+}
+
+.relatedcontent {
+  display: none;
+}
+
 
 /* temporary - start */
 
