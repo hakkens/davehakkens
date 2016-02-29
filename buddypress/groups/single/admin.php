@@ -241,7 +241,7 @@ do_action( 'bp_before_group_admin_content' ); ?>
       <li>
         <?php echo bp_core_fetch_avatar( array( 'item_id' => bp_get_member_user_id(), 'type' => 'thumb', 'width' => 30, 'height' => 30, 'alt' => sprintf( __( 'Profile picture of %s', 'buddypress' ), bp_get_member_name() ) ) ); ?>
         <h5>
-          <a href="<?php bp_member_permalink(); ?>"> <?php bp_member_name(); ?></a>
+          <a href="<?php bp_member_permalink(); ?>profile/"> <?php bp_member_name(); ?></a>
           <?php if ( count( bp_group_admin_ids( false, 'array' ) ) > 1 ) : ?>
           <span class="small">
             <a class="button confirm admin-demote-to-member" href="<?php bp_group_member_demote_link( bp_get_member_user_id() ); ?>"><?php _e( 'Demote to Member', 'buddypress' ); ?></a>
@@ -268,7 +268,7 @@ do_action( 'bp_before_group_admin_content' ); ?>
           <li>
             <?php echo bp_core_fetch_avatar( array( 'item_id' => bp_get_member_user_id(), 'type' => 'thumb', 'width' => 30, 'height' => 30, 'alt' => sprintf( __( 'Profile picture of %s', 'buddypress' ), bp_get_member_name() ) ) ); ?>
             <h5>
-              <a href="<?php bp_member_permalink(); ?>"> <?php bp_member_name(); ?></a>
+              <a href="<?php bp_member_permalink(); ?>profile/"> <?php bp_member_name(); ?></a>
               <span class="small">
                 <a href="<?php bp_group_member_promote_admin_link( array( 'user_id' => bp_get_member_user_id() ) ); ?>" class="button confirm mod-promote-to-admin" title="<?php esc_attr_e( 'Promote to Admin', 'buddypress' ); ?>"><?php _e( 'Promote to Admin', 'buddypress' ); ?></a>
                 <a class="button confirm mod-demote-to-member" href="<?php bp_group_member_demote_link( bp_get_member_user_id() ); ?>"><?php _e( 'Demote to Member', 'buddypress' ); ?></a>
