@@ -8,6 +8,12 @@ add_theme_support( 'post-formats', [ 'image', 'status', 'video', 'link' ] );
 add_action( 'init', 'register_project_post_type' );
 add_action( 'init', 'register_challenge_post_type' );
 
+add_action( 'init', 'allow_origin' );
+
+function allow_origin() {
+    header("Access-Control-Allow-Origin: *");
+}
+
 function register_project_post_type(){
 
   register_post_type( 'projects', array(
