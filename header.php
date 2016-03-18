@@ -79,6 +79,11 @@
         <img src="<?php bloginfo('template_url'); ?>/img/social_mail.png">
       </a>
 
+      <a href="https://github.com/hakkens/davehakkens">
+        <img src="<?php bloginfo('template_url'); ?>/img/social_github.png">
+      </a>
+
+
      <div id="user-menu">
 
        <?php if( !is_user_logged_in() ): ?>
