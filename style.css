@@ -2897,6 +2897,16 @@ div#relatedposts {
 }
 
 
+a.bbp-reply-to-link {
+    display: none;
+}
+
+#content.help-build-our-projects a.bbp-reply-to-link {
+    display: inline;
+}
+
+
+
 /* temporary - start */
 
 div#new-reply-64293 {
@@ -2906,6 +2916,7 @@ div#new-reply-64293 {
 .postid-64293 a.bbp-reply-to-link {
   display: none;
 }
+
 
 div#new-reply-64502 {
   display: none;
