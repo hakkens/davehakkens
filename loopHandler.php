@@ -123,7 +123,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      * Post format Status
      */
     if (get_post_format() == 'status'): ?>
-      <a class="fancybox" href="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>">
         <?php the_post_thumbnail('medium'); ?>
       </a>
         <div class="shadow"></div>
