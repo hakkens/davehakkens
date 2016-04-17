@@ -59,7 +59,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      */
     if (get_post_format() == ''): ?>
       <a href="<?php echo get_post_permalink(); ?>">
-        <?php the_post_thumbnail('medium'); ?>
+        <?php the_post_thumbnail('small'); ?>
       </a>
       <h3><a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a></h3>
       <?php the_content(); ?>
@@ -123,7 +123,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      * Post format Status
      */
     if (get_post_format() == 'status'): ?>
-        <?php the_post_thumbnail('medium'); ?>
+      <a href="<?php echo get_post_permalink(); ?>">
+        <?php the_post_thumbnail('small'); ?>
       </a>
         <div class="shadow"></div>
       <?php the_content(); ?>
@@ -134,11 +135,10 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      * Post format Image
      */
     if (get_post_format() == 'image'): ?>
-      <a class="fancybox" href="<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>">
+      <a href="<?php echo get_post_permalink(); ?>">
         <?php the_post_thumbnail('medium'); ?>
       </a>
       <div class="shadow"></div>
-
       <?php the_content() ?>
     <?php endif; ?>
 

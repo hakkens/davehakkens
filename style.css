@@ -732,11 +732,11 @@ video {
 }
 
 #post-grid > .status > .post_meta a {
-  color: #C3C3C3;
+  color: #FFFFFF;
 }
 
 #post-grid > .status > .post_meta {
-  color: #C3C3C3;
+  color: #FFFFFF;
   position: absolute;
   bottom: 20px;
   left: 0;
@@ -754,6 +754,7 @@ video {
   margin: 0px 30px 70px 30px;
   font-family: 'Montserrat';
   letter-spacing: 0.7px;
+  display: none;
 }
 
 .status div.shadow {

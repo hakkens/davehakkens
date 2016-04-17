@@ -6,7 +6,7 @@
     <?php the_post_thumbnail( 'full' ); ?>
   </div>
 
-  <h1><?php the_title(); ?></h1>
+  <h1><?php the_content(); ?></h1>
 
   <?php $orig_post = $post;
 global $post;
@@ -22,7 +22,7 @@ $args=array(
 );
 $my_query = new wp_query( $args );
 if( $my_query->have_posts() ) {
-echo '<div id="relatedposts"><h3>Related Posts</h3><ul>';
+echo '<div id="relatedposts"><h3>some other images</h3><ul>';
 while( $my_query->have_posts() ) {
 $my_query->the_post(); ?>
 <li><div class="relatedthumb"><a href="<? the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail(); ?></a></div>
