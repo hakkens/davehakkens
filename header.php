@@ -87,7 +87,7 @@
      <div id="user-menu">
 
        <?php if( !is_user_logged_in() ): ?>
-         <a href="<?php bloginfo( 'url' ); ?>/community/login/" class="user-toggle"></a>
+         <a href="<?php bloginfo( 'url' ); ?>/login/" class="user-toggle"></a>
        <?php else: ?>
 
         <?php global $current_user; get_currentuserinfo(); ?>

@@ -10,8 +10,8 @@
       <center>
 
         </br></br></br></br></br></br>
-        <a href="http://nldave-guadalupe.savviihq.com/">
-          <img src="http://nldave-guadalupe.savviihq.com/wp-content/uploads/2015/07/error.png" width="800" height="344" />
+        <a href="https://davehakkens.nl">
+          <img src="https://davehakkens.nl/wp-content/uploads/2015/07/error.png" width="800" height="344" />
         </a>
 
       </center>

@@ -170,3 +170,42 @@ function give_remove_billing_fields(){
 }
 
 add_action('init', 'give_remove_billing_fields');
+
+
+//Shorter title instagram imports
+add_filter( 'dsgnwrks_instagram_pre_save', 'dsgnwrks_qa_make_title_excerpted' );
+function dsgnwrks_qa_make_title_excerpted( $import ) {
+	if ( isset( $import['post_title'] ) ) {
+		// feel free to edit these 2 values
+		$number_of_words = 5;
+		$more = '...';
+		$import['post_title'] = wp_trim_words( $import['post_title'], $number_of_words, $more );
+	}
+	return $import;
+}
+
+
+//chnage logo login page
+function my_login_logo() { ?>
+    <style type="text/css">
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/dave_community-logo.svg);
+            width: 150px;
+            height: 150px;
+            background-size: 150px;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'my_login_logo' );
+
+
+//chnage URL login page
+function my_login_logo_url() {
+    return home_url();
+}
+add_filter( 'login_headerurl', 'my_login_logo_url' );
+
+function my_login_logo_url_title() {
+    return 'Your Site Name and Info';
+}
+add_filter( 'login_headertitle', 'my_login_logo_url_title' );

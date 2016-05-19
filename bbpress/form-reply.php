@@ -163,7 +163,7 @@
 
   <div id="no-reply-<?php bbp_topic_id(); ?>" class="bbp-no-reply">
     <div class="bbp-template-notice">
-      <p><?php is_user_logged_in() ? _e( 'You cannot reply to this topic.', 'bbpress' ) : _e( 'You must be <a href="https://davehakkens.nl/community/login/">logged in</a> to reply to this topic.', 'bbpress' ); ?></p>
+      <p><?php is_user_logged_in() ? _e( 'You cannot reply to this topic.', 'bbpress' ) : _e( 'You must be <a href="https://davehakkens.nl/login/">logged in</a> to reply to this topic.', 'bbpress' ); ?></p>
     </div>
   </div>
 
