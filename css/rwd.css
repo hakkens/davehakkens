@@ -551,8 +551,12 @@
   }
 
   #post-grid > .status {
-    margin-bottom: 100px;
   }
+
+  #post-grid > .status > p {
+    display: none;
+    margin: 0px;
+}
 
   .single .post .post-content img.aligncenter {
     margin-left: -5%;
@@ -686,6 +690,7 @@
   #post-grid .item {
     border-top: 1px dashed #ccc;
     border-bottom: none;
+    margin: 0 0 0px 0;
   }
 
   #bbpress-forums li {

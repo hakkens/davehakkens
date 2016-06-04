@@ -209,3 +209,10 @@ function my_login_logo_url_title() {
     return 'Your Site Name and Info';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+
+//change more.. on homepage
+function modify_read_more_link() {
+    return '<a class="more-link" href="' . get_permalink() . '">keep going..</a>';
+}
+add_filter( 'the_content_more_link', 'modify_read_more_link' );

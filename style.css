@@ -600,15 +600,17 @@ background-image: none,url(images/dave_community-logo.svg)!important;
 #post-filter li a {
   color: #424242;
   display: block;
-  padding: 4px 10px;
+  padding: 4px 15px;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 #post-filter li.active a,
 #post-filter li a:hover {
-  text-decoration: underline;
+  background-color: #313131;
+  color: white;
 }
 
 #post-filter li.label {
