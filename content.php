@@ -7,6 +7,7 @@
 
     <h1><?php the_title(); ?></h1>
 
+
     <?php if( isset( $post_meta['subtitle'][0] ) ): ?>
       <h3><?= $post_meta['subtitle'][0]; ?></h3>
     <?php endif; ?>

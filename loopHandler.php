@@ -143,7 +143,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
     <?php endif; ?>
 
     <div class="post_meta">
-      <?php the_time('d/m/Y'); ?><br />
+      <?php the_time('F j, Y'); ?><br />
       <?php
       foreach (get_the_tags() as $tag){
         echo ' <a href="#' . $tag->name . '">#' . $tag->name . '</a>';

@@ -766,6 +766,13 @@ video {
   letter-spacing: 0.7px;
 }
 
+.single-post .meta p {
+  text-align: center;
+  font-family: 'varela round';
+  margin-top: 10px;
+  color: white;
+}
+
 .status div.shadow {
   background: url( 'img/cover-shadow.png' ) bottom left repeat-x;
   background-size: contain;
