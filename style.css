@@ -1034,6 +1034,28 @@ li#activity-favorites,
   display: none;
 }
 
+
+.postid-62269 li.bbp-topic-freshness .topic-desc{
+  margin-top: 11px!important;
+}
+
+.postid-62269 a.bbp-topic-permalink {
+    white-space: pre;
+}
+
+.postid-62269 .topic-desc{
+  margin-top: 25px!important;
+}
+
+.postid-62269 #bbpress-forums p.bbp-topic-meta{
+  display:none
+}
+
+.postid-62269 #bbpress-forums .bbp-attachments-count{
+  display:none;
+}
+
+
 .bbp-forum-freshness,
 .bbp-forum-topic-count,
 .bbp-forum-reply-count {
@@ -1095,7 +1117,7 @@ li.bbp-forum-freshness {
 
 #bbpress-forums div.odd,
 #bbpress-forums ul.odd {
-  background-color: #fff !important;
+
 }
 
 #bbpress-forums .status-closed a {
@@ -1930,6 +1952,10 @@ span.create-a-group > a,
   height: 500px;
   width: 100%;
 }
+
+
+
+
 
 #comments.challenges ol.children .zaki_like_dislike_box {
   display: none;
@@ -3005,6 +3031,37 @@ html.touch #content.projects-page {
 #fp-nav ul li a.active span {
   background: #313131;;
 }
+
+
+.div#mceu_13, div#mceu_8, div#mceu_7, div#mceu_6, div#mceu_5, div#mceu_4, div#mceu_13 {
+  display:none;
+}
+
+.mce-toolbar .mce-btn-group .mce-btn, .qt-dfw{
+  background-color: white;
+  padding: 2px;
+  margin-right: 8px;
+}
+
+div.mce-toolbar-grp{
+  background: #edefed!important;
+}
+
+
+div.mce-toolbar-grp>div{
+  padding: 15px 0px 10px 0px;!important
+
+}
+
+body#tinymce {
+    font-family: 'Open Sans', sans-serif!important;
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+    font-size: 14px;
+}
+
+
+
 
 @media (min-width: 992px) {
 
