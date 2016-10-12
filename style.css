@@ -2823,6 +2823,10 @@ table.profile-fields {
   max-width: 1200px;
 }
 
+.post-content {
+  margin-top: 20px !important;
+}
+
 .buddypress .post-content {
   width: auto !important;
 }
