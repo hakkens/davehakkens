@@ -47,6 +47,16 @@ DaveHakkens.Main = function(){
     lazyLoadVine();
 
     initAjaxLoader();
+    communityMenuPosition();
+
+    function communityMenuPosition() {
+      var communityMenu = $('#community-menu')
+      var middle = $window.width() / 2
+
+      communityMenu.css('left', (middle + 100) + 'px')
+    }
+
+    $window.on('resize', communityMenuPosition)
 
     if (!$('body').hasClass('no-touch')){
       $('.buddypress #content .post, .bbpress #content .post').bind('mousewheel', function(event) {
