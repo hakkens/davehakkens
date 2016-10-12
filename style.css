@@ -302,14 +302,25 @@ a:hover {
   list-style: none;
 }
 
+#community-menu li a {
+  text-indent: -999999px;
+  display: block;
+  text-align: left;
+  margin-left: -40px;
+  padding-top: 10px;
+}
+
 #mobile-menu ul li li a,
-#navbar > ul > li li a {
+#navbar > ul > li li a,
+#community-menu li a {
   opacity: 0.5;
 }
 
 #mobile-menu ul li li a.current,
 #navbar > ul > li li a.current,
-#navbar > ul > li li a:hover {
+#navbar > ul > li li a:hover,
+#community-menu li a.current,
+#community-menu li a:hover {
   opacity: 1;
 }
 
@@ -366,33 +377,53 @@ a:hover {
 }
 
 #mobile-menu li a.forums,
-#navbar li a.forums {
+#community-menu li a.forums {
   background: url( 'img/buttons_12.png' ) center left no-repeat;
   background-size: contain;
 }
 
+#community-menu li a.forums {
+  background-size: 130% auto;
+}
+
 #mobile-menu li a.challenges,
-#navbar li a.challenges {
+#community-menu li a.challenges {
   background: url( 'img/buttons_13.png' ) center left no-repeat;
   background-size: contain;
 }
 
+#community-menu li a.challenges {
+  background-size: 130% auto;
+}
+
 #mobile-menu li a.members,
-#navbar li a.members {
+#community-menu li a.members {
   background: url( 'img/buttons_11.png' ) center left no-repeat;
   background-size: contain;
 }
 
+#community-menu li a.members {
+  background-size: 130% auto;
+}
+
 #mobile-menu li a.helpus,
-#navbar li a.helpus {
+#community-menu li a.helpus {
   background: url( 'img/buttons_15.png' ) center left no-repeat;
   background-size: contain;
 }
 
+#community-menu li a.helpus {
+  background-size: 130% auto;
+}
+
 #mobile-menu li a.what,
-#navbar li a.what {
+#community-menu li a.what {
   background: url( 'img/buttons_14.png' ) center left no-repeat;
   background-size: contain;
+}
+
+#community-menu li a.what {
+  background-size: 130% auto;
 }
 
 #navbar .social {
@@ -903,13 +934,13 @@ video {
 #user-menu {
   position: fixed;
   right: 20px;
-  top: 20px;
+  top: 35px;
   z-index: 100;
   text-align: center;
 }
 
 #user-menu .user-toggle {
-  background: url( 'img/key_icon.png' );
+  background: url( 'img/key_icon_white.png' );
   background-position-y: 5px;
   background-repeat: no-repeat;
   background-size: 33px 14px;
