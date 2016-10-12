@@ -227,18 +227,22 @@ a:hover {
 
 #navbar li a {
   background-position: top left;
+  background-size: auto 20px !important;
+  margin-bottom: 10px;
 }
 
 #navbar li:nth-child(1) a {
-  width: 50px;
+  width: 60px;
+  background-size: auto 19px !important;
 }
 
 #navbar li:nth-child(2) a {
-  width: 88px;
+  width: 90px;
+    background-size: auto 22px !important;
 }
 
 #navbar li:nth-child(3) a {
-  width: 50px;
+  width: 60px;
 }
 
 #navbar li:nth-child(4) a {
