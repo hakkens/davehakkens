@@ -47,16 +47,36 @@ DaveHakkens.Main = function(){
     lazyLoadVine();
 
     initAjaxLoader();
-    communityMenuPosition();
+
+    var communityMenu = $('#community-menu')
+    communityMenu.hide()
 
     function communityMenuPosition() {
-      var communityMenu = $('#community-menu')
       var middle = $window.width() / 2
 
       communityMenu.css('left', (middle + 100) + 'px')
     }
 
+    communityMenuPosition();
     $window.on('resize', communityMenuPosition)
+
+    var communityTrigger = $('#navbar a.community')
+
+    communityTrigger.on('mouseover', function() {
+      communityMenu.show()
+    })
+
+    communityTrigger.on('mouseout', function() {
+      if (communityMenu.is(':hover')) {
+        return
+      }
+
+      communityMenu.hide()
+    })
+
+    communityMenu.on('mouseleave', function() {
+      communityMenu.hide()
+    })
 
     if (!$('body').hasClass('no-touch')){
       $('.buddypress #content .post, .bbpress #content .post').bind('mousewheel', function(event) {
