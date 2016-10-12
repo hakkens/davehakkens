@@ -334,55 +334,87 @@ a:hover {
   opacity: 1;
 }
 
-#mobile-menu li a.news,
 #navbar li a.news {
   background: url( 'img/buttons_06.png' ) center left no-repeat;
   background-size: contain;
 }
 
-#mobile-menu li a.news.current,
+#mobile-menu li a.news {
+  background: url( 'img/mbuttons_06.png' ) center left no-repeat;
+  background-size: contain;
+}
+
 #navbar li a.news.current,
 #navbar li:hover a.news{
   background: url( 'img/buttons_active_06.png' ) center left no-repeat;
   background-size: contain;
 }
 
-#mobile-menu li a.projects,
+#mobile-menu li a.news.current {
+  background: url( 'img/mbuttons_active_06.png' ) center left no-repeat;
+  background-size: contain;
+}
+
 #navbar li a.projects {
   background: url( 'img/buttons_07.png' ) center left no-repeat;
   background-size: contain;
 }
 
-#mobile-menu li a.projects.current,
+#mobile-menu li a.projects {
+  background: url( 'img/mbuttons_07.png' ) center left no-repeat;
+  background-size: contain;
+}
+
 #navbar li a.projects.current,
 #navbar li:hover a.projects {
   background: url( 'img/buttons_active_07.png' ) center left no-repeat;
   background-size: contain;
 }
 
-#mobile-menu li a.about,
+#mobile-menu li a.projects.current {
+  background: url( 'img/mbuttons_active_07.png' ) center left no-repeat;
+  background-size: contain;
+}
+
 #navbar li a.about {
   background: url( 'img/buttons_08.png' ) center left no-repeat;
   background-size: contain;
 }
 
-#mobile-menu li a.about.current,
+#mobile-menu li a.about {
+  background: url( 'img/mbuttons_08.png' ) center left no-repeat;
+  background-size: contain;
+}
+
 #navbar li a.about.current,
 #navbar li:hover a.about {
   background: url( 'img/buttons_active_08.png' ) center left no-repeat;
   background-size: contain;
 }
 
-#mobile-menu li a.community,
+#mobile-menu li a.about.current {
+  background: url( 'img/mbuttons_active_08.png' ) center left no-repeat;
+  background-size: contain;
+}
+
 #navbar li a.community {
   background: url( 'img/buttons_10.png' ) center left no-repeat;
   background-size: contain;
 }
 
-#mobile-menu li a.community.current,
+#mobile-menu li a.community {
+  background: url( 'img/mbuttons_10.png' ) center left no-repeat;
+  background-size: contain;
+}
+
 #navbar li a.community.current,
 #navbar li:hover a.community {
   background: url( 'img/buttons_active_10.png' ) center left no-repeat;
+  background-size: contain;
+}
+
+#mobile-menu li a.community.current {
+  background: url( 'img/mbuttons_active_10.png' ) center left no-repeat;
   background-size: contain;
 }
 
