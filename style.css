@@ -204,21 +204,39 @@ a:hover {
 }
 
 #navbar {
-  background: url( 'img/menu.png' ) top right;
-  background-size: 296px;
-  display: block;
-  height: 100%;
-  padding: 20px;
+  background: url('img/mobile-menu.png') no-repeat center bottom;
+  background-size: 1500px;
+  display: flex;
+  height: 60px;
+  padding: 0px;
   float: left;
   overflow: auto;
   position: fixed;
-  width: 220px;
+  width: 100%;
   z-index: 14;
+  box-sizing: border-box;
+}
+
+#navbar li {
+  display: inline-block;
+}
+
+#navbar li:nth-child(1) a {
+  width: 100px;
+}
+
+#navbar li:nth-child(2) a {
+  width: 100px;
+}
+
+#navbar li > ul {
+  display: none;
 }
 
 #navbar #logo {
-  margin-top: 12px;
-  width: 93%;
+  margin: 15px 15px auto;
+  width: 157px;
+  height: auto;
 }
 
 #navbar ul, #navbar li {
@@ -230,7 +248,8 @@ a:hover {
 }
 
 #navbar > ul {
-  margin-top: 40px;
+  margin-top: 0;
+  width: 800px;
 }
 
 #navbar > ul > li a {

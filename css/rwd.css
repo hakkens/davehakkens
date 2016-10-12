@@ -72,7 +72,7 @@
 
 }
 
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 900px) {
 
   .single .post .thumbnail {
     height: 500px;
