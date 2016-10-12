@@ -296,6 +296,7 @@ a:hover {
   height: 180px;
   position: fixed;
   z-index: 99999;
+  top: 40px;
 }
 
 #community-menu > ul {
