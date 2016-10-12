@@ -49,7 +49,6 @@ DaveHakkens.Main = function(){
     initAjaxLoader();
 
     var communityMenu = $('#community-menu')
-    communityMenu.hide()
 
     function communityMenuPosition() {
       var middle = $window.width() / 2
@@ -63,7 +62,7 @@ DaveHakkens.Main = function(){
     var communityTrigger = $('#navbar a.community')
 
     communityTrigger.on('mouseover', function() {
-      communityMenu.show()
+      communityMenu.addClass('shown')
     })
 
     communityTrigger.on('mouseout', function() {
@@ -71,11 +70,11 @@ DaveHakkens.Main = function(){
         return
       }
 
-      communityMenu.hide()
+      communityMenu.removeClass('shown')
     })
 
     communityMenu.on('mouseleave', function() {
-      communityMenu.hide()
+      communityMenu.removeClass('shown')
     })
 
     if (!$('body').hasClass('no-touch')){

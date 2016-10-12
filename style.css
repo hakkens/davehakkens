@@ -301,6 +301,11 @@ a:hover {
   position: fixed;
   z-index: 99999;
   top: 40px;
+  display: none;
+}
+
+#community-menu.shown {
+  display: block;
 }
 
 #community-menu > ul {
