@@ -24,6 +24,7 @@ body {
 
 body.home-page {
   background: #edefed;
+  padding: 40px 0 0 0;
 }
 
 .no-touch body {
@@ -209,28 +210,57 @@ a:hover {
   display: flex;
   height: 60px;
   padding: 0px;
+  top: 0;
   float: left;
   overflow: auto;
   position: fixed;
   width: 100%;
   z-index: 14;
   box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 
 #navbar li {
   display: inline-block;
 }
 
+#navbar li a {
+  background-position: top left;
+}
+
 #navbar li:nth-child(1) a {
-  width: 100px;
+  width: 50px;
 }
 
 #navbar li:nth-child(2) a {
-  width: 100px;
+  width: 88px;
+}
+
+#navbar li:nth-child(3) a {
+  width: 50px;
+}
+
+#navbar li:nth-child(4) a {
+  width: 106px;
 }
 
 #navbar li > ul {
   display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 180px;
+  width: 170px;
+}
+
+#navbar li:hover > ul {
+  display: block;
+}
+
+#navbar > a:first-child {
+  position: absolute;
+  left: 0;
 }
 
 #navbar #logo {
@@ -244,12 +274,11 @@ a:hover {
   margin: 0;
   padding: 0;
   margin-top: 5px;
-  margin-left: 4px;
+  margin-left: 50px;
 }
 
 #navbar > ul {
   margin-top: 0;
-  width: 800px;
 }
 
 #navbar > ul > li a {
@@ -445,7 +474,6 @@ a:hover {
 
 #content {
   height: 100%;
-  margin-left: 250px;
 }
 
 .buddypress #content,

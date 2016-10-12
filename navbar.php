@@ -11,7 +11,7 @@
   <ul>
 
     <li>
-      <a class="news<?php echo $current_url == '/' ? ' current' : '' ; ?>" href="<?php bloginfo('url'); ?>/">News</a>
+      <a class="news<?php echo $current_url == '/' || strpos($current_url, 'news') || strpos($current_url, 'storyhopper') || strpos($current_url, 'phonebloks') || strpos($current_url, 'preciousplastic') ? ' current' : '' ; ?>" href="<?php bloginfo('url'); ?>/">News</a>
     </li>
 
     <li>
@@ -24,23 +24,20 @@
     <li>
       <a class="community<?php echo strpos($current_url, 'community') ? ' current' : '' ; ?>" href="/community/forums">Community</a>
 
-      <?php if(strpos($current_url, 'community')): ?>
-        <ul>
-          <li>
-            <a class="forums<?php echo strpos($current_url, 'forums') ? ' current' : '' ; ?>" href="/community/forums/">Forums</a>
-          </li>
-          <li>
-            <a class="members<?php echo strpos($current_url, 'members') ? ' current' : '' ; ?>" href="/community/members/">Members</a>
-          </li>
-          <li>
-            <a class="helpus" href="/community/forums/forum/general/help-building-our-projects/">Help us</a>
-          </li>
-          <li>
-            <a class="what<?php echo strpos($current_url, 'what') ? ' current' : '' ; ?>" href="/community/what/">What?</a>
-          </li>
-        </ul>
-      <?php endif; ?>
-
+      <ul>
+        <li>
+          <a class="forums<?php echo strpos($current_url, 'forums') ? ' current' : '' ; ?>" href="/community/forums/">Forums</a>
+        </li>
+        <li>
+          <a class="members<?php echo strpos($current_url, 'members') ? ' current' : '' ; ?>" href="/community/members/">Members</a>
+        </li>
+        <li>
+          <a class="helpus" href="/community/forums/forum/general/help-building-our-projects/">Help us</a>
+        </li>
+        <li>
+          <a class="what<?php echo strpos($current_url, 'what') ? ' current' : '' ; ?>" href="/community/what/">What?</a>
+        </li>
+      </ul>
     </li>
   </ul>
 
