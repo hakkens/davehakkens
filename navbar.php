@@ -23,21 +23,6 @@
       </li>
     <li>
       <a class="community<?php echo strpos($current_url, 'community') ? ' current' : '' ; ?>" href="/community/forums">Community</a>
-
-      <ul>
-        <li>
-          <a class="forums<?php echo strpos($current_url, 'forums') ? ' current' : '' ; ?>" href="/community/forums/">Forums</a>
-        </li>
-        <li>
-          <a class="members<?php echo strpos($current_url, 'members') ? ' current' : '' ; ?>" href="/community/members/">Members</a>
-        </li>
-        <li>
-          <a class="helpus" href="/community/forums/forum/general/help-building-our-projects/">Help us</a>
-        </li>
-        <li>
-          <a class="what<?php echo strpos($current_url, 'what') ? ' current' : '' ; ?>" href="/community/what/">What?</a>
-        </li>
-      </ul>
     </li>
   </ul>
 
@@ -50,4 +35,21 @@
     <a href="https://github.com/hakkens/davehakkens" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/social_github.png"></a>
   </div>
 
+</div>
+
+<div id="community-menu">
+  <ul>
+    <li>
+      <a class="forums<?php echo strpos($current_url, 'forums') ? ' current' : '' ; ?>" href="/community/forums/">Forums</a>
+    </li>
+    <li>
+      <a class="members<?php echo strpos($current_url, 'members') ? ' current' : '' ; ?>" href="/community/members/">Members</a>
+    </li>
+    <li>
+      <a class="helpus" href="/community/forums/forum/general/help-building-our-projects/">Help us</a>
+    </li>
+    <li>
+      <a class="what<?php echo strpos($current_url, 'what') ? ' current' : '' ; ?>" href="/community/what/">What?</a>
+    </li>
+  </ul>
 </div>

@@ -289,6 +289,19 @@ a:hover {
   width: 100%;
 }
 
+#community-menu {
+  background: url('img/submenu.png');
+  background-size: 100% 100%;
+  width: 170px;
+  height: 180px;
+  position: fixed;
+  z-index: 99999;
+}
+
+#community-menu > ul {
+  list-style: none;
+}
+
 #mobile-menu ul li li a,
 #navbar > ul > li li a {
   opacity: 0.5;
