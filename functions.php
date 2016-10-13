@@ -124,7 +124,7 @@ add_filter( 'the_content_feed', 'wcs_post_thumbnails_in_feeds' );
 register_nav_menus([
   'grid_filter' => 'Filter for post grid',
 ]);
-
+/*
 add_filter( 'wp_mail', 'my_wp_mail_filter' );
 
 function my_wp_mail_filter( $args ) {
@@ -149,7 +149,7 @@ add_filter( 'wp_mail_content_type', 'set_content_type' );
 function set_content_type( $content_type ) {
   return 'text/html';
 }
-
+*/
 function dave_hakkens_scripts() {
   wp_enqueue_script( 'jcrop', '/wp-includes/js/jcrop/jquery.Jcrop.min.js', array( 'jquery' ) );
   wp_enqueue_script( 'fancybox', get_bloginfo( 'template_url' ) . '/js/vendor/fancybox/jquery.fancybox.pack.js', array( 'jquery' ) );
