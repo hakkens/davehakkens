@@ -1094,7 +1094,7 @@ video {
   border-radius: 100%;
   width: 30px;
   margin-right: -3px;
-  margin-top: 0px;
+  margin-top: -30px !important;
   border: 2px solid white;
   height: auto;
 }
@@ -2978,6 +2978,33 @@ form[id*=give-form] #give-final-total-wrap .give-final-total-amount {
 
 .give-form-title {
   text-align: center!important;
+  display: none;
+}
+
+#buddypress.member-filter,
+#buddypress.member-filter #buddypress {
+  width: auto !important;
+}
+
+select#field_42, select#field_1055, input#field_any {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin-left: 20px;
+  height: 40px !important;
+  padding: 5px !important;
+  font-size: 15px;
+  box-sizing: border-box;
+  background: #fff !important;
+  border: none !important;
+}
+
+form#bps_shortcode72499.standard-form {
+  display: flex;
+  margin: auto;
+}
+
+form#members-directory-form.dir-form {
   display: none;
 }
 

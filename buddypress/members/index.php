@@ -7,7 +7,7 @@
  */
 do_action( 'bp_before_directory_members_page' ); ?>
 
-<div id="buddypress">
+<div id="buddypress" class="member-filter">
 
   <?php
 
