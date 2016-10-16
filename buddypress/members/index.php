@@ -30,13 +30,15 @@ do_action( 'bp_before_directory_members_page' ); ?>
 
 
   <?php
-
+  echo do_shortcode('[bps_display form=72499]');
   /**
    * Fires before the display of the members list tabs.
    *
    * @since BuddyPress (1.8.0)
    */
-  do_action( 'bp_before_directory_members_tabs' ); ?>
+  do_action( 'bp_before_directory_members_tabs' );
+
+  ?>
 
   <form action="" method="post" id="members-directory-form" class="dir-form">
 
