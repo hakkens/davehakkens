@@ -2906,8 +2906,7 @@ table.profile-fields {
 }
 
 .page-template-page-with-sidebar #content {
-  margin-left: 250px;
-  margin-right: 400px;
+  margin: auto;
   overflow-x: hidden;
 }
 
