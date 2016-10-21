@@ -343,6 +343,22 @@ jQuery(document).ready(function(){
   var $ = jQuery;
   DaveHakkens.Main.init();
 
+  var searchFieldPrefix = $('#bps_shortcode72499')
+
+  searchFieldPrefix.find('#field_42').prepend($('<option>', {
+    text: 'Location',
+    selected: true,
+    disabled: true
+  }))
+
+  searchFieldPrefix.find('#field_1055').prepend($('<option>', {
+    text: 'Expertise',
+    selected: true,
+    disabled: true
+  }))
+
+  searchFieldPrefix.find('#field_any').attr('placeholder', 'Search...')
+
   $( '.list-replies li' ).each( function( reply ) {
 
     var replies = $( this ).find( 'ul.bbp-threaded-replies' );
