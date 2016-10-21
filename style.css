@@ -2990,7 +2990,6 @@ select#field_42, select#field_1055, input#field_any {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  margin-left: 20px;
   height: 40px !important;
   padding: 5px !important;
   font-size: 15px;
@@ -3004,8 +3003,31 @@ form#bps_shortcode72499.standard-form {
   margin: auto;
 }
 
+form#bps_shortcode72499 .field_1055,
+form#bps_shortcode72499 .field_42 {
+  width: calc(50% / 2);
+}
+
+form#bps_shortcode72499 .field_1055 select,
+form#bps_shortcode72499 .field_42 select {
+  width: calc(100% - 20px) !important;
+}
+
+form#bps_shortcode72499 .field_any {
+  width: 50%;
+}
+
+form#bps_shortcode72499 .field_any input {
+  width: 100% !important;
+}
+
 form#members-directory-form.dir-form {
   display: none;
+}
+
+#bps_shortcode72499 p.description,
+#bps_shortcode72499 label {
+  display: none !important;
 }
 
 button.give-btn.give-btn-reveal, .give-btn.give-btn-modal {
@@ -3019,6 +3041,17 @@ button.give-btn.give-btn-reveal, .give-btn.give-btn-modal {
   margin: 0 auto!important;
   margin-bottom: 50px!important;
   display: block;
+}
+
+#buddypress .standard-form div.submit input {
+  background: url("img/search.png") !important;
+  background-repeat: no-repeat !important;
+  background-size: 17px !important;
+  width: 17px !important;
+  height: 17px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-indent: -99999999px;
 }
 
 .give-donation-amount.form-row-wide {
