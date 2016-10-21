@@ -3025,6 +3025,22 @@ form#members-directory-form.dir-form {
   display: none;
 }
 
+form#bps_shortcode72499 {
+  position: relative;
+}
+
+form#bps_shortcode72499 .submit {
+  right: 10px !important;
+  position: absolute !important;
+  top: 8px;
+  padding: 0 !important;
+  opacity: .6;
+}
+
+form#bps_shortcode72499 .submit:hover {
+  opacity: 1;
+}
+
 #bps_shortcode72499 p.description,
 #bps_shortcode72499 label {
   display: none !important;
