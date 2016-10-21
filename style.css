@@ -2698,16 +2698,24 @@ table.profile-fields {
   padding: 0 !important;
 }
 
+#buddypress #admins-list,
+#buddypress #members-list,
+#buddypress #mods-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 #buddypress #admins-list li,
 #buddypress #members-list li,
 #buddypress #mods-list li {
   border: none;
-  float: left;
-  width: 24%;
-  margin: 0.5%;
+  width: calc(25% - 10px);
+  box-sizing: border-box;
   padding: 0;
   overflow: hidden !important;
   background: #fff;
+  margin-bottom: 10px;
 }
 
 #buddypress #admins-list li a,
@@ -3001,20 +3009,22 @@ select#field_42, select#field_1055, input#field_any {
 form#bps_shortcode72499.standard-form {
   display: flex;
   margin: auto;
+  justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 form#bps_shortcode72499 .field_1055,
 form#bps_shortcode72499 .field_42 {
-  width: calc(50% / 2);
+  width: calc(25% - 10px);
 }
 
 form#bps_shortcode72499 .field_1055 select,
 form#bps_shortcode72499 .field_42 select {
-  width: calc(100% - 20px) !important;
+  width: 100% !important;
 }
 
 form#bps_shortcode72499 .field_any {
-  width: 50%;
+  width: calc(50% - 6px);
 }
 
 form#bps_shortcode72499 .field_any input {
