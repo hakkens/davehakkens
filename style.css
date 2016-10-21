@@ -297,7 +297,7 @@ a:hover {
   background: url('img/submenu.png');
   background-size: 100% 100%;
   width: 170px;
-  height: 180px;
+  height: 200px;
   position: fixed;
   z-index: 99999;
   top: 40px;
@@ -465,6 +465,16 @@ a:hover {
 }
 
 #community-menu li a.what {
+  background-size: 130% auto;
+}
+
+#mobile-menu li a.search,
+#community-menu li a.search {
+  background: url( 'img/buttons_16.png' ) center left no-repeat;
+  background-size: contain;
+}
+
+#community-menu li a.search {
   background-size: 130% auto;
 }
 
@@ -2994,16 +3004,47 @@ form[id*=give-form] #give-final-total-wrap .give-final-total-amount {
   width: auto !important;
 }
 
-select#field_42, select#field_1055, input#field_any {
+p.bps_filters {
+  display: none !important;
+}
+
+select#field_42,
+select#field_1055,
+input#field_any {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   height: 40px !important;
   padding: 5px !important;
-  font-size: 15px;
+  font-size: 13px !important;
   box-sizing: border-box;
   background: #fff !important;
   border: none !important;
+}
+
+select#field_42,
+select#field_1055 {
+  padding-left: 35px !important;
+}
+
+input#field_any {
+  padding-left: 15px !important;
+}
+
+select#field_42 {
+  background-color: #fff !important;
+  background-image: url('img/location.png'), url('img/downarrow.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: left 12px center, right 10px center !important;
+  background-size: 13px, 10px !important;
+}
+
+select#field_1055 {
+  background-color: #fff !important;
+  background-image: url('img/expertise.png'), url('img/downarrow.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: left 12px center, right 10px center !important;
+  background-size: 20px, 10px !important;
 }
 
 form#bps_shortcode72499.standard-form {

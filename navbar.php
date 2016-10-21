@@ -49,6 +49,9 @@
       <a class="helpus" href="/community/forums/forum/general/help-building-our-projects/">Help us</a>
     </li>
     <li>
+      <a class="search<?php echo strpos($current_url, 'search') ? ' current' : '' ; ?>" href="/community/forums/search">Search</a>
+    </li>
+    <li>
       <a class="what<?php echo strpos($current_url, 'what') ? ' current' : '' ; ?>" href="/community/what/">What?</a>
     </li>
   </ul>
