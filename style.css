@@ -156,43 +156,34 @@ a:hover {
   height: 30px;
   width: 100%;
   text-transform: lowercase;
+  margin-top: 65px;
+  margin-left: 50px;
 }
 
 #topbar #breadcrumbs {
   font-size: 13px;
   letter-spacing: 0.5px;
+  color: #D8D8D8;
 }
 
 #topbar #breadcrumbs a:hover {
   color: #000;
-  text-decoration: underline;
-}
-
-#topbar #breadcrumbs a {
-  background: url( 'img/breadcrumb.png' ) no-repeat right center;
-  display: inline-block;
-  line-height: 30px;
-  position: relative;
-  padding: 0 24px 0 10px;
   text-decoration: none;
 }
 
-#topbar #breadcrumbs > span > span > a {
-  margin-left: 0;
-  padding-left: 30px !important;
-}
-
-#topbar #breadcrumbs a.one-but-last {
-  background: url( 'img/breadcrumb_one_but_last.png' ) no-repeat right center;
-}
-
-#topbar #breadcrumbs .breadcrumb_last {
-  background: url( 'img/breadcrumb_last.png' ) no-repeat right center;
+#topbar #breadcrumbs a {
   display: inline-block;
   line-height: 30px;
-  margin-left: -4px;
-  padding: 0 24px 0 10px;
-  font-weight: 400;
+  position: relative;
+  text-decoration: none;
+  color: #D8D8D8;
+}
+
+#topbar #breadcrumbs a:after {
+  content: ">";
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #D8D8D8;
 }
 
 #topbar #breadcrumbs {
