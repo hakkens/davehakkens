@@ -205,7 +205,7 @@ a:hover {
 }
 
 #navbar {
-  background: url('img/mobile-menu.png') no-repeat center bottom;
+  background: url('img/mobile-menu.png') repeat center bottom;
   background-size: 1500px;
   display: flex;
   height: 60px;
@@ -268,7 +268,7 @@ a:hover {
 }
 
 #navbar #logo {
-  margin: 15px 15px auto;
+  margin: 0px 15px auto;
   width: 157px;
   height: auto;
 }
@@ -279,6 +279,7 @@ a:hover {
   padding: 0;
   margin-top: 5px;
   margin-left: 50px;
+  margin-right: 50px;
 }
 
 #navbar > ul {
@@ -1104,7 +1105,7 @@ video {
   border-radius: 100%;
   width: 30px;
   margin-right: -3px;
-  margin-top: -30px !important;
+  margin-top: -36px !important;
   border: 2px solid white;
   height: auto;
 }
