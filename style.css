@@ -1282,6 +1282,32 @@ li.bbp-forum-freshness {
   overflow: inherit!important;
 }
 
+
+.page-forum #bbpress-forums {
+  text-align: center;
+}
+
+input#bbp_search {
+  background: #fff !important;
+  border-radius: 0px !important;
+  border: 0 !important;
+  font-size: 12px;
+}
+
+input#bbp_search_submit.button {
+  background: #fff url(img/search.png) !important;
+  background-size: 20px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  border-radius: 0 !important;
+  height: 37px !important;
+  text-indent: -999999px;
+}
+
+.page-forum #bbpress-forums {
+  font-size: 0;
+}
+
 .bbp-search-form {
   margin: 0 20px 20px 20px;
 }

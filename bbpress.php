@@ -53,7 +53,15 @@
         </div>
 
         <?php if( $_SERVER['REQUEST_URI'] != '/community/forums/' ): ?>
-          <h1><?= str_replace( 'Reply To: ', '', get_the_title() ); ?></h1>
+          <?php
+            if ($_SERVER['REQUEST_URI'] == '/community/forums/search/') {
+              echo "<h1>Hunt our forums</h1>";
+            } else {
+              echo "<h1>";
+              echo str_replace( 'Reply To: ', '', get_the_title() );
+              echo "</h1>";
+            }
+          ?>
         <?php endif; ?>
 
       <?php endif; ?>
