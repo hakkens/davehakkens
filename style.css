@@ -1304,7 +1304,7 @@ input#bbp_search_submit.button {
   text-indent: -999999px;
 }
 
-.page-forum #bbpress-forums {
+.page-forum #bbpress-forums form {
   font-size: 0;
 }
 
