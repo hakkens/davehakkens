@@ -158,6 +158,7 @@ a:hover {
   text-transform: lowercase;
   margin-top: 65px;
   margin-left: 50px;
+  position: fixed;
 }
 
 #topbar #breadcrumbs {
