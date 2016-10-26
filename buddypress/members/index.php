@@ -30,7 +30,7 @@ do_action( 'bp_before_directory_members_page' ); ?>
 
 
   <?php
-  echo do_shortcode('[bps_display form=72499]');
+  echo do_shortcode('[bps_display form=72769]');
   /**
    * Fires before the display of the members list tabs.
    *

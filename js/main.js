@@ -343,7 +343,7 @@ jQuery(document).ready(function(){
   var $ = jQuery;
   DaveHakkens.Main.init();
 
-  var searchFieldPrefix = $('#bps_shortcode72499')
+  var searchFieldPrefix = $('#bps_shortcode72769')
 
   searchFieldPrefix.find('#field_42').prepend($('<option>', {
     text: 'Location',

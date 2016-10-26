@@ -3066,28 +3066,28 @@ select#field_1055 {
   background-size: 20px, 10px !important;
 }
 
-form#bps_shortcode72499.standard-form {
+form#bps_shortcode72769.standard-form {
   display: flex;
   margin: auto;
   justify-content: space-between;
   margin-bottom: 30px;
 }
 
-form#bps_shortcode72499 .field_1055,
-form#bps_shortcode72499 .field_42 {
+form#bps_shortcode72769 .field_1055,
+form#bps_shortcode72769 .field_42 {
   width: calc(25% - 10px);
 }
 
-form#bps_shortcode72499 .field_1055 select,
-form#bps_shortcode72499 .field_42 select {
+form#bps_shortcode72769 .field_1055 select,
+form#bps_shortcode72769 .field_42 select {
   width: 100% !important;
 }
 
-form#bps_shortcode72499 .field_any {
+form#bps_shortcode72769 .field_any {
   width: calc(50% - 6px);
 }
 
-form#bps_shortcode72499 .field_any input {
+form#bps_shortcode72769 .field_any input {
   width: 100% !important;
 }
 
@@ -3095,11 +3095,11 @@ form#members-directory-form.dir-form {
   display: none;
 }
 
-form#bps_shortcode72499 {
+form#bps_shortcode72769 {
   position: relative;
 }
 
-form#bps_shortcode72499 .submit {
+form#bps_shortcode72769 .submit {
   right: 10px !important;
   position: absolute !important;
   top: 8px;
@@ -3107,12 +3107,12 @@ form#bps_shortcode72499 .submit {
   opacity: .6;
 }
 
-form#bps_shortcode72499 .submit:hover {
+form#bps_shortcode72769 .submit:hover {
   opacity: 1;
 }
 
-#bps_shortcode72499 p.description,
-#bps_shortcode72499 label {
+#bps_shortcode72769 p.description,
+#bps_shortcode72769 label {
   display: none !important;
 }
 
@@ -3129,7 +3129,7 @@ button.give-btn.give-btn-reveal, .give-btn.give-btn-modal {
   display: block;
 }
 
-#bps_shortcode72499.standard-form div.submit input {
+#bps_shortcode72769.standard-form div.submit input {
   background: url("img/search.png") !important;
   background-repeat: no-repeat !important;
   background-size: 17px !important;
