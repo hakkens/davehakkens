@@ -42,8 +42,7 @@ function register_project_post_type(){
   ));
 
 }
-
-function register_challenge_post_type() {
+/*function register_challenge_post_type() {
 
   register_post_type( 'challenges', array(
 
@@ -70,7 +69,7 @@ function register_challenge_post_type() {
   ));
 
 }
-
+*/
 $args = [
   'name' => __( 'Forum sidebar' ),
   'id' => "forum-sidebar",
@@ -216,3 +215,20 @@ function modify_read_more_link() {
     return '<a class="more-link" href="' . get_permalink() . '">keep going..</a>';
 }
 add_filter( 'the_content_more_link', 'modify_read_more_link' );
+
+
+
+//Visual editor without tiny mc
+function bbp_enable_visual_editor( $args = array() ) {
+    $args['tinymce'] = true;
+    $args['quicktags'] = false;
+    return $args;
+}
+add_filter( 'bbp_after_get_the_content_parse_args', 'bbp_enable_visual_editor' );
+
+//Visual editor paste clean text
+function bbp_tinymce_paste_plain_text( $plugins = array() ) {
+    $plugins[] = 'paste';
+    return $plugins;
+}
+add_filter( 'bbp_get_tiny_mce_plugins', 'bbp_tinymce_paste_plain_text' );

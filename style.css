@@ -13,6 +13,20 @@
 @import '//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700';
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
+@font-face{
+    font-family: "medium";
+    src: url('css/font/medium.ttf'),
+    url('medium.eot'); /* IE */
+}
+
+@font-face{
+    font-family: "bold";
+    src: url('css/font/bold.ttf'),
+    url('bold.eot'); /* IE */
+}
+
+
+
 html, body {
   font-family: 'Open Sans', sans-serif;
   height: 100%;
@@ -24,7 +38,7 @@ body {
 
 body.home-page {
   background: #edefed;
-  padding: 40px 0 0 0;
+  padding: 100px 0 0 0;
 }
 
 .no-touch body {
@@ -130,8 +144,9 @@ a:hover {
 .padding-left-10 {
   padding-left: 40px !important;
   color:black;
-  font-family: 'Varela Round', sans-serif;
-  letter-spacing: 0.7px;
+  font-family: 'bold', sans-serif;
+  letter-spacing: 3.7px;
+  text-transform: uppercase;
 }
 
 .padding-left-20 {
@@ -157,8 +172,9 @@ a:hover {
   width: 100%;
   text-transform: lowercase;
   margin-top: 65px;
-  margin-left: 50px;
-  position: fixed;
+  margin-left: 26px;
+
+  /*position: fixed;*/
 }
 
 #topbar #breadcrumbs {
@@ -260,7 +276,7 @@ a:hover {
 }
 
 #navbar #logo {
-  margin: 15px 15px auto;
+  margin: 0px 20px auto;
   width: 157px;
   height: auto;
 }
@@ -474,6 +490,7 @@ a:hover {
 #navbar .social {
   bottom: 20px;
   position: fixed;
+  display:none;
 }
 
 #mobile-menu .social img,
@@ -736,7 +753,8 @@ background-image: none,url(images/dave_community-logo.svg)!important;
 #post-filter li a {
   color: #424242;
   display: block;
-  padding: 4px 15px;
+  padding: 6px 10px;
+  margin-left: 18px;
   text-decoration: none;
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -766,6 +784,7 @@ background-image: none,url(images/dave_community-logo.svg)!important;
 #post-grid {
   margin: 0 auto 40px auto;
   width: 90%;
+  max-width: 1300px;
 }
 
 #post-grid .item {
@@ -936,28 +955,30 @@ video {
   top: 37%;
   text-align: center;
   width: 100%;
-  font-family: 'Varela Round', sans-serif;
-  letter-spacing: 4px;
+  font-family: 'medium', sans-serif;
+  letter-spacing: 13px;
 }
 
 .page-template-projects #content .project .caption h2 {
-  font-size: 72px;
+  font-size: 97px;
   color: #fff;
   font-weight: 700;
   margin: 0;
   padding: 0;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.45);
+  /* text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.45); */
+  font-family: 'bold', sans-serif;
+  text-transform: uppercase;
   margin-top: -10px;
 }
 
 .page-template-projects #content .project .caption p {
   color: #fff;
-  font-size: 18px;
   margin: 0;
   text-transform: lowercase;
-  font-weight: 600;
   text-align: center;
   text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.6);
+  font-size: 33px;
+  letter-spacing: 1.8px;
 }
 
 .page-template-projects #content .project .btn {
@@ -1281,18 +1302,21 @@ li.bbp-forum-freshness {
   max-width:1200px;
   margin:0 auto;
   overflow: inherit!important;
+  font-family: 'varela round', sans-serif;
 }
 
-
+/*
 .page-forum #bbpress-forums {
   text-align: center;
 }
+*/
 
 input#bbp_search {
   background: #fff !important;
   border-radius: 0px !important;
   border: 0 !important;
   font-size: 12px;
+
 }
 
 input#bbp_search_submit.button {
@@ -1301,7 +1325,8 @@ input#bbp_search_submit.button {
   background-repeat: no-repeat !important;
   background-position: center !important;
   border-radius: 0 !important;
-  height: 37px !important;
+  height: 50px !important;
+  width: 50px!important;
   text-indent: -999999px;
 }
 
@@ -1355,6 +1380,7 @@ input#bbp_search_submit.button {
   float: right;
   overflow: hidden;
   text-align:right;
+  display: none;
 }
 
 .forum-sidebar a {
@@ -1368,7 +1394,6 @@ input#bbp_search_submit.button {
 .alt-forum-sidebar {
   background-color: #9FBCCE;
   color: #555;
-  display: none;
   min-height: 500px;
   width: 100%;
 }
@@ -1377,8 +1402,8 @@ input#bbp_search_submit.button {
   font-weight: 400;
   margin: 30px 0 10px 00px;
   text-align: center;
-  font-size: 38px;
-  font-family: 'Varela Round', sans-serif;
+  font-size: 56px;
+  font-family: 'bold', sans-serif;
   letter-spacing: 0.7px;
 }
 
@@ -1466,10 +1491,13 @@ span.create-a-group > a,
   border-radius: 4px;
   border: 1px solid #ccc;
   display: inline-block;
-  padding: 10px;
-  top: -1px;
+  padding: 15px;
+  font-size: 18px;
+  top: 2px;
   position: relative;
-  width: 250px !important;
+  width: 40% !important;
+  box-sizing: border-box;
+  height: 50px;
 }
 
 body.bbp-search.forum-search.bbpress {
@@ -1818,6 +1846,7 @@ input#qt_bbp_topic_content_ul {
 
 .alt-forum-sidebar .widget_display_search {
   margin-left: 33%;
+  display: none;
 }
 
 li.widget a:hover {
@@ -1837,9 +1866,10 @@ li.widget {
 li.widget h2.widgettitle {
   color: #fff;
   font-weight: 300;
-  font-size: 17px;
-  font-family: 'Varela Round', sans-serif;
-  letter-spacing: 0.7px;
+  font-size: 16px;
+  font-family: 'bold', sans-serif;
+  letter-spacing: 3.7px;
+  text-transform: uppercase;
 }
 
 li.widget .bbp-reply-topic-title,
@@ -1901,6 +1931,11 @@ span.page-numbers.current{
 #bbpress-forums ul.bbp-search-results {
   border: none !important;
   padding-bottom: 100px !important;
+  padding-top: 100px;
+}
+
+#bbpress-forums #bbp-search-form {
+    text-align: center!important;
 }
 
 .bbp-topic-form {
@@ -2050,6 +2085,12 @@ code {
   padding: 10px 20px 10px 10px;
   width: 400px;
 }
+
+form#loginform {
+    background-color: inherit!important;
+    box-shadow: inherit!important;
+}
+
 
 #loginform p {
   margin-bottom: 10px;
@@ -2861,7 +2902,7 @@ table.profile-fields {
 }
 
 .post-content {
-  margin-top: 20px !important;
+  margin-top: 60px !important;
 }
 
 .buddypress .post-content {
@@ -2891,17 +2932,55 @@ table.profile-fields {
 .register-section input{
   background-color: white !important;
   border: 0px !important;
+  padding: 18px!important;
+  box-sizing: border-box;
 }
 
 .register-section select{
   background-color: white !important;
   border: 0px !important;
+  height: 40px;
+}
+
+#buddypress .standard-form label {
+    margin: 27px 2px 7px;
+    color: grey;
+    letter-spacing: 0.7px;
+}
+
+
+.register h1 {
+  color: transparent;
+  background: url(https://davehakkens.nl/wp-content/themes/Dave%20Github/img/joinourarmy.png) center no-repeat;
+  background-size: 100%;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 100px;
+  margin-bottom: -50px;
+}
+
+select#field_42 {
+  width: 100%;
+}
+
+select#field_8_day {
+  width: 25%;
+}
+
+select#field_8_month {
+  width: 48%;
+}
+
+select#field_8_year {
+  width: 25%;
 }
 
 #signup_form {
-  max-width: 600px;
+  max-width: 400px;
   margin: 0 auto 80px auto;
   padding: 30px;
+  font-family: 'medium';
 }
 
 #signup_form .submit,
@@ -3317,6 +3396,20 @@ html.touch #content.projects-page {
 
 .div#mceu_13, div#mceu_8, div#mceu_7, div#mceu_6, div#mceu_5, div#mceu_4, div#mceu_13 {
   display:none;
+}
+
+body#tinymce {
+    font-family: 'varela round';
+    font-size: 15px;
+}
+
+input#bbp_topic_title {
+    width: 100%;
+    padding: 30px 10px 30px 10px;
+    height: 40px;
+    font-size: 20px;
+    box-sizing: border-box;
+    border: 0px;
 }
 
 .mce-toolbar .mce-btn-group .mce-btn, .qt-dfw{

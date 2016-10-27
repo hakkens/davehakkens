@@ -6,6 +6,7 @@
   <div class="meta">
 
     <h1><?php the_title(); ?></h1>
+    <?php get_cat_name( $cat_id ) ?>
 
 
     <?php if( isset( $post_meta['subtitle'][0] ) ): ?>

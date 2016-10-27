@@ -1,5 +1,6 @@
 <div id="buddypress">
 
+
   <?php
 
   /**
@@ -46,7 +47,7 @@
       /** This action is documented in bp-templates/bp-legacy/buddypress/activity/index.php */
       do_action( 'template_notices' ); ?>
 
-      <p><?php _e( 'Registering for this site is easy. Just fill in the fields below, and we\'ll get a new account set up for you in no time.', 'buddypress' ); ?></p>
+      <p><?php _e( '', 'buddypress' ); ?></p>
 
       <?php
 
@@ -61,7 +62,7 @@
 
         <?php /***** Basic Account Details ******/ ?>
 
-        <h4><?php _e( 'Account Details', 'buddypress' ); ?></h4>
+        <h4><?php _e( '', 'buddypress' ); ?></h4>
 
         <label for="signup_username"><?php _e( 'Username', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
         <?php
@@ -74,7 +75,7 @@
         do_action( 'bp_signup_username_errors' ); ?>
         <input type="text" name="signup_username" id="signup_username" value="<?php bp_signup_username_value(); ?>" <?php bp_form_field_attributes( 'username' ); ?>/>
 
-        <label for="signup_email"><?php _e( 'Email Address', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
+        <label for="signup_email"><?php _e( 'Email', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
         <?php
 
         /**
@@ -85,7 +86,7 @@
         do_action( 'bp_signup_email_errors' ); ?>
         <input type="email" name="signup_email" id="signup_email" value="<?php bp_signup_email_value(); ?>" <?php bp_form_field_attributes( 'email' ); ?>/>
 
-        <label for="signup_password"><?php _e( 'Choose a Password', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
+        <label for="signup_password"><?php _e( 'Pick a Password', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
         <?php
 
         /**
@@ -97,7 +98,7 @@
         <input type="password" name="signup_password" id="signup_password" value="" class="password-entry" <?php bp_form_field_attributes( 'password' ); ?>/>
         <div id="pass-strength-result"></div>
 
-        <label for="signup_password_confirm"><?php _e( 'Confirm Password', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
+        <label for="signup_password_confirm"><?php _e( 'Confirm Password, just to be sure..', 'buddypress' ); ?> <?php _e( '(required)', 'buddypress' ); ?></label>
         <?php
 
         /**
@@ -143,7 +144,7 @@
 
         <div class="register-section" id="profile-details-section">
 
-          <h4><?php _e( 'Profile Details', 'buddypress' ); ?></h4>
+          <h4><?php _e( '', 'buddypress' ); ?></h4>
 
           <?php /* Use the profile field loop to render input fields for the 'base' profile field group */ ?>
           <?php if ( bp_is_active( 'xprofile' ) ) : if ( bp_has_profile( array( 'profile_group_id' => 1, 'fetch_field_data' => false ) ) ) : while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
@@ -352,9 +353,9 @@
       do_action( 'bp_before_registration_confirmed' ); ?>
 
       <?php if ( bp_registration_needs_activation() ) : ?>
-        <p><?php _e( 'You have successfully created your account! To begin using this site you will need to activate your account via the email we have just sent to your address. (make sure to check your spam-folder)', 'buddypress' ); ?></p>
+        <p><?php _e( 'YEAH you have created your account! Welcome to the club. One more thing to do,  activate your account with the email we have just sent to your address. (make sure to check your spam-folder)', 'buddypress' ); ?></p>
       <?php else : ?>
-        <p><?php _e( 'You have successfully created your account! Please log in using the username and password you have just created.', 'buddypress' ); ?></p>
+        <p><?php _e( 'YEAH you have created your account! Go and login using the username and password you have just created.', 'buddypress' ); ?></p>
       <?php endif; ?>
 
       <?php

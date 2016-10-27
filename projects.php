@@ -19,8 +19,8 @@ get_template_part( 'navbar' );
 
     <div id="project-<?php echo strtolower(str_replace(' ', '-', get_the_title())); ?>" class="project section" style="background-image: url('<?php echo wp_get_attachment_url(get_post_thumbnail_id($post->ID)); ?>');">
       <div class="caption">
-        <div><?php the_content(); ?></div>
         <h2><?php the_title(); ?></h2>
+        <div><?php the_content(); ?></div>
         <a href="<?php $project_link = get_post_custom_values( 'project_link' ); echo $project_link[0]; ?>" class="btn" target="_blank">visit the project</a>
       </div>
     </div>
