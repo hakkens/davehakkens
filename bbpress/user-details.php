@@ -12,6 +12,8 @@
   <?php do_action( 'bbp_template_before_user_details' ); ?>
 
   <div id="bbp-single-user-details">
+
+
     <div id="bbp-user-avatar">
 
       <span class='vcard'>

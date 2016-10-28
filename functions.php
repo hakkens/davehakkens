@@ -232,3 +232,16 @@ function bbp_tinymce_paste_plain_text( $plugins = array() ) {
     return $plugins;
 }
 add_filter( 'bbp_get_tiny_mce_plugins', 'bbp_tinymce_paste_plain_text' );
+
+
+//set max topic title to 50
+add_filter ('bbp_get_title_max_length','rkk_change_title') ;
+
+Function rkk_change_title ($default) {
+$default=50 ;
+return $default ;
+}
+
+
+//Hide admin bar
+add_filter('show_admin_bar', '__return_false');

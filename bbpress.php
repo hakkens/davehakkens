@@ -3,11 +3,6 @@
   get_template_part( 'navbar' );
 ?>
 
-<!--
-<div class="forum-sidebar">
-  <?php dynamic_sidebar( 'forum-sidebar' ); ?>
-</div>
--->
 
 <div id="content" class="page-forum <?= str_replace( ' ', '-', strtolower( bbp_get_forum_title() ) ); ?>">
 

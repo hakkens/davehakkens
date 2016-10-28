@@ -40,17 +40,28 @@ do_action( 'bp_before_members_loop' ); ?>
   <?php while ( bp_members() ) : bp_the_member(); ?>
 
     <li <?php bp_member_class(); ?>>
-      <div class="item-avatar">
-        <a href="<?php bp_member_permalink(); ?>profile/"><?php bp_member_avatar(array('width' => 500, 'height' => 500)); ?></a>
-      </div>
+
+
+<a style="display:block" href="<?php bp_member_permalink(); ?>">
+<div class="membercard">
+
+    <div id="expertise">
+  <div id="expertiseinfo"> <?php echo bp_member_profile_data('field=Your expertise'); ?></div></div></a>
+
+<div class="item-avatar">
+<a href="<?php bp_member_permalink(); ?>"><?php bp_member_avatar('type=full&width=180&height=180'); ?></a>
+</div>
+
 
       <div class="item">
         <div class="inner">
         <div class="item-title">
           <a href="<?php bp_member_permalink(); ?>profile/"><?php bp_member_name(); ?></a>
-        </div>
+          <div class="member-location"> <?php echo bp_member_profile_data('field=Location'); ?></div>
 
-        <div class="item-meta"><span class="activity"><?php bp_member_last_active(); ?></span></div>
+        </div></div>
+
+
 
         <?php
 

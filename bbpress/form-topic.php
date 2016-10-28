@@ -40,7 +40,7 @@
             if ( bbp_is_topic_edit() )
               printf( __( 'Now Editing &ldquo;%s&rdquo;', 'bbpress' ), bbp_get_topic_title() );
             else
-              bbp_is_single_forum() ? printf( __( 'Create New Topic in &ldquo;%s&rdquo;', 'bbpress' ), bbp_get_forum_title() ) : _e( 'Create New Topic', 'bbpress' );
+              bbp_is_single_forum() ? printf( __( 'Start a new topic in &ldquo;%s&rdquo;', 'bbpress' ), bbp_get_forum_title() ) : _e( 'Create New Topic', 'bbpress' );
           ?>
 
         </legend>
@@ -64,7 +64,7 @@
           <?php do_action( 'bbp_theme_before_topic_form_title' ); ?>
 
           <p>
-            <label for="bbp_topic_title"><?php printf( __( 'Topic Title (Maximum Length: %d):', 'bbpress' ), bbp_get_title_max_length() ); ?></label><br />
+            <label for="bbp_topic_title"><?php printf( __( 'Topic Title (no more then %d letters)', 'bbpress' ), bbp_get_title_max_length() ); ?></label><br />
             <input type="text" id="bbp_topic_title" value="<?php bbp_form_topic_title(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_title" maxlength="<?php bbp_title_max_length(); ?>" />
           </p>
 

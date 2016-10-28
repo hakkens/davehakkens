@@ -10,5 +10,5 @@
 ?>
 
 <div class="bbp-template-notice">
-  <p><?php _e( 'Oh dear! </br> there is nothing hear 👽 ', 'bbpress' ); ?></p>
+  <p><?php _e( 'Oh dear! </br> there is nothing here 👽 ', 'bbpress' ); ?></p>
 </div>

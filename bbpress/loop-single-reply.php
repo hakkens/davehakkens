@@ -14,6 +14,9 @@
 
   <div class="author">
 
+
+
+
     <?php
 
     do_action( 'bbp_theme_before_reply_author_details' );
@@ -34,13 +37,14 @@
     <div class="replyheader">
 
       <div class="smallusername">
+        <a href="<?php bp_member_permalink();?>">
         <?php
           $user = get_userdata( bbp_get_reply_author_id() );
           if ( !empty( $user->user_nicename ) ) {
             $user_nicename = $user->user_nicename;
             echo "".$user_nicename;
           }
-        ?>
+        ?></a>
       </div>
 
       <div class="smallrank">
