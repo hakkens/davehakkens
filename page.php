@@ -25,7 +25,6 @@
       <?php $thumbnail_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>
 
       <div style="background-image: url('<?php echo $thumbnail_url; ?>');" class="thumbnail">
-        <div class="shadow"></div>
         <div class="meta">
 
           <h1><?php the_title(); ?></h1>

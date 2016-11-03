@@ -1,3 +1,20 @@
+
+<div id="topbar">
+  <?php
+
+    if( function_exists( 'yoast_breadcrumb' ) ) {
+
+      $breadcrumbs = yoast_breadcrumb( '<p id="breadcrumbs">', '</p>', false );
+      $breadcrumbs = str_replace( PHP_EOL, '', $breadcrumbs );
+      $breadcrumbs = str_replace( '<a href="' . get_bloginfo( 'home' ) . '" rel="v:url" property="v:title">Home</a>', '<a href="' . get_bloginfo( 'home' ) . '/community/forums/" rel="v:url" property="v:title">Forums</a>', $breadcrumbs );
+      $breadcrumbs = str_replace( '<span typeof="v:Breadcrumb"><a href="' . get_bloginfo( 'home' ) . '/community/forums/" rel="v:url" property="v:title">Forums</a>  <span rel="v:child" typeof="v:Breadcrumb"><a href="' . get_bloginfo( 'home' ) . '/community/forums/" rel="v:url" property="v:title">Forums</a>', '<span typeof="v:Breadcrumb"><a href="' . get_bloginfo( 'home' ) . '/community/forums/" rel="v:url" property="v:title">Forums</a>', $breadcrumbs );
+      $breadcrumbs = str_replace( '<span class="breadcrumb_last">Forums</span>', '', $breadcrumbs );
+
+      echo $breadcrumbs;
+    }
+
+  ?>
+</div>
 <?php
 
 /**
@@ -30,7 +47,7 @@ do_action( 'bp_before_directory_members_page' ); ?>
 
 
   <?php
-  echo do_shortcode('[bps_display form=72769]');
+  echo do_shortcode('[bps_display form=72873]');
   /**
    * Fires before the display of the members list tabs.
    *

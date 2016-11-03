@@ -7,7 +7,11 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 
   <?php while ( bp_profile_groups() ) : bp_the_profile_group(); ?>
 
+
+
+
     <?php if ( bp_profile_group_has_fields() ) : ?>
+
 
       <?php
 
@@ -20,15 +24,16 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 
         <table class="profile-fields">
 
+
           <?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
 
             <?php if ( bp_field_has_data() ) : ?>
 
-              <tr<?php bp_field_css_class(); ?>>
+              <tr>
 
-                <td class="label"><?php bp_the_profile_field_name(); ?></td>
+                <div <?php bp_field_css_class(); ?>><?php bp_the_profile_field_name(); ?></div>
 
-                <td class="data"><?php bp_the_profile_field_value(); ?></td>
+                <div class="data"><?php bp_the_profile_field_value(); ?></div>
 
               </tr>
 
@@ -42,6 +47,7 @@ do_action( 'bp_before_profile_loop_content' ); ?>
              * @since BuddyPress (1.1.0)
              */
             do_action( 'bp_profile_field_item' ); ?>
+
 
           <?php endwhile; ?>
 
@@ -63,7 +69,7 @@ do_action( 'bp_before_profile_loop_content' ); ?>
   do_action( 'bp_profile_field_buttons' ); ?>
 
 <?php endif; ?>
-
+<div class="dedication">Dedication</div>
 <?php
 
 /** This action is documented in bp-templates/bp-legacy/buddypress/members/single/profile/profile-wp.php */

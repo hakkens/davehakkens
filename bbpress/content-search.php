@@ -21,7 +21,7 @@
       <input tabindex="<?php bbp_tab_index(); ?>" class="button" type="submit" id="bbp_search_submit" value="<?php esc_attr_e( 'Search', 'bbpress' ); ?>" />
     </div>
   </form>
-  
+
   <?php bbp_set_query_name( bbp_get_search_rewrite_id() ); ?>
 
   <?php do_action( 'bbp_template_before_search' ); ?>

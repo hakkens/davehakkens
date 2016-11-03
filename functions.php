@@ -183,7 +183,7 @@ function dsgnwrks_qa_make_title_excerpted( $import ) {
 	return $import;
 }
 
-
+/*
 //chnage logo login page
 function my_login_logo() { ?>
     <style type="text/css">
@@ -208,6 +208,8 @@ function my_login_logo_url_title() {
     return 'Your Site Name and Info';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
+
+*/
 
 
 //change more.. on homepage
@@ -245,3 +247,57 @@ return $default ;
 
 //Hide admin bar
 add_filter('show_admin_bar', '__return_false');
+
+
+
+//Goto forums after login
+function my_login_redirect( $url, $request, $user ){
+if( $user && is_object( $user ) && is_a( $user, 'WP_User' ) ) {
+if( $user->has_cap( 'administrator' ) ) {
+$url = admin_url();
+} else {
+$url = home_url()/community/forums;
+}
+}
+return $url;
+}
+add_filter('login_redirect', 'my_login_redirect', 10, 3 );
+
+
+//Change name user roles
+add_filter( 'bbp_get_dynamic_roles', 'ntwb_bbpress_custom_role_names' );
+
+function ntwb_bbpress_custom_role_names() {
+	return array(
+
+		// Keymaster
+		bbp_get_keymaster_role() => array(
+			'name'         => 'Team',
+			'capabilities' => bbp_get_caps_for_role( bbp_get_keymaster_role() )
+		),
+
+		// Moderator
+		bbp_get_moderator_role() => array(
+			'name'         => 'Moderator',
+			'capabilities' => bbp_get_caps_for_role( bbp_get_moderator_role() )
+		),
+
+		// Participant
+		bbp_get_participant_role() => array(
+			'name'         => '.',
+			'capabilities' => bbp_get_caps_for_role( bbp_get_participant_role() )
+		),
+
+		// Spectator
+		bbp_get_spectator_role() => array(
+			'name'         => '.',
+			'capabilities' => bbp_get_caps_for_role( bbp_get_spectator_role() )
+		),
+
+		// Blocked
+		bbp_get_blocked_role() => array(
+			'name'         => '.',
+			'capabilities' => bbp_get_caps_for_role( bbp_get_blocked_role() )
+		)
+	);
+}

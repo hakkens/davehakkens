@@ -6,7 +6,13 @@
   <div class="meta">
 
     <h1><?php the_title(); ?></h1>
-    <?php get_cat_name( $cat_id ) ?>
+      <div class="category">
+    <?php
+    $categories = get_the_category();
+
+  if ( ! empty( $categories ) ) {
+      echo esc_html( $categories[0]->name );
+  }?></div>
 
 
     <?php if( isset( $post_meta['subtitle'][0] ) ): ?>

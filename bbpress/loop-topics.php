@@ -9,11 +9,9 @@
 
 ?>
 <script>console.log('loop-topics.php');</script>
-
+<div class="starttopic"><a href="#start"><p>start a topic</p></a></div>
 <?php do_action( 'bbp_template_before_topics_loop' ); ?>
-
 <ul id="bbp-forum-<?php bbp_forum_id(); ?>" class="bbp-topics">
-
   <li class="bbp-header">
 
     <ul class="forum-titles">
@@ -36,7 +34,6 @@
   </li>
 
   <li class="bbp-footer">
-
     <div class="tr">
       <p>
         <span class="td colspan<?php echo ( bbp_is_user_home() && ( bbp_is_favorites() || bbp_is_subscriptions() ) ) ? '5' : '4'; ?>">&nbsp;</span>
@@ -48,3 +45,4 @@
 </ul><!-- #bbp-forum-<?php bbp_forum_id(); ?> -->
 
 <?php do_action( 'bbp_template_after_topics_loop' ); ?>
+<a name="start"></a>

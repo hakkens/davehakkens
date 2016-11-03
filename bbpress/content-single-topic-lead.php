@@ -11,18 +11,17 @@
 <div class="topic-lead">
   <div class="author">
 
-    <?php do_action( 'bbp_theme_before_topic_author_details' ); ?>
-    <a href="<?php bp_member_permalink();?>">
+    <?php bbp_topic_author_link( array( 'sep' => '', 'show_role' => false ) ); ?>
+    <?php do_action( 'bbp_theme_after_topic_author_details' ); ?>
+
     <?php
       $user = get_userdata( bbp_get_reply_author_id() );
       if ( !empty( $user->user_nicename ) ) {
         $user_nicename = $user->user_nicename;
         echo "".$user_nicename;
       }
-    ?></a>
-    
-    <?php bbp_topic_author_link( array( 'sep' => '', 'show_role' => false ) ); ?>
-    <?php do_action( 'bbp_theme_after_topic_author_details' ); ?>
+    ?>
+
 
   </div>
 

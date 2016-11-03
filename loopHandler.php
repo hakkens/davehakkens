@@ -127,7 +127,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
         <?php the_post_thumbnail('small'); ?>
       </a>
         <div class="shadow"></div>
-      <?php the_content(); ?>
+      <?php the_title(); ?>
     <?php endif; ?>
 
     <?php

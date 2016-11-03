@@ -14,16 +14,13 @@
 
   <div class="author">
 
-
-
-
     <?php
 
     do_action( 'bbp_theme_before_reply_author_details' );
 
     $args = [
       'sep' => '',
-      'show_role' => false,
+      'show_role' => true,
       'type' => 'avatar'
     ];
 
@@ -37,14 +34,17 @@
     <div class="replyheader">
 
       <div class="smallusername">
-        <a href="<?php bp_member_permalink();?>">
+
         <?php
           $user = get_userdata( bbp_get_reply_author_id() );
           if ( !empty( $user->user_nicename ) ) {
             $user_nicename = $user->user_nicename;
             echo "".$user_nicename;
           }
-        ?></a>
+        ?>
+
+<div id="country"> <?php echo bp_get_member_profile_data(array('field'=>'country', 'user_id' => bbp_get_reply_author_id())); ?></div>
+
       </div>
 
       <div class="smallrank">
@@ -62,15 +62,12 @@
         ?>
       </div>
 
+
       <div class="reply-date">
         <?php bbp_reply_post_date(); ?>
       </div>
 
-      <?php
-        do_action( 'bbp_theme_before_reply_admin_links' );
-        bbp_reply_admin_links();
-        do_action( 'bbp_theme_after_reply_admin_links' );
-      ?>
+
 
     </div>
 
@@ -97,6 +94,13 @@
       do_action( 'bbp_theme_after_reply_content' );
 
     ?>
+
+    <?php
+      do_action( 'bbp_theme_before_reply_admin_links' );
+      bbp_reply_admin_links();
+      do_action( 'bbp_theme_after_reply_admin_links' );
+    ?>
+
 
     <a href="#toggle-replies">Toggle replies</a>
 

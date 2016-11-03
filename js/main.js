@@ -77,14 +77,7 @@ DaveHakkens.Main = function(){
       communityMenu.removeClass('shown')
     })
 
-    if (!$('body').hasClass('no-touch')){
-      $('.buddypress #content .post, .bbpress #content .post').bind('mousewheel', function(event) {
-        event.preventDefault();
-        var scrollTop = this.scrollTop;
-        this.scrollTop = (scrollTop + ((event.deltaY * event.deltaFactor) * -1));
-        //console.log(event.deltaY, event.deltaFactor, event.originalEvent.deltaMode, event.originalEvent.wheelDelta);
-      });
-    }
+
 
     $('.bbpress #content a').each(function(){
 
@@ -342,22 +335,6 @@ jQuery(document).ready(function(){
 
   var $ = jQuery;
   DaveHakkens.Main.init();
-
-  var searchFieldPrefix = $('#bps_shortcode72769')
-
-  searchFieldPrefix.find('#field_42').prepend($('<option>', {
-    text: 'Location',
-    selected: true,
-    disabled: true
-  }))
-
-  searchFieldPrefix.find('#field_1055').prepend($('<option>', {
-    text: 'Expertise',
-    selected: true,
-    disabled: true
-  }))
-
-  searchFieldPrefix.find('#field_any').attr('placeholder', 'Search...')
 
   $( '.list-replies li' ).each( function( reply ) {
 

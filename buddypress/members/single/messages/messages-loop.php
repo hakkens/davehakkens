@@ -62,7 +62,7 @@ do_action( 'bp_before_member_messages_loop' ); ?>
           do_action( 'bp_messages_inbox_list_header' ); ?>
 
           <?php if ( bp_is_active( 'messages', 'star' ) ) : ?>
-            <th scope="col" class="thread-star"><span class="message-action-star"><span class="icon"></span> <span class="screen-reader-text"><?php _e( 'Star', 'buddypress' ); ?></span></span></th>
+            <th scope="col" class="thread-star"><span class="message-action-star"><span class="icon"></span> <span class="screen-reader-text"><?php _e( '', 'buddypress' ); ?></span></span></th>
           <?php endif; ?>
 
           <th scope="col" class="thread-options"><?php _e( 'Actions', 'buddypress' ); ?></th>
@@ -81,7 +81,7 @@ do_action( 'bp_before_member_messages_loop' ); ?>
             <?php if ( 'sentbox' != bp_current_action() ) : ?>
               <td class="thread-from">
                 <?php bp_message_thread_avatar( array( 'width' => 25, 'height' => 25 ) ); ?>
-                <span class="from"><?php _e( 'From:', 'buddypress' ); ?></span> <?php bp_message_thread_from(); ?>
+                <span class="from"><?php _e( '', 'buddypress' ); ?></span> <?php bp_message_thread_from(); ?>
                 <?php bp_message_thread_total_and_unread_count(); ?>
                 <span class="activity"><?php bp_message_thread_last_post_date(); ?></span>
               </td>
@@ -123,7 +123,6 @@ do_action( 'bp_before_member_messages_loop' ); ?>
               <?php else : ?>
                 <a class="unread" href="<?php bp_the_message_thread_mark_unread_url();?>"><?php _e( 'Unread', 'buddypress' ); ?></a>
               <?php endif; ?>
-               |
               <a class="delete" href="<?php bp_message_thread_delete_link(); ?>"><?php _e( 'Delete', 'buddypress' ); ?></a>
             </td>
           </tr>
@@ -162,7 +161,7 @@ do_action( 'bp_before_member_messages_loop' ); ?>
 <?php else: ?>
 
   <div id="message" class="info">
-    <p><?php _e( 'Sorry, no messages were found.', 'buddypress' ); ?></p>
+    <p><?php _e( 'Sorry mate, no messages here yet.', 'buddypress' ); ?></p>
   </div>
 
 <?php endif;?>

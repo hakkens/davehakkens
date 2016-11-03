@@ -5,8 +5,8 @@
         <th class="icon"></th>
         <th class="bulk-select-all"><label class="bp-screen-reader-text" for="select-all-notifications"><?php _e( 'Select all', 'buddypress' ); ?></label><input id="select-all-notifications" type="checkbox"></th>
         <th class="title"><?php _e( 'Notification', 'buddypress' ); ?></th>
-        <th class="date"><?php _e( 'Date Received', 'buddypress' ); ?></th>
-        <th class="actions"><?php _e( 'Actions',    'buddypress' ); ?></th>
+        <th class="date"><?php _e( 'Date ', 'buddypress' ); ?></th>
+        <th class="actions"><?php _e( 'Check',    'buddypress' ); ?></th>
       </tr>
     </thead>
 

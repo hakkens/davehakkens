@@ -22,7 +22,11 @@ if ( bp_has_profile( 'profile_group_id=' . bp_get_current_profile_group_id() ) )
     <?php if ( bp_profile_has_multiple_groups() ) : ?>
       <ul class="button-nav">
 
+      
+
         <?php bp_profile_group_tabs(); ?>
+
+
 
       </ul>
     <?php endif ;?>

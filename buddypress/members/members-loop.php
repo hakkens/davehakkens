@@ -46,7 +46,8 @@ do_action( 'bp_before_members_loop' ); ?>
 <div class="membercard">
 
     <div id="expertise">
-  <div id="expertiseinfo"> <?php echo bp_member_profile_data('field=Your expertise'); ?></div></div></a>
+
+  <div id="expertiseinfo"><img src="https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/expertise.png" alt="" /> <?php echo bp_member_profile_data('field=Your love'); ?></div></div></a>
 
 <div class="item-avatar">
 <a href="<?php bp_member_permalink(); ?>"><?php bp_member_avatar('type=full&width=180&height=180'); ?></a>
@@ -58,6 +59,7 @@ do_action( 'bp_before_members_loop' ); ?>
         <div class="item-title">
           <a href="<?php bp_member_permalink(); ?>profile/"><?php bp_member_name(); ?></a>
           <div class="member-location"> <?php echo bp_member_profile_data('field=Location'); ?></div>
+
 
         </div></div>
 
