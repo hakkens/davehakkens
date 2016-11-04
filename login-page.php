@@ -15,16 +15,16 @@ get_template_part( 'navbar' );
 
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-      <h1><?php the_title(); ?></h1>
 
       <div class="post-content">
+         <div class="loginamigo"><h1>hello amigo<h1></div>
 
         <?php if( $_GET['action'] == 'reset_success' ): ?>
-          <p>Password successfully reset. In a few moments you will receive a new password by email.</p>
+          <p> Hooray, password is reset. It should takes just a few moments before you get a new password in your mail</p>
         <?php endif; ?>
 
         <?php if( $_GET['action'] == 'no_valid_key' ): ?>
-          <p>Unable to reset your password. The key provided is invalid, probably because it's been used before.</p>
+          <p>Oh gosh. We're unable to reset your password. The key is invalid, probably because it's been used before.</p>
         <?php endif; ?>
 
         <?php the_content(); ?>

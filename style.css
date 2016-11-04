@@ -588,27 +588,10 @@ a:hover {
 #content {
   min-height:100%;
 	position:relative;
-  padding-bottom: 500px;
 }
-
-/* remove scroll
-.buddypress #content,
-.bbpress #content {
-  overflow: hidden;
-}
-*/
 
 .bbpress.single.single-topic {
   background-color: #EDEFED;
-}
-
-.buddypress #content .post,
-.bbpress #content .post {
-/* remove scroll
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  */
 }
 
 .page .post .commentlist,
@@ -701,15 +684,6 @@ a:hover {
 }
 
 
-
-
-.login h1 a{
-background-image: none,url(images/dave_community-logo.svg)!important;
-}
-
-
-
-.page.page-template-login-page h1,
 .page.page-template-blank-page h1 {
   position: absolute;
   left: -999px;
@@ -1184,6 +1158,36 @@ div#post-mention {
   width: auto !important;
 }
 
+.activity .item-list-tabs.activity-type-tabs {
+  display: none;
+}
+.activity li#activity-filter-select {
+  float: inherit!important;
+  margin: 0 auto!important;
+  text-align: center;
+  padding: 40px;
+}
+
+.activity select#activity-filter-by {
+  color: #88a7d7;
+}
+
+#gallery-2 img {
+  background-color: #efefef;
+  max-width: 80%;
+  border-radius:100px;
+  border:0px!important;
+}
+
+#gallery-2 .gallery-caption {
+    font-family: medium;
+    padding-bottom: 10px;
+}
+
+
+
+
+
 #buddypress ul.activity-list li {
   background-color: white !important;
 }
@@ -1411,7 +1415,13 @@ input#bbp_search_submit.button {
 }
 
 .bbpress .post.no-headerimage {
+  padding-bottom: 500px;
+  padding-top: 80px;
 }
+.page-template-page-with-sidebar #content {
+    padding-bottom: 500px;
+}
+
 
 .bbp-body .bbp-forum-topic-count,
 .bbp-body .bbp-forum-reply-count,
@@ -1572,6 +1582,9 @@ input[type="checkbox"]:checked {
   background: url(https://davehakkens.nl/wp-content/themes/Dave%20Github/img/checkbox.png) 0px 2px no-repeat!important;
   background-size: 94%!important;
   text-indent: -9999px;
+  border-radius: 3px;
+  background-color: white!important;
+
 }
 input[type="checkbox"]:focus {
     outline: 0 none;
@@ -1585,6 +1598,7 @@ input[type="checkbox"]:focus {
     background-color: #b7efb7!important;
     border-radius: 3px!important;
     text-align: center!important;
+    cursor: pointer;
 }
 
 
@@ -2247,6 +2261,7 @@ code {
   margin: 0 auto;
   padding: 10px 20px 10px 10px;
   width: 400px;
+  font-family: medium;
 }
 
 form#loginform {
@@ -2255,22 +2270,85 @@ form#loginform {
 }
 
 
-#loginform p {
-  margin-bottom: 10px;
+.login input#wp-submit {
+    width: 100%!important;
+    display: inline-block;
+    font-size: 20px!important;
+    margin-top: 10px;
+    background-color: #313131!important;
+}
+
+.login input#wp-submit:hover {
+    background-color: #f59ad8!important;
+}
+
+.loginamigo {
+  background: url(https://davehakkens.nl/wp-content/themes/Dave%20Github/img/helloamigo.png) 40px center no-repeat;
+  background-size: 78%;
+  width: 100%;
+  height: 100px;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  text-indent: -9999px;
+}
+
+.login .centered {
+    text-align: center;
+    color: #f55a5a;
+    font-family: 'medium';
+    font-size: 20px;
 }
 
 #loginform label {
   display: block;
 }
 
-#loginform input[type="text"],
-#loginform input[type="password"] {
-  background: #f1f1f1;
-  border: 1px solid #ddd;
-  border-radius: 2px;
-  padding: 5px;
-  width: 100%;
+form#loginform p {
+  font-size: 16px;
+  font-family: 'medium';
+  margin-bottom: 20px;
+  color: #6b6b6b;
+  letter-spacing: 1px;
 }
+
+
+#loginform input[type="text"]{
+  border: 0px;
+  font-family: 'medium';
+  width: 100%!important;
+  box-sizing: border-box;
+  background-color: #fff !important;
+  background-image: url(img/icon/login.png)!important;
+  background-repeat: no-repeat !important;
+  background-position: left 7px center !important;
+  background-size: 45px 45px !important;
+  font-size: 30px;
+  height: 70px;
+  -webkit-appearance: none;
+  padding: 0px 60px!important;
+  color: black;
+}
+
+ #loginform input[type="password"]{
+   border: 0px;
+   font-family: 'medium';
+   width: 100%!important;
+   box-sizing: border-box;
+   background-color: #fff !important;
+   background-image: url(img/icon/password.png)!important;
+   background-repeat: no-repeat !important;
+   background-position: left 7px center !important;
+   background-size: 45px 45px !important;
+   font-size: 30px;
+   height: 70px;
+   -webkit-appearance: none;
+   padding: 0px 60px!important;
+   color: black;
+ }
+
+
+
 
 .post.login #result {
   width: 400px;
@@ -2306,12 +2384,19 @@ span.create-a-group > a,
 }
 
 .forgot_password {
-  margin-top: 20px;
+  margin-top: 10px;
+  font-size: 13px;
   text-align: center;
 }
 
+.login .forgot_password a {
+  color: #6a90c1!important;
+}
 .forgot_password a {
   color: #999;
+}
+.forgot_password a:hover {
+  text-decoration: underline;
 }
 
 .single-post .post-content iframe {
@@ -2743,6 +2828,20 @@ div#mycred-users-badges {
   margin-top: -26px;
   text-align: right;
   padding: 00px 10px 10px 0px;
+}
+
+.page .post-edit-link {
+  display: inline-block;
+  font-family: medium;
+  font-size: 18px;
+  background-color: yellow;
+  text-align: center;
+  color: black;
+  padding: 40px;
+  width: 100%;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  box-sizing: border-box;
 }
 
 .topic-reply .bbp-reply-revision-log li {
@@ -3595,7 +3694,8 @@ div#expertiseinfo {
 .members #buddypress input[type=submit] {
     font-size: 21px!important;
     letter-spacing: 2.7px;
-    padding: 14px 31px!important;
+    padding: 12px 31px!important;
+    vertical-align: middle;
 }
 
 .bps_header li.last {
@@ -3687,7 +3787,8 @@ form#bps_directory72873 {
 
 .registration,
 .bp-user,
-.members {
+.members,
+.page-template-login-page {
   background: #edefed;
 }
 
@@ -3803,7 +3904,7 @@ select#field_8_day {
 }
 
 select#field_8_month {
-  width: 48%;
+  width: 46%;
 }
 
 select#field_8_year {
@@ -3815,6 +3916,8 @@ select#field_8_year {
   margin: 0 auto 80px auto;
   padding: 30px;
   font-family: 'medium';
+  color: #6b6b6b;
+  letter-spacing: 1px;
 }
 
 #signup_form .submit,

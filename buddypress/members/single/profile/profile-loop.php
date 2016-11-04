@@ -69,7 +69,9 @@ do_action( 'bp_before_profile_loop_content' ); ?>
   do_action( 'bp_profile_field_buttons' ); ?>
 
 <?php endif; ?>
-<div class="dedication">Dedication</div>
+
+
+<div class="dedication"><a href="https://davehakkens.nl/community/dedication/">Dedication</a></div>
 <?php
 
 /** This action is documented in bp-templates/bp-legacy/buddypress/members/single/profile/profile-wp.php */

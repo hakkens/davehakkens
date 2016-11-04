@@ -263,7 +263,7 @@ return $url;
 }
 add_filter('login_redirect', 'my_login_redirect', 10, 3 );
 
-
+/*
 //Change name user roles
 add_filter( 'bbp_get_dynamic_roles', 'ntwb_bbpress_custom_role_names' );
 
@@ -301,7 +301,7 @@ function ntwb_bbpress_custom_role_names() {
 		)
 	);
 }
-
+*/
 //Remove user info
 add_filter('user_contactmethods','hide_profile_fields',10,1);
  function hide_profile_fields( $contactmethods ) {

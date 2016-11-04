@@ -2,7 +2,7 @@
 
 /*
   Template Name: Normal page with sidebar
-  Description: Normal page with sidebar
+  Description: Community page with sidebar
 */
 
 get_header();
@@ -10,11 +10,22 @@ get_template_part( 'navbar' );
 
 ?>
 
+<div id="topbar">
+  <?php
+    if( function_exists( 'yoast_breadcrumb' ) ) {
+      yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+    }
+  ?>
+</div>
+
+
 <div class="forum-sidebar">
   <?php dynamic_sidebar( 'forum-sidebar' ); ?>
 </div>
 
 <div id="content">
+
+<div class="buddypress"><h1><?php the_title(); ?></h1></div>
 
   <div class="post">
 

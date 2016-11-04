@@ -11,8 +11,6 @@
 
 <div id="bbpress-forums">
 
-  <?php bbp_breadcrumb(); ?>
-
   <form role="search" method="get" id="bbp-search-form" action="<?php bbp_search_url(); ?>">
     <div>
       <label class="screen-reader-text hidden" for="bbp_search"><?php _e( 'Search for:', 'bbpress' ); ?></label>
