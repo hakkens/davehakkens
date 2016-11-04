@@ -301,3 +301,14 @@ function ntwb_bbpress_custom_role_names() {
 		)
 	);
 }
+
+//Remove user info
+add_filter('user_contactmethods','hide_profile_fields',10,1);
+ function hide_profile_fields( $contactmethods ) {
+ unset($contactmethods['aim']);
+ unset($contactmethods['jabber']);
+ unset($contactmethods['yim']);
+ return $contactmethods;
+ }
+//Remove color scheme
+ remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );

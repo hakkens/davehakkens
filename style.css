@@ -44,6 +44,7 @@ body.home-page {
 
 .no-touch body {
   box-sizing: border-box;
+  position:relative;
 }
 
 p,
@@ -87,7 +88,8 @@ p.wp-caption-text {
 }
 
 .single-post h1 {
-  font-weight: 200;
+  font-family: medium;
+  font-size: 40px;
   padding: 23px 0px 10px 0px;
 }
 
@@ -584,7 +586,9 @@ a:hover {
 }
 
 #content {
-  height: 100%;
+  min-height:100%;
+	position:relative;
+  padding-bottom: 500px;
 }
 
 /* remove scroll
@@ -1012,8 +1016,9 @@ video {
 }
 
 .page-template-projects #content .project .btn:hover {
-  background: rgba(126, 121, 121, 0.8);
+  background-color: #f59ad8!important;
 }
+
 
 #user-menu {
   position: fixed;
@@ -1205,6 +1210,11 @@ div#post-mention {
   width: 760px;
 }
 
+.activity-header p {
+  font-family: 'medium';
+  font-size: 16px!important;
+}
+
 li#activity-favorites,
 .postid-62269 #new-topic-0 {
   display: none;
@@ -1385,7 +1395,6 @@ input#bbp_search_submit.button {
 .bbp-forum-title {
   font-size: 19px;
   font-weight: 300;
-  letter-spacing: 1.2px;
   font-family: medium;
   text-decoration: none;
   text-transform: none;
@@ -1439,8 +1448,10 @@ input#bbp_search_submit.button {
 .alt-forum-sidebar {
   background-color: #9FBCCE;
   color: #555;
-  min-height: 500px;
+  height: 500px;
   width: 100%;
+  bottom: 0px;
+  position: absolute;
 }
 
 .bbpress h1 {
@@ -1531,9 +1542,51 @@ span.create-a-group > a,
   border: none !important;
 }
 
+.btn input[type="submit"]:hover {
+    background-color: #f59ad8!important;
+}
+
+#buddypress input[type=submit]:hover {
+    background-color: #5f9eef!important;
+}
+
+
 #buddypress .standard-form div.submit{
   text-align:center;
 }
+
+/*checkboxes*/
+input[type="checkbox"] {
+  cursor: pointer;
+  -webkit-appearance: none;
+  background: #FFF!important;
+  border-radius: 3px;
+  box-sizing: border-box!important;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  transition: all .3s linear;
+  vertical-align: middle;
+}
+input[type="checkbox"]:checked {
+  background: url(https://davehakkens.nl/wp-content/themes/Dave%20Github/img/checkbox.png) 0px 2px no-repeat!important;
+  background-size: 94%!important;
+  text-indent: -9999px;
+}
+input[type="checkbox"]:focus {
+    outline: 0 none;
+    box-shadow: none;
+}
+
+#buddypress .standard-form .checkbox label {
+    display: inline-block!important;
+    padding: 4px!important;
+    margin: 4px!important;
+    background-color: #b7efb7!important;
+    border-radius: 3px!important;
+    text-align: center!important;
+}
+
 
 
 #bbpress-forums #bbp-search-form #bbp_search {
@@ -1704,7 +1757,7 @@ ul.bbp-topic-revision-log li {
   float: left;
   margin-right: 10px;
   margin-top: -7px;
-  font-size: 16px;
+  font-size: 18px;
   display: inline;
   font-family: 'medium';
   color: black;
@@ -1839,6 +1892,10 @@ ul.bbp-topic-revision-log li {
   display:none;
 }
 
+.profile .bp-widget.additional-information {
+    display: none;
+}
+
 form#profile-edit-form .button-nav {
     display: none;
 }
@@ -1848,7 +1905,6 @@ form#profile-edit-form .button-nav {
     box-sizing: border-box;
     border: 0px!important;
     background-color: white!important;
-    margin-bottom: 10px;
     font-size: 18px!important;
 }
 
@@ -2596,19 +2652,25 @@ div#mycred-users-badges {
   width: 50px;
 }
 
+
 #buddypress #item-body .item-list-tabs {
   background-color: #eeeeee!important;
   border-radius: 3px;
   font-family: 'medium';
 }
 
+#buddypress #item-body .item-list-tabs a{
+  font-size:14px;
+}
+
+
+
 #buddypress div.item-list-tabs ul {
   text-align: center;
 }
 
 .bp-user #buddypress #item-body div.item-list-tabs ul li {
-  margin: 10px 10px 0 10px;
-  font-size: 12px;
+  margin: 10px 10px 10px 10px;
 }
 
 .bp-user #buddypress #item-body div.item-list-tabs ul li:hover a {
@@ -2751,7 +2813,10 @@ div#mycred-users-badges {
 #buddypress div#item-header div#item-header-content {
   float: none !important;
   font-family: 'medium';
-  font-size: 20px;
+}
+
+div#item-header h2.user-nicename {
+    font-size: 45px;
 }
 
 #buddypress div#item-header img.avatar {
@@ -2837,7 +2902,7 @@ ul.avatar-nav-items {
   font-size: 20px;
   font-weight: 400;
   padding: 20px;
-  padding-left: 70px;
+  padding-left: 100px;
   margin-bottom: 0px;
 }
 
@@ -2871,73 +2936,67 @@ ul.avatar-nav-items {
 
 #buddypress .profile .bp-widget .field_1 {
     background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/name.png")!important;
-    width: 70px;
-    height: 60px;
+    width: 100px;
+    height: 70px;
     float: left;
     text-indent: -9999px;
-    background-position: 12px 14px;
-    background-size: 70%;
+    background-position: 20px 12px;
+    background-size: 55%;
     background-repeat: no-repeat;
-    margin-right: 10px;
 }
 #buddypress .profile .bp-widget .field_8 {
     background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/birthday.png")!important;
-    width: 70px;
-    height: 60px;
+    width: 100px;
+    height: 70px;
     float: left;
     text-indent: -9999px;
-    background-position: 12px 14px;
-    background-size: 70%;
+    background-position: 20px 12px;
+    background-size: 55%;
     background-repeat: no-repeat;
-    margin-right: 10px;
 }
 
 #buddypress .profile .bp-widget .field_42 {
     background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/country.png")!important;
-    width: 70px;
-    height: 60px;
+    width: 100px;
+    height: 70px;
     float: left;
     text-indent: -9999px;
-    background-position: 12px 14px;
-    background-size: 70%;
+    background-position: 20px 12px;
+    background-size: 55%;
     background-repeat: no-repeat;
-    margin-right: 10px;
 }
 
 #buddypress .profile .bp-widget .field_1055 {
     background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/expertise.png")!important;
-    width: 70px;
-    height: 60px;
+    width: 100px;
+    height: 70px;
     float: left;
     text-indent: -9999px;
-    background-position: 12px 14px;
-    background-size: 70%;
+    background-position: 20px 12px;
+    background-size: 55%;
     background-repeat: no-repeat;
-    margin-right: 10px;
 }
 
 #buddypress .profile .bp-widget .field_38 {
     background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/url.png")!important;
-    width: 70px;
-    height: 60px;
+    width: 100px;
+    height: 70px;
     float: left;
     text-indent: -9999px;
-    background-position: 12px 14px;
-    background-size: 70%;
+    background-position: 20px 12px;
+    background-size: 55%;
     background-repeat: no-repeat;
-    margin-right: 10px;
 }
 
 #buddypress .profile .bp-widget .field_667 {
     background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/about.png")!important;
-    width: 70px;
-    height: 60px;
+    width: 100px;
+    height: 70px;
     float: left;
     text-indent: -9999px;
-    background-position: 12px 14px;
-    background-size: 70%;
+    background-position: 20px 12px;
+    background-size: 55%;
     background-repeat: no-repeat;
-    margin-right: 10px;
 }
 
 
@@ -2950,7 +3009,7 @@ ul.avatar-nav-items {
 }
 
 
-#buddypress .editfield.field_1264 select {
+#buddypress .editfield.field_42 select {
     width: 100%!important;
     box-sizing: border-box;
 }
@@ -3089,13 +3148,33 @@ td.notification-actions {
   }
 
 th.thread-checkbox.bulk-select-all {
-  display: none;
+  display: none!important;
 }
 
 .messages.td.bulk-select-check {
   display: none!important;
 }
 
+.notifications th.bulk-select-all {
+  display: none!important;
+}
+
+.messages td.thread-from {
+  min-width: 150px!important;
+}
+
+#buddypress table.messages-notices tr td {
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.messages span.activity {
+  display: none!important;
+}
+
+td.bulk-select-check{
+  display: none!important;
+}
 
 table.notifications {
   font-family: 'medium';
@@ -3119,10 +3198,10 @@ table.notifications {
   width: 100%!important;
   box-sizing: border-box!important;
   border: 0px!important;
-  padding: 10px!important;
+  padding: 18px!important;
   font-family: 'medium'!important;
   color: black!important;
-  font-size: 16px!important;
+  font-size: 18px!important;
   background-color:white!important;
 }
 
@@ -3413,7 +3492,7 @@ div#expertiseinfo {
   text-decoration: none;
   display:inherit;
   font-family: 'medium';
-  font-size: 18px;
+  font-size: 20px;
 }
 
 #buddypress #admins-list li .item-avatar,
@@ -3422,7 +3501,7 @@ div#expertiseinfo {
   width: 50%;
   margin-left: 25%;
   display: inline-block;
-  padding-top: 30px;
+  padding-top: 20px;
 }
 
 #buddypress #admins-list li .item-avatar img,
@@ -3472,6 +3551,79 @@ div#expertiseinfo {
   display: none;
 }
 
+
+/*member searchbar*/
+#buddypress .editfield.field_42 select {
+  width: 100%!important;
+  box-sizing: border-box;
+  background-color: #fff !important;
+  background-image: url(img/icon/country.png), url(img/downarrow.png) !important;
+  background-repeat: no-repeat !important;
+  background-position: left 7px center, right 12px center !important;
+  background-size: 34px, 9px !important;
+  height: 50px!important;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  padding-left: 50px!important;
+}
+
+.members input#field_any {
+    height: 50px!important;
+}
+
+.field_any-field p.description {
+    display: none;
+}
+
+.members .field_any-field {
+    display: inline-block;
+    width: 25%;
+    margin-right: 20px!important;
+}
+.members .field_42 {
+    display: inline-block;
+    width: 20%;
+    margin-right: 20px!important;
+}
+
+.members .field_your-love {
+    width: 35%;
+    display: inline-block;
+}
+
+
+.members #buddypress input[type=submit] {
+    font-size: 21px!important;
+    letter-spacing: 2.7px;
+    padding: 14px 31px!important;
+}
+
+.bps_header li.last {
+    float: inherit!important;
+    text-align: center;
+    margin-bottom: 15px!important;
+}
+
+#bps_directory72873 .submit {
+    text-align: right;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+#bps_directory72873 input[type="submit"] {
+    background-color: #ffb1b1!important;
+}
+
+form#bps_directory72873 {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+#bps_directory72873 label, span.label {
+    font-family: 'medium';
+}
+
+
 #buddypress ul.item-list {
   border-top: none !important;
 }
@@ -3493,6 +3645,7 @@ div#expertiseinfo {
     opacity: 1;
     border-radius: 5px;
     color: grey;
+    font-size: 16px!important;
 }
 
 #buddypress div.item-list-tabs ul li a:hover,
@@ -3545,10 +3698,6 @@ div#expertiseinfo {
 #members-dir-search {
   float: left !important;
   font-size:13px;
-}
-
-#buddypress div.item-list-tabs#subnav {
-  padding-bottom: 10px;
 }
 
 .bbp-forum-title img {
@@ -3613,6 +3762,7 @@ div#expertiseinfo {
   border: 0px !important;
   padding: 18px!important;
   box-sizing: border-box;
+  font-size: 18px!important;
 }
 
 .register-section select{
@@ -3684,7 +3834,7 @@ select#field_8_year {
 #buddypress .standard-form input[type=password],
 #buddypress .standard-form input[type=email] {
   color: #333 !important;
-  width: 98% !important;
+  width: 100% !important;
 }
 
 #buddypress .standard-form div.radio div label {
@@ -3791,11 +3941,14 @@ input#field_any {
   box-sizing: border-box;
   background: #fff !important;
   border: none !important;
+  vertical-align: middle;
 }
 
 select#field_42,
 select#field_1055 {
-  padding-left: 35px !important;
+  padding-left: 44px !important;
+  font-size: 16px!important;
+  color: black!important;
 }
 
 input#field_any {
@@ -3804,10 +3957,15 @@ input#field_any {
 
 select#field_42 {
   background-color: #fff !important;
-  background-image: url('img/location.png'), url('img/downarrow.png') !important;
+  background-image: url(img/icon/country.png), url(img/downarrow.png) !important;
   background-repeat: no-repeat !important;
-  background-position: left 12px center, right 10px center !important;
-  background-size: 13px, 10px !important;
+  background-position: left 7px center, right 12px center !important;
+  background-size: 34px, 9px !important;
+  height: 50px!important;
+}
+
+.register .editfield {
+    margin-bottom: 23px;
 }
 
 select#field_1055 {
