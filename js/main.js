@@ -293,7 +293,7 @@ DaveHakkens.Main = function(){
       type       : "GET",
       data       : {numPosts : numPosts, pageNumber: page, tag: hash, skipPosts: skipPosts},
       dataType   : "html",
-      url        : homeURL + "/wp-content/themes/davehakkens/loopHandler.php",
+      url        : homeURL + "/wp-content/themes/davehakkens2/loopHandler.php",
       beforeSend : function(){
       },
       success    : function(data){

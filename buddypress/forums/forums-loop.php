@@ -79,7 +79,7 @@ do_action( 'bp_before_forums_loop' ); ?>
           </a>
 
           <p class="topic-meta">
-            <span class="topic-by"><?php /* translators: "started by [poster] in [forum]" */ printf( __( 'Started by %1$s', 'buddypress' ), bp_get_the_topic_poster_avatar( 'height=20&width=20') . bp_get_the_topic_poster_name() ); ?></span>
+            <span class="topic-by"><?php /* translators: "started by [poster] in [forum]" */ printf( __( ' %1$s', 'buddypress' ), bp_get_the_topic_poster_avatar( 'height=20&width=20') . bp_get_the_topic_poster_name() ); ?></span>
 
             <?php if ( !bp_is_group_forum() ) : ?>
 

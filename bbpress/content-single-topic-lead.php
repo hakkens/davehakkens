@@ -8,22 +8,28 @@
  */
 
 ?>
+
 <div class="topic-lead">
+  <div class="date"><?php bbp_topic_post_date(); ?></div>
+  <h1><?php the_title(); ?></h1>
   <div class="author">
 
-    <?php bbp_topic_author_link( array( 'sep' => '', 'show_role' => false ) ); ?>
-    <?php do_action( 'bbp_theme_after_topic_author_details' ); ?>
+      <?php bbp_topic_author_link( array( 'sep' => '', 'show_role' => false ) ); ?>
+      <?php do_action( 'bbp_theme_after_topic_author_details' ); ?>
 
-    <?php
-      $user = get_userdata( bbp_get_reply_author_id() );
-      if ( !empty( $user->user_nicename ) ) {
-        $user_nicename = $user->user_nicename;
-        echo "".$user_nicename;
-      }
-    ?>
+      <?php
+        $user = get_userdata( bbp_get_reply_author_id() );
+        if ( !empty( $user->user_nicename ) ) {
+          $user_nicename = $user->user_nicename;
+          echo "".$user_nicename;
+        }
+      ?>
 
 
-  </div>
+    </div>
+
+
+
 
   <div class="content">
     <?php do_action( 'bbp_template_before_lead_topic' ); ?>
@@ -37,5 +43,5 @@
     <?php bbp_topic_admin_links(); ?>
     <?php do_action( 'bbp_theme_after_topic_admin_links' ); ?>
   </div>
-    <div class="date"><?php bbp_topic_post_date(); ?></div>
+
 </div>

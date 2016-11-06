@@ -124,11 +124,19 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      */
     if (get_post_format() == 'status'): ?>
       <a href="<?php echo get_post_permalink(); ?>">
-        <?php the_post_thumbnail('small'); ?>
-      </a>
-        <div class="shadow"></div>
-      <?php the_title(); ?>
-    <?php endif; ?>
+        <div class="status">
+        <div class="status-image">
+          <?php the_post_thumbnail('small'); ?>
+
+        </a><div class="status-text">
+        <?php the_content(); ?>
+        <?php edit_post_link(); ?>
+
+        </div>
+        </div>
+        </div>
+<?php  endif; ?>
+
 
     <?php
     /**
@@ -139,21 +147,24 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
         <?php the_post_thumbnail('medium'); ?>
       </a>
       <div class="shadow"></div>
-      <?php the_content() ?>
+      <h3><a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a></h3>
+      <?php the_content(); ?>
     <?php endif; ?>
 
-    <div class="post_meta">
-      <?php the_time('F j, Y'); ?><br />
-      <?php
-      foreach (get_the_tags() as $tag){
-        echo ' <a href="#' . $tag->name . '">#' . $tag->name . '</a>';
-      }
-      ?>
 
+
+<div class="post_meta">
+      <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
+      <div class="tags"> <?php
+      foreach (get_the_tags() as $tag){
+        echo ' <a href="#' . $tag->name . '">/' . $tag->name . '</a>';
+      }
+      ?></div>
+     <?php edit_post_link(); ?>
 
     </div>
 
-    <?php edit_post_link(); ?>
+
 
   </div>
 

@@ -24,7 +24,7 @@ do_action( 'bp_before_members_loop' ); ?>
   <p class="current-member-type"><?php bp_current_member_type_message() ?></p>
 <?php endif; ?>
 
-<?php if ( bp_has_members( bp_ajax_querystring( 'members' ) ) ) : ?>
+<?php if ( bp_has_members( bp_ajax_querystring( 'members' ).'&per_page=40' ) ) : ?>
 
   <?php
 
@@ -47,7 +47,7 @@ do_action( 'bp_before_members_loop' ); ?>
 
     <div id="expertise">
 
-  <div id="expertiseinfo"><img src="https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/expertise.png" alt="" /> <?php echo bp_member_profile_data('field=Your love'); ?></div></div></a>
+  <div id="expertiseinfo"><img src="https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/expertise.png" alt="" /> <?php echo bp_member_profile_data('field=Your love'); ?></div></div></a>
 
 <div class="item-avatar">
 <a href="<?php bp_member_permalink(); ?>"><?php bp_member_avatar('type=full&width=180&height=180'); ?></a>

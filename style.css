@@ -1,5 +1,5 @@
 /*
-  Theme Name: Dave Hakkens Github
+  Theme Name: Dave Hakkens 2.0
   Theme URI: https://davehakkens.nl
   Author: Dave Hakkens
   Author URI: https://davehakkens.nl
@@ -52,7 +52,7 @@ p,
 .content li {
   margin: 0 0 30px 0;
   line-height: 1.9;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
   text-align: left;
   font-size: 17px;
   color: #313131;
@@ -89,9 +89,15 @@ p.wp-caption-text {
 
 .single-post h1 {
   font-family: medium;
-  font-size: 40px;
-  padding: 23px 0px 10px 0px;
+  font-size: 80px;
+  padding: 50px 0px 0px 0px;
+  text-align:center;
 }
+
+.single-format-image {
+  padding-top: 30px;
+}
+
 
 .single-post h2 {
   font-weight: 200;
@@ -215,8 +221,9 @@ a:hover {
 #topbar #breadcrumbs .breadcrumb_last {
   font-size: 14px;
   font-family: 'medium';
-  letter-spacing: 1.1px;
+  letter-spacing: 1px;
   padding-left: 0px!important;
+  color: #6A90C1;
 }
 
 #navbar {
@@ -678,10 +685,72 @@ a:hover {
   width: 100%;
 }
 
+.relatedposts li {
+    width: 24%;
+    display: inline-block;
+}
+
+.relatedposts {
+    width: 100%;
+    padding: 10px;
+    padding-top: 40px;
+}
+
+.relatedposts ul {
+  list-style: none!important;
+  padding: 0px;
+}
+
+.relatedthumb {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.relatedthumb a img {
+  position: absolute;
+  margin: auto;
+  min-height: 100%;
+  min-width: auto;
+  max-height: 200px;
+  max-width: inherit!important;
+  height: inherit!important;
+  width: auto;
+  left: -100%;
+  right: -100%;
+  top: -100%;
+  bottom: -100%;
+}
+
+.relatedcontent {
+    display: none;
+}
 
 .single .post .category {
     width: 100%;
     text-align: center;
+}
+.single-post .date {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.categorylabel {
+    margin: 15px;
+    text-align:center!important;
+    margin-top: 80px;
+}
+
+.categorylabel h1 {
+  background-color: #313131;
+  padding: 10px!important;
+  width: auto;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 18px;
+  color: white;
+  display: inline-block;
 }
 
 
@@ -748,19 +817,16 @@ a:hover {
 
 #post-filter li a {
   color: #424242;
-  display: block;
-  padding: 6px 10px;
+  padding: 3px 6px;
   margin-left: 18px;
-  text-decoration: none;
-  font-size: 13px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+  font-size: 16px;
+  letter-spacing: 0.4px;
+  font-family: 'medium';
 }
 
 #post-filter li.active a,
 #post-filter li a:hover {
-  background-color: #313131;
-  color: white;
+  border-bottom: 2px solid rgb(66, 66, 66);
 }
 
 #post-filter li.label {
@@ -780,15 +846,15 @@ a:hover {
 #post-grid {
   margin: 0 auto 40px auto;
   width: 90%;
-  max-width: 1100px;
+  max-width: 1200px;
 }
 
 #post-grid .item {
   background: #fff;
   float: left;
-  width: 31%;
+  width: 44%;
   height: auto;
-  margin: 1%;
+  margin: 2%;
   display: block;
 }
 
@@ -817,7 +883,7 @@ a.read-more {
 }
 
 #post-grid .item a:hover {
-  text-decoration: underline;
+  color: #6A90C1;
 }
 
 #post-grid .item img {
@@ -828,7 +894,7 @@ a.read-more {
 
 #post-grid .item h3 {
   color: #424242;
-  margin: 20px 30px 0 30px;
+  margin: 40px 30px 0 40px;
   font-weight:200;
   font-family: 'medium', sans-serif;
   font-size: 30px;
@@ -836,7 +902,7 @@ a.read-more {
 }
 
 #post-grid .item p {
-  margin: 30px;
+  margin: 40px;
   margin-top: 20px;
   font-size: 14px;
 }
@@ -868,11 +934,11 @@ video {
 #post-grid .post_meta {
   color: #999;
   font-size: 10px;
-  margin: 0 0 30px 30px;
+  margin: 0 0 40px 40px;
 }
 
 #post-grid .post_meta a {
-  color: #999;
+  color: #bbb;
 }
 
 #post-navigation {
@@ -893,30 +959,89 @@ video {
   padding-top: 50px;
 }
 
-#post-grid > .status > .post_meta a {
-  color: #FFFFFF;
+
+
+#post-grid .status {
+    position: relative;
+		padding: 0;
+		text-align: center;
+	}
+
+#post-grid .status-image{
+cursor:pointer;
+		position: relative;
+		display: block;
+	}
+
+#post-grid .status-text{
+	    position: absolute;
+	    top: 0; right: 0;
+	    bottom: 0; left: 0;
+	    text-align: center;
+      font-family:'medium';
+	    background-color: rgba(0, 0, 0, 0.6);
+	    opacity: 0;
+	    -webkit-transition: opacity 0.6s;
+	    -moz-transition: opacity 0.6s;
+	    transition: opacity 0.6s;
+       vertical-align:middle;
+       line-height:200px;
+	}
+
+#post-grid .status-text:hover{
+	    opacity: 1;
+	}
+
+#post-grid .status-text a.post-edit-link {
+    color: white!important;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+  }
+
+#post-grid .status-text p{
+	    color: white;
+	    display: inline-table;
+      font-size: 25px;
+      text-align: center;
+	}
+
+
+#post-grid .status .post_meta {
+    display:none;
 }
 
-#post-grid > .status > .post_meta {
-  color: #FFFFFF;
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  margin: 0 0 0px 30px;
-  text-shadow: 1px 1px 3px grey;
+#post-grid .post_meta .date {
+    font-family: medium;
+    font-size: 17px;
+    display: none;
 }
 
-#post-grid > .status > p {
-  margin: 0px;
+#post-grid .post_meta .date:hover {
+    font-family: medium;
+    font-size: 17px;
+    display: none;
+}
+
+
+#post-grid .post_meta .tags {
+    font-family: medium;
+    font-size: 15px;
+}
+
+#post-grid a.more-link {
+  font-family: medium;
   font-size: 18px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  color: white;
-  margin: 0px 30px 70px 30px;
-  font-family: 'Varela Round', sans-serif;
-  letter-spacing: 0.7px;
+  color: #6A90C1!important;
+  display: block;
+  margin-top: 10px;
 }
+
+#post-grid a.more-link:hover {
+    text-decoration:underline;
+}
+
+
 
 .single-post .meta p {
   text-align: center;
@@ -925,16 +1050,9 @@ video {
   color: white;
 }
 
-.status div.shadow {
-  background: url( 'img/cover-shadow.png' ) bottom left repeat-x;
-  background-size: contain;
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  pointer-events: none;
-  opacity: 0.7;
+.single-post img {
+  margin: 0 auto;
+  display: inherit;
 }
 
 .page-template-projects #content .project {
@@ -1235,16 +1353,13 @@ li#activity-favorites,
 }
 
 .postid-62269 .topic-desc{
-  margin-top: 25px!important;
+  margin-top: 15px!important;
 }
 
 .postid-62269 #bbpress-forums p.bbp-topic-meta{
   display:none
 }
 
-.postid-62269 #bbpress-forums .bbp-attachments-count{
-  display:none;
-}
 
 
 .bbp-forum-freshness,
@@ -1405,6 +1520,7 @@ input#bbp_search_submit.button {
   text-decoration: none;
   text-transform: none;
   white-space: nowrap;
+  letter-spacing: 0.7px;
 }
 
 .bbp-topic-permalink:hover,
@@ -1586,7 +1702,7 @@ input[type="checkbox"] {
   vertical-align: middle;
 }
 input[type="checkbox"]:checked {
-  background: url(https://davehakkens.nl/wp-content/themes/Dave%20Github/img/checkbox.png) 0px 2px no-repeat!important;
+  background: url(https://davehakkens.nl/wp-content/themes/davehakkens2/img/checkbox.png) 0px 2px no-repeat!important;
   background-size: 94%!important;
   text-indent: -9999px;
   border-radius: 3px;
@@ -1649,6 +1765,14 @@ body.bbp-search.forum-search.bbpress {
   padding-bottom:100px;
   max-width: 800px;
 }
+
+.topic-lead .date {
+    text-align: center;
+    padding-bottom: 20px;
+    font-family: 'medium';
+    font-size: 18px;
+}
+
 
 .topic-lead .actions .bbp-admin-links {
   float: right;
@@ -2036,7 +2160,7 @@ li.widget {
 
 li.widget h2.widgettitle {
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'bold', sans-serif;
   letter-spacing: 3.7px;
   text-transform: uppercase;
@@ -2069,10 +2193,18 @@ li.widget .bbp-forum-title{
 }
 
 .bbp-pagination-links {
-    float: inherit!important;
-    display: inline-block!important;
-    font-family: 'bold'!important;
+  float: inherit!important;
+  display: inline-block!important;
+  font-family: 'bold'!important;
 }
+
+.topic-desc a.page-numbers {
+  padding: 1px 5px!important;
+  border-radius: 4px!important;
+  display: none;
+}
+
+
 
 a.page-numbers {
   padding: 10px 20px!important;
@@ -2279,7 +2411,7 @@ form#loginform {
 }
 
 .loginamigo {
-  background: url(https://davehakkens.nl/wp-content/themes/Dave%20Github/img/helloamigo.png) 40px center no-repeat;
+  background: url(https://davehakkens.nl/wp-content/themes/davehakkens2/img/helloamigo.png) 40px center no-repeat;
   background-size: 78%;
   width: 100%;
   height: 100px;
@@ -2314,15 +2446,9 @@ form#loginform p {
   font-family: 'medium';
   width: 100%!important;
   box-sizing: border-box;
-  background-color: #fff !important;
-  background-image: url(img/icon/login.png)!important;
-  background-repeat: no-repeat !important;
-  background-position: left 7px center !important;
-  background-size: 45px 45px !important;
   font-size: 30px;
-  height: 70px;
   -webkit-appearance: none;
-  padding: 0px 60px!important;
+  padding: 15px!important;
   color: black;
 }
 
@@ -2331,15 +2457,9 @@ form#loginform p {
    font-family: 'medium';
    width: 100%!important;
    box-sizing: border-box;
-   background-color: #fff !important;
-   background-image: url(img/icon/password.png)!important;
-   background-repeat: no-repeat !important;
-   background-position: left 7px center !important;
-   background-size: 45px 45px !important;
    font-size: 30px;
-   height: 70px;
    -webkit-appearance: none;
-   padding: 0px 60px!important;
+   padding: 15px!important;
    color: black;
  }
 
@@ -2563,7 +2683,7 @@ ol.comment-list ol.children {
 .bbp-forum-freshness .topic-desc,
 .bbp-topic-freshness .topic-desc,
 .bbp-topic-title .topic-desc {
-  margin-top: 11px;
+  margin-top: 5px;
 }
 
 .bbp-forum-freshness .topic-desc a,
@@ -2819,11 +2939,6 @@ div#mycred-users-badges {
 }
 
 .post-edit-link {
-  display: block;
-  font-size: 11px;
-  margin-top: -26px;
-  text-align: right;
-  padding: 00px 10px 10px 0px;
 }
 
 .page .post-edit-link {
@@ -2895,6 +3010,18 @@ div#mycred-users-badges {
   padding: 0 !important;
   width: 100% !important;
 }
+
+#bbpress-forums .bbp-attachments-count {
+  background-image: url(https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/attachment_color_small.png)!important;
+  background-repeat: no-repeat!important;
+  background-position: 1px 4px!important;
+  background-size: 93%!important;
+  width: 20px!important;
+  height: 20px!important;
+  float: inherit!important;
+}
+
+
 
 .bbp-topic-freshness-author img {
   display: none !important;
@@ -3030,7 +3157,7 @@ ul.avatar-nav-items {
 }
 
 #buddypress .profile .bp-widget .field_1 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/name.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/name.png")!important;
     width: 100px;
     height: 70px;
     float: left;
@@ -3040,7 +3167,7 @@ ul.avatar-nav-items {
     background-repeat: no-repeat;
 }
 #buddypress .profile .bp-widget .field_8 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/birthday.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/birthday.png")!important;
     width: 100px;
     height: 70px;
     float: left;
@@ -3051,7 +3178,7 @@ ul.avatar-nav-items {
 }
 
 #buddypress .profile .bp-widget .field_42 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/country.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/country.png")!important;
     width: 100px;
     height: 70px;
     float: left;
@@ -3062,7 +3189,7 @@ ul.avatar-nav-items {
 }
 
 #buddypress .profile .bp-widget .field_1055 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/expertise.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/expertise.png")!important;
     width: 100px;
     height: 70px;
     float: left;
@@ -3073,7 +3200,7 @@ ul.avatar-nav-items {
 }
 
 #buddypress .profile .bp-widget .field_38 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/url.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/url.png")!important;
     width: 100px;
     height: 70px;
     float: left;
@@ -3084,7 +3211,7 @@ ul.avatar-nav-items {
 }
 
 #buddypress .profile .bp-widget .field_667 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/Dave%20Github/img/icon/about.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/about.png")!important;
     width: 100px;
     height: 70px;
     float: left;
@@ -3195,6 +3322,21 @@ div#messages-dir-count {
 .messages ul.acfb-holder li {
   float: none!important;
 }
+
+form#send_message_form ul.acfb-holder li {
+  float: left!important;
+  background: #90bcec!important;
+  border: 0px!important;
+  margin-bottom: 10px;
+}
+
+form#send_message_form img.avatar.user-40296-avatar.avatar-15.photo {
+  height: 25px;
+  margin-right: 10px;
+  width: auto;
+}
+
+
 
 table.notifications tr {
     background-color: #fff!important;
@@ -3514,8 +3656,15 @@ div#item-header-content div.generic-button a {
 .search-result div.bbp-topic-content {
   margin: 0 !important;
   padding: 0 !important;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
+.membercard:hover{
+  margin-top:-5px;
+}
 
 .membercard {
   background-color: #fff;
@@ -3552,11 +3701,11 @@ div#expertiseinfo {
   display: none;
   }
 
-  #expertise img {
-      width: 40px;
-      display: inherit;
-      margin: 0 auto;
-      padding-bottom: 10px;
+#expertise img {
+  width: 40px;
+  display: inherit;
+  margin: 0 auto;
+  padding-bottom: 10px;
   }
 
 
@@ -3574,7 +3723,7 @@ div#expertiseinfo {
 #buddypress #members-list li,
 #buddypress #mods-list li {
   border: none;
-  width: calc(25% - 10px);
+  width: calc(20% - 10px);
   box-sizing: border-box;
   padding: 0;
   overflow: hidden !important;
@@ -3596,7 +3745,7 @@ div#expertiseinfo {
   width: 50%;
   margin-left: 25%;
   display: inline-block;
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 #buddypress #admins-list li .item-avatar img,
@@ -3808,7 +3957,7 @@ form#bps_directory72873 {
 }
 
 .post-content {
-  padding-top: 120px !important;
+  padding-top: 55px !important;
 }
 
 .buddypress .post-content {
@@ -3882,7 +4031,7 @@ form#bps_directory72873 {
 
 .register h1 {
   color: transparent;
-  background: url(https://davehakkens.nl/wp-content/themes/Dave%20Github/img/joinourarmy.png) -23px center no-repeat;
+  background: url(https://davehakkens.nl/wp-content/themes/davehakkens2/img/joinourarmy.png) -23px center no-repeat;
   background-size: 100%;
   width: 100%;
   max-width: 500px;
@@ -3953,6 +4102,21 @@ select#field_8_year {
 .bbp-topic-freshness .topic-desc p,
 .bbp-topic-title .topic-desc p {
   margin-bottom: 0;
+}
+
+
+
+li.bbp-topic-voice-count {
+  display: none;
+  float: left;
+  text-align: center;
+  width: 12%;
+}
+
+li.bbp-topic-title {
+  width: 66%!important;
+  max-width: 800px;
+  word-break: break-all;
 }
 
 
@@ -4231,52 +4395,59 @@ button#bbp_topic_submit:hover {
 
 
 div.bbp-submit-wrapper {
-  margin-top: 40px;
+  margin-top: 50px!important;
   float: none!important;
   text-align: center;
 }
 
 
 a.d4p-attachment-addfile {
-  color: #212121;
-  background-color: white;
-  padding: 3px 8px;
-  font-size: 11px;
-  border-radius: 5px;
-  border: 1px solid #B3B3B3;
+  padding: 10px 9px;
+  text-decoration: underline;
+  font-size: 15px;
+  font-family: 'medium';
 }
 
 .bbp-attachments-form input {
-  margin-bottom: 20px!important;
-  font-size: 12px;
-  font-family: medium!important;
+  background-image: url(https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/upload-image.png)!important;
+  background-repeat: no-repeat!important;
+  background-position: 0px 25px!important;
+  background-size: 100%!important;
+  width: 240px!important;
+  height: 100px;
+  text-indent: -999px!important;
 }
+
+p.bbp-attachments-form {
+    text-align: center!important;
+}
+
+.bbp-attachments-form input:hover {
+    opacity: 0.8;
+}
+
+.bbp-form .bbp-template-notice {
+	display: none;
+}
+
+.bbp-template-notice.info,
+.bbp-template-notice.error,
+.bbp-template-notice.important,
+.bbp-template-notice.warning {
+	display: block;
+}
+
+
 
 .bbp-attachments-form label {
-  font-size: 25px;
-  font-family: medium;
+  display:none!important
 }
 
-div#relatedposts li {
-  width: 20%;
-  height: auto;
-  display: inline-block;
-  font-size: 10px;
-  padding: 2%;
-  margin: 0 auto;
-}
 
-div#relatedposts h3 {
-  text-align: center;
-}
 
-div#relatedposts {
-  padding-top: 50px;
-}
 
-.relatedcontent {
-  display: none;
-}
+
+
 
 
 a.bbp-reply-to-link {

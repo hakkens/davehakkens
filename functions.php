@@ -310,5 +310,13 @@ add_filter('user_contactmethods','hide_profile_fields',10,1);
  unset($contactmethods['yim']);
  return $contactmethods;
  }
-//Remove color scheme
+//Remove color scheme admin panel
  remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
+
+
+//Make frehness shorter in bbpress
+ function short_freshness_time( $output, $older_date, $newer_date ) {
+  $output = preg_replace( '/, .*[^ago]/', ' ', $output );
+  return $output;
+}
+add_filter( 'bbp_get_time_since', 'short_freshness_time' );
