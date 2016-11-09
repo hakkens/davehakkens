@@ -10,8 +10,8 @@
 ?>
 
 <div class="topic-lead">
-  <div class="date"><?php bbp_topic_post_date(); ?></div>
-  <h1><?php the_title(); ?></h1>
+
+
   <div class="author">
 
       <?php bbp_topic_author_link( array( 'sep' => '', 'show_role' => false ) ); ?>
@@ -24,7 +24,8 @@
           echo "".$user_nicename;
         }
       ?>
-
+        <h1><?php the_title(); ?></h1>
+<div class="date"><?php bbp_topic_post_date(); ?></div>
 
     </div>
 
