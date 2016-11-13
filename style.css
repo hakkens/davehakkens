@@ -706,6 +706,7 @@ a:hover {
     height: 200px;
     overflow: hidden;
     position: relative;
+    background-color: gainsboro;
 }
 
 .relatedthumb a img {
@@ -1122,7 +1123,7 @@ cursor:pointer;
   font-weight: 700;
   margin: 0;
   padding: 0;
-  /* text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.45); */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.45);
   font-family: 'bold', sans-serif;
   text-transform: uppercase;
   margin-top: -10px;
@@ -1863,7 +1864,7 @@ body.bbp-search.forum-search.bbpress {
 
 .topic-lead {
   background-color: white;
-  padding: 50px;
+  padding: 50px 150px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
 
 }
@@ -1984,6 +1985,7 @@ ul.bbp-topic-revision-log li {
   padding: 5px 0px 5px 0px;
   font-size: 14px;
   margin: 0px;
+  word-break: break-all;
 }
 
 .topic-reply p a {
@@ -2602,8 +2604,27 @@ span.create-a-group > a,
 }
 
 
+.single-post .tags a {
+  padding: 6px 10px;
+  background-color: #ff8181;
+  border-radius: 3px;
+  margin-right: 10px;
+  color: white;
+  text-transform: uppercase;
+  font-size: 12px;
+}
 
+.single-post .tags a:hover {
+    background-color: #313131;
+}
 
+.single-post .tags a:hover {
+  padding: 6px 10px;
+  background-color: #ff8181;
+  border-radius: 3px;
+  margin-right: 10px;
+  color: white;
+}
 
 #comments.challenges ol.children .zaki_like_dislike_box {
   display: none;
@@ -3743,7 +3764,11 @@ div#item-header-content div.generic-button a {
 }
 
 .membercard:hover{
-  margin-top:-5px;
+  margin-top:5px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .membercard {
@@ -4631,9 +4656,11 @@ html.touch #content.projects-page {
   display:none;
 }
 
-body#tinymce {
-    font-family: 'varela round'!important;
-    font-size: 15px!important;
+body#tinymce p {
+    line-height: 1.9!important;
+    letter-spacing: 0.5px!important;
+    font-family: 'Open Sans'!important;
+    font-size: 14px!important;
 }
 
 input#bbp_topic_title {

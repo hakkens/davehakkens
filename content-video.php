@@ -2,6 +2,13 @@
 
 <div class="post-content">
 
+  <div class="categorylabel"><h1>
+   #<?php
+  $categories = get_the_category();
+
+  if ( ! empty( $categories ) ) {
+  echo esc_html( $categories[0]->name );
+  }?>  </h1></div>
 
   <h1><?php the_title(); ?></h1>
     <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
@@ -46,7 +53,7 @@
 
 <div class="post-content">
 <div class="other-updates"><h1>
- other random updates</h1></div>
+ other random news</h1></div>
 
 
 <div class="relatedposts">
@@ -85,7 +92,7 @@ wp_reset_query(); ?>
 </div>
 
     <?php edit_post_link(); ?>
-    
+
 <div class="post-comments">
   <?php comments_template(); ?>
 </div>

@@ -18,13 +18,8 @@
 
 
 
-
-
-
-
-
 <div class="other-updates"><h1>
-other random updates</h1></div>
+other random news</h1></div>
 
 
 <div class="relatedposts">
@@ -62,7 +57,7 @@ wp_reset_query(); ?>
 </div>
 
   <?php edit_post_link(); ?>
-  
+
 <div class="post-comments">
   <?php comments_template(); ?>
 </div>

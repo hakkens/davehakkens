@@ -18,12 +18,12 @@
     <?php the_post_thumbnail( 'full' ); ?>
   </div>
   <?php the_content(); ?>
-      <div class="tags"> <?php the_tags( $before, $sep, $after ); ?> </div>
+
 
 
 
   <div class="other-updates"><h1>
-   other random updates</h1></div>
+   other random news</h1></div>
 
 
 <div class="relatedposts">
@@ -37,8 +37,8 @@
   $args=array(
   'tag__in' => $tag_ids,
   'post__not_in' => array($post->ID),
-  'posts_per_page'=>4, // Number of related posts that will be shown.
   'orderby' 				=> 'rand',
+  'posts_per_page'=>4, // Number of related posts that will be shown.
   'caller_get_posts'=>1
   );
   $my_query = new wp_query( $args );
