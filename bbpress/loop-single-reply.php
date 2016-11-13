@@ -32,20 +32,21 @@
 
   <div class="content">
     <div class="replyheader">
-
+      <div id="country" style="float:left;margin-right:.5em;"> <?php  $user = get_userdata( bbp_get_reply_author_id() );  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?></div>
       <div class="smallusername">
 
         <?php
-          $user = get_userdata( bbp_get_reply_author_id() );
+        
           if ( !empty( $user->user_nicename ) ) {
             $user_nicename = $user->user_nicename;
             echo "".$user_nicename;
           }
+
         ?>
 
-<div id="country"> <?php echo bp_get_member_profile_data(array('field'=>'country', 'user_id' => bbp_get_reply_author_id())); ?></div>
 
       </div>
+      
 
       <div class="smallrank">
         <?php

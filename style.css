@@ -3763,13 +3763,6 @@ div#item-header-content div.generic-button a {
   transition: all 0.2s ease-in-out;
 }
 
-.membercard:hover{
-  margin-top:5px;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
 
 .membercard {
   background-color: #fff;
@@ -4695,8 +4688,26 @@ body#tinymce {
     font-size: 14px;
 }
 
+/* NEW COUNTRY FLAG CODE by Anthony Coffey 11-12-2016 coffey.j.anthony@gmail.com */
+.member-location p {
+    text-align: center;
+}
 
+.member-location img {
+    max-height: 24px;
+}
 
+#country {
+  float: left!important;
+  margin-right: .5em!important;
+}
+
+#country img {
+    max-height: 20px!important;
+    position: relative!important;
+    top: -5px!important;
+}
+/* END COUNTRY FLAG CODE */
 
 @media (min-width: 992px) {
 

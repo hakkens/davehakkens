@@ -58,7 +58,8 @@ do_action( 'bp_before_members_loop' ); ?>
         <div class="inner">
         <div class="item-title">
           <a href="<?php bp_member_permalink(); ?>profile/"><?php bp_member_name(); ?></a>
-          <div class="member-location"> <?php echo bp_member_profile_data('field=Location'); ?></div>
+          <div class="member-location"> <?php $country = bp_get_member_profile_data('field=Location'); dh_get_flag_by_location($country); ?></div>
+          
 
 
         </div></div>

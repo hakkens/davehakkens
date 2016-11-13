@@ -14,6 +14,22 @@ function allow_origin() {
     header("Access-Control-Allow-Origin: *");
 }
 
+
+function dh_get_flag_by_location($country){
+  if($country <> '' && !empty($country)){
+  $country_filename = get_stylesheet_directory_uri() . '/img/flags/' . sanitize_file_name($country) . '.png';
+  $country_path = get_stylesheet_directory() . '/img/flags/' . sanitize_file_name($country). '.png';    
+     if(file_exists($country_path)){
+       $html = '<img src="' . $country_filename . '"/>';
+     } else {
+       $html = $country;
+       echo '<!--' . get_stylesheet_directory_uri() . '/img/flags/' . sanitize_file_name($country) . '-->';
+    }
+  echo $html;
+  }
+}
+
+
 function register_project_post_type(){
 
   register_post_type( 'projects', array(
