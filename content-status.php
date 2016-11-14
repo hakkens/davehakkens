@@ -42,7 +42,7 @@ if( $my_query->have_posts() ) {
 echo '<div id="relatedposts"><ul>';
 while( $my_query->have_posts() ) {
 $my_query->the_post(); ?>
-<li><div class="relatedthumb"><a href="<? the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail(); ?></a></div>
+<li><div class="relatedthumb"><a href="<? the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'thumbnail' ); ?></a></div>
 <div class="relatedcontent">
 <h3><a href="<? the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></h3>
 <?php the_time('M j, Y') ?>
@@ -58,6 +58,8 @@ wp_reset_query(); ?>
 
   <?php edit_post_link(); ?>
 
-<div class="post-comments">
-  <?php comments_template(); ?>
+  <div class="background-comments">
+  <div class="post-comments">
+    <?php comments_template(); ?>
+  </div>
 </div>

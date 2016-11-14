@@ -4,8 +4,6 @@
 ?>
 
 
-<div id="content" class="page-forum <?= str_replace( ' ', '-', strtolower( bbp_get_forum_title() ) ); ?>">
-
   <div id="topbar">
     <?php
       if( function_exists( 'yoast_breadcrumb' ) ) {
@@ -13,6 +11,9 @@
       }
     ?>
   </div>
+
+  <div id="content" class="page-forum <?= str_replace( ' ', '-', strtolower( bbp_get_forum_title() ) ); ?>">
+
 
   <div class="post<?= get_field('headerimage') == '' ? ' no-headerimage' : '' ; ?>">
 

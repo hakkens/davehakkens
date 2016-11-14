@@ -3,17 +3,18 @@
   get_template_part( 'navbar' );
 ?>
 
+<div id="topbar">
+
+  <?php
+    if( function_exists( 'yoast_breadcrumb' ) ) {
+      yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+    }
+  ?>
+
+</div>
+
 <div id="content">
 
-  <div id="topbar">
-
-    <?php
-      if( function_exists( 'yoast_breadcrumb' ) ) {
-        yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
-      }
-    ?>
-
-  </div>
 
   <div class="post">
 

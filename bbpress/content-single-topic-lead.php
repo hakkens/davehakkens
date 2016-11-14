@@ -16,6 +16,7 @@
 
       <?php bbp_topic_author_link( array( 'sep' => '', 'show_role' => false ) ); ?>
       <?php do_action( 'bbp_theme_after_topic_author_details' ); ?>
+      <div id="country" style="float:inherit;margin-right:.5em;"> <?php  $user = get_userdata( bbp_get_reply_author_id() );  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?></div>
 
       <?php
         $user = get_userdata( bbp_get_reply_author_id() );

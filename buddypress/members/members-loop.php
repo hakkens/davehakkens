@@ -59,7 +59,7 @@ do_action( 'bp_before_members_loop' ); ?>
         <div class="item-title">
           <a href="<?php bp_member_permalink(); ?>profile/"><?php bp_member_name(); ?></a>
           <div class="member-location"> <?php $country = bp_get_member_profile_data('field=Location'); dh_get_flag_by_location($country); ?></div>
-          
+
 
 
         </div></div>
@@ -137,7 +137,7 @@ do_action( 'bp_before_members_loop' ); ?>
 <?php else: ?>
 
   <div id="message" class="info">
-    <p><?php _e( "No member is matching that around here. Try again buddy", 'buddypress' ); ?></p>
+    <p><?php _e( "No member is matching all those things around here. Try again with less smilies buddy", 'buddypress' ); ?></p>
   </div>
 
 <?php endif; ?>

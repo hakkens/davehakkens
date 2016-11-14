@@ -178,14 +178,15 @@ a:hover {
 }
 
 #topbar {
-  height: 30px;
+  height: auto;
   width: 100%;
-  text-transform: lowercase;
   margin-top: 60px;
   padding: 10px;
   padding-left: 26px;
+}
 
-  /*position: fixed;*/
+#topbar p {
+    margin: 0px;
 }
 
 #topbar #breadcrumbs {
@@ -819,7 +820,13 @@ a:hover {
   background-color: #edefed;
 }
 
-h3#comments {
+textarea#comment {
+    padding: 20px;
+    box-sizing: border-box;
+    border: 0px;
+    height: 200px;
+}
+h3#comments, div#respond h3 {
     font-family: 'medium';
     text-align: center;
     padding: 40px;
@@ -1024,7 +1031,7 @@ cursor:pointer;
        line-height:200px;
 	}
 
-#post-grid .status-text:hover{
+#post-grid .status-text:hover, #post-grid .status-text:focus {
 	    opacity: 1;
 	}
 
@@ -1359,10 +1366,6 @@ div#post-mention {
   margin-bottom: 10px!important;
 }
 
-#buddypress #members-list li{
-  padding: 5px 0px 5px 0px !important
-}
-
 #buddypress #members-list li .item-avatar img {
   width: 100% !important;
   border: 4px solid rgba(255, 255, 255, 0) !important;
@@ -1389,11 +1392,9 @@ li#activity-favorites,
 
 .postid-62269 li.bbp-topic-freshness .topic-desc{
   margin-top: 11px!important;
+  overflow: hidden;
 }
 
-.postid-62269 a.bbp-topic-permalink {
-    white-space: pre;
-}
 
 .postid-62269 .topic-desc{
   margin-top: 15px!important;
@@ -1422,6 +1423,8 @@ span.bbp-admin-links a {
   border-radius: 2px !important;
   padding: 5px !important;
   text-transform: lowercase!important;
+  display: inline-block!important;
+  margin-bottom: 4px!important;
 }
 
 span.bbp-admin-links a:hover {
@@ -1470,16 +1473,6 @@ li.bbp-forum-freshness {
    padding: 0px !important;
 }
 
-#bbpress-forums div.even,
-#bbpress-forums ul.even {
- background-color: #fff;
-}
-
-#bbpress-forums div.odd,
-#bbpress-forums ul.odd {
- background-color: #fff!important;
-}
-
 
 #bbpress-forums .status-closed a {
   color: #117121 !important;
@@ -1495,6 +1488,7 @@ li.bbp-forum-freshness {
   border-bottom: none !important;
   padding: 10px !important;
   padding-left: 20px !important;
+  background-color: #white;
 }
 
 #bbpress-forums .bbp-attachments ol li.bbp-atthumb .wp-caption p.wp-caption-text {
@@ -1566,7 +1560,7 @@ input#bbp_search_submit.button {
   font-family: medium;
   text-decoration: none;
   text-transform: none;
-  white-space: nowrap;
+  word-wrap: break-word;
   letter-spacing: 0.7px;
 }
 
@@ -1583,11 +1577,11 @@ input#bbp_search_submit.button {
 .bbp-forum-info a {
   text-decoration: none;
 }
-
+.page-forum,
 .bbpress .post.no-headerimage {
   padding-bottom: 500px;
-  padding-top: 50px;
 }
+
 .page-template-page-with-sidebar #content {
     padding-bottom: 500px;
 }
@@ -1807,12 +1801,19 @@ body.bbp-search.forum-search.bbpress {
 }
 
 .topic-lead {
-  margin: 20px auto 0 auto;
+  margin: 0 auto;
   width: 100%;
   padding-bottom:100px;
   max-width: 800px;
   background-color: white;
   padding: 50px;
+  background-color: white;
+  padding: 50px 150px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+
+  }
+
+
 }
 
 .topic-lead .date {
@@ -1830,12 +1831,12 @@ body.bbp-search.forum-search.bbpress {
   margin: 10px;
 }
 
-.author, .topic-lead  {
+.topic-lead .author  {
   text-align: center;
 }
 
-.date, .topic-lead {
-  text-align: left;
+.topic-lead .date {
+  text-align: center;
   color: #bbb;
 }
 
@@ -1860,13 +1861,6 @@ body.bbp-search.forum-search.bbpress {
 
 .bbp-author-role {
     display: none;
-}
-
-.topic-lead {
-  background-color: white;
-  padding: 50px 150px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
-
 }
 
 
@@ -1985,7 +1979,8 @@ ul.bbp-topic-revision-log li {
   padding: 5px 0px 5px 0px;
   font-size: 14px;
   margin: 0px;
-  word-break: break-all;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .topic-reply p a {
@@ -2002,6 +1997,7 @@ ul.bbp-topic-revision-log li {
   text-decoration: none;
   letter-spacing: 0px;
   padding-right: 4px;
+  word-break: break-word;
 }
 
 
@@ -2011,7 +2007,7 @@ ul.bbp-topic-revision-log li {
 
 .topic-lead  h1{
   font-weight: 400;
-  margin-top: 50px;
+  margin-top: 60px;
   margin-bottom: 10px!important;
   text-align: center;
   font-size: 60px!important;
@@ -2284,7 +2280,8 @@ li.widget .bbp-forum-title{
 .topic-desc a.page-numbers {
   padding: 1px 5px!important;
   border-radius: 4px!important;
-  display: none;
+  font-size: 12px!important;
+  vertical-align: middle;
 }
 
 
@@ -2296,6 +2293,8 @@ a.page-numbers {
   background-color: #313131!important;
   color: white!important;
   font-size: 15px!important;
+  margin-bottom: 4px!important;
+  display: inline-block!important;
 }
 
 span.page-numbers.current{
@@ -2646,12 +2645,23 @@ ol.comment-list {
   font-size:14px;
 }
 
+div#respond {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#respond p {
+  text-align: center;
+}
+
+
+
 .comment-body {
   background: #fff;
   border: 1px solid #eee;
   margin-bottom: 60px;
   position: relative;
-  padding: 20px 10px 60px 10px;
+  padding: 20px 20px 30px 20px;
 }
 
 .comment-body .comment-author {
@@ -2720,8 +2730,8 @@ ol.comment-list {
 
 .comment-body .reply {
   left: 20px;
-  position: absolute;
-  bottom: 20px;
+  padding: 10px;
+  display: inline-block;
 }
 
 ol.comment-list ol.children {
@@ -3072,8 +3082,10 @@ div#mycred-users-badges {
 }
 
 .bbp-attachments ol.with-icons {
-  margin: 0 !important;
   padding: 0 !important;
+  min-height: 50px;
+  padding-top: 10px!important;
+  font-family: 'medium';
 }
 
 #bbpress-forums .bbp-attachments ol li.bbp-atthumb {
@@ -3766,7 +3778,7 @@ div#item-header-content div.generic-button a {
 
 .membercard {
   background-color: #fff;
-  height: 300px;
+  height: 100%;
 }
 
 div#expertise {
@@ -3775,12 +3787,9 @@ div#expertise {
       height: 100%;
       width: 100%;
       color: transparent;
-
   }
 
-
-
-#expertise:hover #expertiseinfo{
+#expertise:hover #expertiseinfo {
       display: block;
       background-color:#ffb1b1;
       color: black;
@@ -3789,13 +3798,11 @@ div#expertise {
       box-sizing: border-box;
   }
 
-
-
 div#expertiseinfo {
   padding: 20px;
   text-align: center;
   font-family: 'medium';
-  font-size: 24px;
+  font-size: 22px;
   display: none;
   }
 
@@ -3805,9 +3812,6 @@ div#expertiseinfo {
   margin: 0 auto;
   padding-bottom: 10px;
   }
-
-
-
 
 #buddypress #admins-list,
 #buddypress #members-list,
@@ -3821,9 +3825,9 @@ div#expertiseinfo {
 #buddypress #members-list li,
 #buddypress #mods-list li {
   border: none;
-  width: calc(20% - 10px);
+  width: calc(25% - 10px);
   box-sizing: border-box;
-  padding: 0;
+  padding: 0px!important;
   overflow: hidden !important;
   margin-bottom: 10px;
 }
@@ -3843,7 +3847,7 @@ div#expertiseinfo {
   width: 50%;
   margin-left: 25%;
   display: inline-block;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 #buddypress #admins-list li .item-avatar img,
@@ -3919,18 +3923,23 @@ div#expertiseinfo {
 
 .members .field_any-field {
     display: inline-block;
-    width: 25%;
-    margin-right: 20px!important;
+    width: 30%;
+    margin-right: 1%!important;
 }
 .members .field_42 {
-    display: inline-block;
-    width: 20%;
-    margin-right: 20px!important;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
 .members .field_your-love {
-    width: 35%;
+    width: 100%;
     display: inline-block;
+    width:100%;
+    text-align: center;
 }
 
 
@@ -3948,9 +3957,7 @@ div#expertiseinfo {
 }
 
 #bps_directory72873 .submit {
-    text-align: right;
-    margin-left: 10px;
-    display: inline-block;
+
 }
 
 #bps_directory72873 input[type="submit"] {
@@ -4022,9 +4029,9 @@ form#bps_directory72873 {
 }
 
 #buddypress div.pagination .pagination-links{
-  padding: 40px;
   float: none!important;
   text-align: center;
+  padding: 40px 0px;
 }
 
 
@@ -4703,10 +4710,21 @@ body#tinymce {
 }
 
 #country img {
-    max-height: 20px!important;
+    max-height: 15px!important;
     position: relative!important;
-    top: -5px!important;
+    top: -2px!important;
 }
+
+.topic-lead .author #country img {
+    border-radius: 0px;
+    width: auto!important;
+    margin-right: 0px;
+}
+.topic-lead .author #country{
+    float:none!important;
+    display: inline-block;
+}
+
 /* END COUNTRY FLAG CODE */
 
 @media (min-width: 992px) {
