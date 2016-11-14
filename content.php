@@ -55,11 +55,11 @@ wp_reset_query(); ?>
 </div>
 </div>
 
-  <?php edit_post_link(); ?>
-
-
   <div class="background-comments">
   <div class="post-comments">
     <?php comments_template(); ?>
   </div>
 </div>
+</div>
+</div>
+  <?php edit_post_link(); ?>

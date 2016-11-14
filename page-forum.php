@@ -24,7 +24,7 @@ get_template_part( 'navbar' );
 
       <div class="post-content">
         <?php the_content(); ?>
-        <?php edit_post_link(); ?>
+
       </div>
 
     <?php endwhile; endif; ?>
@@ -38,3 +38,4 @@ get_template_part( 'navbar' );
 </div>
 
 <?php get_footer(); ?>
+<?php edit_post_link(); ?>

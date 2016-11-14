@@ -20,7 +20,6 @@ get_header();
 
     <div class="post-content">
       <?php the_content(); ?>
-      <?php edit_post_link(); ?>
     </div>
 
     <?php endwhile; endif; ?>
@@ -29,3 +28,4 @@ get_header();
 </div>
 
 <?php get_footer(); ?>
+<?php edit_post_link(); ?>

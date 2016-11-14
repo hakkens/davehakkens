@@ -26,15 +26,6 @@
     </li>
   </ul>
 
-  <div class="social">
-    <a href="http://www.facebook.com/davehakkens" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/social_facebook.png"></a>
-    <a href="http://www.instagram.com/davehakkens" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/social_instagram.png"></a>
-    <a href="http://www.twitter.com/davehakkens" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/social_twitter.png"></a>
-    <a href="http://www.liekeland.nl" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/social_liekeland.png"></a>
-    <a href="/mailinglist/"><img src="<?php bloginfo('template_url'); ?>/img/social_mail.png"></a>
-    <a href="https://github.com/hakkens/davehakkens" target="_blank"><img src="<?php bloginfo('template_url'); ?>/img/social_github.png"></a>
-  </div>
-
 </div>
 
 <div id="community-menu">

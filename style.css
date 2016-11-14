@@ -815,9 +815,12 @@ a:hover {
 
 .background-comments {
   width: 100%;
-  position: absolute;
   left: 0px;
   background-color: #edefed;
+}
+
+.post-comments {
+    padding-bottom: 10px;
 }
 
 textarea#comment {
@@ -1084,14 +1087,6 @@ cursor:pointer;
 #post-grid a.more-link:hover {
     text-decoration:underline;
 }
-
-.single-post .post-edit-link {
-  text-align: center;
-  display: inherit;
-  padding: 20px;
-  margin-bottom: 30px;
-}
-
 
 .single-post .meta p {
   text-align: center;
@@ -2177,7 +2172,13 @@ form#profile-edit-form .button-nav {
     color: black;
 }
 
-
+.army-support {
+  width: 100%;
+  background: url(https://phonebloks.com/assets/images/crowd.png) no-repeat center bottom;
+  background-size: auto 427px;
+  background-repeat: repeat-x;
+  padding-bottom: 450px;
+}
 
 
 #bbpress-forums div.bbp-the-content-wrapper div.quicktags-toolbar {
@@ -3052,7 +3053,8 @@ div#mycred-users-badges {
 .post-edit-link {
 }
 
-.page .post-edit-link {
+.page .post-edit-link,
+.single-post .post-edit-link {
   display: inline-block;
   font-family: medium;
   font-size: 18px;
@@ -3061,8 +3063,6 @@ div#mycred-users-badges {
   color: black;
   padding: 40px;
   width: 100%;
-  margin-bottom: 40px;
-  margin-top: 40px;
   box-sizing: border-box;
 }
 
@@ -4221,7 +4221,6 @@ li.bbp-topic-voice-count {
 li.bbp-topic-title {
   width: 66%!important;
   max-width: 800px;
-  word-break: break-all;
 }
 
 

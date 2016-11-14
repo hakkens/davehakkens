@@ -55,11 +55,12 @@ echo '</ul></div>';
 $post = $orig_post;
 wp_reset_query(); ?>
 </div>
-
-  <?php edit_post_link(); ?>
+</div>
 
   <div class="background-comments">
   <div class="post-comments">
     <?php comments_template(); ?>
   </div>
 </div>
+</div>
+  <?php edit_post_link(); ?>

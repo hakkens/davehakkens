@@ -1,8 +1,8 @@
 <?php
 
 /*
-  Template Name: Normal page
-  Description: Normal page without sidebar
+  Template Name: Community-what page
+  Description: Community page shwoing what
  */
 
 get_header();
@@ -26,6 +26,6 @@ get_template_part( 'navbar' );
 
   </div>
 </div>
-
+<div class="army-support"></div>
 <?php get_footer(); ?>
-    <?php edit_post_link(); ?>
+<?php edit_post_link(); ?>
