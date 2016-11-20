@@ -18,7 +18,7 @@ function allow_origin() {
 function dh_get_flag_by_location($country){
   if($country <> '' && !empty($country)){
   $country_filename = get_stylesheet_directory_uri() . '/img/flags/' . sanitize_file_name($country) . '.png';
-  $country_path = get_stylesheet_directory() . '/img/flags/' . sanitize_file_name($country). '.png';    
+  $country_path = get_stylesheet_directory() . '/img/flags/' . sanitize_file_name($country). '.png';
      if(file_exists($country_path)){
        $html = '<img src="' . $country_filename . '"/>';
      } else {
@@ -58,34 +58,7 @@ function register_project_post_type(){
   ));
 
 }
-/*function register_challenge_post_type() {
 
-  register_post_type( 'challenges', array(
-
-    'labels' => array(
-      'name' => __( 'Challenges' ),
-      'singular_name' => __( 'Challenge' )
-    ),
-
-    'public' => true,
-    'has_archive' => true,
-    'rewrite' => array( 'slug' => 'community/challenges' ),
-
-    'supports' => array(
-      'title',
-      'author',
-      'excerpt',
-      'editor',
-      'thumbnail',
-      'revisions',
-      'custom-fields',
-      'comments',
-    )
-
-  ));
-
-}
-*/
 $args = [
   'name' => __( 'Forum sidebar' ),
   'id' => "forum-sidebar",

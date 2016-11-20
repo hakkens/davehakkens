@@ -13,20 +13,39 @@
   <div class="avatar">
     <div class="bbp-topic-author">
 
-      <?php do_action( 'bbp_theme_before_topic_author_details' ); ?>
+      <?php
 
-      <?php bbp_topic_author_link( array( 'sep' => '<br />', 'show_role' => false ) ); ?>
+      do_action( 'bbp_theme_before_topic_author_details' );
 
-      <?php do_action( 'bbp_theme_after_topic_author_details' ); ?>
+      $args = [
+        'sep' => '',
+        'show_role' => true,
+        'type' => 'avatar'
+      ];
+
+      bbp_topic_author_link( $args );
+
+      ?>
 
     </div><!-- .bbp-topic-author -->
   </div>
   <div class="result">
     <div class="bbp-meta">
+      <div id="country" style="float:left;margin-right:.5em;"> <?php  $user = get_userdata( bbp_get_reply_author_id() );  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?></div>
+      <div class="smallusername">
 
+        <?php
+
+          if ( !empty( $user->user_nicename ) ) {
+            $user_nicename = $user->user_nicename;
+            echo "".$user_nicename;
+          }
+
+        ?>
+
+
+      </div>
       <span class="bbp-topic-post-date"><?php bbp_topic_post_date( bbp_get_topic_id() ); ?></span>
-
-      <a href="<?php bbp_topic_permalink(); ?>" class="bbp-topic-permalink">#<?php bbp_topic_id(); ?></a>
 
     </div><!-- .bbp-meta -->
 

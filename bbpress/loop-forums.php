@@ -36,7 +36,7 @@
       <?php foreach ($sub_forums as $sub_forum): ?>
 
         <ul id="bbp-forum-<?php echo $sub_forum->ID; ?>" <?php bbp_get_forum_class($sub_forum->ID); ?>>
-
+<div class="forumhover">
           <li class="bbp-forum-info">
             <span class="padding-left-20"><a class="bbp-forum-title" href="<?php echo bbp_get_forum_permalink($sub_forum->ID); ?>">
               <?php echo get_the_post_thumbnail($sub_forum->ID, array(70, 70)); ?>
@@ -88,6 +88,7 @@
             </div>
 
           </li>
+</div>
         </ul>
 
       <?php endforeach; ?>

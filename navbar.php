@@ -22,7 +22,7 @@
       <a class="about<?php echo $current_url == '/about/' ? ' current' : '' ; ?>" href="/about/">About</a>
       </li>
     <li>
-      <a class="community<?php echo strpos($current_url, 'community') ? ' current' : '' ; ?>" href="/community/forums">Community</a>
+      <a class="community<?php echo strpos($current_url, 'community') ? ' current' : '' ; ?>" href="/community">Community</a>
     </li>
   </ul>
 
@@ -31,19 +31,20 @@
 <div id="community-menu">
   <ul>
     <li>
+      <a class="introduction<?php echo strpos($current_url, 'introduction') ? ' current' : '' ; ?>" href="/community/introduction">Introduction</a>
+    </li>
+    <li>
       <a class="forums<?php echo strpos($current_url, 'forums') ? ' current' : '' ; ?>" href="/community/forums/">Forums</a>
     </li>
     <li>
       <a class="members<?php echo strpos($current_url, 'members') ? ' current' : '' ; ?>" href="/community/members/">Members</a>
     </li>
     <li>
-      <a class="helpus" href="/community/forums/forum/general/help-building-our-projects/">Help us</a>
+      <a class="helpus<?php echo strpos($current_url, 'helpus') ? ' current' : '' ; ?>" href="/community/help-out/">Help us</a>
     </li>
     <li>
-      <a class="search<?php echo strpos($current_url, 'search') ? ' current' : '' ; ?>" href="/community/forums/search">Search</a>
+      <a class="army<?php echo strpos($current_url, 'army') ? ' current' : '' ; ?>" href="/community/army/">Army</a>
     </li>
-    <li>
-      <a class="what<?php echo strpos($current_url, 'what') ? ' current' : '' ; ?>" href="/community/what/">What?</a>
-    </li>
+
   </ul>
 </div>

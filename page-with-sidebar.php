@@ -18,11 +18,6 @@ get_template_part( 'navbar' );
   ?>
 </div>
 
-
-<div class="forum-sidebar">
-  <?php dynamic_sidebar( 'forum-sidebar' ); ?>
-</div>
-
 <div id="content">
 
 <div class="buddypress"><h1><?php the_title(); ?></h1></div>

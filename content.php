@@ -4,7 +4,6 @@
   <div class="shadow"></div>
 
   <div class="meta">
-
     <h1><?php the_title(); ?></h1>
 <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
 
