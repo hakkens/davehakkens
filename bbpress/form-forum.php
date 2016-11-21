@@ -158,7 +158,7 @@
 
   <div id="no-forum-<?php bbp_forum_id(); ?>" class="bbp-no-forum">
     <div class="bbp-template-notice">
-      <p><?php is_user_logged_in() ? _e( 'You cannot create new forums.', 'bbpress' ) : _e( 'You must be <a href="https://davehakkens.nl/login/">logged in</a> to create new forums.', 'bbpress' ); ?></p>
+      <p><?php is_user_logged_in() ? _e( 'You cannot create new forums.', 'bbpress' ) : _e( 'You must be <a href="https://davehakkens.nl/community/login/">logged in</a> to create new forums.', 'bbpress' ); ?></p>
     </div>
   </div>
 

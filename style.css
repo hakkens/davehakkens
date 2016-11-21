@@ -156,7 +156,7 @@ a:hover {
 }
 
 .padding-left-10 {
-  padding-left: 40px !important;
+  padding-left: 20px !important;
   color:black;
   font-family: 'bold', sans-serif;
   letter-spacing: 3.7px;
@@ -165,7 +165,7 @@ a:hover {
 }
 
 .padding-left-20 {
-  padding-left: 50px !important;
+  padding-left: 30px !important;
 }
 
 .align-center {
@@ -299,9 +299,10 @@ a:hover {
 }
 
 #navbar #logo {
-  margin: 0px 20px auto;
-  width: 157px;
-  height: auto;
+    margin: 10px 20px 0px 20px;
+    width: 157px;
+    height: auto;
+    vertical-align: inherit!important;
 }
 
 #navbar ul, #navbar li {
@@ -662,7 +663,11 @@ a:hover {
 
 .single.single-forum .post .thumbnail {
   height: 500px;
+  margin-top: -60px;
+  z-index: -99999;
+  margin-bottom: 30px;
 }
+
 
 .page .post .thumbnail .meta,
 .single .post .thumbnail .meta {
@@ -1141,7 +1146,7 @@ cursor:pointer;
 }
 
 .page-template-projects #content .project .caption h2 {
-  font-size: 97px;
+  font-size: 80px;
   color: #fff;
   font-weight: 700;
   margin: 0;
@@ -1181,7 +1186,7 @@ cursor:pointer;
 
 #user-menu {
   position: fixed;
-  right: 20px;
+  right: 30px!important;
   top: 35px;
   z-index: 100;
   text-align: center;
@@ -1259,32 +1264,59 @@ cursor:pointer;
 }
 
 #user-menu .user {
-  background: url( 'img/downarrow.png' ) right center no-repeat;
+  /*background: url( 'img/downarrow.png' ) right center no-repeat;
   border-radius: 2px 2px 0 0;
   display: inline-block;
   font-size: 14px;
   height: 24px;
   line-height: 24px;
   padding: 0 20px 0 10px;
-  position: relative;
-  display:none;
+  position: relative;*/
 }
 
 #user-menu .user:hover {
-  background: url( 'img/downarrow.png' ) right center no-repeat #fff;
+}
+
+
+#user-menu .triangle {
+  float: right;
+  margin-right: -23px;
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-bottom: 20px solid #ffffff;
+}
+
+.user .actions img {
+    width: 20px!important;
+    height: auto!important;
+    display: inline-block;
+    float: left;
+    margin-top: 2px;
+    padding-right: 10px;
 }
 
 #user-menu .user .actions {
-  background: #fff;
-  border-radius: 2px 0 2px 2px;
   display: none;
-  font-size: 13px;
   right: 0;
-  padding: 10px;
+  padding: 20px;
   position: absolute;
-  top: 24px;
+  top: 0px;
   text-align: left;
-  width: 120px;
+  width: 170px;
+}
+
+#user-menu .submenu{
+  font-family: 'medium';
+  color: black;
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 20px;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
 }
 
 #user-menu .user:hover .actions {
@@ -1293,8 +1325,19 @@ cursor:pointer;
 
 #user-menu .user .actions a {
   display: block;
-  margin-bottom: 5px;
+  padding: 10px 4px;
+  color:black;
 }
+#user-menu .hello {
+    color: #ff7d7d;
+    word-break: break-word;
+    padding-bottom: 10px;
+}
+
+
+#user-menu .user .actions a:hover {
+    color: grey!important;
+  }
 
 #user-menu .avatar img {
   border-radius: 100%;
@@ -1371,7 +1414,7 @@ div#post-mention {
 
 
 #gallery-2 img {
-  background-color: #efefef;
+  background-color: #ffffff;
   max-width: 80%;
   border-radius:100px;
   border:0px!important;
@@ -1615,7 +1658,6 @@ li#activity-favorites,
 
 
 #bbpress-forums li.bbp-header {
-  padding: 15px !important;
 }
 
 span.bbp-admin-links a {
@@ -1663,26 +1705,23 @@ span.bbp-admin-links a:hover {
 
 #bbpress-forums li.bbp-header {
   background: none !important;
-  border-bottom: 4px solid black;
 }
 
 #bbpress-forums li {
-  color: grey !important;
   font-weight: 400 !important;
 }
 
 span.bbp-topic-freshness-author a {
   color: #5e94da;
-  font-size: 14px!important;
+  font-size: 12px!important;
   margin-left: -2px;
-  font-family: 'medium';
   word-break: break-all;
 }
 
 #bbpress-forums li.bbp-body ul.forum {
    border-top: none !important;
    padding: 0px !important;
-  background-color: white;
+   background-color: rgba(255, 255, 255, 0)!important;
 }
 
 
@@ -1700,7 +1739,18 @@ span.bbp-topic-freshness-author a {
   border-bottom: none !important;
   padding-left: 20px !important;
   background-color: white;
-  padding: 15px 0px !important;
+  padding: 17px 0px !important;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+}
+
+.bbp-topics ul.sticky {
+  margin-bottom: 5px;
+}
+
+.topic li.bbp-topic-freshness {
+  padding-top: 5px;
 }
 
 #bbpress-forums .bbp-attachments ol li.bbp-atthumb .wp-caption p.wp-caption-text {
@@ -1718,12 +1768,15 @@ span.bbp-topic-freshness-author a {
 
 .bbp-header li.bbp-topic-reply-count, .bbp-header li.bbp-topic-freshness {
     margin-top: 20px!important;
+    font-size: 18px;
+    font-family: 'medium';
+
 }
 
 
 #bbpress-forums {
   margin-bottom:0px !important;
-  max-width:1200px;
+  max-width:1100px;
   margin:0 auto;
   overflow: inherit!important;
   font-family: 'Open Sans', sans-serif;
@@ -1789,7 +1842,7 @@ input#bbp_search_submit.button {
   text-transform: none;
   word-wrap: break-word;
   letter-spacing: 0.7px;
-  margin: 30px 0px;
+  padding: 20px 0px;
 }
 
 .bbp-topic-permalink:hover,
@@ -2313,6 +2366,7 @@ ul.bbp-topic-revision-log li {
   display: none !important;
 }
 
+#item-nav #notifications-personal-li,
 #forums-personal-li{
   display: none !important;
 }
@@ -2572,7 +2626,6 @@ span.page-numbers.current{
 }
 
 #bbpress-forums ul.bbp-lead-topic,
-#bbpress-forums ul.bbp-topics,
 #bbpress-forums ul.bbp-forums,
 #bbpress-forums ul.bbp-replies,
 #bbpress-forums ul.bbp-search-results {
@@ -2733,11 +2786,11 @@ form#loginform {
 
 
 .login input#wp-submit {
-    width: 100%!important;
-    display: inline-block;
-    font-size: 20px!important;
-    margin-top: 10px;
-    background-color: #313131!important;
+  width: 50%!important;
+  display: inherit;
+  font-size: 20px!important;
+  margin: 0 auto;
+  background-color: #313131!important;
 }
 
 .login input#wp-submit:hover {
@@ -2753,6 +2806,7 @@ form#loginform {
   margin: 0 auto;
   margin-bottom: 50px;
   text-indent: -9999px;
+  margin-top: 50px;
 }
 
 .login .centered {
@@ -2767,7 +2821,7 @@ form#loginform {
 }
 
 form#loginform p {
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'medium';
   margin-bottom: 20px;
   color: #6b6b6b;
@@ -2780,7 +2834,7 @@ form#loginform p {
   font-family: 'medium';
   width: 100%!important;
   box-sizing: border-box;
-  font-size: 30px;
+  font-size: 20px;
   -webkit-appearance: none;
   padding: 15px!important;
   color: black;
@@ -2791,7 +2845,7 @@ form#loginform p {
    font-family: 'medium';
    width: 100%!important;
    box-sizing: border-box;
-   font-size: 30px;
+   font-size: 20px;
    -webkit-appearance: none;
    padding: 15px!important;
    color: black;
@@ -3030,18 +3084,23 @@ ol.comment-list ol.children {
 .bbp-topic-title img {
   border: 4px solid #FFF;
   border-radius: 100%;
-  margin-right: 10px;
+  margin-right: 5px;
+  border: 4px solid rgba(255, 255, 255, 0);
+  margin-left: 20px;
+}
+
+#bbpress-forums li.bbp-body {
+  margin-bottom: 100px!important;
 }
 
 .bbp-forum-freshness .author-avatar,
 .bbp-topic-freshness .author-avatar,
 .bbp-topic-title .author-avatar {
   float: left;
-  margin: 0px 15px 10px 15px;
+  margin: 0px 15px 0px 15px;
 }
 
 .bbp-topic-title .author-avatar {
-  margin-left: 40px;
 }
 
 .bbp-forum-freshness .topic-desc,
@@ -3077,7 +3136,7 @@ ol.comment-list ol.children {
 
 .bbp-body .bbp-topic-voice-count,
 .bbp-body .bbp-topic-reply-count {
-  line-height: 50px;
+  padding-top: 25px;
 }
 
 li.bbp-forum-freshness,
@@ -3221,11 +3280,10 @@ div#mycred-users-badges {
   width: 50px;
 }
 
-
 #buddypress #item-body .item-list-tabs {
-  background-color: #eeeeee!important;
   border-radius: 3px;
   font-family: 'medium';
+  margin: 0px 00px 40px!important;
 }
 
 #buddypress #item-body .item-list-tabs a{
@@ -3422,7 +3480,13 @@ div#item-header h2.user-nicename {
   display: none !important;
 }
 
+.bp-avatar-status .warning {
+    display: none!important;
+}
 
+.bp-avatar-nav #bp-avatar-delete {
+  display:none!important;
+}
 
 a.bp-avatar-nav-item {
     background-color: #ccc;
@@ -3430,15 +3494,17 @@ a.bp-avatar-nav-item {
 
 .bp-avatar-nav ul.avatar-nav-items li.current {
     color: black;
-    border: 0px;
     background-color: white;
-    border-radius: 0;
+    border: 0px!important;
+    border-radius: 0px!important;
 }
 
 
 
 div#drag-drop-area {
     background-color: white;
+    border: 3px dashed black;
+    margin-top: -21px;
 }
 
 .change-avatar .profile p {
@@ -3456,6 +3522,11 @@ ul.avatar-nav-items {
     text-align: center;
     display: inline-block;
     margin: 0 auto;
+    width: 50%;
+}
+
+a.bp-avatar-nav-item {
+    padding: 20px;
 }
 
 .bp-avatar-nav ul {
@@ -3513,10 +3584,6 @@ ul.avatar-nav-items {
 
 
 .activity.bbp-user-page div#subnav {
-    display: none;
-}
-
-.notifications.bbp-user-page div#subnav {
     display: none;
 }
 
@@ -4328,7 +4395,11 @@ form#bps_directory72873 {
 .registration,
 .bp-user,
 .members,
-.page-template-login-page {
+.page-template-login-page,
+.page-template-page-with-sidebar,
+.page-template-page-community-what,
+.forum-archive,
+.single-forum {
   background: #edefed;
 }
 
@@ -4431,8 +4502,7 @@ form#bps_directory72873 {
   width: 100%;
   max-width: 500px;
   margin: 0 auto;
-  margin-top: 100px;
-  margin-bottom: -50px;
+  margin-top: 50px;
 }
 
 select#field_42 {
@@ -4502,14 +4572,30 @@ select#field_8_year {
 .forumhover {
     display: inline-block;
     width: 100%;
+    margin-bottom: 10px;
     border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+    background-color: white;
+    padding: 5px 20px 5px 0px;
+    box-sizing: border-box;
 }
 
-#bbpress-forums li.bbp-body ul.topic:hover,
-.forumhover:hover {
-    background-color: #ededed;
+#bbpress-forums li.bbp-header ul {
+    font-family: 'medium';
+    font-size: 16px;
 }
 
+#bbpress-forums li.bbp-body ul.topic:hover{
+    background-color: #ffffe0;
+}
+
+.forumhover:hover{
+  background-color:#ffffe0;
+}
+
+.single-forum li.bbp-footer {
+    display: none;
+}
 
 
 li.bbp-topic-voice-count {
@@ -4960,7 +5046,8 @@ html.touch #content.projects-page {
 
 body#tinymce p,
 body#tinymce,
-.mce-content-body {
+.mce-content-body,
+.mce-content-body p{
     line-height: 1.9!important;
     letter-spacing: 0.5px!important;
     font-family: 'Open Sans'!important;

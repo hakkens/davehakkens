@@ -37,19 +37,19 @@ if (!$user_ID) { //block logged in users
       $message .= get_option('siteurl') . "\r\n\r\n";
       $message .= sprintf(__('Username: %s'), $user_login) . "\r\n\r\n";
       $message .= sprintf(__('Password: %s'), $new_password) . "\r\n\r\n";
-      $message .= __('You can now login with your new password at: ') . get_option('siteurl')."/login" . "\r\n\r\n";
+      $message .= __('You can now login with your new password at: ') . get_option('siteurl')."/community/login" . "\r\n\r\n";
 
       if ( $message && !wp_mail($user_email, 'Password Reset Request', $message) ) {
         echo "<div class='error'>Email failed to send for some unknown reason</div>";
         exit();
       }
       else {
-        $redirect_to = get_bloginfo('url')."/login?action=reset_success";
+        $redirect_to = get_bloginfo('url')."/community/login?action=reset_success";
         wp_safe_redirect($redirect_to);
         exit();
       }
     } else {
-      $redirect_to = get_bloginfo('url')."/login?action=no_valid_key";
+      $redirect_to = get_bloginfo('url')."/community/login?action=no_valid_key";
       wp_safe_redirect($redirect_to);
       exit();
     }
@@ -138,7 +138,7 @@ if (!$user_ID) { //block logged in users
             </form>
             <div id="result"></div> <!-- To hold validation results -->
             <div class="forgot_password">
-              <a href="/login/">Back to the loginform</a>
+              <a href="/community/login/">Back to the loginform</a>
             </div>
             <div class="forgot_password">
               <a href="/community/register">Register</a>

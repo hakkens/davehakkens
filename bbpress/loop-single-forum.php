@@ -11,7 +11,7 @@
 <script>console.log('loop-single-forum');</script>
 
 <ul id="bbp-forum-<?php bbp_forum_id(); ?>" <?php bbp_forum_class(); ?>>
-
+<div class="forumhover">
   <li class="bbp-forum-info">
 
     <?php if ( bbp_is_user_home() && bbp_is_subscriptions() ) : ?>
@@ -79,5 +79,5 @@
 
 
   </li>
-
+</div>
 </ul><!-- #bbp-forum-<?php bbp_forum_id(); ?> -->

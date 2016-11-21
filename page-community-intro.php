@@ -40,7 +40,7 @@ get_template_part( 'navbar' );
 <div id="content">
 <div class="wide">
 <h2 style="text-align: center;">We come from everywhere</h2>
-<p style="text-align: center;">We are people from over the world and unite here to work towards a better future. Together we become mega smart, a powerful voice and able to push global ideas forward.  An internet army.  We haven’t figured it all out and learn everyday. But we know that together we can achieve great things. Meet the 15 latest logins below, or <a href="https://davehakkens.nl/community/members">digg</a> into all the troopers </p>
+<p style="text-align: center;">We are people from all over the world and unite here to work towards a better future. Together we become mega smart, a powerful voice and able to push global ideas forward.  An internet army. We haven’t figured it all out yet and learn everyday. But we know that together we can achieve great things. Meet the 15 latest logins below, or <a href="https://davehakkens.nl/community/members">digg</a> into all the troopers </p>
   <div class="active-members">
 <?php the_widget( 'BP_Core_Recently_Active_Widget', $args ); ?>
 </div>
@@ -74,4 +74,3 @@ get_template_part( 'navbar' );
 </div>
 
 <?php get_footer(); ?>
-        <?php edit_post_link(); ?>

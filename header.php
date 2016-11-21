@@ -63,25 +63,34 @@
      <div id="user-menu">
 
        <?php if( !is_user_logged_in() ): ?>
-         <a href="<?php bloginfo( 'url' ); ?>/login/" class="user-toggle"></a>
+         <a href="<?php bloginfo( 'url' ); ?>/community/login/" class="user-toggle"></a>
        <?php else: ?>
 
         <?php global $current_user; get_currentuserinfo(); ?>
 
         <div class="user">
-
-          <?= $current_user->user_firstname . ' ' . $current_user->user_lastname; ?>
-
+          <span class="avatar">
+            <a href="<?= bp_loggedin_user_domain(); ?>"><?= get_avatar( $current_user->user_email, 22 ); ?></a>
+          </span>
           <div class="actions">
-            <a href="<?= bp_loggedin_user_domain(); ?>">My profile</a>
-            <a href="<?= wp_logout_url(home_url()); ?>">Log out</a>
+            <div class="triangle"> </div>
+            <div class="submenu">
+            <div class="hello"> Hello <?= $current_user->user_firstname; ?></div>
+            <a href="<?= bp_loggedin_user_domain(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/profile.png">My profile</a>
+            <a href="<?= bp_loggedin_user_domain(); ?>/profile/change-avatar/"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/avatar-change.png">Change avatar</a>
+            <a href="<?= bp_loggedin_user_domain(); ?>/messages"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/messages.png">Inbox</a>
+            <a href="<?= wp_logout_url(home_url()); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/logout.png"> Log out</a>
+            <?php if (current_user_can("manage_options")) : ?>
+                   <a href="<?php echo bloginfo("siteurl") ?>/wp-admin/"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/admin.png">Admin</a>
+            <?php endif; ?>
+</div>
           </div>
 
         </div>
 
-        <span class="avatar">
-          <a href="<?= bp_loggedin_user_domain(); ?>"><?= get_avatar( $current_user->user_email, 22 ); ?></a>
-        </span>
+
+
+
 
 
       <?php endif; ?>

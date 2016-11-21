@@ -30,9 +30,10 @@
          */
         do_action( 'bp_member_options_nav' ); ?>
 
+        <!--logout button on profile
         <?php if (bp_is_my_profile()): ?>
           <li><a href="<?php echo wp_logout_url('/'); ?>">Logout</a></li>
-        <?php endif; ?>
+        <?php endif; ?>-->
 
       </ul>
     </div>
