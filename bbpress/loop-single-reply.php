@@ -36,7 +36,7 @@
       <div class="smallusername">
 
         <?php
-        
+
           if ( !empty( $user->user_nicename ) ) {
             $user_nicename = $user->user_nicename;
             echo "".$user_nicename;
@@ -46,7 +46,7 @@
 
 
       </div>
-      
+
 
       <div class="smallrank">
         <?php

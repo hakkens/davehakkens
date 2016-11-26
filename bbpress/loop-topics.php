@@ -9,6 +9,7 @@
 
 ?>
 <script>console.log('loop-topics.php');</script>
+<div class="bbp-forum-content"><?php bbp_forum_content(); ?></div>
 <div class="starttopic"><a href="#start"><p>start a topic</p></a></div>
 <?php do_action( 'bbp_template_before_topics_loop' ); ?>
 <ul id="bbp-forum-<?php bbp_forum_id(); ?>" class="bbp-topics">

@@ -39,7 +39,7 @@
 
     <?php do_action( 'bbp_theme_before_forum_description' ); ?>
 
-    <div class="bbp-forum-content"><?php bbp_forum_content(); ?></div>
+
 
     <?php do_action( 'bbp_theme_after_forum_description' ); ?>
 

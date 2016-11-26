@@ -742,6 +742,10 @@ font-size: 18px;
     margin-top: -15px;
 }
 
+#post-grid .status-text p {
+    font-size: 16px;
+}
+
 .bbp-topic-title img{
     margin-left: 5px!important;
 }
@@ -780,6 +784,12 @@ font-size: 18px;
 #bbp-search-results{
   padding:10px;
 }
+
+#gallery-2 .gallery-item {
+    width: 50%;
+}
+
+
 
 div#item-header h2.user-nicename {
     font-size: 30px;
@@ -830,13 +840,19 @@ div#expertiseinfo {
 
   #post-grid .item h3 {
     margin: 20px 20px 0px;
+    font-size: 22px;
 }
   #post-grid .item p {
     margin: 20px 20px 0px;
+    font-size: 13px;
   }
   #post-grid .post_meta{
     margin: 20px 20px 40px 20px;
   }
+  #post-grid .post_meta .tags {
+      font-size: 13px;
+  }
+
 
 #buddypress ul.item-list li img.avatar{
   margin: 10px 10px 0px 10px !important;
@@ -982,9 +998,10 @@ div#expertiseinfo {
   #buddypress #admins-list li,
   #buddypress #members-list li,
   #buddypress #mods-list li {
-    float: none;
-    width: 48%;
+    float: left;
+    width: 47%;
     margin: 0%;
+    display: inline-block;
   }
 
   #buddypress span.activity {

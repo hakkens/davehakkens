@@ -700,6 +700,13 @@ a:hover {
   font-weight: 600;
 }
 
+.single-forum  .bbp-forum-content {
+    text-align: center!important;
+    margin: 0px!important;
+    font-size: 15px;
+}
+
+
 .page .post .thumbnail .shadow,
 .single .post .thumbnail .shadow {
   background-color: black;
@@ -1842,9 +1849,14 @@ input#bbp_search_submit.button {
   text-transform: none;
   word-wrap: break-word;
   letter-spacing: 0.7px;
-  padding: 20px 0px;
+  width: 100%!important;
+  display: inline-block;
 }
 
+.single-forum .bbp-topic-permalink,
+.single-forum .bbp-forum-title {
+display:inherit;
+}
 .bbp-topic-permalink:hover,
 .bbp-forum-title:hover {
   color: #6ab0fd!important;
@@ -1902,7 +1914,7 @@ input#bbp_search_submit.button {
 }
 
 .alt-forum-sidebar {
-  background-color: #9FBCCE;
+  background-color: #8ab9d6;
   color: #555;
   height: 500px;
   width: 100%;
@@ -1912,7 +1924,7 @@ input#bbp_search_submit.button {
 
 .bbpress h1 {
   font-weight: 400;
-  margin: 20px 0 10px 00px;
+  margin: 20px 0 0px 00px;
   text-align: center;
   font-size: 56px;
   font-family: 'bold', sans-serif;
@@ -2146,7 +2158,6 @@ body.bbp-search.forum-search.bbpress {
     display: none;
 }
 
-
 iframe.wp-embedded-content{
   display:none;
 }
@@ -2240,6 +2251,9 @@ ul.bbp-topic-revision-log li {
   display:none;
 }
 
+.page-id-51638 .mycred-my-rank, .mycred-my-balance-wrapper {
+    display: inline-block;
+}
 
 .smallusername {
   float: left;
@@ -2544,7 +2558,7 @@ li.widget {
 
 .alt-forum-sidebar li.widget h2.widgettitle {
   color: #fff;
-  font-size: 16px;
+  font-size: 20px;
   font-family: 'bold', sans-serif;
   letter-spacing: 3.7px;
   text-transform: uppercase;
