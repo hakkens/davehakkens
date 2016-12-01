@@ -33,6 +33,7 @@
   <div class="content">
     <div class="replyheader">
       <div id="country" style="float:left;margin-right:.5em;"> <?php  $user = get_userdata( bbp_get_reply_author_id() );  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?></div>
+
       <div class="smallusername">
 
         <?php

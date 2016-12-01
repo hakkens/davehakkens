@@ -309,3 +309,31 @@ add_filter('user_contactmethods','hide_profile_fields',10,1);
   return $output;
 }
 add_filter( 'bbp_get_time_since', 'short_freshness_time' );
+
+
+//Add extra class for topic lead
+add_filter( 'bbp_show_lead_topic', '__return_true' );
+
+
+//Custom css moderator
+add_filter('bbp_before_get_reply_author_role_parse_args', 'ntwb_bbpress_reply_css_role' );
+function ntwb_bbpress_reply_css_role() {
+
+	$role = strtolower( bbp_get_user_display_role( bbp_get_reply_author_id( $reply_id ) ) );
+	$args['class']  = 'bbp-author-role bbp-author-role-' . $role;
+	$args['before'] = '';
+	$args['after']  = '';
+
+	return $args;
+}
+
+add_filter('bbp_before_get_topic_author_role_parse_args', 'ntwb_bbpress_topic_css_role' );
+function ntwb_bbpress_topic_css_role() {
+
+	$role = strtolower( bbp_get_user_display_role( bbp_get_topic_author_id( $topic_id ) ) );
+	$args['class']  = 'bbp-author-role bbp-author-role-' . $role;
+	$args['before'] = '';
+	$args['after']  = '';
+
+	return $args;
+}

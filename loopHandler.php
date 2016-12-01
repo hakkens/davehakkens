@@ -58,6 +58,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      * Default post
      */
     if (get_post_format() == ''): ?>
+    <div class="highlightlabel"> highlight</div>
       <a href="<?php echo get_post_permalink(); ?>">
         <?php the_post_thumbnail('small'); ?>
       </a>
@@ -73,7 +74,9 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      * Post format link
      */
     if (get_post_format() == 'link'): ?>
+    <div class="highlightlabel"> highlight</div>
       <?php the_content(); ?>
+
     <?php endif; ?>
 
     <?php
@@ -81,6 +84,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      * Post format video
      */
     if (get_post_format() == 'video'): $post_meta = get_post_meta(get_the_ID()); ?>
+    <div class="highlightlabel"> highlight</div>
       <div class="video">
         <?php
 
@@ -123,6 +127,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      * Post format Status
      */
     if (get_post_format() == 'status'): ?>
+    <div class="highlightlabel"> highlight</div>
       <a href="<?php echo get_post_permalink(); ?>">
         <div class="status">
         <div class="status-image">
@@ -143,6 +148,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      * Post format Image
      */
     if (get_post_format() == 'image'): ?>
+    <div class="highlightlabel"> highlight</div>
       <a href="<?php echo get_post_permalink(); ?>">
         <?php the_post_thumbnail('medium'); ?>
       </a>
