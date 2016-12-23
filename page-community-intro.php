@@ -58,6 +58,10 @@ get_template_part( 'navbar' );
 
 
 
+
+
+
+
         <?php
           if( have_posts() ) : while ( have_posts() ) : the_post();
           $post_meta = get_post_meta( $post->ID );
@@ -66,8 +70,9 @@ get_template_part( 'navbar' );
 
     <?php endwhile; endif; ?>
 
-
-  <div class="alt-forum-sidebar">
+  <div class="sidebar-banner"> </div>
+  <div class="sidebar-banner"> </div>
+<div class="alt-forum-sidebar">
     <?php dynamic_sidebar( 'forum-sidebar' ); ?>
   </div>
 

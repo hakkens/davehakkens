@@ -61,7 +61,8 @@
 
     <?php endwhile; endif; ?>
 
-    <div class="alt-forum-sidebar">
+    <div class="sidebar-banner"> </div>
+<div class="alt-forum-sidebar">
       <?php dynamic_sidebar( 'forum-sidebar' ); ?>
       <div class="clearfix"></div>
     </div>

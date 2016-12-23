@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/js/vendor/fancybox/jquery.fancybox.css">
   <script src="<?php bloginfo('template_url'); ?>/js/vendor/modernizr-2.8.3.min.js"></script>
 
-  <meta property="og:image" content="<?php bloginfo('template_url'); ?>/img/og.png" />
+  <!--<meta property="og:image" content="<?php bloginfo('template_url'); ?>/img/og.png" />-->
 
   <?php wp_head(); ?>
 

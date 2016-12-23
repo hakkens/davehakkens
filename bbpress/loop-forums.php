@@ -41,7 +41,10 @@
             <span class="padding-left-20"><a class="bbp-forum-title" href="<?php echo bbp_get_forum_permalink($sub_forum->ID); ?>">
               <?php echo get_the_post_thumbnail($sub_forum->ID, array(70, 70)); ?>
               <span><?php echo bbp_get_forum_title($sub_forum->ID); ?></span>
-            </a></span>
+            </a>
+    </span>
+
+
           </li>
 
           <li class="bbp-forum-topic-count"><?php echo bbp_get_forum_topic_count($sub_forum->ID); ?></li>

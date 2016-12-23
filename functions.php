@@ -337,3 +337,12 @@ function ntwb_bbpress_topic_css_role() {
 
 	return $args;
 }
+
+//Exclude category homepage
+function excludeCat($query) {
+if ( $query->is_home ) {
+$query->set('cat', '-621');
+}
+return $query;
+}
+add_filter('pre_get_posts', 'excludeCat');

@@ -68,7 +68,7 @@
       <div class="reply-date">
         <?php bbp_reply_post_date(); ?>
       </div>
-
+  <div class="topic-id"><a href="<?php bbp_reply_url(); ?>" class="bbp-reply-permalink">#<?php bbp_reply_id(); ?></a></div>
 
 
     </div>
@@ -84,7 +84,6 @@
 
       </span>
     <?php endif; ?>
-
     <?php
 
       do_action( 'bbp_theme_before_reply_content' );
