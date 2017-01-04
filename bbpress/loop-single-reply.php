@@ -64,10 +64,13 @@
         ?>
       </div>
 
-
+      <div class="wpulike"><?php if(function_exists('wp_ulike')) wp_ulike('get'); ?></div>
       <div class="reply-date">
         <?php bbp_reply_post_date(); ?>
       </div>
+
+
+
   <div class="topic-id"><a href="<?php bbp_reply_url(); ?>" class="bbp-reply-permalink">#<?php bbp_reply_id(); ?></a></div>
 
 
@@ -90,8 +93,6 @@
       bbp_reply_content();
 
       $post->ID = bbp_get_reply_id();
-      if( function_exists( 'wp_ulike_bbpress' ) ) wp_ulike_bbpress( 'get' );
-
       do_action( 'bbp_theme_after_reply_content' );
 
     ?>

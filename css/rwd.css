@@ -69,6 +69,24 @@
     height: 500px;
   }
 
+  div#submenu{
+    display:none;
+  }
+
+
+#topbar{
+    margin-top: 60px;
+  }
+
+  .single .post .post-content {
+      padding: 30px;
+      box-sizing: border-box;
+    }
+
+    .other-updates {
+        width: 100%;
+    }
+
   div#expertiseinfo {
     font-size: 18px;
 }
@@ -185,7 +203,7 @@
   .page-id-73512 #content,
   .page-template-page-with-sidebar #content,
   .page-template-page-redirect {
-    padding-bottom: 1000px;
+    padding-bottom: 1200px;
   }
 
   .forumhover{
@@ -194,8 +212,17 @@
   }
 
   .communitypage .thumbnail {
-      width: 45%!important;
+      width: 100%!important;
   }
+
+  .communitypage .thumbnail img {
+      width: 40%;
+      float: left;
+      display: inline-block;
+      padding: 80px;
+      padding-top: 30px;
+  }
+
 
   #bbpress-forums li.bbp-body ul.topic{
     margin-bottom: 5px;
@@ -331,8 +358,12 @@
   }
 
   .alt-forum-sidebar {
-    height:1000px;
+    height:1200px;
   }
+
+  .sidebar-banner {
+    bottom: 1200px;
+}
 
   .bbpress .post.no-headerimage {
   }
@@ -436,7 +467,7 @@
 
 
   .single-post h1 {
-    font-size: 50px;
+    font-size: 35px;
     padding:0px
 }
 
@@ -585,7 +616,10 @@ font-size: 18px;
   }
 
   .page-template-projects #content .project .caption p {
-    font-size: 14px;
+    font-size: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: -20px;
   }
 
   .page-template-projects #content .project .caption h2 {
@@ -672,6 +706,7 @@ font-size: 18px;
 
   .topic-lead .content p {
     font-size: 16px;
+    word-break: break-word;
   }
 
   .wysija-paragraph input {
@@ -749,6 +784,35 @@ font-size: 18px;
   .page-template-page-community-intro #background {
     margin-top: -15px;
 }
+.page-template-projects #content .project .caption p {
+  margin-top: -30px;
+}
+
+.heroes {
+  margin-top: 60px;
+}
+
+
+.hero-image {
+  display: inherit;
+  float: inherit;
+  margin: 0 auto;
+
+}
+.hero-image img{
+
+  }
+.hero-name {
+    display: inherit;
+    text-align: center;
+    padding: 10px;
+}
+.hero-about {
+  margin-left: 0px;
+  text-align: center;
+
+}
+
 
 #post-grid .status-text p {
     font-size: 16px;
@@ -994,7 +1058,7 @@ div#expertiseinfo {
 
   .padding-left-10, .padding-left-20 {
     padding-left: 0 !important;
-    font-size: 30px;
+    font-size: 26px;
   }
 
   .bbp-forum-title img {
@@ -1027,6 +1091,17 @@ div#expertiseinfo {
   .helpusthumbnail img {
       width: 130%!important;
   }
+
+
+@media only screen and (max-width: 320px){
+
+#bbpress-forums li.bbp-header li.bbp-forum-info, #bbpress-forums li.bbp-header li.bbp-topic-title{
+text-transform: inherit!important;
+}
+
+.page-template-projects #content .project .caption p {
+  margin-top: -50px;
+}
 
 
 }

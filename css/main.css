@@ -279,3 +279,11 @@ textarea {
         page-break-after: avoid;
     }
 }
+
+
+
+/* 12-23-16 fix by Anthony Coffey */
+/* the line below ensures that the post filters are not covered up by the header... this gives a margin to the top of the #post-filter div */
+.tag div#post-filter {
+    margin-top: 2em;
+}

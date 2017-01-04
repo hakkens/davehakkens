@@ -11,7 +11,7 @@
       <li class="label"></li>
 
       <li class="active">
-        <a href="#">Show all</a>
+        <a href="<?php echo site_url(); ?>">Show all</a>
       </li>
 
       <?php
