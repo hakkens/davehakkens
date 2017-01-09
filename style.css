@@ -1252,7 +1252,7 @@ cursor:pointer;
   text-transform: lowercase;
   text-align: center;
   text-shadow: 1px 1px 7px rgba(0, 0, 0, 0.6);
-  font-size: 33px;
+  font-size: 25px;
   letter-spacing: 1.8px;
 }
 
@@ -1374,7 +1374,7 @@ cursor:pointer;
   height: 0;
   border-left: 16px solid transparent;
   border-right: 16px solid transparent;
-  border-bottom: 20px solid #ffffff;
+  border-bottom: 20px solid #313131;
 }
 
 .user .actions img {
@@ -1399,7 +1399,7 @@ cursor:pointer;
 #user-menu .submenu{
   font-family: 'medium';
   color: black;
-  background: #ffffff;
+  background: #313131;
   border-radius: 4px;
   padding: 20px;
   width: 100%;
@@ -1415,7 +1415,9 @@ cursor:pointer;
 #user-menu .user .actions a {
   display: block;
   padding: 10px 4px;
-  color:black;
+  color: #ffffff;
+  letter-spacing: 1px;
+
 }
 #user-menu .hello {
     color: #ff7d7d;
@@ -5442,7 +5444,7 @@ div#submenu {
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    background-color: #bdd1ce;
+    background-color: white;
     padding-bottom: 30px;
     padding-top: 100px;
 }
@@ -5461,60 +5463,60 @@ color: black;
 }
 
 .menuitemforums {
-    background: url(img/community_forum_hover.png) center 9px no-repeat;
+    background: url(img/community_forum_color.png) center 9px no-repeat;
     background-size: 40%;
 }
 .menuitemforums:hover,
 .menuitemforums:active {
-    background: url(img/community_forum_color.png) center 9px no-repeat;
+    background: url(img/community_forum_hover.png) center 9px no-repeat;
     background-size: 40%;
     color: white;
 }
 
 
 .menuitemarmy {
-    background: url(img/community_army_hover.png) center 9px no-repeat;
+    background: url(img/community_army_color.png) center 9px no-repeat;
     background-size: 40%;
 }
 .menuitemarmy:hover,
 .menuitemarmy:active {
-    background: url(img/community_army_color.png) center 9px no-repeat;
+    background: url(img/community_army_hover.png) center 9px no-repeat;
     background-size: 40%;
     color: white;
 }
 
 
 .menuitemhelp {
-    background: url(img/community_helpus_hover.png) center 9px no-repeat;
+    background: url(img/community_helpus_color.png) center 9px no-repeat;
     background-size: 40%;
 }
 .menuitemhelp:hover,
 .menuitemhelp:active {
-    background: url(img/community_helpus_color.png) center 9px no-repeat;
+    background: url(img/community_helpus_hover.png) center 9px no-repeat;
     background-size: 40%;
     color: white;
 }
 
 
 .menuitemnews {
-    background: url(img/community_news_hover.png) center 9px no-repeat;
+    background: url(img/community_news_color.png) center 9px no-repeat;
     background-size: 40%;
 }
 .menuitemnews:hover,
 .menuitemnews:active {
-    background: url(img/community_news_color.png) center 9px no-repeat;
+    background: url(img/community_news_hover.png) center 9px no-repeat;
     background-size: 40%;
     color: white;
 }
 
 
 .menuitemjoinus {
-    background: url(img/community_join_hover.png) center 9px no-repeat;
+    background: url(img/community_join_color.png) center 9px no-repeat;
     background-size: 40%;
 }
 .menuitemjoinus:hover,
 .menuitemjoinus:active {
-    background: url(img/community_join_color.png) center 9px no-repeat;
+    background: url(img/community_join_hover.png) center 9px no-repeat;
     background-size: 40%;
     color: white;
 }
