@@ -15,6 +15,23 @@ function allow_origin() {
 }
 
 
+//Exclude community category from main query
+function exclude_category( $query ) {
+	// EXCLUDE COMMUNITY CATEGORY POSTS FROM HOMEPAGE AND TAG ARCHVIES
+    if ( $query->is_home() || $query->is_tag() ) {
+        $query->set( 'cat', '-621' );
+    }
+}
+add_action( 'pre_get_posts', 'exclude_category' );
+
+
+function get_vine_thumbnail( $id ) {
+  $vine = file_get_contents("http://vine.co/v/{$id}");
+  preg_match('/property="og:image" content="(.*?)"/', $vine, $matches);
+
+  return ( $matches[1] ) ? $matches[1] : false;
+}
+
 function dh_get_flag_by_location($country){
   if($country <> '' && !empty($country)){
   $country_filename = get_stylesheet_directory_uri() . '/img/flags/' . sanitize_file_name($country) . '.png';
@@ -146,7 +163,7 @@ function dave_hakkens_scripts() {
   wp_enqueue_script( 'mousewheel', get_bloginfo( 'template_url' ) . '/js/vendor/jquery.mousewheel.min.js', array( 'jquery' ) );
   wp_enqueue_script( 'fullpage-js', get_bloginfo( 'template_url' ) . '/js/vendor/fullpage.min.js', array( 'jquery' ) );
   wp_enqueue_script( 'dh_plugins', get_bloginfo( 'template_url' ) . '/js/plugins.js', array( 'jquery' ) );
-  wp_enqueue_script( 'dh_main', get_bloginfo( 'template_url' ) . '/js/main.js', array( 'jquery', 'fancybox', 'isotope', 'scroll_to', 'mousewheel', 'dh_plugins' ) );
+  wp_enqueue_script( 'dh_main_js', get_bloginfo( 'template_url' ) . '/js/main.js', array( 'jquery', 'fancybox', 'isotope', 'scroll_to', 'mousewheel', 'dh_plugins' ), rand(999,2500) );
 }
 
 add_action( 'wp_enqueue_scripts', 'dave_hakkens_scripts' );
@@ -222,6 +239,7 @@ function bbp_tinymce_paste_plain_text( $plugins = array() ) {
     $plugins[] = 'paste';
     return $plugins;
 }
+
 add_filter( 'bbp_get_tiny_mce_plugins', 'bbp_tinymce_paste_plain_text' );
 
 
@@ -237,7 +255,7 @@ return $default ;
 //Hide admin bar
 add_filter('show_admin_bar', '__return_false');
 
-
+/*
 
 //Goto forums after login
 function my_login_redirect( $url, $request, $user ){
@@ -252,7 +270,7 @@ return $url;
 }
 add_filter('login_redirect', 'my_login_redirect', 10, 3 );
 
-/*
+
 //Change name user roles
 add_filter( 'bbp_get_dynamic_roles', 'ntwb_bbpress_custom_role_names' );
 
@@ -338,14 +356,8 @@ function ntwb_bbpress_topic_css_role() {
 	return $args;
 }
 
-//Exclude category homepage
-function excludeCat($query) {
-if ( $query->is_home ) {
-$query->set('cat', '-621');
-}
-return $query;
-}
-add_filter('pre_get_posts', 'excludeCat');
+
+
 
 
 //ad sidebar

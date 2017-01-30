@@ -7,40 +7,39 @@ if (WP_DEBUG) {
 define( 'WP_USE_THEMES', false );
 require_once( '../../../wp-load.php' );
 
-function get_vine_thumbnail( $id ) {
-  $vine = file_get_contents("http://vine.co/v/{$id}");
-  preg_match('/property="og:image" content="(.*?)"/', $vine, $matches);
-
-  return ( $matches[1] ) ? $matches[1] : false;
-}
-
 $skipPosts = [];
 
 if( $_GET['skipPosts'] != '' ){
   $skipPosts = explode('|', $_GET['skipPosts']);
 }
 
-$numPosts = (isset($_GET['numPosts'])) ? $_GET['numPosts'] : 0;
-$page = (isset($_GET['pageNumber'])) ? $_GET['pageNumber'] : 0;
-$tag = (isset($_GET['tag'])) ? $_GET['tag'] : 0;
-
+$numPosts = (isset($_GET['numPosts'])) ? $_GET['numPosts'] : 10;
+$page = (isset($_GET['pageNumber'])) ? $_GET['pageNumber'] : 1;
+$tag = (isset($_GET['tag'])) ? $_GET['tag'] : "";
+$category = (isset($_GET['category'])) ? $_GET['category'] : "";
+$catID = get_term_by('name', $category, 'category');
+$catID = $catID->term_id;
 if (count($skipPosts) > 0)
 {
-  query_posts(array(
+   query_posts(array(
     'post__not_in'   => $skipPosts,
     'posts_per_page' => $numPosts,
     'paged'          => $page,
     'tag'            => $tag,
+	'cat' 		     => $catID
   ));
 }
 else
 {
-  query_posts(array(
+   query_posts(array(
     'posts_per_page' => $numPosts,
     'paged'          => $page,
     'tag'            => $tag,
+	'cat' 		     => $catID
   ));
 }
+
+
 
 
 if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
@@ -74,7 +73,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
      * Post format link
      */
     if (get_post_format() == 'link'): ?>
-    <a href="/tag/highlight"><div class="highlightlabel"> highlight</div></a> 
+    <a href="/tag/highlight"><div class="highlightlabel"> highlight</div></a>
       <?php the_content(); ?>
 
     <?php endif; ?>
@@ -160,12 +159,28 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
 
 
 <div class="post_meta">
+  <div class="category-footer">
       <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
       <div class="tags"> <?php
-      foreach (get_the_tags() as $tag){
-        echo ' <a href="#' . $tag->name . '">/' . $tag->name . '</a>';
+      if($catID!= ''){
+        foreach (get_the_tags() as $tag){
+          echo ' #' . $tag->name . ' ';
+        }
+      } else {
+        foreach (get_the_tags() as $tag){
+          echo ' <a href="/tag/' . $tag->name . '">#' . $tag->name . '</a>';
+        }
       }
       ?></div>
+     <div class="commenticon">
+       <a href="<?php comments_link(); ?>">
+       <img src="http://davehakkens.nl/wp-content/themes/davehakkens2/img/comment.png" alt="comments" height="23" width="23"><?php
+   comments_popup_link( '', '1', '%', 'comments-link', 'X');?></p></a></div>
+
+ <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?>
+ </div>
+
+
      <?php edit_post_link(); ?>
 
     </div>

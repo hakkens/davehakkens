@@ -7,7 +7,10 @@
  <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
 <h1><?php the_title(); ?></h1>
 <?php the_content(); ?>
-<div class="tags"> <p><?php the_tags('', ' ', '<br />'); ?> </p></div></div>
+<div class="meta"> <div class="categories"> <?php the_category( ' ' ); ?></div>
+<div class="tags"> <p><?php the_tags('', ' ', '<br />'); ?> </p></div>  <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?></div>
+</div>
+
 
  <div class="randomtitle">
    <img src="http://davehakkens.nl/wp-content/themes/davehakkens2/img/randomnews.png" alt="randomnews" height="102" width="500"></div>

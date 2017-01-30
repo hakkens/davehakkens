@@ -9,6 +9,13 @@
 
   <title><?php wp_title(); ?></title>
 
+<!-- FOR DEV ONLY - REMOVE! -->
+<meta http-equiv='cache-control' content='no-cache'>
+<meta http-equiv='expires' content='0'>
+<meta http-equiv='pragma' content='no-cache'>
+
+
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/normalize.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/main.css">
@@ -16,7 +23,7 @@
   <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/rwd.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/js/vendor/fancybox/jquery.fancybox.css">
-  <script src="<?php bloginfo('template_url'); ?>/js/vendor/modernizr-2.8.3.min.js"></script>
+  <!-- <script src="<?php bloginfo('template_url'); ?>/js/vendor/modernizr-2.8.3.min.js"></script>-->
 
   <!--<meta property="og:image" content="<?php bloginfo('template_url'); ?>/img/og.png" />-->
 
@@ -100,3 +107,4 @@
 
   </div>
 </div>
+<a href="https://next.preciousplastic.com" target="_tab"><div class="notification"> <div class="text"> Support our newest Precious Plastic campaign 🍌 </div></div></a>

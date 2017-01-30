@@ -24,8 +24,8 @@
     </ul>
   </div>
 
-  <div id="post-grid"></div>
+  <div id="post-grid">
+  </div>
 
 </div>
-
 <?php get_footer(); ?>

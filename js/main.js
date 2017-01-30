@@ -247,7 +247,9 @@ DaveHakkens.Main = function(){
       animationEngine: 'jquery'
     });
 
-    $(document).on('click', '#post-filter a, #post-grid .item .post_meta a', function(){
+    /*
+		old hash tag linking code
+	$(document).on('click', '#post-filter a, #post-grid .item .post_meta a', function(){
       var category = '.' + $(this).attr('href').replace('#', '');
       $postFilter.find('.active').removeClass('active');
       $(this).parent().addClass('active');
@@ -270,45 +272,61 @@ DaveHakkens.Main = function(){
         }, 500);
 
       }
-    });
+    });*/
+
     if ($postGrid.length > 0) {
-      $window.scroll(function () {
-        if (!loading && ($(window).scrollTop() + $(window).height() == $(document).height())) {
-          loading = true;
-          page++;
-          loadPosts(10);
-        }
-      });
-      loadPosts(10);
+
+		$window.scroll(function () {
+		  var check = parseInt($(window).scrollTop() + $(window).height());
+		  var test = ($(document).height());
+
+			if (!loading && (test - check ) < 100) {
+			// BOTTOM OF PAGE REACHED!
+			  loading = true;
+			  page++;
+			  loadPosts(10);
+			}
+		});
+	// load posts when page loads
+	loadPosts(10);
     }
+
   };
 
-  var loadPosts = function(numPosts){
-
-    var hash = window.location.hash.replace('#', '');
-
+var loadPosts = function(numPosts){
+  var pathname = window.location.pathname;
+  if( pathname.indexOf('tag') !== -1 ){   // if pathname contains the word tag
+  console.log('tag in URL');
+	var tag = pathname.replace('/tag/','');
+	tag = tag.replace('/','');
+} else if ( pathname.indexOf('category') !== -1 ) { // if category in URL
+  console.log('category in URL');
+  var category = pathname.replace('/category/','');
+  category = category.replace('/','');
+}
+  // otherwise check to see if there is a category
     $('#overlay').show();
-
     $.ajax({
       type       : "GET",
-      data       : {numPosts : numPosts, pageNumber: page, tag: hash, skipPosts: skipPosts},
+      data       : {numPosts : numPosts, pageNumber: page, tag: tag, category: category, skipPosts: skipPosts},
       dataType   : "html",
       url        : homeURL + "/wp-content/themes/davehakkens2/loopHandler.php",
       beforeSend : function(){
       },
       success    : function(data){
+
         $data = $(data);
 
         $postGrid.append($data).isotope('appended', $data);
 
         setTimeout(function(){
-          $postGrid.isotope();
-        }, 750);
+          $postGrid.isotope('layout');
+        }, 250);
 
         loading = false;
       },
       error     : function(jqXHR, textStatus, errorThrown) {
-        alert(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+       console.log(jqXHR + " :: " + textStatus + " :: " + errorThrown);
       }
     });
   };
@@ -331,9 +349,18 @@ DaveHakkens.Main = function(){
 
 }();
 
-jQuery(document).ready(function(){
+jQuery(document).ready(function($){
+
+
 
   var $ = jQuery;
+
+  $('.count-box').each(function(){
+	if ($(this).text() === '0' ) {
+		$(this).hide();
+	}
+  });
+
   DaveHakkens.Main.init();
 
   $( '.list-replies li' ).each( function( reply ) {

@@ -22,7 +22,7 @@
         $user = get_userdata( bbp_get_reply_author_id() );
         if ( !empty( $user->user_nicename ) ) {
           $user_nicename = $user->user_nicename;
-          echo "".$user_nicename;
+          echo "<a href='/community/members/".$user_nicename."/'>" . $user_nicename . '</a>';
         }
       ?>
         <h1><?php the_title(); ?></h1>
