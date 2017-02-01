@@ -960,6 +960,7 @@ padding: 6px 10px;
 
 .single-format-standard .post-content{
   margin-top:0px !important;
+  padding: 50px 200px!important;
 }
 
 single-format-status .post-thumbnail,
@@ -1004,7 +1005,9 @@ textarea#comment {
     box-sizing: border-box;
     border: 0px;
     height: 200px;
-}
+    }
+
+
 h3#comments, div#respond h3 {
     font-family: 'medium';
     text-align: center;
@@ -1128,6 +1131,16 @@ a.read-more {
   display: block;
   height: auto;
   width: 100%;
+
+}
+
+.commenticon img {
+    display: inline-block;
+    max-width:25px;
+}
+
+.commenticon a {
+    display: inline-block;
 }
 
 #post-grid .item h3 {
@@ -3486,6 +3499,7 @@ div.indicator-hint p {
   width: 100%;
   background-color: inherit;
   padding: 0px!important;
+  box-shadow: none;
 }
 
 #buddypress #item-header {
@@ -4743,19 +4757,17 @@ form#bps_directory72873 {
   display: none;
 }
 
+div#member-dir-count-bottom {
+    display: none!important;
+}
 
+.wp-editor-tools {
+    float: left!important;
+}
 .register .post-content {
   margin-top: 0px!important;
   padding: 0px!important;
   }
-
-.register .field_38 {
-  display: none;
-}
-
-.register .field_667 {
-  display: none;
-}
 
 
 .register-section input{
@@ -5484,9 +5496,14 @@ body#tinymce {
 }
 .commenticon  {
   float:right;
-  width: 25px;
-  margin-right: 10px;
+  max-width: 30px;
 }
+
+.commenticon  a.comments-link {
+    padding: 3px;
+    position: absolute;
+}
+
 
 .commenticon .comments-link a {
     color: #8e8e8e;
@@ -5552,6 +5569,9 @@ div#submenu {
     box-shadow: inherit!important;
 }
 
+.page-id-320,
+.page-id-3571,
+.page-id-61812,
 .page-id-72953 {
     margin-top: 5%;
 }
@@ -5630,13 +5650,13 @@ color: black;
 }
 
 #project-precious-plastic h2 {
-  height: 320px;
+  height: 300px;
   text-indent: -9999px;
   max-width: 600px;
   width: 95%;
   margin: 0 auto!important;
-  background: url('img/project_preciousplastic.png') center no-repeat;
-  background-size: 95%;
+  background: url(img/project_preciousplastic.png) center no-repeat;
+  background-size: 88%;
 }
 
 #project-story-hopper h2 {
@@ -5646,7 +5666,7 @@ color: black;
     width: 95%;
     margin: 0 auto!important;
     background: url('img/project_storyhopper.png') center no-repeat;
-    background-size: 100%;
+    background-size: 88%;
 }
 
 #project-phonebloks h2 {
@@ -5656,7 +5676,7 @@ color: black;
     width: 95%;
     margin: 0 auto!important;
     background: url('img/project_phonebloks.png') center no-repeat;
-    background-size: 100%;
+    background-size: 88%;
 }
 
 #project-old-projects h2 {
@@ -5699,6 +5719,9 @@ color: black;
     color: white;
 }
 
+.notification{
+  display:none;
+}
 
 
 /* END COUNTRY FLAG CODE */

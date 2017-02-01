@@ -113,12 +113,12 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
         if (strpos($video_url, 'vine')){
           $parts = explode('/', $video_url);
           $video_code = end($parts);
-          echo '<div class="vine-container"><img src="'.get_vine_thumbnail($video_code).'"><a href="' . $video_code . '"><img src="' . get_bloginfo('template_url') . '/img/youtube-style-play-button-md.png"></a></div>';
-        }
-        the_content();
+          echo '<div class="vine-container"><img src="'.get_vine_thumbnail($video_code).'"><a href="' . $video_code . '"><img src="' . get_bloginfo('template_url') . '/img/youtube-style-play-button-md.png"></a></div>';}?>
+</div>
+          <h3><?php the_title(); ?></h3>
+          <?php the_content();?>
 
-        ?>
-      </div>
+
     <?php endif; ?>
 
     <?php
@@ -132,8 +132,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
         <div class="status-image">
           <?php the_post_thumbnail('small'); ?>
 
-        </a><div class="status-text">
-        <?php the_content(); ?>
+      <div class="status-text">
+        <?php the_content(); ?>  </a>
         <?php edit_post_link(); ?>
 
         </div>

@@ -63,11 +63,22 @@
 
 }
 
+@media screen and (max-width: 1000px) {
+
+  .single-format-standard .post-content {
+    margin-top: 0px !important;
+    padding: 50px!important;
+
+}
+
+}
+
 @media screen and (max-width: 900px) {
 
   .single .post .thumbnail {
     height: 500px;
   }
+
 
   div#submenu{
     display:none;
@@ -79,7 +90,7 @@
   }
 
   .single .post .post-content {
-      padding: 30px;
+      padding: 30px!important;
       box-sizing: border-box;
     }
 

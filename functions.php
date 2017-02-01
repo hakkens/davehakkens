@@ -225,11 +225,10 @@ function modify_read_more_link() {
 add_filter( 'the_content_more_link', 'modify_read_more_link' );
 
 
-
+/*
 //Visual editor without tiny mc
 function bbp_enable_visual_editor( $args = array() ) {
     $args['tinymce'] = true;
-    $args['quicktags'] = false;
     return $args;
 }
 add_filter( 'bbp_after_get_the_content_parse_args', 'bbp_enable_visual_editor' );
@@ -239,8 +238,9 @@ function bbp_tinymce_paste_plain_text( $plugins = array() ) {
     $plugins[] = 'paste';
     return $plugins;
 }
-
 add_filter( 'bbp_get_tiny_mce_plugins', 'bbp_tinymce_paste_plain_text' );
+
+*/
 
 
 //set max topic title to 50
@@ -255,7 +255,7 @@ return $default ;
 //Hide admin bar
 add_filter('show_admin_bar', '__return_false');
 
-/*
+
 
 //Goto forums after login
 function my_login_redirect( $url, $request, $user ){
@@ -270,7 +270,7 @@ return $url;
 }
 add_filter('login_redirect', 'my_login_redirect', 10, 3 );
 
-
+/*
 //Change name user roles
 add_filter( 'bbp_get_dynamic_roles', 'ntwb_bbpress_custom_role_names' );
 

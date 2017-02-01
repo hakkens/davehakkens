@@ -14,6 +14,12 @@
 <div class="tags"> <p><?php the_tags('', ' ', '<br />'); ?> </p></div>  <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?></div>
 </div>
 
+<div class="background-comments">
+<div class="post-comments">
+  <?php comments_template(); ?>
+</div>
+</div>
+
 
 <div class="randomtitle">
   <img src="http://davehakkens.nl/wp-content/themes/davehakkens2/img/randomnews.png" alt="randomnews" height="102" width="500"></div>
@@ -27,7 +33,7 @@
       	'posts_per_page' => 4, // How many items to display
       	'post__not_in'   => array( get_the_ID() ), // Exclude current post
       	'no_found_rows'  => true, // We don't ned pagination so this speeds up the query
-        'orderby' => 'rand',
+
       );
 
       // Check for current post category and add tax_query to the query arguments
@@ -62,10 +68,6 @@
 
 
 
-<div class="background-comments">
-<div class="post-comments">
-  <?php comments_template(); ?>
-</div>
-</div>
+
 </div>
 <?php edit_post_link(); ?>
