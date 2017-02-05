@@ -256,7 +256,7 @@ return $default ;
 add_filter('show_admin_bar', '__return_false');
 
 
-
+/*
 //Goto forums after login
 function my_login_redirect( $url, $request, $user ){
 if( $user && is_object( $user ) && is_a( $user, 'WP_User' ) ) {
@@ -270,7 +270,7 @@ return $url;
 }
 add_filter('login_redirect', 'my_login_redirect', 10, 3 );
 
-/*
+
 //Change name user roles
 add_filter( 'bbp_get_dynamic_roles', 'ntwb_bbpress_custom_role_names' );
 
