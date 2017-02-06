@@ -33,8 +33,6 @@ html, body {
 }
 
 body {
-  /*remove scroll
-  overflow: auto;*/
 }
 
 body.home-page,
@@ -2020,7 +2018,6 @@ input#bbp_search_submit.button {
 }
 
 .page-forum #bbpress-forums form {
-  font-size: 0;
   font-family: 'medium';
 }
 

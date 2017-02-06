@@ -49,5 +49,9 @@ get_template_part( 'navbar' );
 
   </div>
 </div>
+</br>
+</br>
+</br>
+</br>
 
 <?php get_footer(); ?>
