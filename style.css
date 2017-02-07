@@ -326,6 +326,7 @@ a:hover {
 #navbar > a:first-child {
   position: absolute;
   left: 0;
+  top: 0;
 }
 
 #navbar #logo {

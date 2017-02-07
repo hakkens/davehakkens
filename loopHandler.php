@@ -115,7 +115,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
           $video_code = end($parts);
           echo '<div class="vine-container"><img src="'.get_vine_thumbnail($video_code).'"><a href="' . $video_code . '"><img src="' . get_bloginfo('template_url') . '/img/youtube-style-play-button-md.png"></a></div>';}?>
 </div>
-          <h3><?php the_title(); ?></h3>
+        <a href="<?php echo get_post_permalink(); ?>"> <h3><?php the_title(); ?></h3></a>
           <?php the_content();?>
 
 
