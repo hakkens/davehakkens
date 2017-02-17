@@ -224,8 +224,8 @@ function modify_read_more_link() {
 }
 add_filter( 'the_content_more_link', 'modify_read_more_link' );
 
-
 /*
+
 //Visual editor without tiny mc
 function bbp_enable_visual_editor( $args = array() ) {
     $args['tinymce'] = true;
@@ -241,7 +241,6 @@ function bbp_tinymce_paste_plain_text( $plugins = array() ) {
 add_filter( 'bbp_get_tiny_mce_plugins', 'bbp_tinymce_paste_plain_text' );
 
 */
-
 
 //set max topic title to 50
 add_filter ('bbp_get_title_max_length','rkk_change_title') ;

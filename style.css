@@ -1105,6 +1105,7 @@ a.read-more {
 
 #post-grid .highlight .highlightlabel {
     display: inline-block;
+    width:65px;
 }
 
 
@@ -4779,7 +4780,6 @@ div#member-dir-count-bottom {
 .register-section select{
   background-color: white !important;
   border: 0px !important;
-  height: 40px;
 }
 
 
