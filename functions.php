@@ -215,14 +215,7 @@ function my_login_logo_url_title() {
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 
-*/
 
-
-//change more.. on homepage
-function modify_read_more_link() {
-    return '<a class="more-link" href="' . get_permalink() . '">keep going..</a>';
-}
-add_filter( 'the_content_more_link', 'modify_read_more_link' );
 
 /*
 
@@ -241,6 +234,13 @@ function bbp_tinymce_paste_plain_text( $plugins = array() ) {
 add_filter( 'bbp_get_tiny_mce_plugins', 'bbp_tinymce_paste_plain_text' );
 
 */
+
+//change more.. on homepage
+function modify_read_more_link() {
+    return '<a class="more-link" href="' . get_permalink() . '">Read all..</a>';
+}
+add_filter( 'the_content_more_link', 'modify_read_more_link' );
+
 
 //set max topic title to 50
 add_filter ('bbp_get_title_max_length','rkk_change_title') ;
@@ -356,8 +356,52 @@ function ntwb_bbpress_topic_css_role() {
 }
 
 
+//Redirect wp-login to community login
+function redirect_login_page() {
+  $login_page  = home_url( 'community/login/' );
+  $page_viewed = basename($_SERVER['REQUEST_URI']);
+
+  if( $page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+    wp_redirect($login_page);
+    exit;
+  }
+}
+add_action('init','redirect_login_page');
 
 
+function logout_page() {
+  $login_page  = home_url( 'community/login/' );
+  wp_redirect( $login_page . "?login=false" );
+  exit;
+}
+add_action('wp_logout','logout_page');
+
+
+function login_failed() {
+  $login_page  = home_url( '/login/' );
+  wp_redirect( $login_page . '?login=failed' );
+  exit;
+}
+add_action( 'wp_login_failed', 'login_failed' );
+
+function verify_username_password( $user, $username, $password ) {
+  $login_page  = home_url( 'community/login/' );
+    if( $username == "" || $password == "" ) {
+        wp_redirect( $login_page . "?login=empty" );
+        exit;
+    }
+}
+add_filter( 'authenticate', 'verify_username_password', 1, 3);
+
+
+
+//change logo login
+function custom_loginlogo() {
+echo '<style type="text/css">
+h1 a {background-image: url('.get_bloginfo('template_directory').'/images/login.svg) !important; }
+</style>';
+}
+add_action('login_head', 'custom_loginlogo');
 
 //ad sidebar
 if ( is_active_sidebar( 'primary' ) ) : ?>

@@ -701,15 +701,26 @@ a:hover {
     width: 100%;
     height: auto;
     display: inline-block;
-    margin-top: 5px;
+    margin-top: 40px;
+    font-family: 'medium';
+    font-size: 16px;
+    letter-spacing: 0.5px;
 }
 
-.authorinfo {
-    display: none!important;
+.authorinfo p {
+    margin-bottom: 10px;
+    color: #585858;
+}
+
+
+.single-format-image .date {
+    margin-top: 0px;
+    display: inline-block;
+    margin-left: 20px;
 }
 
 .authorinfo .author {
-    margin-top: 4px;
+    display:inline-block;
 }
 
 .single-post .meta .categories a{
@@ -3254,6 +3265,7 @@ div#respond {
   font-size: 12px;
   text-decoration: none;
   color: black;
+  word-break: break-all;
 }
 
 .comment-body .comment-author .says {
@@ -5715,6 +5727,7 @@ color: black;
     z-index: 99999;
     font-size: 14px;
     color: white;
+    display: none;
 }
 
 

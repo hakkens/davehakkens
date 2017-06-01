@@ -5,21 +5,16 @@
 <div class="post-thumbnail">
   <?php the_post_thumbnail( 'full' ); ?>
 </div>
-   <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
-    <div class="authorinfo"> <div class="avatar"><?php echo get_avatar( get_the_author_meta( 'ID' ), 32 ); ?> </div>
-    <div class="author"> <?php the_author(); ?> </div></div>
+       <div class="authorinfo"> <p>
+      <div class="avatar"><?php echo get_avatar( get_the_author_meta( 'ID' ), 32 ); ?> </div>
+    <div class="author"> <?php the_author(); ?>  </div>
+    <div class="date"> <?php the_time('F j, Y'); ?></p></div>
+  </div>
   <h1><?php the_title(); ?></h1>
   <?php the_content(); ?>
       <div class="meta"> <div class="categories"> <?php the_category( ' ' ); ?></div>
 <div class="tags"> <p><?php the_tags('', ' ', '<br />'); ?> </p></div>  <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?></div>
 </div>
-
-<div class="background-comments">
-<div class="post-comments">
-  <?php comments_template(); ?>
-</div>
-</div>
-
 
 <div class="randomtitle">
   <img src="http://davehakkens.nl/wp-content/themes/davehakkens2/img/randomnews.png" alt="randomnews" height="102" width="500"></div>
@@ -67,6 +62,11 @@
     </div>
 
 
+    <div class="background-comments">
+    <div class="post-comments">
+      <?php comments_template(); ?>
+    </div>
+    </div>
 
 
 </div>

@@ -44,13 +44,6 @@
 </div>
 </div>
 
-<div class="background-comments">
-<div class="post-comments">
-  <?php comments_template(); ?>
-</div>
-</div>
-
-
     <div class="randomtitle">
       <img src="http://davehakkens.nl/wp-content/themes/davehakkens2/img/randomnews.png" alt="randomnews" height="102" width="500"></div>
         <div class="other-updates">
@@ -95,7 +88,11 @@
               </div>
 
 
-
+              <div class="background-comments">
+              <div class="post-comments">
+                <?php comments_template(); ?>
+              </div>
+              </div>
 
 
 </div>

@@ -4,7 +4,7 @@
   <div class="shadow"></div>
 
   <div class="meta">
-    <h1><?php the_title(); ?></h1>
+ <h1><?php the_title(); ?></h1>
 <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
 
   </div>
@@ -13,12 +13,6 @@
 
 <div class="post-content">
   <?php the_content(); ?>
-</div>
-
-<div class="background-comments">
-<div class="post-comments">
-  <?php comments_template(); ?>
-</div>
 </div>
 
   <div class="randomtitle">
@@ -68,5 +62,12 @@
 
 
 </div>
+
+<div class="background-comments">
+<div class="post-comments">
+  <?php comments_template(); ?>
+</div>
+</div>
+
 </div>
   <?php edit_post_link(); ?>
