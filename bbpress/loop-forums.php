@@ -8,9 +8,10 @@
  */
 
 ?>
-<script>console.log('loop-forums.php');</script>
 
+<script>console.log('loop-forums.php');</script>
 <?php do_action( 'bbp_template_before_forums_loop' ); ?>
+
 
 <?php if (bbp_get_forum_id() === 0): ?>
 

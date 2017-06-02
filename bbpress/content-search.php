@@ -38,7 +38,7 @@
 
   <?php else : ?>
 
-    <?php bbp_get_template_part( 'form', 'search' ); ?>
+
 
   <?php endif; ?>
 

@@ -819,6 +819,8 @@ padding: 6px 10px;
   margin-left: -4px;
 }
 
+
+
 .relatedposts {
   width: 100%;
       margin-top: 40px;
@@ -1980,7 +1982,9 @@ input#bbp_search {
   font-size: 12px;
 
 }
-
+#bbpress-forums div.bbp-search-form{
+  float:inherit!important;
+}
 
 .sidebar-banner {
   height: 100px;
