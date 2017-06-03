@@ -358,6 +358,14 @@ jQuery(document).ready(function($){
   $('.count-box').each(function(){
 	if ($(this).text() === '0' ) {
 		$(this).hide();
+
+	}
+  });
+
+  $('.no-count').each(function(){
+	if ($(this).text() === '0' ) {
+		$(this).hide();
+
 	}
   });
 

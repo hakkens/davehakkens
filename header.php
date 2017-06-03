@@ -86,7 +86,18 @@
             <div class="hello"> Hello <?= $current_user->user_firstname; ?></div>
             <a href="<?= bp_loggedin_user_domain(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/profile.png">My profile</a>
             <a href="<?= bp_loggedin_user_domain(); ?>/profile/change-avatar/"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/avatar-change.png">Change avatar</a>
-            <a href="<?= bp_loggedin_user_domain(); ?>/messages"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/messages.png">Inbox</a>
+            <a href="<?= bp_loggedin_user_domain(); ?>/messages"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/messages.png">Inbox <div class="littlenotification">
+
+
+
+  <!--  bp_notifications_get_unread_notification_count -->
+  <?php  $count = bp_get_total_unread_messages_count();
+              if ( $count > 0 ) {
+                echo $count;
+              } else {
+                // The notif count is 0.
+              }
+              ?> </div></a>
             <a href="<?= wp_logout_url(home_url()); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/logout.png"> Log out</a>
             <?php if (current_user_can("manage_options")) : ?>
                    <a href="<?php echo bloginfo("siteurl") ?>/wp-admin/"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/admin.png">Admin</a>

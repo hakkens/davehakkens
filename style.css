@@ -4068,7 +4068,12 @@ form#send_message_form img.avatar.user-40296-avatar.avatar-15.photo {
   width: auto;
 }
 
-
+.littlenotification {
+  display: inline-block;
+  background-color: #6ea7dc;
+  padding: 0px 5px;
+  border-radius: 6px;
+}
 
 table.notifications tr {
     background-color: #fff!important;
