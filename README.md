@@ -10,3 +10,21 @@ Couple of key plugins we use to make this community happen
 - Buddypress for the community parts
 - Mycred for gamification
 - GD bbPress Attachments for forum attachments
+
+## Getting started using Docker
+
+Make sure you have docker installed with docker compose
+
+To Run:
+
+    docker-compose up -d
+
+Then browse to http://localhost:8000/
+
+To bring offline
+
+    docker-compose down
+
+When you first install, you will need to install plugins and select the Dave Hakkens theme. Plugins and theme selection should persist
+
+Since the pages are part of the database, you will need to create the community page, and a login page (parented to the community page to not break links). This will enable you to get back in once you restart the container
