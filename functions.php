@@ -6,7 +6,6 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'post-formats', [ 'image', 'status', 'video', 'link' ] );
 
 add_action( 'init', 'register_project_post_type' );
-add_action( 'init', 'register_challenge_post_type' );
 
 add_action( 'init', 'allow_origin' );
 
