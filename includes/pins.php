@@ -3,21 +3,12 @@
 function get_pp_pins( $data ) {
   global $wpdb;
 
-  $query = "SELECT * FROM pp_pins";
-  if (isset($data['id'])){
-    $query .= " WHERE id=" . intval($data['id']);
-  }
-  $query .= ";";
+  $query = "SELECT name, lat, lng, description, address, website, contact, hashtags, contact, hashtags, filters, imgs, status FROM pp_pins WHERE show_on_map = true;";
   $pins = $wpdb->get_results($query);
-  foreach ($pins as &$pin){
-    $query = "SELECT service FROM pp_pins_services_pin WHERE pin =". $pin->id .";";
-    $services = $wpdb->get_col($query);
-    foreach($services as &$service)$service=intval($service);
-    $pin->services = $services;
-    $query = "SELECT tag FROM pp_pins_tags_pin WHERE pin =". $pin->id .";";
-    $tags = $wpdb->get_col($query);
-    foreach($tags as &$tag)$tag=intval($tag);
-    $pin->tags = $tags;
+  foreach ($pins as &$pin) {
+    $pin->hashtags = json_decode($pin->hashtags, true);
+    $pin->filters = json_decode($pin->filters, true);
+    $pin->imgs = json_decode($pin->imgs, true);
   }
   return $pins;
 }
@@ -30,16 +21,3 @@ add_action( 'rest_api_init', function () {
     'callback' => 'get_pp_pins',
   ));
 });
-
-/*
-add_action( 'rest_api_init', function() {
-  remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
-  add_filter( 'rest_pre_serve_request', function( $value ) {
-    header( 'Access-Control-Allow-Origin: http://localhost' );
-    header( 'Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE' );
-    header( 'Access-Control-Allow-Credentials: true' );
-    header( 'Access-Control-Allow-Headers: X-WP-Nonce' );
-    return $value;
-  });
-}, 15 );
-*/
