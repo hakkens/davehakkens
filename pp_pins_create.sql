@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS pp_pins (
+  id INT NOT NULL AUTO_INCREMENT UNIQUE PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  lat DOUBLE,
+  lng DOUBLE,
+  description TEXT CHARACTER SET utf8,
+  website VARCHAR(255),
+  contact VARCHAR(255) NOT NULL,
+  hashtags JSON,
+  filters JSON,
+  imgs JSON,
+  status VARCHAR(32) NOT NULL
+);
