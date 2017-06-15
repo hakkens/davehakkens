@@ -1,6 +1,7 @@
 <?php
 
 include dirname( __FILE__ ) . '/includes/meta-boxes.php';
+include_once dirname( __FILE__ ) . '/includes/pins.php';
 
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'post-formats', [ 'image', 'status', 'video', 'link' ] );
