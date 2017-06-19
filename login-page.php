@@ -33,7 +33,10 @@ get_template_part( 'navbar' );
           <p class="centered">Wrong username / password!</p>
         <?php endif; ?>
 
-        <?php wp_login_form( [ 'redirect' => 'https://davehakkens.nl/community/forums/' ] ); ?>
+        <?php
+          $redirect = site_url($_GET['redirect'] ? urldecode($_GET['redirect']) : '/community/forums');
+          wp_login_form( [ 'redirect' => $redirect ] );
+        ?>
 
         <div class="forgot_password">
           <a href="/community/forgot-password/">Forgot your password?</a>
