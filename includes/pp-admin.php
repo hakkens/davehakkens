@@ -45,7 +45,7 @@ class Pin_Table extends WP_List_Table {
   }
 
   function prepare_items() {
-    global $wpdb
+    global $wpdb;
 
     $query = "SELECT * FROM pp_pins";
 
