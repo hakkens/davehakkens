@@ -1,5 +1,30 @@
 <?php
 
+//dynamic css inclusion on input pages
+function wpse_enqueue_page_template_styles() {
+  if ( is_page_template( 'pp-pin-form.php' ) ) {
+    wp_enqueue_style( 'pins', get_template_directory_uri() . '/css/pins.css' );
+  }
+}
+add_action( 'wp_enqueue_scripts', 'wpse_enqueue_page_template_styles' );
+
+
+//admin page
+function pp_admin_menu() {
+	add_menu_page( 'PP Pin Admin', 'PP Pins', 'manage_options', 'pp-admin', 'pp_admin_page', '', 99);
+}
+add_action( 'admin_menu', 'pp_admin_menu' );
+
+function pp_admin_page() {
+	if ( !current_user_can( 'manage_options' ) )  {
+		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+  }
+
+  include_once dirname( __FILE__ ) . '/pp-admin.php';
+}
+
+
+//REST end point setup
 function get_pp_pins( $data ) {
   global $wpdb;
 
