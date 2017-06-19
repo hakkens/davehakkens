@@ -6,13 +6,6 @@ include_once dirname( __FILE__ ) . '/includes/pins.php';
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'post-formats', [ 'image', 'status', 'video', 'link' ] );
 
-function wpse_enqueue_page_template_styles() {
-  if ( is_page_template( 'pp-pin-form.php' ) ) {
-    wp_enqueue_style( 'pins', get_template_directory_uri() . '/css/pins.css' );
-  }
-}
-add_action( 'wp_enqueue_scripts', 'wpse_enqueue_page_template_styles' );
-
 function register_project_post_type(){
   register_post_type( 'projects', array(
     'labels' => array(
