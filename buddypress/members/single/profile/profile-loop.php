@@ -71,6 +71,7 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 <?php endif; ?>
 
 
+
 <div class="dedication"><a href="https://davehakkens.nl/community/dedication/">Dedication</a></div>
 <?php
 

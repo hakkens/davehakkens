@@ -10,6 +10,8 @@ get_template_part( 'navbar' );
 
 ?>
 
+
+
 <div id="content">
   <div class="post login">
 
@@ -18,6 +20,7 @@ get_template_part( 'navbar' );
 
       <div class="post-content">
          <div class="loginamigo"><h1>hello amigo<h1></div>
+
 
         <?php if( $_GET['action'] == 'reset_success' ): ?>
           <p> Hooray, password is reset. It should takes just a few moments before you get a new password in your mail</p>
@@ -34,6 +37,7 @@ get_template_part( 'navbar' );
         <?php endif; ?>
 
         <?php wp_login_form( [ 'redirect' => 'https://davehakkens.nl/community/forums/' ] ); ?>
+        <?php  do_action( 'anr_captcha_form_field' ); ?>
 
         <div class="forgot_password">
           <a href="/community/forgot-password/">Forgot your password?</a>
