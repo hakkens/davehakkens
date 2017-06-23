@@ -42,7 +42,7 @@
   <div class="content">
     <div class="replyheader">
       <div id="country"> <?php  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?></div>
-      <div id="badges"> <?php mycred_display_users_badges($user->ID)?></div>
+      <div id="badges"> <?php mycred_display_custom_users_badges($user->ID)?></div>
 
       <div class="smallusername">
 		
