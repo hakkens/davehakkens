@@ -5446,6 +5446,32 @@ body#tinymce {
     display: inline-block;
 }
 
+#badges .row{
+  margin: 0px;
+  padding: 0px;
+}
+#badges {
+    float:left!important;
+    margin-right: .5em!important;
+    display: inline-block;
+}
+
+#badges img {
+    max-height: 20px !important;
+    position: relative!important;
+    width: auto!important;
+    top: -3px!important;
+    margin-right: 0px;
+}
+.topic-lead .author #badges{
+    float: none!important;
+}
+
+.topic-lead .author #badges img{
+    max-height: 30px!important;
+    top: -2px!important;
+}
+
 .activity .wp_like_group {
     display: none;
 }
