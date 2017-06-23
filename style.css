@@ -3953,6 +3953,17 @@ a.bp-avatar-nav-item {
     background-repeat: no-repeat;
 }
 
+#buddypress .profile .bp-widget .field_piggy {
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/piggy.png")!important;
+    width: 85px;
+    height: 70px;
+    float: left;
+    text-indent: -9999px;
+    background-position: 25px 15px;
+    background-size: 55%;
+    background-repeat: no-repeat;
+}
+
 
 
 
