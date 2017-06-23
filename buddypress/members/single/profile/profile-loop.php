@@ -51,6 +51,17 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 
           <?php endwhile; ?>
 
+          <?php
+            if(function_exists('give_has_purchases')) {
+              if(give_has_purchases( bp_displayed_user_id() )){ ?>
+              <tr>
+                <div class="field_piggy"></div>
+                <div class="data"><p>Supported with a donation :)<p></div>
+              </tr>
+          <?php
+              }
+            }
+          ?>
         </table>
       </div>
 

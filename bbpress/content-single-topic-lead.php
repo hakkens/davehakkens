@@ -13,14 +13,22 @@
 
 
   <div class="author">
+      <?php $user = get_userdata( bbp_get_reply_author_id() ); ?>
 
       <?php bbp_topic_author_link( array( 'sep' => '', 'show_role' => false ) ); ?>
       <?php do_action( 'bbp_theme_after_topic_author_details' ); ?>
-      <div id="country"> <?php  $user = get_userdata( bbp_get_reply_author_id() );  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?></div>
-      <div id="badges"> <?php mycred_display_custom_users_badges($user->ID)?></div>
+      <div id="country">
+        <a href='/community/members/<?php echo $user->user_nicename?> '>
+          <?php  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?>
+        </a>
+      </div>
+      <div id="badges">
+        <a href='/community/dedication/'>
+          <?php mycred_display_custom_users_badges($user->ID)?>
+        </a>
+      </div>
 
       <?php
-        $user = get_userdata( bbp_get_reply_author_id() );
         if ( !empty( $user->user_nicename ) ) {
           $user_nicename = $user->user_nicename;
           echo "<a href='/community/members/".$user_nicename."/'>" . $user_nicename . '</a>';
