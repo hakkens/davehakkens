@@ -9,6 +9,30 @@ function wpse_enqueue_page_template_styles() {
 add_action( 'wp_enqueue_scripts', 'wpse_enqueue_page_template_styles' );
 
 
+//Buddypress profile nav item
+function bp_custom_user_nav_item() {
+  global $bp;
+  bp_core_new_nav_item(
+    array(
+      'name' => 'Map Pins',
+      'slug' => 'pins',
+      'default_subnav_slug' => 'pins',
+      'position' => 50,
+      'show_for_displayed_user' => false,
+      'screen_function' => 'bp_custom_user_nav_item_screen',
+      'item_css_id' => 'pins'
+    ));
+}
+add_action( 'bp_setup_nav', 'bp_custom_user_nav_item', 99 );
+
+function bp_custom_user_nav_item_screen() {
+  add_action( 'bp_template_content', function() {
+    include_once dirname( __FILE__ ) . '/pins/user.php';
+  });
+  bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
+}
+
+
 //admin page
 function pp_admin_menu() {
 	add_menu_page( 'PP Pin Admin', 'PP Pins', 'manage_options', 'pp-admin', 'pp_admin_page', '', 99);
@@ -20,7 +44,7 @@ function pp_admin_page() {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
   }
 
-  include_once dirname( __FILE__ ) . '/pp-admin.php';
+  include_once dirname( __FILE__ ) . '/pins/admin.php';
 }
 
 
