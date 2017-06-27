@@ -22,16 +22,23 @@ class Pin_Table extends WP_List_Table {
   }
 
   function extra_tablenav( $which ) {
-    if ( $which == "top" ){
-      echo"Hello, I'm before the table";
+    if ($which == "top") {
+      echo $this->getPageHeader();
     }
-    if ( $which == "bottom" ){
-      echo"Hi, I'm after the table";
+    if ($which == "bottom") {}
+  }
+
+  function getPageHeader() {
+    if ($_REQUEST['action'] == 'edit') {
+      return 'editing';
     }
+    return null;
   }
 
   function get_columns() {
     return $columns = array(
+      'action' => 'Action',
+      'display_name' => 'User',
       'name' => 'Name',
       'lat' => 'Lat',
       'lng' => 'Lng'
@@ -40,17 +47,46 @@ class Pin_Table extends WP_List_Table {
 
   function get_sortable_columns() {
     return $sortable_columns = array(
-      'name' => 'Name',
+      'display_name' => array('display_name', false),
+      'name' => array('Name', true)
     );
   }
 
-  function prepare_items() {
+  function handle_actions($action) {
+    $recordId = $_REQUEST['id'];
+    $wpNonce = $_REQUEST['_wpnonce'];
+    if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'action_' . $recordId)) die('no soup for you');
+
     global $wpdb;
 
-    $query = "SELECT * FROM pp_pins";
+    switch ($action) {
+      case 'toggle':
+        $value = $_REQUEST['value'];
+        $wpdb->update(
+          'pp_pins',
+          array(
+            'show_on_map' => $value
+          ),
+          array('ID' => $recordId),
+          array('%d'),
+          array('%d')
+        );
+        break;
+    };
+  }
+
+  function prepare_items() {
+    if (!empty($_REQUEST['action'])) $this->handle_actions($_REQUEST['action']);
+
+    global $wpdb;
+
+    $query = "SELECT p.ID as ID, p.name as name, p.lat as lat, p.lng as lng,
+                     p.show_on_map as show_on_map, u.display_name as display_name
+              FROM   pp_pins p INNER JOIN wp_users u
+                       on p.user_ID = u.ID";
 
     if (!empty($_GET["orderby"])) {
-      $query .= $_GET["orderby"] . ($_GET["order"] ? $_GET["order"] : ' ASC');
+      $query .= ' ' . $_GET["orderby"] . ($_GET["order"] ? $_GET["order"] : ' ASC');
     }
 
     $totalitems = $wpdb->query($query);
@@ -88,15 +124,41 @@ class Pin_Table extends WP_List_Table {
     list( $columns ) = $this->_column_headers;
 
     if(!empty($records)){
-      foreach($records as $rec){
+      foreach($records as $record){
 
-        echo '<tr id="record_'.$rec->id.'">';
+        echo '<tr id="record_'.$record->id.'">';
         foreach ( $columns as $column_name => $column_display_name ) {
-          echo '<td>'.$rec->$column_name.'</td>';
+          echo '<td>';
+          switch ($column_name) {
+            case 'action':
+              echo $this->getColumnActions($record); break;
+            default:
+              echo $record->$column_name;
+          }
+          echo '</td>';
         }
         echo'</tr>';
       }
     }
+  }
+
+  function getColumnActions($record) {
+    $recordId = $record->ID;
+    $actionNonce = wp_create_nonce('action_' . $recordId);
+
+    $pageIdNonce = 'page=pp-admin&id=' . $recordId . '&_wpnonce=' . $actionNonce;
+
+    $functions = array();
+
+    array_push($functions, '<a href="?' . $pageIdNonce . '&action=edit">Edit</a>');
+
+    $toggleText = $record->show_on_map == 0 ? 'Activate' : 'Deactivate';
+    $toggleValue = $record->show_on_map == 0 ? 1 : 0;
+    array_push($functions, '<a href="?' . $pageIdNonce . '&action=toggle&value=' . $toggleValue . '">' . $toggleText . '</a>');
+
+    array_push($functions, '<a href="?' . $pageIdNonce . '&action=geocode">Geocode</a>');
+
+    return join('&nbsp;|&nbsp;', $functions);
   }
 }
 ?>
