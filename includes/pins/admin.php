@@ -58,6 +58,9 @@ class Pin_Table extends WP_List_Table {
     global $wpdb;
 
     switch ($action) {
+      case 'edit_pin':
+        include dirname( __FILE__ ) . '/pin-edit.php';
+        break;
       case 'toggle':
         $value = $_REQUEST['value'];
         $wpdb->update(
