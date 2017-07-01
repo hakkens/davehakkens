@@ -5,21 +5,30 @@ class Admin_Edit_Form {
   function __construct() {
   }
 
-  function getColumns() {
+  function get_edit_nonce() {
+    return wp_create_nonce('action_' . $this->recordId);
+  }
+
+  function get_record_id() {
+    return $this->recordId;
+  }
+
+  function get_columns() {
     return array(
-      'ID' => 'Record ID',
-      'user_ID' => 'User ID',
-      'name' => 'Name',
-      'lat' => 'Latitude',
-      'lng' => 'Longitude',
-      'address' => 'Address',
-      'description' => 'Description',
-      'show_on_map' => 'Approved for Display'
+      'ID' => array('Record ID', false),
+      'user_ID' => array('User ID', false),
+      'name' => array('Name', true),
+      'lat' => array('Latitude', true),
+      'lng' => array('Longitude', true),
+      'address' => array('Address', true),
+      'description' => array('Description', true),
+      'show_on_map' => array('Approved for Display', true)
     );
   }
 
   function prepare_items() {
     $recordId = $_REQUEST['id'];
+    $this->recordId = $recordId;
 
     if (empty($recordId)) {
       $this->record = null;
@@ -27,7 +36,7 @@ class Admin_Edit_Form {
     }
 
     global $wpdb;
-    $rows = $this->getColumns();
+    $rows = $this->get_columns();
 
     $query = "SELECT " . join(', ',array_keys($rows)) . " FROM pp_pins WHERE ID = " . $recordId;
 
@@ -36,13 +45,13 @@ class Admin_Edit_Form {
 
   function display() {
     $record = $this->record;
-    $rows = $this->getColumns();
+    $rows = $this->get_columns();
 
     echo '<table class="form-table">';
 
     foreach ($rows as $key => $row) {
       echo '<tr scope="row">';
-      echo "<th><label for=\"$key\">$row</label></th>";
+      echo "<th><label for=\"$key\">$row[0]</label></th>";
       echo $this->getValueRow($key, $row, $record);
       echo '</tr>';
     }
@@ -52,15 +61,26 @@ class Admin_Edit_Form {
 
   function getValueRow($key, $row, $record) {
     $value = $record->$key != null ? $record->$key : '';
-
     echo '<td>';
-    echo '<input name="' . $key . '" class="regular-text" value="' . $value . '"/>';
+    if ($row[1]) {
+      echo '<input name="' . $key . '" class="regular-text" value="' . $value . '"/>';
+    } else {
+      echo $value;
+    }
     echo '</td>';
   }
 }
 
 $table = new Admin_Edit_Form();
 $table->prepare_items();
-
-$table->display();
 ?>
+
+<form method="POST" action="<?php echo $_SERVER['PHP_SELF'] . '?page=pp-admin'; ?>">
+  <input type="hidden" name="action" value="edit_pin" />
+  <input type="hidden" name="_wpnonce" value="<?php echo $table->get_edit_nonce(); ?>" />
+  <input type="hidden" name="id" value="<?php echo $table->get_record_id(); ?>" />
+
+  <?php $table->display(); ?>
+
+  <input type="submit" name="submit" value="Save" class="button button-primary"/>
+</form>
