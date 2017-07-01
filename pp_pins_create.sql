@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS pp_pins (
   address TEXT,
   website VARCHAR(255),
   contact VARCHAR(255) NOT NULL,
-  hashtags JSON,
+  tags JSON,
   filters JSON,
   imgs JSON,
   status VARCHAR(32) NOT NULL,

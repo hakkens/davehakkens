@@ -52,10 +52,10 @@ function pp_admin_page() {
 function get_pp_pins( $data ) {
   global $wpdb;
 
-  $query = "SELECT name, lat, lng, description, address, website, contact, hashtags, contact, hashtags, filters, imgs, status FROM pp_pins WHERE show_on_map = true;";
+  $query = "SELECT name, lat, lng, description, address, website, contact, contact, tags, filters, imgs, status FROM pp_pins WHERE show_on_map = true;";
   $pins = $wpdb->get_results($query);
   foreach ($pins as &$pin) {
-    $pin->hashtags = json_decode($pin->hashtags, true);
+    $pin->tags = json_decode($pin->tags, true);
     $pin->filters = json_decode($pin->filters, true);
     $pin->imgs = json_decode($pin->imgs, true);
   }
