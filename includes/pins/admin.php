@@ -8,9 +8,6 @@ if(!class_exists('WP_List_Table')){
    require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
 
-$pin_table = new Pin_Table();
-$pin_table->prepare_items();
-
 class Pin_Table extends WP_List_Table {
 
   function __construct() {
@@ -161,6 +158,9 @@ class Pin_Table extends WP_List_Table {
     return join('&nbsp;|&nbsp;', $functions);
   }
 }
+
+$pin_table = new Pin_Table();
+$pin_table->prepare_items();
 ?>
 
 <div class="wrap">
