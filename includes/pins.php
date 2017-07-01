@@ -70,3 +70,18 @@ add_action( 'rest_api_init', function () {
     'callback' => 'get_pp_pins',
   ));
 });
+
+
+//Add userId column to users screen
+function rd_user_id_column( $columns ) {
+	$columns['user_id'] = 'ID';
+	return $columns;
+}
+add_filter('manage_users_columns', 'rd_user_id_column');
+
+function rd_user_id_column_content($value, $column_name, $user_id) {
+	if ( 'user_id' == $column_name )
+		return $user_id;
+	return $value;
+}
+add_action('manage_users_custom_column',  'rd_user_id_column_content', 10, 3);
