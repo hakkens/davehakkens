@@ -86,7 +86,7 @@ class Pin_Table extends WP_List_Table {
                        on p.user_ID = u.ID";
 
     if (!empty($_GET["orderby"])) {
-      $query .= ' ' . $_GET["orderby"] . ($_GET["order"] ? $_GET["order"] : ' ASC');
+      $query .= ' ORDER BY ' . $_GET["orderby"] . ' ' . ($_GET["order"] ? $_GET["order"] : ' ASC') . ', p.ID ASC';
     }
 
     $totalitems = $wpdb->query($query);
