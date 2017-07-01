@@ -27,7 +27,8 @@ class Pin_Table extends WP_List_Table {
 
   function getPageHeader() {
     if ($_REQUEST['action'] == 'edit') {
-      return 'editing';
+      include_once dirname( __FILE__ ) . '/admin-edit.php';
+      return;
     }
     return null;
   }
