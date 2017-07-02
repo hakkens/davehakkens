@@ -9,16 +9,20 @@ class ProcessPin {
     $this->isCreate = empty($this->recordId);
   }
 
+  function to_JSON($input) {
+    return json_encode($input);
+  }
+
   function get_columns() {
     return array(
-      'name' => '%s',
-      'address' => '%s',
-      'filters' => '%s',
-      'imgs' => '%s',
-      'tags' => '%s',
-      'status' => '%s',
-      'contact' => '%s',
-      'website' => '%s'
+      'name' => array('%s', true),
+      'address' => array('%s', true),
+      'filters' => array('%s', true, 'to_JSON'),
+      'imgs' => array('%s', false, 'to_JSON'),
+      'tags' => array('%s', false, 'to_JSON'),
+      'status' => array('%s', false),
+      'contact' => array('%s', false),
+      'website' => array('%s', false)
     );
   }
 
@@ -37,6 +41,12 @@ class ProcessPin {
       if ($currentRecord->user_ID != get_current_user_id()) return false;
     }
 
+    //ensure required fields are filled
+    $columns = $this->get_columns();
+    foreach ($columns as $key => $value) {
+      if (empty($this->request[$key]) && $value[1]) return false;
+    }
+
     return true;
   }
 
@@ -49,8 +59,10 @@ class ProcessPin {
 
     foreach ($columns as $key => $value) {
       if (!empty($request[$key])) {
-        $record[$key] = $request[$key];
-        array_push($formats, $value);
+        $record[$key] = empty($value[2])
+          ? $request[$key]
+          : $this->{$value[2]}($request[$key]);
+        array_push($formats, $value[0]);
       }
     }
 

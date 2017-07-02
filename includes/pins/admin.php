@@ -46,7 +46,8 @@ class Pin_Table extends WP_List_Table {
       'display_name' => 'User',
       'name' => 'Name',
       'lat' => 'Lat',
-      'lng' => 'Lng'
+      'lng' => 'Lng',
+      'filters' => 'Filters'
     );
   }
 
@@ -68,7 +69,7 @@ class Pin_Table extends WP_List_Table {
       case 'edit_pin':
         if ($_POST['submit'] != 'Save') return;
         $processor = new ProcessPin($_POST, true, $this->user_is_admin());
-        if (!$processor->validate_post()) die('not a valid request');
+        if (!$processor->validate()) die('not a valid request');
         $processor->generate_request();
         $processor->run();
         break;

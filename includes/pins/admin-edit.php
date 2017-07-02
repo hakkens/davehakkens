@@ -13,6 +13,10 @@ class Admin_Edit_Form {
     return $this->recordId;
   }
 
+  function from_JSON($value) {
+    return join(',', json_decode($value));
+  }
+
   function get_columns() {
     return array(
       'ID' => array('Record ID', false),
@@ -22,7 +26,8 @@ class Admin_Edit_Form {
       'lng' => array('Longitude', true),
       'address' => array('Address', true),
       'description' => array('Description', true),
-      'show_on_map' => array('Approved for Display', true)
+      'show_on_map' => array('Approved for Display', true),
+      'filters' => array('Filters', true, 'from_JSON')
     );
   }
 
@@ -49,23 +54,24 @@ class Admin_Edit_Form {
 
     echo '<table class="form-table">';
 
-    foreach ($rows as $key => $row) {
+    foreach ($rows as $key => $value) {
       echo '<tr scope="row">';
-      echo "<th><label for=\"$key\">$row[0]</label></th>";
-      echo $this->getValueRow($key, $row, $record);
+      echo "<th><label for=\"$key\">$value[0]</label></th>";
+      echo $this->getValueRow($key, $value, $record);
       echo '</tr>';
     }
 
     echo '</table>';
   }
 
-  function getValueRow($key, $row, $record) {
-    $value = $record->$key != null ? $record->$key : '';
+  function getValueRow($key, $value, $record) {
+    $recordValue = $record->$key != null ? $record->$key : null;
+    $recordValue = htmlspecialchars(empty($value[2]) ? $recordValue : $this->{$value[2]}($recordValue));
     echo '<td>';
-    if ($row[1]) {
-      echo '<input name="' . $key . '" class="regular-text" value="' . $value . '"/>';
+    if ($value[1]) {
+      echo '<input name="' . $key . '" class="regular-text" value="' . $recordValue . '"/>';
     } else {
-      echo $value;
+      echo $recordValue;
     }
     echo '</td>';
   }
