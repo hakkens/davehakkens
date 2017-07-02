@@ -43,7 +43,7 @@ class Admin_Edit_Form {
     global $wpdb;
     $rows = $this->get_columns();
 
-    $query = "SELECT " . join(', ',array_keys($rows)) . " FROM pp_pins WHERE ID = " . $recordId;
+    $query = "SELECT " . join(',', array_keys($rows)) . " FROM pp_pins WHERE ID = " . $recordId;
 
     $this->record = $wpdb->get_results($query)[0];
   }

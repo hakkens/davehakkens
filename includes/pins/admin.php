@@ -103,8 +103,8 @@ class Pin_Table extends WP_List_Table {
 
     global $wpdb;
 
-    $query = "SELECT p.ID as ID, p.name as name, p.lat as lat, p.lng as lng,
-                     p.show_on_map as show_on_map, u.display_name as display_name
+    $query = "SELECT p.ID, p.name, p.lat, p.lng, p.filters,
+                     p.show_on_map, u.display_name
               FROM   pp_pins p INNER JOIN wp_users u
                        on p.user_ID = u.ID";
 
