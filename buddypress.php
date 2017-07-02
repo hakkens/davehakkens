@@ -43,6 +43,16 @@
     <?php endwhile; endif; ?>
 
   </div>
+  <div class="alt-forum-sidebar">
+
+        <div class="sidebar-banner"> </div>
+        <?php dynamic_sidebar( 'forum-sidebar' ); ?>
+        <div class="clearfix"></div>
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
 

@@ -137,7 +137,7 @@ do_action( 'bp_before_members_loop' ); ?>
 <?php else: ?>
 
   <div id="message" class="info">
-    <p><?php _e( "No member is matching all those things around here. Try again with less smilies buddy", 'buddypress' ); ?></p>
+    <p><?php _e( "sorry nothing matches your search, try something else buddy :)", 'buddypress' ); ?></p>
   </div>
 
 <?php endif; ?>

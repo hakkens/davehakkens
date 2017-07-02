@@ -214,8 +214,18 @@
   .page-id-73512 #content,
   .page-template-page-with-sidebar #content,
   .page-template-page-redirect,
-  .page-id-73414 {
+  .page-id-73414,
+  .bp-user .post{
     padding-bottom: 1200px;
+  }
+
+
+  .notifications th.date {
+      display: none;
+  }
+
+  td.notification-since {
+      display: none;
   }
 
   .forumhover{
@@ -693,7 +703,6 @@ font-size: 18px;
   }
 
   .bp-user .post {
-    padding: 0;
   }
 
   .bp-user .post #buddypress {
@@ -819,6 +828,8 @@ font-size: 18px;
   font-size: 20px;
     margin-top: 10px;
   }
+
+
 
 
 .single .post .post-content{
