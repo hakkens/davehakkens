@@ -8,7 +8,14 @@ if(!class_exists('WP_List_Table')){
    require_once( ABSPATH . 'wp-admin/includes/class-wp-list-table.php' );
 }
 
+include_once dirname( __FILE__ ) . '/pin-edit.php';
+
 class Pin_Table extends WP_List_Table {
+
+  function user_is_admin() {
+    $user = wp_get_current_user();
+    return in_array('administrator', (array) $user->roles);
+  }
 
   function __construct() {
     parent::__construct( array(
@@ -59,7 +66,11 @@ class Pin_Table extends WP_List_Table {
 
     switch ($action) {
       case 'edit_pin':
-        include dirname( __FILE__ ) . '/pin-edit.php';
+        if ($_POST['submit'] != 'Save') return;
+        $processor = new ProcessPin($_POST, true, $this->user_is_admin());
+        if (!$processor->validate_post()) die('not a valid request');
+        $processor->generate_request();
+        $processor->run();
         break;
       case 'toggle':
         $value = $_REQUEST['value'];

@@ -2,42 +2,54 @@
 
 class ProcessPin {
 
-  function __construct($request) {
+  function __construct($request, $isPost, $userIsAdmin) {
     $this->request = $request;
+    $this->isPost = $isPost;
+    $this->userIsAdmin = $userIsAdmin;
     $this->recordId = $request['id'];
-    $this->isCreate = empty($this->recordId) ? true : false;
+    $this->isCreate = empty($this->recordId);
   }
 
   function get_columns() {
     return array(
       'name' => '%s',
-      'address' => '%s'
+      'address' => '%s',
+      'filters' => '%s',
+      'imgs' => '%s',
+      'tags' => '%s',
+      'status' => '%s',
+      'contact' => '%s',
+      'website' => '%s'
     );
   }
 
-  function user_is_admin() {
-    $user = wp_get_current_user();
-    return in_array('administrator', (array) $user->roles);
-  }
-
-  function get_current_record($recordId) {
+  function get_record_by_id($recordId) {
     global $wpdb;
     return $wpdb->get_results('select ID, user_ID from pp_pins where ID = ' . $recordId);
   }
 
-  function validate_request() {
-    if (!is_user_logged_in()) die('no soup for you');
+  function validate() {
+    //make sure logged in
+    if (!is_user_logged_in()) return false;
+
     $recordId = $this->recordId;
 
-    $wpNonce = $this->request['_wpnonce'];
-    if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'action_' . $recordId)) die('no soup for you');
-
-    $userIsAdmin = $this->user_is_admin();
-    if (!$userIsAdmin && !$this->isCreate) {
-      $currentRecord = $this->get_current_record($recordId);
-      if ($curretRecord->ID != $recordId) die('no soup for you');
+    //if it's a post, check the nonce
+    if ($this->isPost) {
+      $wpNonce = $this->request['_wpnonce'];
+      if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'action_' . $recordId)) return false;
     }
 
+    //only admins can change records that aren't theirs
+    if (!$this->userIsAdmin && !$this->isCreate) {
+      $currentRecord = $this->get_record_by_id($recordId);
+      if ($currentRecord->user_ID != get_current_user_id()) return false;
+    }
+
+    return true;
+  }
+
+  function generate_request() {
     $record = array();
     $formats = array();
     $request = $this->request;
@@ -51,37 +63,41 @@ class ProcessPin {
       }
     }
 
-    $record['show_on_map'] = $this->user_is_admin() && $request['show_on_map'] == '1';
+    //if you're not an admin, reset show_on_map to false (waiting approval)
+    $record['show_on_map'] = $this->userIsAdmin && $request['show_on_map'] == '1';
     array_push($formats, '%d');
 
     $this->record = $record;
     $this->formats = $formats;
   }
 
-  function run_process() {
+  function run() {
     global $wpdb;
-    if ($this->request['submit'] != 'Save') return;
+
+    $record = $this->record;
+    $recordId = $this->recordId;
+    $formats = $this->formats;
+
     $wpdb->show_errors();
     if ($this->isCreate) {
+      //default user_ID to current user
+      $record['user_ID'] = get_current_user_id();
+      array_push($formats);
+
       $wpdb->insert(
         'pp_pins',
-        $this->record,
-        $this->formats
+        $record,
+        $formats
       );
     } else {
       $wpdb->update(
         'pp_pins',
-        $this->record,
-        array('ID' => $this->recordId),
-        $this->formats,
+        $record,
+        array('ID' => $recordId),
+        $formats,
         array('%d')
       );
     }
   }
 }
-
-$processor = new ProcessPin($_POST);
-$processor->validate_request();
-$processor->run_process();
-
 ?>
