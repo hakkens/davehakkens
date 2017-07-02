@@ -58,6 +58,15 @@ class Pin_Table extends WP_List_Table {
     );
   }
 
+  function get_request_from_post($post) {
+    $fieldsToArray = array('filters', 'tags', 'imgs');
+    $request = $post;
+    foreach ($fieldsToArray as $field) {
+      $request[$field] = explode(',', $request[$field]);
+    }
+    return $request;
+  }
+
   function handle_actions($action) {
     $recordId = $_REQUEST['id'];
     $wpNonce = $_REQUEST['_wpnonce'];
@@ -68,7 +77,8 @@ class Pin_Table extends WP_List_Table {
     switch ($action) {
       case 'edit_pin':
         if ($_POST['submit'] != 'Save') return;
-        $processor = new ProcessPin($_POST, true, $this->user_is_admin());
+        $request = $this->get_request_from_post($_POST);
+        $processor = new ProcessPin($request, $this->user_is_admin());
         if (!$processor->validate()) die('not a valid request');
         $processor->generate_request();
         $processor->run();
