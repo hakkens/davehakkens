@@ -2,9 +2,8 @@
 
 class ProcessPin {
 
-  function __construct($request, $isPost, $userIsAdmin) {
+  function __construct($request, $userIsAdmin) {
     $this->request = $request;
-    $this->isPost = $isPost;
     $this->userIsAdmin = $userIsAdmin;
     $this->recordId = $request['id'];
     $this->isCreate = empty($this->recordId);
@@ -32,17 +31,9 @@ class ProcessPin {
     //make sure logged in
     if (!is_user_logged_in()) return false;
 
-    $recordId = $this->recordId;
-
-    //if it's a post, check the nonce
-    if ($this->isPost) {
-      $wpNonce = $this->request['_wpnonce'];
-      if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'action_' . $recordId)) return false;
-    }
-
     //only admins can change records that aren't theirs
     if (!$this->userIsAdmin && !$this->isCreate) {
-      $currentRecord = $this->get_record_by_id($recordId);
+      $currentRecord = $this->get_record_by_id($this->recordId);
       if ($currentRecord->user_ID != get_current_user_id()) return false;
     }
 
