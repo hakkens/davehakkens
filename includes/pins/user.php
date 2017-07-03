@@ -1,24 +1,51 @@
 <?php
 global $wpdb;
 
+include_once dirname( __FILE__ ) . '/pin-edit.php';
+
 class UserPinTable {
 
-  function __construct() {}
+  function __construct() {
+    $this->isEditing = false;
+  }
+
+  function get_request_from_post($post) {
+    $fieldsToArray = array('filters', 'tags', 'imgs');
+    $request = $post;
+    foreach ($fieldsToArray as $field) {
+      $request[$field] = explode(',', $request[$field]);
+    }
+    return $request;
+  }
 
   function doAction() {
-    global $wpdb;
     $recordId = $_REQUEST['id'];
     $wpNonce = $_REQUEST['_wpnonce'];
+    if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'user_' . $recordId)) die('nice try big guy');
 
-    if ($_REQUEST['action'] == 'del') {
-      if (empty($_REQUEST['_wpnonce']) ||
-        !wp_verify_nonce($wpNonce, 'del_' . $recordId)) die('no soup for you');
+    switch ($_REQUEST['action']) {
+      case 'edit':
+        $this->isEditing = true;
+        break;
 
-      $wpdb->delete(
-        'pp_pins',
-        array('ID' => $recordId),
-        array('%d')
-      );
+      case 'edit_pin':
+        //TODO do pin upload?
+        if ($_POST['submit'] != 'Save') return;
+        $request = $this->get_request_from_post($_POST);
+        $processor = new ProcessPin($request, false);
+        if (!$processor->validate()) die('not a valid request');
+        $processor->generate_request();
+        $processor->run();
+        break;
+
+      case 'del':
+        global $wpdb;
+        $wpdb->delete(
+          'pp_pins',
+          array('ID' => $recordId),
+          array('%d')
+        );
+        break;
     }
   }
 
@@ -31,12 +58,14 @@ class UserPinTable {
   }
 
   function getPinActions($value) {
-    $delNonce = wp_create_nonce('del_' . $value);
+    $wpNonce = wp_create_nonce('user_' . $value);
+
+    $idAndNonce = 'id=' . $value . '&_wpnonce=' . $wpNonce;
 
     return '
-      <a href="?action=edit&id=' . $value . '">Edit</a>
+      <a href="?action=edit&' . $idAndNonce . '">Edit</a>
       &nbsp;|&nbsp;
-      <a href="?action=del&id=' . $value . '&_wpnonce=' . $delNonce . '">Del</a>';
+      <a href="?action=del&' . $idAndNonce . '">Del</a>';
   }
 
   function getStatusFromSOM($value) {
@@ -57,6 +86,7 @@ class UserPinTable {
   }
 
   function displayItems() {
+    if ($this->isEditing) include dirname(__FILE__) . '/user-edit.php';
     $records = $this->items;
     $columns = $this->columns;
 
