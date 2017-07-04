@@ -2087,6 +2087,10 @@ display:inline;
   padding-bottom: 650px;
 }
 
+.activity .alt-forum-sidebar,
+.registration .alt-forum-sidebar {
+    display: none;
+}
 
 .reply.bbpress .topic-reply .content{
   margin-bottom:100px;
