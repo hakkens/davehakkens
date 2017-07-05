@@ -49,29 +49,14 @@ class UserPinTable {
     }
   }
 
-  function getColumns() {
-    return array(
-      'Action' => array('ID', 'getPinActions'),
-      'Name' => 'name',
-      'Status' => array('show_on_map', 'getStatusFromSOM')
-    );
-  }
-
-  function getPinActions($value) {
+  function getPinUrlFragment($value) {
     $wpNonce = wp_create_nonce('user_' . $value);
-
-    $idAndNonce = 'id=' . $value . '&_wpnonce=' . $wpNonce;
-
-    return '
-      <a href="?action=edit&' . $idAndNonce . '">Edit</a>
-      &nbsp;|&nbsp;
-      <a href="?action=del&' . $idAndNonce . '">Del</a>';
+    return 'id=' . $value . '&_wpnonce=' . $wpNonce;
   }
 
   function getStatusFromSOM($value) {
     return $value ? 'Approved' : 'Waiting Approval';
   }
-
 
   function getItems() {
     if (!empty($_REQUEST['action'])) $this->doAction();
@@ -79,42 +64,38 @@ class UserPinTable {
     global $wpdb;
     $user = wp_get_current_user();
 
-    $query = "SELECT ID, name, show_on_map FROM pp_pins where user_ID = $user->ID";
+    $query = "SELECT ID, name, description, show_on_map FROM pp_pins where user_ID = $user->ID";
 
-    $this->columns = $this->getColumns();
     $this->items = $wpdb->get_results($query);
   }
 
   function displayItems() {
     if ($this->isEditing) include dirname(__FILE__) . '/user-edit.php';
     $records = $this->items;
-    $columns = $this->columns;
-
-    $columnHeaders = array_keys($columns);
-    echo "<table><tr><th>" . join('</th><th>', $columnHeaders) . "</th></tr>";
 
     foreach ($records as $record) {
-      echo "<tr>";
-      foreach ($columns as $column) {
-        $value = $this->getValueFromColumn($record, $column);
-        echo "<td>$value</td>";
-      }
-      echo "</tr>";
+      $published = $this->getStatusFromSOM($record->status);
+      $desc = substr($record->description, 0, 45);
+      $urlFragment = $this->getPinUrlFragment($record->ID);
+
+      echo "<li class='pin-item'>
+      <div class='pin-item__actions'>
+        <a href='?action=edit&$urlFragment' class='pin-item__button'>Edit</a>
+        <a href='?action=del&$urlFragment' class='pin-item__button'>Delete</a>
+      </div>
+      <h3 class='pin-item__title'>$record->name</h3>
+      <p class='pin-item__text'>$record->description</p>
+      <p class='pin-item__text pin-item__status'>$published</p>
+      </li>";
     }
 
-    echo "</table>";
-  }
-
-  function getValueFromColumn($record, $column) {
-    if (is_array($column)) {
-      return $this->{$column[1]}($record->{$column[0]});
-    }
-    return $record->{$column};
   }
 }
 
 $pinTable = new UserPinTable();
 $pinTable->getItems();
-
-$pinTable->displayItems();
 ?>
+
+  <ul class="pin-list">
+    <?php $pinTable->displayItems(); ?>
+  </ul>

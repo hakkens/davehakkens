@@ -1,3 +1,66 @@
-#content {
-  background-color: teal;
+.pins .pin-list {
+  padding: 0;
+}
+
+.pins .pin-item {
+  border-bottom: 1px solid #eaeaea;
+  list-style: none;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.pins .pin-item__title {
+  font-family: 'medium';
+  font-size: 20px;
+  line-height: 1.2em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.pins .pin-item__text {
+  font-family: 'medium';
+  font-size: 16px;
+  line-height: 1.6em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.pins .pin-item__text:last-of-type {
+  margin-bottom: 0;
+}
+
+.pins .pin-item__status {
+  color: #abcde2;
+}
+
+.pins .pin-item__button {
+  color: #fff;
+  font-family: 'medium';
+  font-size: 15px;
+  background: #abcde2;
+  text-transform: lowercase;
+  padding: 2px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  text-align: center;
+  width: 50px;
+  transition: all .2s ease-in-out;
+}
+
+.pin-item__button + .pin-item__button {
+  margin-top: 5px;
+}
+
+.pins .pin-item__button:hover {
+  background-color: #5f9eef;
+}
+
+.pins .pin-item__actions {
+  float: right;
+  width: 85px;
+  text-align: right;
+  margin: 0 0 5px 5px;
 }
