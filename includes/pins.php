@@ -2,7 +2,7 @@
 
 //dynamic css inclusion on input pages
 function wpse_enqueue_page_template_styles() {
-  if ( is_page_template( 'pp-pin-form.php' ) ) {
+  if ( bp_is_current_component( 'pins' ) ) {
     wp_enqueue_style( 'pins', get_template_directory_uri() . '/css/pins.css' );
   }
 }
