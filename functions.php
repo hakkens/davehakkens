@@ -3,6 +3,21 @@
 include dirname( __FILE__ ) . '/includes/meta-boxes.php';
 include_once dirname( __FILE__ ) . '/includes/pins.php';
 
+
+function login_redirect_control( $redirect_to, $request, $user ) {
+  $urlParts = parse_url($request);
+  parse_str($urlParts['query'], $query);
+  if (isset($query['redirect_to'])) {
+    $redir = $query['redirect_to'];
+    if (substr($redir, 0, 4) == 'USER') {
+      return '/members/' . $user->user_login . substr($redir, 4);
+    }
+    return $redir;
+  }
+  return '/community/forum';
+}
+add_filter( 'login_redirect', 'login_redirect_control', 10 ,3);
+
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'post-formats', [ 'image', 'status', 'video', 'link' ] );
 

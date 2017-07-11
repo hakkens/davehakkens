@@ -34,8 +34,7 @@ get_template_part( 'navbar' );
         <?php endif; ?>
 
         <?php
-          $redirect = site_url($_GET['redirect'] ? urldecode($_GET['redirect']) : '/community/forums');
-          wp_login_form( [ 'redirect' => $redirect ] );
+          wp_login_form();
         ?>
 
         <div class="forgot_password">
