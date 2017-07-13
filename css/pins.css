@@ -1,3 +1,5 @@
+/*USER'S LIST OF PINS*/
+
 .pins .pin-list {
   padding: 0;
 }
@@ -63,4 +65,96 @@
   width: 85px;
   text-align: right;
   margin: 0 0 5px 5px;
+}
+
+
+/*USER EDIT PIN FORM*/
+
+.pins .pin-edit {
+  margin: 0 60px 20px 60px;
+}
+
+.pins .pin-edit__field {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.pins .pin-edit__label {
+  font-weight: 700;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.pins .pin-edit__input {
+  border-radius: 0;
+  border: 0;
+  padding: 18px;
+  font-family: 'medium';
+  font-size: 18px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.pins .pin-edit__choice {
+  margin-bottom: 5px;
+}
+
+.pins .pin-edit__choice input {
+  margin-right: 5px;
+  transition: none;
+}
+
+.pins .pin-edit__upload {
+  background: #fff;
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  margin-right: 4%;
+  border: 3px solid #abcde2;
+  box-sizing: border-box;
+}
+
+.pins .pin-edit__upload:last-of-type {
+  margin-right: 0;
+}
+
+.pins .pin-edit__upload:hover {
+  cursor: pointer;
+  border-color: #7d7d7d;
+  transition: border-color .2s;
+}
+
+.pins .pin-edit__upload__icon {
+  width: 60%;
+  fill: #abcde2;
+}
+
+.pins .pin-edit__upload:hover .pin-edit__upload__icon {
+  fill: #7d7d7d;
+  transition: fill .2s;
+}
+
+.pins .pin-edit__upload__desc {
+  color: #abcde2;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.pins .pin-edit__upload:hover .pin-edit__upload__desc {
+  color: #7d7d7d;
+  transition: color .2s;
+}
+
+.pins .pin-edit__upload__input {
+  display: none;
+}
+
+
+/*UTILITIES*/
+
+.pins .pin-center {
+  margin: 0 auto;
+  display: block !important;
 }

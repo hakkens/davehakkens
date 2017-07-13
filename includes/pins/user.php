@@ -73,6 +73,8 @@ class UserPinTable {
     if ($this->isEditing) include dirname(__FILE__) . '/user-edit.php';
     $records = $this->items;
 
+    echo "<ul class='pin-list'>";
+
     foreach ($records as $record) {
       $published = $this->getStatusFromSOM($record->status);
       $desc = substr($record->description, 0, 45);
@@ -89,6 +91,8 @@ class UserPinTable {
       </li>";
     }
 
+    echo "</ul>";
+
   }
 }
 
@@ -96,6 +100,4 @@ $pinTable = new UserPinTable();
 $pinTable->getItems();
 ?>
 
-  <ul class="pin-list">
-    <?php $pinTable->displayItems(); ?>
-  </ul>
+<?php $pinTable->displayItems(); ?>
