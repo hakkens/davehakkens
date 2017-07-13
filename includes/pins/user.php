@@ -10,8 +10,9 @@ class UserPinTable {
   }
 
   function get_request_from_post($post) {
-    $fieldsToArray = array('filters', 'tags', 'imgs');
+    $fieldsToArray = array('filters', 'tags');
     $request = $post;
+    //TODO handle input elements with multiple elements
     foreach ($fieldsToArray as $field) {
       $request[$field] = explode(',', $request[$field]);
     }
@@ -29,13 +30,11 @@ class UserPinTable {
         break;
 
       case 'edit_pin':
-        //TODO do pin upload?
         if ($_POST['submit'] != 'Save') return;
         $request = $this->get_request_from_post($_POST);
-        $processor = new ProcessPin($request, false);
+        $processor = new ProcessPin($request, $_FILES, false);
         if (!$processor->validate()) die('not a valid request');
-        $processor->generate_request();
-        $processor->run();
+        $processor->upsert_pin();
         break;
 
       case 'del':
