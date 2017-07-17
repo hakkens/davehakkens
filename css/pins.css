@@ -105,7 +105,8 @@
 }
 
 .pins .pin-edit__upload {
-  background: #fff;
+  background-color: #fff;
+  background-size: cover;
   width: 30%;
   display: inline-block;
   text-align: center;

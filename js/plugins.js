@@ -22,3 +22,28 @@
 }());
 
 // Place any jQuery/helper plugins in here.
+
+(function() {
+var $ = jQuery.noConflict();
+$(document).ready(function() {
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $(`#${input.id}-preview`).css('background-image', 'url(' + e.target.result + ')');
+                $(`#${input.id}-preview .pin-edit__upload__icon`).css('opacity', '0');
+                $(`#${input.id}-preview .pin-edit__upload__desc`).css('opacity', '0');
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("input[id^='img']").change(function(){
+        readURL(this);
+    });
+
+});
+}());
