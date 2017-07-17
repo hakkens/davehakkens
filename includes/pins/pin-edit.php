@@ -29,23 +29,23 @@ class ProcessPin {
 
   function get_record_by_id($recordId) {
     global $wpdb;
-    return $wpdb->get_results('select ID, imgs, user_ID from pp_pins where ID = ' . $recordId);
+    return $wpdb->get_results('select ID, imgs, user_ID from pp_pins where ID = ' . $recordId)[0];
   }
 
   function validate() {
     //make sure logged in
-    if (!is_user_logged_in()) return false;
+    if (!is_user_logged_in()) return 'need to be logged in';
 
     //only admins can change records that aren't theirs
     if (!$this->userIsAdmin && !$this->isCreate) {
       $this->currentRecord = $this->get_record_by_id($this->recordId);
-      if ($this->currentRecord->user_ID != get_current_user_id()) return false;
+      if ($this->currentRecord->user_ID != get_current_user_id()) return 'can\'t edit other users records';
     }
 
     //ensure required fields are filled
     $columns = $this->get_columns();
     foreach ($columns as $key => $value) {
-      if (empty($this->request[$key]) && $value[1]) return false;
+      if (empty($this->request[$key]) && $value[1]) return 'missing required field: ' . $key;
     }
 
     return true;

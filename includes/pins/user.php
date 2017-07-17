@@ -33,7 +33,8 @@ class UserPinTable {
         if ($_POST['submit'] != 'Save') return;
         $request = $this->get_request_from_post($_POST);
         $processor = new ProcessPin($request, $_FILES, false);
-        if (!$processor->validate()) die('not a valid request');
+        $validation = $processor->validate();
+        if ($validation !== true) die($validation);
         $processor->upsert_pin();
         break;
 
