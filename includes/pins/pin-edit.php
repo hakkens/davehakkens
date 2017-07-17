@@ -1,4 +1,5 @@
 <?php
+require_once(ABSPATH . 'wp-admin/includes/file.php');
 
 class ProcessPin {
 
@@ -62,14 +63,18 @@ class ProcessPin {
     $currentImages = $this->currentRecord->imgs;
 
     for ($i = 0; $i < 3; $i++) {
-      $fileKey = 'image' . $i . '_file';
+      $fileKey = 'img' . $i . '_file';
 
-      if (!empty($files[$key])) {
-        //kill current file
-        if (!empty($currentImages[$i])) unlink($currentImages[$i][1]);
+      $uploadfile = $files[$fileKey];
+      if (!empty($uploadfile) && $uploadfile['size'] > 0) {
+        //kill current file (if it exists)
+        if (is_array($currentImages) && !empty($currentImages[$i])) {
+          //TODO unlinking isn't working yet
+          unlink($currentImages[$i][1]);
+        }
 
         //handle new file and push into position in array
-        $upload = wp_handle_upload($files[$key], array('test_form' => false));
+        $upload = wp_handle_upload($uploadfile, array('test_form' => false));
         if (!isset($upload['error']) && isset($upload['file'])) {
           $currentImages[$i] = array($upload['url'], $upload['file']);
         } else {

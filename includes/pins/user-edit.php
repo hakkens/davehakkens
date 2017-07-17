@@ -82,7 +82,7 @@ $table->prepare_items();
 $record = $table->get_record();
 ?>
 
-<form class="pin-edit" method="POST" action="<?php echo $url=strtok($_SERVER["REQUEST_URI"],'?'); ?>">
+<form class="pin-edit" method="POST" enctype="multipart/form-data" action="<?php echo $url=strtok($_SERVER["REQUEST_URI"],'?'); ?>">
   <input type="hidden" name="action" value="edit_pin" />
   <input type="hidden" name="_wpnonce" value="<?php echo $table->get_edit_nonce(); ?>" />
   <input type="hidden" name="id" value="<?php echo $table->get_record_id(); ?>" />
