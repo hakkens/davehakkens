@@ -30,7 +30,7 @@ class UserPinTable {
         break;
 
       case 'edit_pin':
-        if ($_POST['submit'] != 'Save') return;
+        if ($_POST['submit'] != 'Create Pin') return;
         $request = $this->get_request_from_post($_POST);
         $processor = new ProcessPin($request, $_FILES, false);
         $validation = $processor->validate();
