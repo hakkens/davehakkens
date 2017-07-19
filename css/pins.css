@@ -153,9 +153,44 @@
 }
 
 
+/*USER ADD PIN FORM*/
+
+.pins .pin-add__button {
+  color: #fff;
+  font-family: 'medium';
+  font-size: 15px;
+  background: #abcde2;
+  padding: 5px 15px;
+  border-radius: 4px;
+  line-height: 1.9;
+  letter-spacing: 0.5px;
+  display: block;
+  text-align: center;
+  width: 100px;
+  margin: 0 auto 20px auto;
+  transition: all .2s ease-in-out;
+}
+
+.pins .pin-add__button:hover {
+  background-color: #5f9eef;
+}
+
+
+/*USER EDIT PIN FORM MAP*/
+
+.pins #pin-edit-map {
+  height: 300px;
+}
+
+
 /*UTILITIES*/
 
 .pins .pin-center {
   margin: 0 auto;
   display: block !important;
+}
+
+.pins #subnav,
+.pins #subnav + h3 {
+  display: none;
 }
