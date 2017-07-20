@@ -70,6 +70,10 @@ class UserPinTable {
   }
 
   function displayItems() {
+    $newUrlFragment = $this->getPinUrlFragment('');
+
+    echo "<a href='?action=edit&$newUrlFragment' class='pin-add__button'>Add New Pin</a>";
+
     if ($this->isEditing) include dirname(__FILE__) . '/user-edit.php';
     $records = $this->items;
 
