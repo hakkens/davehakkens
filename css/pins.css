@@ -70,6 +70,13 @@
 
 /*USER EDIT PIN FORM*/
 
+.pins .pin-edit__title {
+  font-size: 30px;
+  font-family: 'medium';
+  margin: 15px 60px;
+  line-height: 1.2em;
+}
+
 .pins .pin-edit {
   margin: 0 60px 20px 60px;
 }
@@ -154,6 +161,7 @@
 
 
 /*USER ADD PIN FORM*/
+
 
 .pins .pin-add__button {
   color: #fff;

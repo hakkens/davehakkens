@@ -48,32 +48,8 @@ class User_Edit_Form {
     $query = "SELECT " . join(',', array_keys($rows)) . " FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
 
     $this->record = $wpdb->get_results($query)[0];
-  }
 
-  function display() {
-    $record = $this->record;
-    $rows = $this->get_columns();
-
-    foreach ($rows as $key => $value) {
-      echo '<div>';
-      echo '<div class="form-label"><label for="' . $key . '">' . $value[0] . '</label></div>';
-      echo $this->getValueRow($key, $value, $record);
-      echo '</div>';
-    }
-
-    echo '</table>';
-  }
-
-  function getValueRow($key, $value, $record) {
-    $recordValue = $record->$key != null ? $record->$key : null;
-    $recordValue = htmlspecialchars(empty($value[2]) ? $recordValue : $this->{$value[2]}($recordValue));
-    echo '<div class="form-value">';
-    if ($value[1]) {
-      echo '<input name="' . $key . '" class="regular-text" value="' . $recordValue . '"/>';
-    } else {
-      echo $recordValue;
-    }
-    echo '</div>';
+    echo "<h2 class='pin-edit__title'>Editing '" . $this->record->name . "'</h2>";
   }
 }
 
@@ -115,7 +91,7 @@ $record = $table->get_record();
 
   <div class="pin-edit__field">
     <label class="pin-edit__label" for="name">What's the name of your pin?</label> 
-    <input class="pin-edit__input" type="text" id="name" name="name" placeholder="Talulah's Workshop" maxlength="200" value="<?php echo $record->name; ?>">
+    <input class="pin-edit__input" type="text" id="name" name="name" maxlength="200" value="<?php echo $record->name; ?>">
   </div>
 
   <div class="pin-edit__field">
@@ -163,5 +139,5 @@ $record = $table->get_record();
 
   </fieldset>
 
-  <input type="submit" name="submit" value="Create Pin" class="pin-center button button-primary"/>
+  <input type="submit" name="submit" value="Save Pin" class="pin-center button button-primary"/>
 </form>
