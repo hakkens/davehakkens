@@ -60,7 +60,7 @@ class ProcessPin {
 
   function upload_files() {
     $files = $this->files;
-    $currentImages = $this->currentRecord->imgs;
+    $currentImages = json_decode($this->currentRecord->imgs, true);
 
     for ($i = 0; $i < 3; $i++) {
       $fileKey = 'img' . $i . '_file';
