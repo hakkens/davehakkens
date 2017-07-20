@@ -160,7 +160,8 @@
 }
 
 
-/*USER ADD PIN*/
+/*USER ADD PIN FORM*/
+
 
 .pins .pin-add__button {
   color: #fff;
@@ -182,6 +183,14 @@
   background-color: #5f9eef;
 }
 
+
+/*USER EDIT PIN FORM MAP*/
+
+.pins #pin-edit-map {
+  height: 300px;
+}
+
+
 /*UTILITIES*/
 
 .pins .pin-center {
@@ -193,4 +202,3 @@
 .pins #subnav + h3 {
   display: none;
 }
-

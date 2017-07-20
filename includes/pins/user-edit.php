@@ -65,7 +65,12 @@ $record = $table->get_record();
 
   <div class="pin-edit__field">
     <label class="pin-edit__label" for="address">Type your pin address, so we can locate it on the map.</label> 
-    <input class="pin-edit__input" type="text" id="address" name="address" maxlength="200" value="<?php echo $record->address; ?>">
+    <input class="pin-edit__input" placeholder="" type="text" id="address" name="address" maxlength="200" value="<?php echo $record->address; ?>">
+  </div>
+
+  <div class="pin-edit__field pin-edit__map">
+    <label class="pin-edit__label">Click and drag the pin to the location you would like to show on the map.</label> 
+    <div id="pin-edit-map"></div>
   </div>
 
   <fieldset class="pin-edit__field">
