@@ -48,73 +48,78 @@
   });
 }());
 
+//TODO: should change default lat and lng, other map too
+
 window.initMap = () => {
   var $ = jQuery.noConflict()
   $(document).ready(function () {
-    var mapElement = document.getElementById('pin-edit-map');
-    var defaultLocation = {
-      lat: 52.373,
-      lng: 4.8925
-    } //TODO: should change this, other map too
-    var searchMarkers = []
+    var mapElement = document.getElementById('pin-edit-map')
+    if (!mapElement) return
+
+    var marker = null
+
+    var lat = document.getElementById('lat').value
+    var lng = document.getElementById('lng').value
+    var pinExists = lat && lng
+    var location = {
+      lat: parseFloat(lat) || 52.373,
+      lng: parseFloat(lng) || 4.8925
+    }
 
     var map = new google.maps.Map(mapElement, {
-      mapTypeControlOptions: {
-        mapTypeIds: []
-      },
-      center: defaultLocation,
-      zoom: 4,
+      mapTypeControlOptions: { mapTypeIds: [] },
+      center: location,
+      zoom: pinExists ? 18 : 4,
       minZoom: 3
     })
 
+    if (pinExists) {
+      marker = createMarker(location, map)
+    }
+
     var input = document.getElementById('address')
-    var searchBox = new google.maps.places.SearchBox(input)
+    var autocomplete = new google.maps.places.Autocomplete(input)
 
-    map.addListener('bounds_changed', () => {
-      searchBox.setBounds(map.getBounds())
-    })
+    autocomplete.bindTo('bounds', map);
 
-    searchBox.addListener('places_changed', () => {
-      var places = searchBox.getPlaces()
-      if (places.length === 0) return
+    autocomplete.addListener('place_changed', () => {
+      var place = autocomplete.getPlace()
+      if (!place.geometry) return
 
-      resetSearchMarkers(searchMarkers)
-      searchMarkers = []
+      marker && marker.setMap(null)
+      marker = createMarker(place.geometry.location, map)
 
       var bounds = new google.maps.LatLngBounds()
-      places.forEach(place => {
-        if (!place.geometry) return
-
-        createSearchMarker(place, searchMarkers, map)
-
-        if (place.geometry.viewport) {
-          bounds.union(place.geometry.viewport)
-        } else {
-          bounds.extend(place.geometry.location)
-        }
-      })
+      if (place.geometry.viewport) {
+        bounds.union(place.geometry.viewport)
+      } else {
+        bounds.extend(place.geometry.location)
+      }
       map.fitBounds(bounds)
+
+      updateLatLngValues(marker)
+
+      marker.addListener('dragend', () => {
+        updateLatLngValues(marker)
+      })
+    })
+
+    marker && marker.addListener('dragend', () => {
+      updateLatLngValues(marker)
     })
   })
 }
 
-function resetSearchMarkers(markers) {
-  markers.forEach(marker => marker.setMap(null))
+function createMarker(location, map) {
+  return new google.maps.Marker({
+    map: map,
+    draggable: true,
+    position: location
+  })
 }
 
-function createSearchMarker(place, searchMarkers, map) {
-  var icon = {
-    url: place.icon,
-    size: new google.maps.Size(71, 71),
-    origin: new google.maps.Point(0, 0),
-    anchor: new google.maps.Point(17, 34),
-    scaledSize: new google.maps.Size(25, 25)
-  }
-
-  searchMarkers.push(new google.maps.Marker({
-    map: map,
-    icon: icon,
-    title: place.name,
-    position: place.geometry.location
-  }))
+function updateLatLngValues(marker) {
+  var pos = marker.getPosition()
+  document.getElementById('lat').value = pos.lat()
+  document.getElementById('lng').value = pos.lng()
 }
