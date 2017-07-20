@@ -63,9 +63,12 @@ $record = $table->get_record();
   <input type="hidden" name="_wpnonce" value="<?php echo $table->get_edit_nonce(); ?>" />
   <input type="hidden" name="id" value="<?php echo $table->get_record_id(); ?>" />
 
+  <input type="hidden" id="lat" value="<?php echo $record->lat; ?>" />
+  <input type="hidden" id="lng" value="<?php echo $record->lng; ?>" />
+
   <div class="pin-edit__field">
     <label class="pin-edit__label" for="address">Type your pin address, so we can locate it on the map.</label> 
-    <input class="pin-edit__input" placeholder="" type="text" id="address" name="address" maxlength="200" value="<?php echo $record->address; ?>">
+    <input class="pin-edit__input" placeholder="Amsterdam, The Netherlands" type="text" id="address" name="address" maxlength="200" value="<?php echo $record->address; ?>">
   </div>
 
   <div class="pin-edit__field pin-edit__map">
