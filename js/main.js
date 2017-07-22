@@ -16,6 +16,7 @@ DaveHakkens.Main = function(){
   var page;
   var skipPosts;
   var userMenuTimeout;
+  var firstPostLoad = true;
 
   var init = function(){
 
@@ -293,17 +294,17 @@ DaveHakkens.Main = function(){
 
   };
 
-var loadPosts = function(numPosts){
-  var pathname = window.location.pathname;
-  if( pathname.indexOf('tag') !== -1 ){   // if pathname contains the word tag
-  console.log('tag in URL');
-	var tag = pathname.replace('/tag/','');
-	tag = tag.replace('/','');
-} else if ( pathname.indexOf('category') !== -1 ) { // if category in URL
-  console.log('category in URL');
-  var category = pathname.replace('/category/','');
-  category = category.replace('/','');
-}
+  var loadPosts = function(numPosts){
+    var pathname = window.location.pathname;
+    if( pathname.indexOf('tag') !== -1 ){   // if pathname contains the word tag
+      console.log('tag in URL');
+      var tag = pathname.replace('/tag/','');
+      tag = tag.replace('/','');
+    } else if ( pathname.indexOf('category') !== -1 ) { // if category in URL
+      console.log('category in URL');
+      var category = pathname.replace('/category/','');
+      category = category.replace('/','');
+    }
   // otherwise check to see if there is a category
     $('#overlay').show();
     $.ajax({
@@ -316,13 +317,30 @@ var loadPosts = function(numPosts){
       success    : function(data){
 
         $data = $(data);
-
+//console.log($data);
+        for(i = 0; i< $data.length; i++){
+          if($data[i].nodeType == 3){ //Remove empty text nodes
+            $data.splice(i, 1);
+            i--;
+            continue;
+          }
+          if(firstPostLoad){
+            if(i<5){
+              console.log($data[i].nodeType);
+              if(i<3){
+                console.log($data[i].nodeType);
+              }
+              $data.splice(i, 1);
+            }
+          }
+        }
         $postGrid.append($data).isotope('appended', $data);
 
         setTimeout(function(){
           $postGrid.isotope('layout');
         }, 250);
 
+        firstPostLoad = false;
         loading = false;
       },
       error     : function(jqXHR, textStatus, errorThrown) {
