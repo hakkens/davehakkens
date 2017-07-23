@@ -63,8 +63,8 @@ $statuses = $table->get_statuses();
   <input type="hidden" name="_wpnonce" value="<?php echo $table->get_edit_nonce(); ?>" />
   <input type="hidden" name="id" value="<?php echo $table->get_record_id(); ?>" />
 
-  <input type="hidden" id="lat" value="<?php echo $record->lat; ?>" />
-  <input type="hidden" id="lng" value="<?php echo $record->lng; ?>" />
+  <input type="hidden" name="lat" id="lat" value="<?php echo $record->lat; ?>" />
+  <input type="hidden" name="lng" id="lng" value="<?php echo $record->lng; ?>" />
 
   <div class="pin-edit__field">
     <label class="pin-edit__label" for="address">Type your pin address, so we can locate it on the map.</label>
@@ -80,7 +80,7 @@ $statuses = $table->get_statuses();
     <legend class="pin-edit__label">How are you involved with Precious Plastic?</legend>
     <?php
     foreach ($filters as $key => $value) {
-      $checked = in_array($key, json_decode($record->filters)) ? "checked" : "";
+      $checked = !empty($record->filters) && in_array($key, json_decode($record->filters)) ? "checked" : "";
       echo "<div class='pin-edit__choice'>
         <input type='checkbox' id='$key' name='filters[]' value='$key' $checked>
         <label for='workshop'>$value</label>
