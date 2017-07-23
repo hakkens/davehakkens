@@ -10,7 +10,7 @@ class UserPinTable {
   }
 
   function get_request_from_post($post) {
-    $fieldsToArray = array('filters', 'tags');
+    $fieldsToArray = array('filters');
     $request = $post;
     //TODO handle input elements with multiple elements
     foreach ($fieldsToArray as $field) {
@@ -62,9 +62,10 @@ class UserPinTable {
     if (!empty($_REQUEST['action'])) $this->doAction();
 
     global $wpdb;
-    $user = wp_get_current_user();
+    $userId = bp_displayed_user_id();
+    print_r($userId);
 
-    $query = "SELECT ID, name, description, approval_status FROM pp_pins where user_ID = $user->ID";
+    $query = "SELECT ID, name, description, approval_status FROM pp_pins where user_ID = $userId";
 
     $this->items = $wpdb->get_results($query);
   }
@@ -75,6 +76,9 @@ class UserPinTable {
 
     if ($this->isEditing) include dirname(__FILE__) . '/user-edit.php';
     $records = $this->items;
+    echo "<pre>";
+    print_r($records);
+    echo "</pre>";
 
     echo "<ul class='pin-list'>";
 
@@ -84,13 +88,13 @@ class UserPinTable {
       $urlFragment = $this->getPinUrlFragment($record->ID);
 
       echo "<li class='pin-item'>
-      <div class='pin-item__actions'>
-        <a href='?action=edit&$urlFragment' class='pin-item__button'>Edit</a>
-        <a href='?action=del&$urlFragment' class='pin-item__button'>Delete</a>
-      </div>
-      <h3 class='pin-item__title'>$record->name</h3>
-      <p class='pin-item__text'>$record->description</p>
-      <p class='pin-item__text pin-item__status'>$published</p>
+        <div class='pin-item__actions'>
+          <a href='?action=edit&$urlFragment' class='pin-item__button'>Edit</a>
+          <a href='?action=del&$urlFragment' class='pin-item__button'>Delete</a>
+        </div>
+        <h3 class='pin-item__title'>$record->name</h3>
+        <p class='pin-item__text'>$record->description</p>
+        <p class='pin-item__text pin-item__status'>$published</p>
       </li>";
     }
 

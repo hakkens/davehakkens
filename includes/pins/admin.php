@@ -59,7 +59,7 @@ class Pin_Table extends WP_List_Table {
   }
 
   function get_request_from_post($post) {
-    $fieldsToArray = array('filters', 'tags', 'imgs');
+    $fieldsToArray = array('filters', 'imgs');
     $request = $post;
     foreach ($fieldsToArray as $field) {
       $request[$field] = explode(',', $request[$field]);

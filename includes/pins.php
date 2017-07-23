@@ -19,7 +19,7 @@ function bp_custom_user_nav_item() {
       'slug' => 'pins',
       'default_subnav_slug' => 'pins',
       'position' => 50,
-      'show_for_displayed_user' => false,
+      'show_for_displayed_user' => true,
       'screen_function' => 'bp_custom_user_nav_item_screen',
       'item_css_id' => 'pins'
     ));

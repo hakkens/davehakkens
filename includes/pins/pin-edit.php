@@ -21,7 +21,6 @@ class ProcessPin {
       'address' => array('%s', true),
       'filters' => array('%s', true, 'to_JSON'),
       'imgs' => array('%s', false, 'to_JSON'),
-      'tags' => array('%s', false, 'to_JSON'),
       'status' => array('%s', false),
       'contact' => array('%s', false),
       'website' => array('%s', false)
