@@ -2,8 +2,9 @@
 global $wpdb;
 
 include_once dirname( __FILE__ ) . '/pin-edit.php';
+include_once dirname( __FILE__ ) . '/user-pin-list.php';
 
-class UserPinTable {
+class UserPins {
 
   function __construct() {
     $this->isEditing = false;
@@ -19,7 +20,7 @@ class UserPinTable {
     return $request;
   }
 
-  function doAction() {
+  function handleAction() {
     $recordId = $_REQUEST['id'];
     $wpNonce = $_REQUEST['_wpnonce'];
     if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'user_' . $recordId)) die('nice try big guy');
@@ -54,60 +55,21 @@ class UserPinTable {
     return 'id=' . $value . '&_wpnonce=' . $wpNonce;
   }
 
-  function getStatusFromSOM($value) {
-    return $value == 'APPROVED' ? 'Approved' : 'Waiting Approval';
-  }
+  function renderPage() {
+    if (!empty($_REQUEST['action'])) $this->handleAction();
 
-  function getItems() {
-    if (!empty($_REQUEST['action'])) $this->doAction();
-
-    global $wpdb;
-    $userId = bp_displayed_user_id();
-
-    $query = "
-      SELECT ID, name, description, approval_status
-      FROM   pp_pins
-      WHERE  user_ID = $userId
-      ORDER BY created_date DESC";
-
-    $this->items = $wpdb->get_results($query);
-  }
-
-  function displayItems() {
     if ($this->isEditing) {
-      include dirname(__FILE__) . '/user-edit.php';
+      include dirname(__FILE__) . '/user-pin-edit.php';
     } else {
       $newUrlFragment = $this->getPinUrlFragment('');
       echo "<a href='?action=edit&$newUrlFragment' class='pin-add__button'>Add New Pin</a>";
     }
 
-    $records = $this->items;
-
-    echo "<ul class='pin-list'>";
-
-    foreach ($records as $record) {
-      $published = $this->getStatusFromSOM($record->approval_status);
-      $desc = substr($record->description, 0, 45);
-      $urlFragment = $this->getPinUrlFragment($record->ID);
-
-      echo "<li class='pin-item'>
-        <div class='pin-item__actions'>
-          <a href='?action=edit&$urlFragment' class='pin-item__button'>Edit</a>
-          <a href='?action=del&$urlFragment' class='pin-item__button'>Delete</a>
-        </div>
-        <h3 class='pin-item__title'>$record->name</h3>
-        <p class='pin-item__text'>$record->description</p>
-        <p class='pin-item__text pin-item__status'>$published</p>
-      </li>";
-    }
-
-    echo "</ul>";
-
+    $userPinList = new UserPinList(bp_displayed_user_id());
+    $userPinList->displayItems();
   }
 }
 
-$pinTable = new UserPinTable();
-$pinTable->getItems();
+$pinView = new UserPins();
+$pinView->renderPage();
 ?>
-
-<?php $pinTable->displayItems(); ?>

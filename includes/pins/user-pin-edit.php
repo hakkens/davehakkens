@@ -1,6 +1,6 @@
 <?php
 
-class User_Edit_Form {
+class UserPinEdit {
 
   function __construct() {
   }
@@ -52,7 +52,7 @@ class User_Edit_Form {
   }
 }
 
-$table = new User_Edit_Form();
+$table = new UserPinEdit();
 $table->prepare_items();
 $record = $table->get_record();
 ?>
