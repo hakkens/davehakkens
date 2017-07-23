@@ -96,7 +96,7 @@ $statuses = $table->get_statuses();
 
   <div class="pin-edit__field">
     <label class="pin-edit__label" for="description">Tell us about yourself or your place.</label>
-    <textarea class="pin-edit__input" id="description" name="description" maxlength="200" value="<?php echo $record->description; ?>"></textarea>
+    <textarea class="pin-edit__input" id="description" name="description" maxlength="200"><?php echo $record->description; ?></textarea>
   </div>
 
   <div class="pin-edit__field">
