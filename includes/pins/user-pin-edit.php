@@ -17,21 +17,6 @@ class UserPinEdit {
     return $this->record;
   }
 
-  function from_JSON($value) {
-    return join(',', json_decode($value));
-  }
-
-  function get_columns() {
-    return array(
-      'name',
-      'lat',
-      'lng',
-      'address',
-      'description',
-      'filters'
-    );
-  }
-
   function get_filters() {
     return array(
       'WORKSHOP' => 'I have a Precious Plastic workspace',
@@ -57,9 +42,8 @@ class UserPinEdit {
     }
 
     global $wpdb;
-    $rows = $this->get_columns();
 
-    $query = "SELECT " . join(',', $rows) . " FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
+    $query = "SELECT name, lat, lng, address, description, filters, status FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
 
     $this->record = $wpdb->get_results($query)[0];
   }
