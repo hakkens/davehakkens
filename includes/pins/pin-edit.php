@@ -69,7 +69,6 @@ class ProcessPin {
       if (!empty($uploadfile) && $uploadfile['size'] > 0) {
         //kill current file (if it exists)
         if (is_array($currentImages) && !empty($currentImages[$i])) {
-          //TODO unlinking isn't working yet
           unlink($currentImages[$i][1]);
         }
 

@@ -41,7 +41,8 @@ class UserPinList {
       $itemActions = $this->isUser
         ? "<a href='?action=edit&$urlFragment' class='pin-item__button'>Edit</a>
           <a href='?action=del&$urlFragment' class='pin-item__button'>Delete</a>"
-        : "<a href='?action=view_pin' class='pin-item__button'>View</a>";
+        : "";
+      $itemActions .= "<a href='?action=view_pin' class='pin-item__button'>View</a>";
 
       echo "<li class='pin-item'>
         <div class='pin-item__actions'>
