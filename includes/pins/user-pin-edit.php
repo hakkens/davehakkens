@@ -82,7 +82,7 @@ $statuses = $table->get_statuses();
     foreach ($filters as $key => $value) {
       $checked = in_array($key, json_decode($record->filters)) ? "checked" : "";
       echo "<div class='pin-edit__choice'>
-        <input type='checkbox' id='$key' name='filter' value='$key' $checked>
+        <input type='checkbox' id='$key' name='filters[]' value='$key' $checked>
         <label for='workshop'>$value</label>
       </div>";
     }
