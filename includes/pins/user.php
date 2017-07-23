@@ -63,22 +63,25 @@ class UserPinTable {
 
     global $wpdb;
     $userId = bp_displayed_user_id();
-    print_r($userId);
 
-    $query = "SELECT ID, name, description, approval_status FROM pp_pins where user_ID = $userId";
+    $query = "
+      SELECT ID, name, description, approval_status
+      FROM   pp_pins
+      WHERE  user_ID = $userId
+      ORDER BY created_date DESC";
 
     $this->items = $wpdb->get_results($query);
   }
 
   function displayItems() {
-    $newUrlFragment = $this->getPinUrlFragment('');
-    echo "<a href='?action=edit&$newUrlFragment' class='pin-add__button'>Add New Pin</a>";
+    if ($this->isEditing) {
+      include dirname(__FILE__) . '/user-edit.php';
+    } else {
+      $newUrlFragment = $this->getPinUrlFragment('');
+      echo "<a href='?action=edit&$newUrlFragment' class='pin-add__button'>Add New Pin</a>";
+    }
 
-    if ($this->isEditing) include dirname(__FILE__) . '/user-edit.php';
     $records = $this->items;
-    echo "<pre>";
-    print_r($records);
-    echo "</pre>";
 
     echo "<ul class='pin-list'>";
 
