@@ -32,6 +32,14 @@ class UserPinEdit {
     );
   }
 
+  function get_filters() {
+    return array(
+      'WORKSHOP' => 'I have a Precious Plastic workspace',
+      'MACHINE' => 'I sell machines / can build machines for others',
+      'STARTED' => 'I want to find people locally to help me get started'
+    );
+  }
+
   function prepare_items() {
     $recordId = $_REQUEST['id'];
     $this->recordId = $recordId;
@@ -47,15 +55,16 @@ class UserPinEdit {
     $query = "SELECT " . join(',', $rows) . " FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
 
     $this->record = $wpdb->get_results($query)[0];
-
-    echo "<h2 class='pin-edit__title'>Editing '" . $this->record->name . "'</h2>";
   }
 }
 
 $table = new UserPinEdit();
 $table->prepare_items();
 $record = $table->get_record();
+$filters = $table->get_filters();
 ?>
+
+<h2 class='pin-edit__title'><?php echo "Editing '$record->name'"; ?></h2>
 
 <form class="pin-edit" method="POST" enctype="multipart/form-data" action="<?php echo $url=strtok($_SERVER["REQUEST_URI"],'?'); ?>">
   <input type="hidden" name="action" value="edit_pin" />
@@ -77,18 +86,15 @@ $record = $table->get_record();
 
   <fieldset class="pin-edit__field">
     <legend class="pin-edit__label">How are you involved with Precious Plastic?</legend>
-    <div class="pin-edit__choice">
-      <input type="checkbox" id="workshop" name="filter" value="workshop">
-      <label for="workshop">I have a Precious Plastic workspace</label>
-    </div>
-    <div class="pin-edit__choice">
-      <input type="checkbox" id="machine" name="filter" value="machine">
-      <label for="machine">I sell machines / can build machines for others</label>
-    </div>
-    <div class="pin-edit__choice">
-      <input type="checkbox" id="started" name="filter" value="started">
-      <label for="started">I want to find people locally to help me get started</label>
-    </div>
+    <?php
+    foreach ($filters as $key => $value) {
+      $checked = in_array($key, json_decode($record->filters)) ? "checked" : "meow";
+      echo "<div class='pin-edit__choice'>
+        <input type='checkbox' id='$key' name='filter' value='$key' $checked>
+        <label for='workshop'>$value</label>
+      </div>";
+    }
+    ?>
   </fieldset>
 
   <div class="pin-edit__field">
