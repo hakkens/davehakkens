@@ -19,7 +19,7 @@ function bp_custom_user_nav_item() {
       'slug' => 'pins',
       'default_subnav_slug' => 'pins',
       'position' => 50,
-      'show_for_displayed_user' => false,
+      'show_for_displayed_user' => true,
       'screen_function' => 'bp_custom_user_nav_item_screen',
       'item_css_id' => 'pins'
     ));
@@ -53,7 +53,7 @@ function pp_admin_page() {
 function get_pp_pins( $data ) {
   global $wpdb;
 
-  $query = "SELECT name, lat, lng, description, address, website, contact, contact, tags, filters, imgs, status FROM pp_pins WHERE show_on_map = true;";
+  $query = "SELECT name, lat, lng, description, address, website, filters, imgs, status FROM pp_pins WHERE approval_status = 'APPROVED';";
   $pins = $wpdb->get_results($query);
   foreach ($pins as &$pin) {
     $pin->tags = json_decode($pin->tags, true);

@@ -59,7 +59,7 @@ class Pin_Table extends WP_List_Table {
   }
 
   function get_request_from_post($post) {
-    $fieldsToArray = array('filters', 'tags', 'imgs');
+    $fieldsToArray = array('filters', 'imgs');
     $request = $post;
     foreach ($fieldsToArray as $field) {
       $request[$field] = explode(',', $request[$field]);
@@ -88,7 +88,7 @@ class Pin_Table extends WP_List_Table {
         $wpdb->update(
           'pp_pins',
           array(
-            'show_on_map' => $value
+            'approval_status' => $value
           ),
           array('ID' => $recordId),
           array('%d'),
@@ -104,7 +104,7 @@ class Pin_Table extends WP_List_Table {
     global $wpdb;
 
     $query = "SELECT p.ID, p.name, p.lat, p.lng, p.filters,
-                     p.show_on_map, u.display_name
+                     p.approval_status, u.display_name
               FROM   pp_pins p INNER JOIN wp_users u
                        on p.user_ID = u.ID";
 
@@ -175,8 +175,8 @@ class Pin_Table extends WP_List_Table {
 
     array_push($functions, '<a href="?' . $pageIdNonce . '&action=edit">Edit</a>');
 
-    $toggleText = $record->show_on_map == 0 ? 'Activate' : 'Deactivate';
-    $toggleValue = $record->show_on_map == 0 ? 1 : 0;
+    $toggleText = $record->approval_status == 'WAITING_APPROVAL' ? 'Activate' : 'Deactivate';
+    $toggleValue = $record->approval_status == 'WAITING_APPROVAL' ? 'APPROVED' : 'WAITING_APPROVAL';
     array_push($functions, '<a href="?' . $pageIdNonce . '&action=toggle&value=' . $toggleValue . '">' . $toggleText . '</a>');
 
     array_push($functions, '<a href="?' . $pageIdNonce . '&action=geocode">Geocode</a>');

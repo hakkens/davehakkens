@@ -19,9 +19,9 @@ class ProcessPin {
     return array(
       'name' => array('%s', true),
       'address' => array('%s', true),
+      'description' => array('%s', false),
       'filters' => array('%s', true, 'to_JSON'),
       'imgs' => array('%s', false, 'to_JSON'),
-      'tags' => array('%s', false, 'to_JSON'),
       'status' => array('%s', false),
       'contact' => array('%s', false),
       'website' => array('%s', false)
@@ -30,7 +30,7 @@ class ProcessPin {
 
   function get_record_by_id($recordId) {
     global $wpdb;
-    return $wpdb->get_results('select ID, imgs, user_ID from pp_pins where ID = ' . $recordId)[0];
+    return $wpdb->get_results('SELECT ID, approval_status, imgs, user_ID FROM pp_pins where ID = ' . $recordId)[0];
   }
 
   function validate() {
@@ -69,7 +69,6 @@ class ProcessPin {
       if (!empty($uploadfile) && $uploadfile['size'] > 0) {
         //kill current file (if it exists)
         if (is_array($currentImages) && !empty($currentImages[$i])) {
-          //TODO unlinking isn't working yet
           unlink($currentImages[$i][1]);
         }
 
@@ -95,7 +94,7 @@ class ProcessPin {
     $columns = $this->get_columns();
 
     foreach ($columns as $key => $value) {
-      if (!empty($request[$key])) {
+      if (array_key_exists($key, $request)) {
         $record[$key] = empty($value[2])
           ? $request[$key]
           : $this->{$value[2]}($request[$key]);
@@ -103,9 +102,11 @@ class ProcessPin {
       }
     }
 
-    //if you're not an admin, reset show_on_map to false (waiting approval)
-    $record['show_on_map'] = $this->userIsAdmin && $request['show_on_map'] == '1';
-    array_push($formats, '%d');
+    //if you're not an admin, reset approval_status to false (waiting approval)
+    if ($this->isCreate || ($this->currentRecord->approval_status == 'APPROVED' && !$this->userIsAdmin)) {
+      $record['approval_status'] = 'WAITING_APPROVAL';
+      array_push($formats, '%s');
+    }
 
     $this->record = $record;
     $this->formats = $formats;
@@ -122,7 +123,6 @@ class ProcessPin {
     if ($this->isCreate) {
       //default user_ID to current user
       $record['user_ID'] = get_current_user_id();
-      array_push($formats);
 
       $wpdb->insert(
         'pp_pins',
