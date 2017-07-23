@@ -40,6 +40,13 @@ class UserPinEdit {
     );
   }
 
+  function get_statuses() {
+    return array(
+      'OPEN' => 'Yes of course!',
+      'CLOSED' => 'NO, I am shy :)'
+    );
+  }
+
   function prepare_items() {
     $recordId = $_REQUEST['id'];
     $this->recordId = $recordId;
@@ -62,6 +69,7 @@ $table = new UserPinEdit();
 $table->prepare_items();
 $record = $table->get_record();
 $filters = $table->get_filters();
+$statuses = $table->get_statuses();
 ?>
 
 <h2 class='pin-edit__title'><?php echo "Editing '$record->name'"; ?></h2>
@@ -88,7 +96,7 @@ $filters = $table->get_filters();
     <legend class="pin-edit__label">How are you involved with Precious Plastic?</legend>
     <?php
     foreach ($filters as $key => $value) {
-      $checked = in_array($key, json_decode($record->filters)) ? "checked" : "meow";
+      $checked = in_array($key, json_decode($record->filters)) ? "checked" : "";
       echo "<div class='pin-edit__choice'>
         <input type='checkbox' id='$key' name='filter' value='$key' $checked>
         <label for='workshop'>$value</label>
@@ -114,14 +122,15 @@ $filters = $table->get_filters();
 
   <fieldset class="pin-edit__field">
     <legend class="pin-edit__label">Can people drop by and visit your pin?</legend>
-    <div class="pin-edit__choice">
-      <input type="radio" id="yes" name="status" value="yes">
-      <label for="yes">Yes, of course!</label>
-    </div>
-    <div class="pin-edit__choice">
-      <input type="radio" id="no" name="status" value="no">
-      <label for="no">No, I am shy :)</label>
-    </div>
+    <?php
+    foreach ($statuses as $key => $value) {
+      $checked = $key == $record->status ? "checked" : "";
+      echo "<div class='pin-edit__choice'>
+        <input type='radio' id='$key' name='status' value='$key'>
+        <label for='$key'>Yes, of course!</label>
+      </div>";
+    }
+    ?>
   </fieldset>
 
   <fieldset class="pin-edit__field">
