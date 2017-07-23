@@ -95,7 +95,7 @@ class ProcessPin {
     $columns = $this->get_columns();
 
     foreach ($columns as $key => $value) {
-      if (!empty($request[$key])) {
+      if (array_key_exists($key, $request)) {
         $record[$key] = empty($value[2])
           ? $request[$key]
           : $this->{$value[2]}($request[$key]);
