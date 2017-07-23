@@ -10,16 +10,6 @@ class UserPins {
     $this->isEditing = false;
   }
 
-  function get_request_from_post($post) {
-    $fieldsToArray = array('filters');
-    $request = $post;
-    //TODO handle input elements with multiple elements
-    foreach ($fieldsToArray as $field) {
-      $request[$field] = explode(',', $request[$field]);
-    }
-    return $request;
-  }
-
   function handleAction() {
     $recordId = $_REQUEST['id'];
     $wpNonce = $_REQUEST['_wpnonce'];
@@ -32,8 +22,7 @@ class UserPins {
 
       case 'edit_pin':
         if ($_POST['submit'] != 'Save Pin') return;
-        $request = $this->get_request_from_post($_POST);
-        $processor = new ProcessPin($request, $_FILES, false);
+        $processor = new ProcessPin($_POST, $_FILES, false);
         $validation = $processor->validate();
         if ($validation !== true) die($validation);
         $processor->upsert_pin();
