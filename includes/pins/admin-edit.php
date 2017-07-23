@@ -26,7 +26,7 @@ class Admin_Edit_Form {
       'lng' => array('Longitude', true),
       'address' => array('Address', true),
       'description' => array('Description', true),
-      'show_on_map' => array('Approved for Display', true),
+      'approval_status' => array('Approval status', true),
       'filters' => array('Filters', true, 'from_JSON')
     );
   }

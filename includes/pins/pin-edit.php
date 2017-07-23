@@ -30,7 +30,7 @@ class ProcessPin {
 
   function get_record_by_id($recordId) {
     global $wpdb;
-    return $wpdb->get_results('select ID, imgs, user_ID from pp_pins where ID = ' . $recordId)[0];
+    return $wpdb->get_results('SELECT ID, approval_status, imgs, user_ID FROM pp_pins where ID = ' . $recordId)[0];
   }
 
   function validate() {
@@ -103,9 +103,11 @@ class ProcessPin {
       }
     }
 
-    //if you're not an admin, reset show_on_map to false (waiting approval)
-    $record['show_on_map'] = $this->userIsAdmin && $request['show_on_map'] == '1';
-    array_push($formats, '%d');
+    //if you're not an admin, reset approval_status to false (waiting approval)
+    if ($this->isCreate || ($this->currentRecord->approval_status == 'APPROVED' && !$this->userIsAdmin)) {
+      $record['approval_status'] = 'WAITING_APPROVAL';
+      array_push($formats, '%s');
+    }
 
     $this->record = $record;
     $this->formats = $formats;
@@ -122,7 +124,6 @@ class ProcessPin {
     if ($this->isCreate) {
       //default user_ID to current user
       $record['user_ID'] = get_current_user_id();
-      array_push($formats);
 
       $wpdb->insert(
         'pp_pins',

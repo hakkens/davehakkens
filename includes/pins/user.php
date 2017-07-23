@@ -55,7 +55,7 @@ class UserPinTable {
   }
 
   function getStatusFromSOM($value) {
-    return $value ? 'Approved' : 'Waiting Approval';
+    return $value == 'APPROVED' ? 'Approved' : 'Waiting Approval';
   }
 
   function getItems() {
@@ -64,14 +64,13 @@ class UserPinTable {
     global $wpdb;
     $user = wp_get_current_user();
 
-    $query = "SELECT ID, name, description, show_on_map FROM pp_pins where user_ID = $user->ID";
+    $query = "SELECT ID, name, description, approval_status FROM pp_pins where user_ID = $user->ID";
 
     $this->items = $wpdb->get_results($query);
   }
 
   function displayItems() {
     $newUrlFragment = $this->getPinUrlFragment('');
-
     echo "<a href='?action=edit&$newUrlFragment' class='pin-add__button'>Add New Pin</a>";
 
     if ($this->isEditing) include dirname(__FILE__) . '/user-edit.php';
@@ -80,7 +79,7 @@ class UserPinTable {
     echo "<ul class='pin-list'>";
 
     foreach ($records as $record) {
-      $published = $this->getStatusFromSOM($record->status);
+      $published = $this->getStatusFromSOM($record->approval_status);
       $desc = substr($record->description, 0, 45);
       $urlFragment = $this->getPinUrlFragment($record->ID);
 

@@ -23,13 +23,12 @@ class User_Edit_Form {
 
   function get_columns() {
     return array(
-      'name' => array('Name', true),
-      'lat' => array('Latitude', true),
-      'lng' => array('Longitude', true),
-      'address' => array('Address', true),
-      'description' => array('Description', true),
-      'show_on_map' => array('Approved for Display', false),
-      'filters' => array('Filters', true, 'from_JSON')
+      'name',
+      'lat',
+      'lng',
+      'address',
+      'description',
+      'filters'
     );
   }
 
@@ -45,7 +44,7 @@ class User_Edit_Form {
     global $wpdb;
     $rows = $this->get_columns();
 
-    $query = "SELECT " . join(',', array_keys($rows)) . " FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
+    $query = "SELECT " . join(',', $rows) . " FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
 
     $this->record = $wpdb->get_results($query)[0];
 
@@ -67,12 +66,12 @@ $record = $table->get_record();
   <input type="hidden" id="lng" value="<?php echo $record->lng; ?>" />
 
   <div class="pin-edit__field">
-    <label class="pin-edit__label" for="address">Type your pin address, so we can locate it on the map.</label> 
+    <label class="pin-edit__label" for="address">Type your pin address, so we can locate it on the map.</label>
     <input class="pin-edit__input" placeholder="Amsterdam, The Netherlands" type="text" id="address" name="address" maxlength="200" value="<?php echo $record->address; ?>">
   </div>
 
   <div class="pin-edit__field pin-edit__map">
-    <label class="pin-edit__label">Click and drag the pin to the location you would like to show on the map.</label> 
+    <label class="pin-edit__label">Click and drag the pin to the location you would like to show on the map.</label>
     <div id="pin-edit-map"></div>
   </div>
 
@@ -93,17 +92,17 @@ $record = $table->get_record();
   </fieldset>
 
   <div class="pin-edit__field">
-    <label class="pin-edit__label" for="name">What's the name of your pin?</label> 
+    <label class="pin-edit__label" for="name">What's the name of your pin?</label>
     <input class="pin-edit__input" type="text" id="name" name="name" maxlength="200" value="<?php echo $record->name; ?>">
   </div>
 
   <div class="pin-edit__field">
-    <label class="pin-edit__label" for="description">Tell us about yourself or your place.</label> 
+    <label class="pin-edit__label" for="description">Tell us about yourself or your place.</label>
     <textarea class="pin-edit__input" id="description" name="description" maxlength="200" value="<?php echo $record->description; ?>"></textarea>
   </div>
 
   <div class="pin-edit__field">
-    <label class="pin-edit__label" for="website">Have you got an account on our marketspace where you sell items or a website where people can find you?</label> 
+    <label class="pin-edit__label" for="website">Have you got an account on our marketspace where you sell items or a website where people can find you?</label>
     <input class="pin-edit__input" type="text" id="website" name="website" maxlength="200" value="<?php echo $record->website; ?>">
   </div>
 
