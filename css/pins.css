@@ -161,9 +161,12 @@
   display: none;
 }
 
+.pins #pin-edit-map {
+  height: 300px;
+}
+
 
 /*USER ADD PIN FORM*/
-
 
 .pins .pin-add__button {
   color: #fff;
@@ -186,12 +189,17 @@
 }
 
 
-/*USER EDIT PIN FORM MAP*/
+/*USER PIN FORM VALIDATION*/
 
-.pins #pin-edit-map {
-  height: 300px;
+.pin-edit__validation {
+  color: #d00e00;
+  font-size: 14px;
+  margin-bottom: 0;
 }
 
+.pin-edit__validation:last-of-type {
+  margin-bottom: 1em;
+}
 
 /*UTILITIES*/
 
