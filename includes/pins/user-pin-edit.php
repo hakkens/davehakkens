@@ -126,8 +126,8 @@ $statuses = $table->get_statuses();
     foreach ($statuses as $key => $value) {
       $checked = $key == $record->status ? "checked" : "";
       echo "<div class='pin-edit__choice'>
-        <input type='radio' id='$key' name='status' value='$key'>
-        <label for='$key'>Yes, of course!</label>
+        <input type='radio' id='$key' name='status' value='$key' $checked>
+        <label for='$key'>$value</label>
       </div>";
     }
     ?>
