@@ -58,13 +58,13 @@ $statuses = $table->get_statuses();
 
 <h2 class='pin-edit__title'><?php echo "Editing '$record->name'"; ?></h2>
 
-<form class="pin-edit" method="POST" enctype="multipart/form-data" action="<?php echo $url=strtok($_SERVER["REQUEST_URI"],'?'); ?>">
+<form id="pin-edit" class="pin-edit" method="POST" enctype="multipart/form-data" action="<?php echo $url=strtok($_SERVER["REQUEST_URI"],'?'); ?>">
   <input type="hidden" name="action" value="edit_pin" />
   <input type="hidden" name="_wpnonce" value="<?php echo $table->get_edit_nonce(); ?>" />
   <input type="hidden" name="id" value="<?php echo $table->get_record_id(); ?>" />
 
-  <input type="hidden" name="lat" id="lat" value="<?php echo $record->lat; ?>" />
-  <input type="hidden" name="lng" id="lng" value="<?php echo $record->lng; ?>" />
+  <input type="hidden" id="lat" name="lat" value="<?php echo $record->lat; ?>" />
+  <input type="hidden" id="lng" name="lng" value="<?php echo $record->lng; ?>" />
 
   <div class="pin-edit__field">
     <label class="pin-edit__label" for="address">Type your pin address, so we can locate it on the map.</label>

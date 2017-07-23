@@ -27,6 +27,40 @@
   var $ = jQuery.noConflict();
   $(document).ready(function () {
 
+    $('#pin-edit').submit(function(e) {
+      $('.pin-edit__validation').remove();
+
+      var fields = $(this).serializeArray();
+      var required = ['name', 'address', 'lat'];
+
+      $.each(fields, function(i, field) {
+        var name = field.name;
+        if ($.inArray(name, required) != -1 && field.value === "") {
+          var fieldName = (name === 'lat') ? 'Map pin' : name.charAt(0).toUpperCase() + name.slice(1);
+          setValidation(fieldName + ' is required');
+        } 
+      });
+
+      if ($('input[name=filter]:checked').length === 0) {
+        setValidation('How are you involved is required');
+      };
+
+      if ($('.pin-edit__validation').length === 0) return;
+
+      e.preventDefault();
+    });
+
+    function setValidation(msg) {
+      $('#pin-edit').prepend('<p class="pin-edit__validation">' + msg + '</p>');
+      $('html, body').animate({ scrollTop: 0 }, 'fast');
+    }
+  });
+}());
+
+(function () {
+  var $ = jQuery.noConflict();
+  $(document).ready(function () {
+
     function readURL(input) {
       if (input.files && input.files[0]) {
         var reader = new FileReader();
