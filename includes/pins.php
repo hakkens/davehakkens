@@ -58,6 +58,9 @@ function get_pp_pins( $data ) {
   foreach ($pins as &$pin) {
     $pin->filters = json_decode($pin->filters, true);
     $pin->imgs = json_decode($pin->imgs, true);
+    foreach ($pin->imgs as &$img) {
+      $img = $img[0];
+    }
   }
   return $pins;
 }
