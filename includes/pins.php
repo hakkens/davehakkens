@@ -56,7 +56,6 @@ function get_pp_pins( $data ) {
   $query = "SELECT name, lat, lng, description, address, website, filters, imgs, status FROM pp_pins WHERE approval_status = 'APPROVED';";
   $pins = $wpdb->get_results($query);
   foreach ($pins as &$pin) {
-    $pin->tags = json_decode($pin->tags, true);
     $pin->filters = json_decode($pin->filters, true);
     $pin->imgs = json_decode($pin->imgs, true);
   }
