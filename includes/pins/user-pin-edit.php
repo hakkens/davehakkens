@@ -108,7 +108,7 @@ $statuses = $table->get_statuses();
     <legend class="pin-edit__label">Can people drop by and visit your pin?</legend>
     <?php
     foreach ($statuses as $key => $value) {
-      $checked = ($key == $record->status || $record->status == "" && $key == 'OPEN') ? "checked" : "";
+      $checked = ($key == $record->status || (empty($record->status) && $key == 'OPEN')) ? "checked" : "";
       echo "<div class='pin-edit__choice'>
         <input type='radio' id='$key' name='status' value='$key' $checked>
         <label for='$key'>$value</label>
