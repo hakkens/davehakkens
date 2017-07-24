@@ -65,7 +65,7 @@ class ProcessPin {
     $currentImages = json_decode($this->currentRecord->imgs, true);
 
     for ($i = 0; $i < 3; $i++) {
-      $fileKey = 'img' . $i . '_file';
+      $fileKey = 'img' . $i . '-file';
 
       $uploadfile = $files[$fileKey];
       if (!empty($uploadfile) && $uploadfile['size'] > 0) {

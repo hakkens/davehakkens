@@ -28,7 +28,7 @@ class UserPinEdit {
   function get_statuses() {
     return array(
       'OPEN' => 'Yes of course!',
-      'CLOSED' => 'NO, I am shy :)'
+      'CLOSED' => 'No, I am shy :)'
     );
   }
 
@@ -43,7 +43,7 @@ class UserPinEdit {
 
     global $wpdb;
 
-    $query = "SELECT name, lat, lng, address, description, filters, status FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
+    $query = "SELECT name, lat, lng, address, description, filters, imgs, status FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
 
     $this->record = $wpdb->get_results($query)[0];
   }
@@ -120,9 +120,9 @@ $statuses = $table->get_statuses();
   <fieldset class="pin-edit__field">
     <legend class="pin-edit__label">Share some images of your machines, workspace or yourself.</legend>
     <?php 
-      for ($x = 0; $x <= 2; $x++) {
+      for ($x = 1; $x <= 3; $x++) {
         $imgs = json_decode($record->imgs, true);
-        $img = $imgs[$x];
+        $img = $imgs[$x][0];
         $style = $img ? "style='background-image: url(\"$img\");'" : "";
         $class = $img ? "pin-edit__upload--active" : "";
         

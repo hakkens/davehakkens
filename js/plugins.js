@@ -41,7 +41,7 @@
         } 
       });
 
-      if ($('input[name=filter]:checked').length === 0) {
+      if ($('input[name="filters[]"]:checked').length === 0) {
         setValidation('How are you involved is required');
       };
 
