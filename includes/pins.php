@@ -57,6 +57,8 @@ function get_pp_pins( $data ) {
   $pins = $wpdb->get_results($query);
   foreach ($pins as &$pin) {
     $pin->filters = json_decode($pin->filters, true);
+    $pin->lat = floatval($pin->lat);
+    $pin->lng = floatval($pin->lng);
     $pin->imgs = json_decode($pin->imgs, true);
     foreach ($pin->imgs as &$img) {
       $img = $img[0];
