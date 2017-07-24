@@ -91,7 +91,7 @@ class Pin_Table extends WP_List_Table {
             'approval_status' => $value
           ),
           array('ID' => $recordId),
-          array('%d'),
+          array('%s'),
           array('%d')
         );
         break;

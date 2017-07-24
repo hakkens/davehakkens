@@ -22,7 +22,7 @@ class UserPins {
 
       case 'edit_pin':
         if ($_POST['submit'] != 'Save Pin') return;
-        $processor = new ProcessPin($_POST, $_FILES, false);
+        $processor = new ProcessPin(stripslashes_deep($_POST), $_FILES, false);
         $validation = $processor->validate();
         if ($validation !== true) die($validation);
         $processor->upsert_pin();
