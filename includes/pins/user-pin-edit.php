@@ -17,19 +17,18 @@ class UserPinEdit {
     return $this->record;
   }
 
-  function from_JSON($value) {
-    return join(',', json_decode($value));
+  function get_filters() {
+    return array(
+      'WORKSHOP' => 'I have a Precious Plastic workspace',
+      'MACHINE' => 'I sell machines / can build machines for others',
+      'STARTED' => 'I want to find people locally to help me get started'
+    );
   }
 
-  function get_columns() {
+  function get_statuses() {
     return array(
-      'name',
-      'lat',
-      'lng',
-      'address',
-      'description',
-      'filters',
-      'imgs'
+      'OPEN' => 'Yes of course!',
+      'CLOSED' => 'NO, I am shy :)'
     );
   }
 
@@ -43,23 +42,23 @@ class UserPinEdit {
     }
 
     global $wpdb;
-    $rows = $this->get_columns();
 
-    $query = "SELECT " . join(',', $rows) . " FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
+    $query = "SELECT name, lat, lng, address, description, filters, status FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
 
     $this->record = $wpdb->get_results($query)[0];
-
-    echo "<h2 class='pin-edit__title'>Editing '" . $this->record->name . "'</h2>";
   }
 }
 
 $table = new UserPinEdit();
 $table->prepare_items();
 $record = $table->get_record();
+$filters = $table->get_filters();
+$statuses = $table->get_statuses();
 ?>
 
-<form id="pin-edit" class="pin-edit" method="POST" enctype="multipart/form-data" action="<?php echo $url=strtok($_SERVER["REQUEST_URI"],'?'); ?>">
+<h2 class='pin-edit__title'><?php echo "Editing '$record->name'"; ?></h2>
 
+<form id="pin-edit" class="pin-edit" method="POST" enctype="multipart/form-data" action="<?php echo $url=strtok($_SERVER["REQUEST_URI"],'?'); ?>">
   <input type="hidden" name="action" value="edit_pin" />
   <input type="hidden" name="_wpnonce" value="<?php echo $table->get_edit_nonce(); ?>" />
   <input type="hidden" name="id" value="<?php echo $table->get_record_id(); ?>" />
@@ -79,18 +78,15 @@ $record = $table->get_record();
 
   <fieldset class="pin-edit__field">
     <legend class="pin-edit__label">How are you involved with Precious Plastic?</legend>
-    <div class="pin-edit__choice">
-      <input type="checkbox" id="workshop" name="filter" value="workshop">
-      <label for="workshop">I have a Precious Plastic workspace</label>
-    </div>
-    <div class="pin-edit__choice">
-      <input type="checkbox" id="machine" name="filter" value="machine">
-      <label for="machine">I sell machines / can build machines for others</label>
-    </div>
-    <div class="pin-edit__choice">
-      <input type="checkbox" id="started" name="filter" value="started">
-      <label for="started">I want to find people locally to help me get started</label>
-    </div>
+    <?php
+    foreach ($filters as $key => $value) {
+      $checked = !empty($record->filters) && in_array($key, json_decode($record->filters)) ? "checked" : "";
+      echo "<div class='pin-edit__choice'>
+        <input type='checkbox' id='$key' name='filters[]' value='$key' $checked>
+        <label for='workshop'>$value</label>
+      </div>";
+    }
+    ?>
   </fieldset>
 
   <div class="pin-edit__field">
@@ -100,7 +96,7 @@ $record = $table->get_record();
 
   <div class="pin-edit__field">
     <label class="pin-edit__label" for="description">Tell us about yourself or your place.</label>
-    <textarea class="pin-edit__input" id="description" name="description" maxlength="200" value="<?php echo $record->description; ?>"></textarea>
+    <textarea class="pin-edit__input" id="description" name="description" maxlength="200"><?php echo $record->description; ?></textarea>
   </div>
 
   <div class="pin-edit__field">
@@ -110,14 +106,15 @@ $record = $table->get_record();
 
   <fieldset class="pin-edit__field">
     <legend class="pin-edit__label">Can people drop by and visit your pin?</legend>
-    <div class="pin-edit__choice">
-      <input type="radio" id="yes" name="status" value="yes" checked>
-      <label for="yes">Yes, of course!</label>
-    </div>
-    <div class="pin-edit__choice">
-      <input type="radio" id="no" name="status" value="no">
-      <label for="no">No, I am shy :)</label>
-    </div>
+    <?php
+    foreach ($statuses as $key => $value) {
+      $checked = $key == $record->status ? "checked" : "";
+      echo "<div class='pin-edit__choice'>
+        <input type='radio' id='$key' name='status' value='$key' $checked>
+        <label for='$key'>$value</label>
+      </div>";
+    }
+    ?>
   </fieldset>
 
   <fieldset class="pin-edit__field">
