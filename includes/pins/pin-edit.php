@@ -19,6 +19,8 @@ class ProcessPin {
     return array(
       'name' => array('%s', true),
       'address' => array('%s', true),
+      'lat' => array('%f', true),
+      'lng' => array('%f', true),
       'description' => array('%s', false),
       'filters' => array('%s', true, 'to_JSON'),
       'imgs' => array('%s', false, 'to_JSON'),
