@@ -120,7 +120,7 @@ $statuses = $table->get_statuses();
   <fieldset class="pin-edit__field">
     <legend class="pin-edit__label">Share some images of your machines, workspace or yourself.</legend>
     <?php 
-      for ($x = 1; $x <= 3; $x++) {
+      for ($x = 0; $x < 3; $x++) {
         $imgs = json_decode($record->imgs, true);
         $img = $imgs[$x][0];
         $style = $img ? "style='background-image: url(\"$img\");'" : "";
