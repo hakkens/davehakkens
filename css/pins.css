@@ -80,7 +80,7 @@
 }
 
 .pins .pin-edit {
-  margin: 0 60px 20px 60px;
+  margin: 0 60px 60px 60px;
 }
 
 .pins .pin-edit__field {
@@ -168,6 +168,10 @@
 
 .pins #pin-edit-map {
   height: 300px;
+}
+
+.pins #buddypress input[type="submit"].pin-edit__btn:focus {
+  outline: #3b99fc auto 5px;
 }
 
 

@@ -21,8 +21,7 @@
   }
 }());
 
-// Place any jQuery/helper plugins in here.
-
+//Edit pin form validation
 (function () {
   var $ = jQuery.noConflict();
   $(document).ready(function () {
@@ -57,9 +56,10 @@
   });
 }());
 
+//Handle image preview in pin edit form
 (function () {
   var $ = jQuery.noConflict();
-  $(document).ready(function () {
+  $(document).ready(function() {
 
     function readURL(input) {
       if (input.files && input.files[0]) {
@@ -78,11 +78,18 @@
       readURL(this);
     });
 
+    $("label[id^='img']").keydown(function (e) {
+      if (e.which === 13 || e.which === 32) {
+        $(this).click();
+      }
+    });
+
   });
 }());
 
 //TODO: should change default lat and lng, other map too
 
+//Initialise google map on pin edit page
 window.initMap = () => {
   var $ = jQuery.noConflict()
   $(document).ready(function () {
