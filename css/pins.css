@@ -125,6 +125,11 @@
   box-sizing: border-box;
 }
 
+.pins .pin-edit__upload--active .pin-edit__upload__icon,
+.pins .pin-edit__upload--active .pin-edit__upload__desc {
+  opacity: 0;
+}
+
 .pins .pin-edit__upload:last-of-type {
   margin-right: 0;
 }

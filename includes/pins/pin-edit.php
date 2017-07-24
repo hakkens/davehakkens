@@ -19,9 +19,9 @@ class ProcessPin {
     return array(
       'name' => array('%s', true),
       'address' => array('%s', true),
+      'description' => array('%s', false),
       'lat' => array('%f', true),
       'lng' => array('%f', true),
-      'description' => array('%s', false),
       'filters' => array('%s', true, 'to_JSON'),
       'imgs' => array('%s', false, 'to_JSON'),
       'status' => array('%s', false),
@@ -65,7 +65,7 @@ class ProcessPin {
     $currentImages = json_decode($this->currentRecord->imgs, true);
 
     for ($i = 0; $i < 3; $i++) {
-      $fileKey = 'img' . $i . '_file';
+      $fileKey = 'img' . $i . '-file';
 
       $uploadfile = $files[$fileKey];
       if (!empty($uploadfile) && $uploadfile['size'] > 0) {
