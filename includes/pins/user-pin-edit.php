@@ -56,7 +56,14 @@ $filters = $table->get_filters();
 $statuses = $table->get_statuses();
 ?>
 
-<h2 class='pin-edit__title'><?php echo "Editing '$record->name'"; ?></h2>
+<h2 class='pin-edit__title'>
+  <?php 
+    if ($table->get_record_id()) {
+      echo "Editing '$record->name'";  
+    } else {
+      echo "Add New Pin";
+    }; ?>
+</h2>
 
 <form id="pin-edit" class="pin-edit" method="POST" enctype="multipart/form-data" action="<?php echo $url=strtok($_SERVER["REQUEST_URI"],'?'); ?>">
   <input type="hidden" name="action" value="edit_pin" />
