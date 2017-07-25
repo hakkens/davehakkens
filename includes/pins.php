@@ -53,7 +53,11 @@ function pp_admin_page() {
 function get_pp_pins( $data ) {
   global $wpdb;
 
-  $query = "SELECT name, lat, lng, description, address, website, filters, imgs, status FROM pp_pins WHERE approval_status = 'APPROVED';";
+  $query = "SELECT p.ID, p.name, p.lat, p.lng, p.description,
+                   p.website, p.filters, p.imgs, p.status, u.display_name as username
+            FROM   pp_pins p INNER JOIN wp_users u
+                     on p.user_ID = u.ID
+            WHERE  approval_status = 'APPROVED';";
   $pins = $wpdb->get_results($query);
   foreach ($pins as &$pin) {
     $pin->filters = json_decode($pin->filters, true);
