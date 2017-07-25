@@ -54,7 +54,7 @@ function get_pp_pins( $data ) {
   global $wpdb;
 
   $query = "SELECT p.ID, p.name, p.lat, p.lng, p.description,
-                   p.website, p.filters, p.imgs, p.status, u.display_name as username
+                   p.website, p.filters, p.imgs, p.status, u.user_nicename as username
             FROM   pp_pins p INNER JOIN wp_users u
                      on p.user_ID = u.ID
             WHERE  approval_status = 'APPROVED';";
@@ -64,8 +64,10 @@ function get_pp_pins( $data ) {
     $pin->lat = floatval($pin->lat);
     $pin->lng = floatval($pin->lng);
     $pin->imgs = json_decode($pin->imgs, true);
-    foreach ($pin->imgs as &$img) {
-      $img = $img[0];
+    if (!empty($pin->imgs)) {
+      foreach ($pin->imgs as &$img) {
+        $img = $img[0];
+      }
     }
   }
   return $pins;
