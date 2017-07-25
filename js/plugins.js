@@ -114,8 +114,8 @@
         var reader = new FileReader();
 
         reader.onload = function (e) {
-          $(`#${input.id}-preview`).css('background-image', 'url(' + e.target.result + ')');
-          $(`#${input.id}-preview`).addClass('pin-edit__upload--active');
+          $('#' + input.id + '-preview').css('background-image', 'url(' + e.target.result + ')');
+          $('#' + input.id + '-preview').addClass('pin-edit__upload--active');
         }
 
         reader.readAsDataURL(input.files[0]);
