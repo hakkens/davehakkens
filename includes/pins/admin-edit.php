@@ -26,7 +26,6 @@ class Admin_Edit_Form {
       'lng' => array('Longitude', true),
       'address' => array('Address', true),
       'description' => array('Description', true),
-      'approval_status' => array('Approval status', true),
       'filters' => array('Filters', true, 'from_JSON')
     );
   }

@@ -180,8 +180,6 @@ class Pin_Table extends WP_List_Table {
     $toggleValue = $record->approval_status == 'WAITING_APPROVAL' ? 'APPROVED' : 'WAITING_APPROVAL';
     array_push($functions, '<a href="?' . $pageIdNonce . '&action=toggle&value=' . $toggleValue . '">' . $toggleText . '</a>');
 
-    array_push($functions, '<a href="?' . $pageIdNonce . '&action=geocode">Geocode</a>');
-
     return join('&nbsp;|&nbsp;', $functions);
   }
 }
