@@ -62,7 +62,8 @@ class Pin_Table extends WP_List_Table {
     $fieldsToArray = array('filters', 'imgs');
     $request = $post;
     foreach ($fieldsToArray as $field) {
-      $request[$field] = explode(',', $request[$field]);
+      if (!empty($request[$field]))
+        $request[$field] = explode(',', $request[$field]);
     }
     return $request;
   }
@@ -78,10 +79,10 @@ class Pin_Table extends WP_List_Table {
       case 'edit_pin':
         if ($_POST['submit'] != 'Save') return;
         $request = $this->get_request_from_post($_POST);
-        $processor = new ProcessPin($request, null, $this->user_is_admin());
-        if (!$processor->validate()) die('not a valid request');
-        $processor->generate_request();
-        $processor->run();
+        $processor = new ProcessPin(stripslashes_deep($request), null, $this->user_is_admin());
+        $validation = $processor->validate();
+        if ($validation !== true) die($validation);
+        $processor->upsert_pin();
         break;
       case 'toggle':
         $value = $_REQUEST['value'];
