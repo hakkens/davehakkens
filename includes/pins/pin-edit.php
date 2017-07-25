@@ -40,8 +40,8 @@ class ProcessPin {
     if (!is_user_logged_in()) return 'need to be logged in';
 
     //only admins can change records that aren't theirs
+    $this->currentRecord = $this->get_record_by_id($this->recordId);
     if (!$this->userIsAdmin && !$this->isCreate) {
-      $this->currentRecord = $this->get_record_by_id($this->recordId);
       if ($this->currentRecord->user_ID != get_current_user_id()) return 'can\'t edit other users records';
     }
 
