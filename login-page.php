@@ -5,6 +5,10 @@
   Description: Login page
 */
 
+if (is_user_logged_in()) {
+  wp_redirect(login_redirect_control(null, $_SERVER['REQUEST_URI'], wp_get_current_user()));
+}
+
 get_header();
 get_template_part( 'navbar' );
 
@@ -17,7 +21,7 @@ get_template_part( 'navbar' );
 
 
       <div class="post-content">
-         <div class="loginamigo"><h1>hello amigo<h1></div>
+         <div class="loginamigo"><h1>hello amigo</h1></div>
 
         <?php if( $_GET['action'] == 'reset_success' ): ?>
           <p> Hooray, password is reset. It should takes just a few moments before you get a new password in your mail</p>
