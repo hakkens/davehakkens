@@ -12,7 +12,7 @@ function login_redirect_control( $redirect_to, $request, $user ) {
     if (substr($redir, 0, 4) == 'USER') {
       return '/members/' . $user->user_login . substr($redir, 4);
     }
-    return $redir;
+    return '/' . $redir;
   }
   return '/community/forum';
 }
