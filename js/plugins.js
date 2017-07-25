@@ -27,31 +27,79 @@
   $(document).ready(function () {
 
     $('#pin-edit').submit(function(e) {
-      $('.pin-edit__validation').remove();
+      valAddress();
+      valName();
+      valMap();
+      valFilters();
+      valWebsite();
 
-      var fields = $(this).serializeArray();
-      var required = ['name', 'address', 'lat'];
+      scrollToFirstError();
 
-      $.each(fields, function(i, field) {
-        var name = field.name;
-        if ($.inArray(name, required) != -1 && field.value === "") {
-          var fieldName = (name === 'lat') ? 'Map pin' : name.charAt(0).toUpperCase() + name.slice(1);
-          setValidation(fieldName + ' is required');
-        } 
-      });
-
-      if ($('input[name="filters[]"]:checked').length === 0) {
-        setValidation('How are you involved is required');
-      };
-
-      if ($('.pin-edit__validation').length === 0) return;
-
+      if (!$('.pin-edit__error').is(':visible')) return;
       e.preventDefault();
     });
 
-    function setValidation(msg) {
-      $('#pin-edit').prepend('<p class="pin-edit__validation">' + msg + '</p>');
-      $('html, body').animate({ scrollTop: 0 }, 'fast');
+    $('input[name=address]').blur(function() {
+      valAddress();
+      window.setTimeout(valMap, 100);
+    });
+
+    $('input[name=name]').blur(valName);
+
+    $('input[name="filters[]"]').change(valFilters);
+
+    $('input[name=website]').blur(valWebsite);
+
+    function valAddress() {
+      isEmpty('input[name=address]') ? showError('address') : hideError('address');
+    }
+
+    function valName() {
+      isEmpty('input[name=name]') ? showError('name') : hideError('name');
+    }
+
+    function valMap() {
+      isEmpty('input[name=lat]') || isEmpty('input[name=lng]') ? showError('map') :hideError('map');
+    }
+
+    function valFilters() {
+      $('input[name="filters[]"]:checked').length === 0 ? showError('filters') : hideError('filters');
+    }
+
+    function valWebsite() {
+      !isUrlValid($('input[name=website]').val()) ? showError('website') : hideError('website');
+    }
+
+    function isEmpty(el) {
+      return $(el).val() === '';
+    }
+    
+    function isUrlValid(url) {
+      return url === '' || /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(url);
+    }
+
+    function hideError(name) {
+      $('.pin-edit__error--' + name).hide();
+      $('input[id=' + name + ']').removeClass('pin-edit__error--outline');
+
+      if (name === 'map') {
+        $('#pin-edit-map').removeClass('pin-edit__error--outline');
+      }
+    }
+
+    function showError(name) {
+      $('.pin-edit__error--' + name).show();
+      $('input[id=' + name + ']').addClass('pin-edit__error--outline');
+
+      if (name === 'map') {
+        $('#pin-edit-map').addClass('pin-edit__error--outline');
+      }
+    }
+
+    function scrollToFirstError() {
+      if ($('.pin-edit__error:visible').length === 0) return;
+      var location = $('.pin-edit__error:visible').first().parent().offset().top - 80;
+      $('html, body').animate({ scrollTop: location }, 'fast');
     }
   });
 }());
@@ -90,7 +138,7 @@
 //TODO: should change default lat and lng, other map too
 
 //Initialise google map on pin edit page
-window.initMap = () => {
+window.initMap = function() {
   var $ = jQuery.noConflict()
   $(document).ready(function () {
     var mapElement = document.getElementById('pin-edit-map')
@@ -122,7 +170,7 @@ window.initMap = () => {
 
     autocomplete.bindTo('bounds', map);
 
-    autocomplete.addListener('place_changed', () => {
+    autocomplete.addListener('place_changed', function() {
       var place = autocomplete.getPlace()
       if (!place.geometry) return
 
@@ -139,12 +187,12 @@ window.initMap = () => {
 
       updateLatLngValues(marker)
 
-      marker.addListener('dragend', () => {
+      marker.addListener('dragend', function() {
         updateLatLngValues(marker)
       })
     })
 
-    marker && marker.addListener('dragend', () => {
+    marker && marker.addListener('dragend', function() {
       updateLatLngValues(marker)
     })
   })

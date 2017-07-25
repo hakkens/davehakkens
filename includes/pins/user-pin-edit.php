@@ -76,11 +76,13 @@ $statuses = $table->get_statuses();
   <div class="pin-edit__field">
     <label class="pin-edit__label" for="address">Type your pin address, so we can locate it on the map.</label>
     <input class="pin-edit__input" placeholder="Amsterdam, The Netherlands" type="text" id="address" name="address" maxlength="200" value="<?php echo $record->address; ?>">
+    <p class="pin-edit__error pin-edit__error--address">Address is required</p>
   </div>
 
   <div class="pin-edit__field pin-edit__map">
     <label class="pin-edit__label">Click and drag the pin to the location you would like to show on the map.</label>
     <div id="pin-edit-map"></div>
+    <p class="pin-edit__error pin-edit__error--map">Map pin is required</p>
   </div>
 
   <fieldset class="pin-edit__field">
@@ -94,11 +96,13 @@ $statuses = $table->get_statuses();
       </div>";
     }
     ?>
+    <p class="pin-edit__error pin-edit__error--filters">At least one option must be selected</p>
   </fieldset>
 
   <div class="pin-edit__field">
     <label class="pin-edit__label" for="name">What's the name of your pin?</label>
     <input class="pin-edit__input" type="text" id="name" name="name" maxlength="200" value="<?php echo $record->name; ?>">
+    <p class="pin-edit__error pin-edit__error--name">Name is required</p>
   </div>
 
   <div class="pin-edit__field">
@@ -109,6 +113,7 @@ $statuses = $table->get_statuses();
   <div class="pin-edit__field">
     <label class="pin-edit__label" for="website">Have you got an account on our marketspace where you sell items or a website where people can find you?</label>
     <input class="pin-edit__input" type="text" id="website" name="website" maxlength="200" value="<?php echo $record->website; ?>">
+    <p class="pin-edit__error pin-edit__error--website">Website is invalid</p>
   </div>
 
   <fieldset class="pin-edit__field">

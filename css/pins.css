@@ -174,6 +174,17 @@
   outline: #3b99fc auto 5px;
 }
 
+.pins .pin-edit__error--outline {
+  border: 2px solid #d00e00;
+}
+
+.pins .pin-edit__error {
+  display: none;
+  color: #d00e00;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
 
 /*USER ADD PIN FORM*/
 
@@ -195,19 +206,6 @@
 
 .pins .pin-add__button:hover {
   background-color: #5f9eef;
-}
-
-
-/*USER PIN FORM VALIDATION*/
-
-.pin-edit__validation {
-  color: #d00e00;
-  font-size: 14px;
-  margin-bottom: 0;
-}
-
-.pin-edit__validation:last-of-type {
-  margin-bottom: 1em;
 }
 
 /*UTILITIES*/
