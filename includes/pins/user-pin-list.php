@@ -44,13 +44,17 @@ class UserPinList {
         : "";
       $itemActions .= "<a href='?action=view_pin' class='pin-item__button'>View</a>";
 
+      $status = $this->isUser
+        ? "<p class='pin-item__text pin-item__status'>$published</p>"
+        : "";
+
       echo "<li class='pin-item'>
         <div class='pin-item__actions'>
           $itemActions
         </div>
         <h3 class='pin-item__title'>$record->name</h3>
         <p class='pin-item__text'>$record->description</p>
-        <p class='pin-item__text pin-item__status'>$published</p>
+        $status
       </li>";
     }
 

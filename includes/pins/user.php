@@ -49,7 +49,7 @@ class UserPins {
 
     if ($this->isEditing) {
       include dirname(__FILE__) . '/user-pin-edit.php';
-    } else {
+    } elseif (bp_displayed_user_id() == get_current_user_id()) {
       $newUrlFragment = $this->getPinUrlFragment('');
       echo "<a href='?action=edit&$newUrlFragment' class='pin-add__button'>Add New Pin</a>";
     }
