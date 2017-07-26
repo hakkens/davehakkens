@@ -34,7 +34,6 @@
       valWebsite();
 
       scrollToFirstError();
-
       if (!$('.pin-edit__error').is(':visible')) return;
       e.preventDefault();
     });
@@ -43,11 +42,9 @@
       valAddress();
       window.setTimeout(valMap, 100);
     });
-
+    $('input[name=lat]').change(valMap);
     $('input[name=name]').blur(valName);
-
     $('input[name="filters[]"]').change(valFilters);
-
     $('input[name=website]').blur(valWebsite);
 
     function valAddress() {
@@ -185,15 +182,15 @@ window.initMap = function() {
       }
       map.fitBounds(bounds)
 
-      updateLatLngValues(marker)
+      updateLatLngValues($, marker)
 
       marker.addListener('dragend', function() {
-        updateLatLngValues(marker)
+        updateLatLngValues($, marker)
       })
     })
 
     marker && marker.addListener('dragend', function() {
-      updateLatLngValues(marker)
+      updateLatLngValues($, marker)
     })
   })
 }
@@ -206,8 +203,9 @@ function createMarker(location, map) {
   })
 }
 
-function updateLatLngValues(marker) {
+function updateLatLngValues($, marker) {
   var pos = marker.getPosition()
-  document.getElementById('lat').value = pos.lat()
-  document.getElementById('lng').value = pos.lng()
+  $('#lat').val(pos.lat())
+  $('#lng').val(pos.lng())
+  $('#lat').trigger('change') //to activate validation
 }
