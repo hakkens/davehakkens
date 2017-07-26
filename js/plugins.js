@@ -38,10 +38,7 @@
       e.preventDefault();
     });
 
-    $('input[name=address]').blur(function() {
-      valAddress();
-      window.setTimeout(valMap, 100);
-    });
+    $('input[name=address]').blur(valAddress);
     $('input[name=lat]').change(valMap);
     $('input[name=name]').blur(valName);
     $('input[name="filters[]"]').change(valFilters);
