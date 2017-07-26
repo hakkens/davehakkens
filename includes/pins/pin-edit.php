@@ -76,15 +76,16 @@ class ProcessPin {
 
         //handle new file and push into position in array
         $upload = wp_handle_upload($uploadfile, array('test_form' => false));
+        $uploadedImgs = array();
         if (!isset($upload['error']) && isset($upload['file'])) {
-          $currentImages[$i] = array($upload['url'], $upload['file']);
+          array_push($uploadedImgs, array($upload['url'], $upload['file']));
         } else {
           throw new Exception('it all failed');
         }
       }
     }
 
-    $this->imgs = $currentImages;
+    $this->imgs = $uploadedImgs;
   }
 
   function generate_request() {
