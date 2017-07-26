@@ -43,7 +43,7 @@ class UserPinEdit {
 
     global $wpdb;
 
-    $query = "SELECT name, lat, lng, address, description, filters, imgs, status FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
+    $query = "SELECT name, lat, lng, address, description, filters, imgs, website, status FROM pp_pins WHERE ID = " . $recordId . ' AND user_ID = ' . get_current_user_id();
 
     $this->record = $wpdb->get_results($query)[0];
   }
