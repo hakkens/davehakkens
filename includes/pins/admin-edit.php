@@ -28,7 +28,8 @@ class Admin_Edit_Form {
       'description' => array('Description', true),
       'website' => array('Website', true),
       'filters' => array('Filters', true, 'from_JSON'),
-      'status' => array('Status', true)
+      'status' => array('Status', true),
+      'imgs' => array('Images', false)
     );
   }
 
