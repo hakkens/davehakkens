@@ -63,10 +63,12 @@ function get_pp_pins( $data ) {
     $pin->filters = json_decode($pin->filters, true);
     $pin->lat = floatval($pin->lat);
     $pin->lng = floatval($pin->lng);
-    $pin->imgs = json_decode($pin->imgs, true);
-    if (!empty($pin->imgs)) {
-      foreach ($pin->imgs as &$img) {
-        $img = $img[0];
+    $databaseImgs = json_decode($pin->imgs, true);
+    $pin->imgs = array();
+    if (!empty($databaseImgs)) {
+      foreach ($databaseImgs as $img) {
+        if (!empty($img))
+          array_push($pin->imgs, $img[0]);
       }
     }
   }

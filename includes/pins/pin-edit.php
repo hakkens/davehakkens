@@ -64,27 +64,30 @@ class ProcessPin {
     $files = $this->files;
     $currentImages = json_decode($this->currentRecord->imgs, true);
 
+    $imageArray = array();
     for ($i = 0; $i < 3; $i++) {
+      $imageArray[$i] = $currentImages[$i] ? $currentImages[$i] : array();
+
       $fileKey = 'img' . $i . '-file';
 
       $uploadfile = $files[$fileKey];
       if (!empty($uploadfile) && $uploadfile['size'] > 0) {
         //kill current file (if it exists)
-        if (is_array($currentImages) && !empty($currentImages[$i])) {
+        if (!empty($imageArray[$i])) {
           unlink($currentImages[$i][1]);
         }
 
         //handle new file and push into position in array
         $upload = wp_handle_upload($uploadfile, array('test_form' => false));
         if (!isset($upload['error']) && isset($upload['file'])) {
-          $currentImages[$i] = array($upload['url'], $upload['file']);
+          $imageArray[$i] = array($upload['url'], $upload['file']);
         } else {
           throw new Exception('it all failed');
         }
       }
     }
 
-    $this->imgs = $currentImages;
+    $this->imgs = $imageArray;
   }
 
   function generate_request() {

@@ -26,7 +26,10 @@ class Admin_Edit_Form {
       'lng' => array('Longitude', true),
       'address' => array('Address', true),
       'description' => array('Description', true),
-      'filters' => array('Filters', true, 'from_JSON')
+      'website' => array('Website', true),
+      'filters' => array('Filters', true, 'from_JSON'),
+      'status' => array('Status', true),
+      'imgs' => array('Images', false)
     );
   }
 
