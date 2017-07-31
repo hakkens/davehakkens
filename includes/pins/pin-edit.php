@@ -37,18 +37,18 @@ class ProcessPin {
 
   function validate() {
     //make sure logged in
-    if (!is_user_logged_in()) return 'need to be logged in';
+    if (!is_user_logged_in()) return 'Please log in.';
 
     //only admins can change records that aren't theirs
     $this->currentRecord = $this->get_record_by_id($this->recordId);
     if (!$this->userIsAdmin && !$this->isCreate) {
-      if ($this->currentRecord->user_ID != get_current_user_id()) return 'can\'t edit other users records';
+      if ($this->currentRecord->user_ID != get_current_user_id()) return 'You cannot edit other users records.';
     }
 
     //ensure required fields are filled
     $columns = $this->get_columns();
     foreach ($columns as $key => $value) {
-      if (empty($this->request[$key]) && $value[1]) return 'missing required field: ' . $key;
+      if (empty($this->request[$key]) && $value[1]) return 'Missing required field: ' . $key;
     }
 
     return true;
@@ -82,7 +82,7 @@ class ProcessPin {
         if (!isset($upload['error']) && isset($upload['file'])) {
           $imageArray[$i] = array($upload['url'], $upload['file']);
         } else {
-          throw new Exception('it all failed');
+          throw new Exception('File upload failed');
         }
       }
     }

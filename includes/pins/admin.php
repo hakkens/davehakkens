@@ -71,7 +71,7 @@ class Pin_Table extends WP_List_Table {
   function handle_actions($action) {
     $recordId = $_REQUEST['id'];
     $wpNonce = $_REQUEST['_wpnonce'];
-    if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'action_' . $recordId)) die('no soup for you');
+    if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'action_' . $recordId)) die('You do not have sufficient permissions to access this page.');
 
     global $wpdb;
 
