@@ -129,8 +129,6 @@
   });
 }());
 
-//TODO: should change default lat and lng, other map too
-
 //Initialise google map on pin edit page
 window.initMap = function() {
   var $ = jQuery.noConflict()
@@ -151,8 +149,8 @@ window.initMap = function() {
     var map = new google.maps.Map(mapElement, {
       mapTypeControlOptions: { mapTypeIds: [] },
       center: location,
-      zoom: pinExists ? 18 : 4,
-      minZoom: 3
+      zoom: pinExists ? 18 : 1,
+      minZoom: 1
     })
 
     if (pinExists) {
