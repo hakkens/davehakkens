@@ -19,7 +19,7 @@ class UserPinList {
     global $wpdb;
 
     $query = "
-      SELECT ID, name, description, approval_status
+      SELECT ID, name, description, approval_status, lat, lng, filters
       FROM   pp_pins
       WHERE  user_ID = $this->userId
       ORDER BY created_date DESC";
@@ -37,12 +37,15 @@ class UserPinList {
       $desc = substr($record->description, 0, 45);
       $urlFragment = $this->getPinUrlFragment($record->ID);
 
-      //TODO make the view button go somewhere
       $itemActions = $this->isUser
         ? "<a href='?action=edit&$urlFragment' class='pin-item__button'>Edit</a>
           <a href='?action=del&$urlFragment' class='pin-item__button'>Delete</a>"
         : "";
-      $itemActions .= "<a href='?action=view_pin' class='pin-item__button'>View</a>";
+      
+      $decodedFilters = json_decode($record->filters, true);
+      $filters = implode(",", $decodedFilters);
+      $viewLink = "http://precious-plastic-dev.s3-website-us-east-1.amazonaws.com/?lat=$record->lat&lng=$record->lng&filters=$filters";
+      $itemActions .= "<a href='$viewLink' target='_blank' class='pin-item__button'>View</a>";
 
       $status = $this->isUser
         ? "<p class='pin-item__text pin-item__status'>$published</p>"
