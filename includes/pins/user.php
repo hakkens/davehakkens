@@ -13,7 +13,7 @@ class UserPins {
   function handleAction() {
     $recordId = $_REQUEST['id'];
     $wpNonce = $_REQUEST['_wpnonce'];
-    if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'user_' . $recordId)) die('nice try big guy');
+    if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'user_' . $recordId)) die('You do not have sufficient permissions to access this page.');
 
     switch ($_REQUEST['action']) {
       case 'edit':
