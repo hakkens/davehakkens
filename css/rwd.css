@@ -57,7 +57,10 @@
 
 @media screen and (max-width: 1700px) {
 
-  #post-grid .item {
+  #post-grid .item{
+    width: 29.5%;
+  }
+  #post-grid .item.big{
     width: 45%;
   }
 
@@ -85,7 +88,7 @@
   }
 
 
-#topbar{
+  #topbar{
     margin-top: 60px;
   }
 
@@ -100,7 +103,7 @@
 
   div#expertiseinfo {
     font-size: 18px;
-}
+  }
 
   .activity #buddypress {
     width: 100%;
@@ -470,7 +473,7 @@
     width: 90%;
   }
 
-  #post-grid .item {
+  #post-grid .item,  #post-grid .item.big {
     float: none;
     margin: 0 0 20px 0;
     width: 100%;
@@ -1098,7 +1101,7 @@ div#expertiseinfo {
     width: 100%;
   }
 
-  #post-grid .item {
+  #post-grid .item,  #post-grid .item.big {
     border-bottom: none;
     margin: 0 0 0px 0;
   }

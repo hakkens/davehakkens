@@ -244,7 +244,7 @@ DaveHakkens.Main = function(){
   var initIsotopeGrid = function(){
     $postGrid.isotope({
       percentPosition: true,
-      masonry: { columnWidth: '.item' },
+      layoutMode: 'fitRows',
       animationEngine: 'jquery'
     });
 
@@ -276,22 +276,21 @@ DaveHakkens.Main = function(){
     });*/
 
     if ($postGrid.length > 0) {
-
-		$window.scroll(function () {
-		  var check = parseInt($(window).scrollTop() + $(window).height());
-		  var test = ($(document).height());
-
-			if (!loading && (test - check ) < 100) {
-			// BOTTOM OF PAGE REACHED!
-			  loading = true;
-			  page++;
-			  loadPosts(10);
-			}
-		});
-	// load posts when page loads
-	loadPosts(10);
+      bottonLoad = document.createElement("button");
+//bottonLoad.setAttribute('class', 'btn');
+      bottonLoad.innerHTML = 'Load more';
+      $postGrid.after(bottonLoad);
+        
+      bottonLoad.onclick = function () {
+        if (!loading) {
+          loading = true;
+          page++;
+          loadPosts(9);
+        }
+      };
+      // load posts when page loads
+      loadPosts(8);
     }
-
   };
 
   var loadPosts = function(numPosts){
@@ -325,12 +324,9 @@ DaveHakkens.Main = function(){
             continue;
           }
           if(firstPostLoad){
-            if(i<5){
-              console.log($data[i].nodeType);
-              if(i<3){
-                console.log($data[i].nodeType);
-              }
-              $data.splice(i, 1);
+            if(i<2){
+//              console.log($data[i]);
+              $($data[i]).addClass("big");
             }
           }
         }
