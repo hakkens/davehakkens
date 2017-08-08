@@ -127,7 +127,6 @@ class Pin_Table extends WP_List_Table {
       $query .= ' ORDER BY ' . $orderBy . ' ' . $order . ', p.Id ASC';
     }
 
-    print($query);
     $totalitems = $wpdb->query($query);
     $perpage = 30;
     $totalpages = ceil($totalitems / $perpage);
