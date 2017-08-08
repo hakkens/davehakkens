@@ -36,7 +36,12 @@ function bp_custom_user_nav_item_screen() {
 
 //admin page
 function pp_admin_menu() {
-	add_menu_page( 'PP Pin Admin', 'PP Pins', 'manage_options', 'pp-admin', 'pp_admin_page', '', 99);
+  global $wpdb;
+  $unapproved = $wpdb->get_var("SELECT COUNT(*) FROM pp_pins WHERE approval_status != 'APPROVED';");
+
+  $title = "PP Pins <span class='update-plugins count-1'><span class='update-count'>$unapproved</span></span>";
+
+	add_menu_page( 'PP Pin Admin', $title, 'manage_options', 'pp-admin', 'pp_admin_page', '', 99);
 }
 add_action( 'admin_menu', 'pp_admin_menu' );
 

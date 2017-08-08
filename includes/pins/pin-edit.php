@@ -80,7 +80,15 @@ class ProcessPin {
         //handle new file and push into position in array
         $upload = wp_handle_upload($uploadfile, array('test_form' => false));
         if (!isset($upload['error']) && isset($upload['file'])) {
-          $imageArray[$i] = array($upload['url'], $upload['file']);
+          $file = $upload['file'];
+
+          //change image sizing (destructive)
+          $image = wp_get_image_editor($file);
+          if (is_wp_error($image)) throw new Exception('File upload failed. File is not a valid image');
+          $image->resize( 300, 175, true);
+          $image->save($file);
+
+          $imageArray[$i] = array($upload['url'], $file);
         } else {
           throw new Exception('File upload failed');
         }
