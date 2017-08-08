@@ -47,14 +47,18 @@ class Pin_Table extends WP_List_Table {
       'name' => 'Name',
       'lat' => 'Lat',
       'lng' => 'Lng',
-      'filters' => 'Filters'
+      'filters' => 'Filters',
+      'created_date' => 'Created',
+      'modified_date' => 'Last Modified'
     );
   }
 
   function get_sortable_columns() {
     return $sortable_columns = array(
       'display_name' => array('display_name', false),
-      'name' => array('Name', true)
+      'name' => array('name', true),
+      'created_date' => array('created_date', false),
+      'modified_date' => array('modified_date', false)
     );
   }
 
@@ -96,6 +100,14 @@ class Pin_Table extends WP_List_Table {
           array('%d')
         );
         break;
+      case 'del':
+        global $wpdb;
+        $wpdb->delete(
+          'pp_pins',
+          array('ID' => $recordId),
+          array('%d')
+        );
+        break;
     };
   }
 
@@ -105,14 +117,17 @@ class Pin_Table extends WP_List_Table {
     global $wpdb;
 
     $query = "SELECT p.ID, p.name, p.lat, p.lng, p.filters,
-                     p.approval_status, u.display_name
+                     p.approval_status, p.created_date, p.modified_date, u.display_name
               FROM   pp_pins p INNER JOIN wp_users u
                        on p.user_ID = u.ID";
 
     if (!empty($_GET["orderby"])) {
-      $query .= ' ORDER BY ' . $_GET["orderby"] . ' ' . ($_GET["order"] ? $_GET["order"] : ' ASC') . ', p.ID ASC';
+      $orderBy = esc_sql($_GET['orderby']);
+      $order = esc_sql($_GET['order'] ? $_GET['order'] : 'ASC');
+      $query .= ' ORDER BY ' . $orderBy . ' ' . $order . ', p.Id ASC';
     }
 
+    print($query);
     $totalitems = $wpdb->query($query);
     $perpage = 30;
     $totalpages = ceil($totalitems / $perpage);
@@ -175,6 +190,7 @@ class Pin_Table extends WP_List_Table {
     $functions = array();
 
     array_push($functions, '<a href="?' . $pageIdNonce . '&action=edit">Edit</a>');
+    array_push($functions, '<a href="?' . $pageIdNonce . '&action=del">Delete</a>');
 
     $toggleText = $record->approval_status == 'WAITING_APPROVAL' ? 'Activate' : 'Deactivate';
     $toggleValue = $record->approval_status == 'WAITING_APPROVAL' ? 'APPROVED' : 'WAITING_APPROVAL';
