@@ -75,6 +75,7 @@ class ProcessPin {
         //kill current file (if it exists)
         if (!empty($imageArray[$i])) {
           unlink($currentImages[$i][1]);
+          unlink($currentImages[$i][2]);
         }
 
         //handle new file and push into position in array
@@ -82,13 +83,18 @@ class ProcessPin {
         if (!isset($upload['error']) && isset($upload['file'])) {
           $file = $upload['file'];
 
-          //change image sizing (destructive)
+          //change image sizing
           $image = wp_get_image_editor($file);
           if (is_wp_error($image)) throw new Exception('File upload failed. File is not a valid image');
           $image->resize( 300, 175, true);
-          $image->save($file);
+          $filename = $image->generate_filename('resized');
+          $saved = $image->save($filename);
 
-          $imageArray[$i] = array($upload['url'], $file);
+          //generate new url from old url and adjusted filename
+          $uploadUrl = $upload['url'];
+          $url = substr($uploadUrl, 0, strrpos($uploadUrl, '/')) . '/' . $saved['file'];
+
+          $imageArray[$i] = array($url, $file, $saved['path']);
         } else {
           throw new Exception('File upload failed');
         }
