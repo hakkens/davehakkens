@@ -3,7 +3,6 @@
 include dirname( __FILE__ ) . '/includes/meta-boxes.php';
 include_once dirname( __FILE__ ) . '/includes/pins.php';
 
-
 function login_redirect_control( $redirect_to, $request, $user ) {
   $urlParts = parse_url($request);
   parse_str($urlParts['query'], $query);
@@ -282,40 +281,35 @@ function custom_loginlogo() {
 }
 add_action('login_head', 'custom_loginlogo');
 
+/* Modified from  'mycred_display_users_badges' to just display selected badges, TODO: pass argumment and merge upstream */
+function mycred_display_custom_users_badges( $user_id = NULL, $width = MYCRED_BADGE_WIDTH, $height = MYCRED_BADGE_HEIGHT ) {
+  $user_id = absint( $user_id );
+  if ( $user_id === 0 ) return;
+  $valid_badges = array(4709, 4710, 4744);
+  $users_badges = mycred_get_users_badges( $user_id );
+
+  echo '<div class="row" id="mycred-users-badges"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">';
+
+  do_action( 'mycred_before_users_badges', $user_id, $users_badges );
+  if ( ! empty( $users_badges ) ) {
+    foreach ( $users_badges as $badge_id => $level ) {
+      if (!in_array($badge_id, $valid_badges))continue;
+      $badge = mycred_get_badge( $badge_id, $level );
+      if ( $badge === false ) continue;
+      $badge->image_width  = $width;
+      $badge->image_height = $height;
+
+      if ( $badge->level_image !== false )
+        echo apply_filters( 'mycred_the_badge', $badge->get_image( $level ), $badge_id, $badge, $user_id );
+    }
+  }
+  do_action( 'mycred_after_users_badges', $user_id, $users_badges );
+  echo '</div></div>';
+}
+
 //ad sidebar
 if ( is_active_sidebar( 'primary' ) ) : ?>
     <div id="primary" class="sidebar aside">
         <?php dynamic_sidebar( 'primary' ); ?>
     </div><!-- #primary .aside -->
 <?php endif; ?>
-
-<?php
-/* Modified from  'mycred_display_users_badges' to just display selected badges, TODO: pass argumment and merge upstream */
-if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) :
-    function mycred_display_custom_users_badges( $user_id = NULL, $width = MYCRED_BADGE_WIDTH, $height = MYCRED_BADGE_HEIGHT ) {
-        $user_id = absint( $user_id );
-        if ( $user_id === 0 ) return;
-        $valid_badges = array(4709, 4710, 4744);
-        $users_badges = mycred_get_users_badges( $user_id );
-
-        echo '<div class="row" id="mycred-users-badges"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">';
-
-        do_action( 'mycred_before_users_badges', $user_id, $users_badges );
-        if ( ! empty( $users_badges ) ) {
-            foreach ( $users_badges as $badge_id => $level ) {
-                if (!in_array($badge_id, $valid_badges))continue;
-                $badge = mycred_get_badge( $badge_id, $level );
-                if ( $badge === false ) continue;
-                $badge->image_width  = $width;
-                $badge->image_height = $height;
-
-                if ( $badge->level_image !== false )
-                    echo apply_filters( 'mycred_the_badge', $badge->get_image( $level ), $badge_id, $badge, $user_id );
-            }
-        }
-        do_action( 'mycred_after_users_badges', $user_id, $users_badges );
-        echo '</div></div>';
-    }
-endif;
-
-?>
