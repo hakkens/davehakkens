@@ -2258,7 +2258,6 @@ input[type="checkbox"]:checked {
 
 }
 input[type="checkbox"]:focus {
-    outline: 0 none;
     box-shadow: none;
 }
 
