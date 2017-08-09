@@ -32,7 +32,8 @@ class ProcessPin {
 
   function get_record_by_id($recordId) {
     global $wpdb;
-    return $wpdb->get_results('SELECT ID, approval_status, imgs, user_ID FROM pp_pins where ID = ' . $recordId)[0];
+    $table_name = $wpdb->prefix . 'pp_pins';
+    return $wpdb->get_results("SELECT ID, approval_status, imgs, user_ID FROM $table_name where ID = " . $recordId)[0];
   }
 
   function validate() {
@@ -127,6 +128,7 @@ class ProcessPin {
 
   function run() {
     global $wpdb;
+    $table_name = $wpdb->prefix . 'pp_pins';
 
     $record = $this->record;
     $recordId = $this->recordId;
@@ -138,13 +140,13 @@ class ProcessPin {
       $record['user_ID'] = get_current_user_id();
 
       $wpdb->insert(
-        'pp_pins',
+        $table_name,
         $record,
         $formats
       );
     } else {
       $wpdb->update(
-        'pp_pins',
+        $table_name,
         $record,
         array('ID' => $recordId),
         $formats,

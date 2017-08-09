@@ -30,8 +30,10 @@ class UserPins {
 
       case 'del':
         global $wpdb;
+        $table_name = $wpdb->prefix . 'pp_pins';
+
         $wpdb->delete(
-          'pp_pins',
+          $table_name,
           array('ID' => $recordId),
           array('%d')
         );

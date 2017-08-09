@@ -37,7 +37,8 @@ function bp_custom_user_nav_item_screen() {
 //admin page
 function pp_admin_menu() {
   global $wpdb;
-  $unapproved = $wpdb->get_var("SELECT COUNT(*) FROM pp_pins WHERE approval_status != 'APPROVED';");
+  $table_name = $wpdb->prefix . 'pp_pins';
+  $unapproved = $wpdb->get_var("SELECT COUNT(*) FROM $table_name WHERE approval_status != 'APPROVED';");
 
   $title = "PP Pins <span class='update-plugins count-1'><span class='update-count'>$unapproved</span></span>";
 
@@ -57,10 +58,11 @@ function pp_admin_page() {
 //REST end point setup
 function get_pp_pins( $data ) {
   global $wpdb;
+  $table_name = $wpdb->prefix . 'pp_pins';
 
   $query = "SELECT p.ID, p.name, p.lat, p.lng, p.description,
                    p.website, p.filters, p.imgs, p.status, u.user_nicename as username
-            FROM   pp_pins p INNER JOIN wp_users u
+            FROM   $table_name p INNER JOIN wp_users u
                      on p.user_ID = u.ID
             WHERE  approval_status = 'APPROVED';";
   $pins = $wpdb->get_results($query);
