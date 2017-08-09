@@ -103,3 +103,43 @@ function rd_user_id_column_content($value, $column_name, $user_id) {
 	return $value;
 }
 add_action('manage_users_custom_column',  'rd_user_id_column_content', 10, 3);
+
+
+//DATABASE INSTALL ETC
+global $pp_pin_db_version;
+$pp_pin_db_version = '1';
+
+function pp_pin_db_install() {
+  global $wpdb;
+  global $pp_pin_db_version;
+
+  $table_name = $wpdb->prefix . 'pp_pins';
+
+  $charset_collate = $wpdb->get_charset_collate();
+
+  $sql = "CREATE TABLE $table_name (
+    ID bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    user_ID bigint(20) unsigned NOT NULL,
+    name varchar(255) NOT NULL,
+    lat double NOT NULL,
+    lng double NOT NULL,
+    description text,
+    address text,
+    website varchar(255),
+    filters json,
+    imgs json,
+    status varchar(32) NOT NULL,
+    approval_status varchar(32) DEFAULT 'AWAITING_APPROVAL' NOT NULL,
+    created_date datetime DEFAULT CURRENT_TIMESTAMP,
+    modified_date datetime ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY  (ID),
+    KEY user_ID (user_ID)
+  ) $charset_collate;";
+
+  require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+  dbDelta($sql);
+
+  add_option('pp_pin_db_version', $pp_pin_db_version);
+}
+
+add_action('after_switch_theme', 'pp_pin_db_install');
