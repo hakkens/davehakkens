@@ -78,6 +78,7 @@ class Pin_Table extends WP_List_Table {
     if (empty($wpNonce) || !wp_verify_nonce($wpNonce, 'action_' . $recordId)) die('You do not have sufficient permissions to access this page.');
 
     global $wpdb;
+    $table_name = $wpdb->prefix . 'pp_pins';
 
     switch ($action) {
       case 'edit_pin':
@@ -91,7 +92,7 @@ class Pin_Table extends WP_List_Table {
       case 'toggle':
         $value = $_REQUEST['value'];
         $wpdb->update(
-          'pp_pins',
+          $table_name,
           array(
             'approval_status' => $value
           ),
@@ -101,9 +102,8 @@ class Pin_Table extends WP_List_Table {
         );
         break;
       case 'del':
-        global $wpdb;
         $wpdb->delete(
-          'pp_pins',
+          $table_name,
           array('ID' => $recordId),
           array('%d')
         );
@@ -115,10 +115,11 @@ class Pin_Table extends WP_List_Table {
     if (!empty($_REQUEST['action'])) $this->handle_actions($_REQUEST['action']);
 
     global $wpdb;
+    $table_name = $wpdb->prefix . 'pp_pins';
 
     $query = "SELECT p.ID, p.name, p.lat, p.lng, p.filters,
                      p.approval_status, p.created_date, p.modified_date, u.display_name
-              FROM   pp_pins p INNER JOIN wp_users u
+              FROM   $table_name p INNER JOIN wp_users u
                        on p.user_ID = u.ID";
 
     if (!empty($_GET["orderby"])) {
