@@ -98,6 +98,8 @@
                 // The notif count is 0.
               }
               ?> </div></a>
+
+
             <a href="<?= wp_logout_url(home_url()); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/logout.png"> Log out</a>
             <?php if (current_user_can("manage_options")) : ?>
                    <a href="<?php echo bloginfo("siteurl") ?>/wp-admin/"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/admin.png">Admin</a>

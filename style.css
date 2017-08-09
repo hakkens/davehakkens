@@ -2082,10 +2082,15 @@ display:inline;
 .page-id-73512 #content,
 .page-template-page-with-sidebar #content,
 .page-template-page-redirect,
-.reply.bbpress {
+.reply.bbpress,
+.bp-user .post {
   padding-bottom: 650px;
 }
 
+.activity .alt-forum-sidebar,
+.registration .alt-forum-sidebar {
+    display: none;
+}
 
 .reply.bbpress .topic-reply .content{
   margin-bottom:100px;
@@ -3503,9 +3508,8 @@ div.indicator-hint p {
 }
 
 .bp-user .post {
-  padding-top: 0;
   margin: 0 auto;
-  padding: 40px;
+  padding-top: 40px;
 }
 
 .single.bp-user .post .post-content {
@@ -3881,13 +3885,21 @@ a.bp-avatar-nav-item {
     display: none;
 }
 
+tr.field_1.field_current_balance_mycred_default td.label,
+tr.field_1.field_current_balance_mycred_default td.data {
+    display: inline;
+    color: black;
+    font-size: 14px;
+}
+
+
 #buddypress .profile .dedication {
     text-align: center;
     font-size: 30px;
     padding-top: 40px;
 }
 
-#buddypress .profile .bp-widget .field_1 {
+#buddypress .profile .bp-widget.base .field_1 {
     background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/login.png")!important;
     width: 85px;
     height: 70px;
@@ -3943,6 +3955,17 @@ a.bp-avatar-nav-item {
 
 #buddypress .profile .bp-widget .field_667 {
     background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/about.png")!important;
+    width: 85px;
+    height: 70px;
+    float: left;
+    text-indent: -9999px;
+    background-position: 25px 15px;
+    background-size: 55%;
+    background-repeat: no-repeat;
+}
+
+#buddypress .profile .bp-widget .field_piggy {
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/piggy.png")!important;
     width: 85px;
     height: 70px;
     float: left;
@@ -4055,7 +4078,6 @@ div#messages-dir-count {
 }
 
 form#send_message_form ul.acfb-holder li {
-  float: left!important;
   background: #90bcec!important;
   border: 0px!important;
   margin-bottom: 10px;
@@ -4083,7 +4105,7 @@ table.notifications tbody {
 }
 
 .notifications table.notifications tr td {
-  padding: 15px 15px!important;
+  padding: 10px 10px!important;
 }
 
 #buddypress table.notifications tr td{
@@ -4092,7 +4114,7 @@ table.notifications tbody {
 
 table.notifications tr {
   background-color: white!important;
-  border-bottom: 10px solid rgb(255, 177, 177);
+  border-bottom: 2px solid rgb(245, 141, 142);
 }
 
 .notifications thead {
@@ -4120,20 +4142,27 @@ td.notification-actions {
   text-align: left;
   }
 
-th.thread-checkbox.bulk-select-all {
+#message-threads th.thread-checkbox.bulk-select-all {
   display: none!important;
 }
 
-.messages.td.bulk-select-check {
+#message-threads .messages.td.bulk-select-check {
   display: none!important;
 }
 
 .notifications th.bulk-select-all {
-  display: none!important;
+  background-color: #bbbbbb;
 }
 
 .messages td.thread-from {
-  min-width: 150px!important;
+  text-align: center;
+  font-size: 10px;
+  padding: 13px 20px!important;
+}
+
+#message-threads td.thread-star,
+#message-threads th.thread-star {
+    display: none;
 }
 
 #buddypress table.messages-notices tr td {
@@ -4145,8 +4174,12 @@ th.thread-checkbox.bulk-select-all {
   display: none!important;
 }
 
-td.bulk-select-check{
-  display: none!important;
+.messages td.bulk-select-check{
+  display: none;
+}
+
+.notifications td.bulk-select-check {
+    background-color: #bbbbbb;
 }
 
 table.notifications {
@@ -4158,10 +4191,31 @@ table.notifications {
   text-align: center;
 }
 
+#buddypress #message-threads img.avatar {
+    max-width: none;
+    display: block;
+    margin: 0 auto;
+    width: 60px;
+}
+
+li#starred-personal-li {
+    display: none!important;
+}
+
 .notifications-options-nav select {
-  background-color: #d6d6d6!important;
+  background-color: #ffffff!important;
   height: 55px!important;
 }
+
+td.notification-since {
+    color: darkgrey;
+}
+
+
+#buddypress form [disabled=disabled] {
+    opacity: 1!important;
+}
+
 
 .notifications div#pag-top {
   display: none!important;
@@ -4208,7 +4262,6 @@ h3#message-subject {
 .notifications-options-nav  {
   padding: 30px;
   text-align: center;
-  display: none;
 }
 
 .messages img.avatar {
@@ -4646,7 +4699,7 @@ form#bps_directory72873 {
 
 #buddypress div.item-list-tabs ul li a,
 #buddypress div.item-list-tabs ul li span {
-    padding: 5px 14px !important;
+    padding: 2px 10px !important;
     background-color: #eee;
     opacity: 1;
     border-radius: 5px;
@@ -5443,6 +5496,33 @@ body#tinymce {
 .topic-lead .author #country{
     float:none!important;
     display: inline-block;
+}
+
+#badges .row{
+  margin: 0px;
+  padding: 0px;
+}
+#badges {
+    float:left!important;
+    margin-right: .5em!important;
+    display: inline-block;
+}
+
+#badges img {
+  max-height: 26px !important;
+    position: relative!important;
+    width: auto!important;
+    top: -6px!important;
+    margin-right: 0px;
+}
+.topic-lead .author #badges{
+    float: none!important;
+    margin-left: -7px;
+}
+
+.topic-lead .author #badges img{
+    max-height: 30px!important;
+    top: -2px!important;
 }
 
 .activity .wp_like_group {

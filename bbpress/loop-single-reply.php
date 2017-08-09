@@ -15,13 +15,9 @@
   <div class="author">
 
     <?php
-	
-	
 
     do_action( 'bbp_theme_before_reply_author_details' );
-	
 	// get reply user data
-	
 	$user = get_userdata( bbp_get_reply_author_id() );
 
     $args = [
@@ -33,7 +29,7 @@
     //bbp_reply_author_link( $args );
 	$user_nicename = $user->user_nicename;
 	echo "<a href='/community/members/".$user_nicename."/'>";
-	echo bbp_get_reply_author_avatar( bbp_get_reply_id(), 80 ); 
+	echo bbp_get_reply_author_avatar( bbp_get_reply_id(), 80 );
 	echo "</a>";
     ?>
 
@@ -41,20 +37,23 @@
 
   <div class="content">
     <div class="replyheader">
-      <div id="country" style="float:left;margin-right:.5em;"> <?php  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?></div>
-
+      <div id="country">
+        <a href='/community/members/<?php echo $user->user_nicename?> '>
+          <?php  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?>
+        </a>
+      </div>
+      <div id="badges">
+        <a href='/community/dedication/'>
+          <?php mycred_display_custom_users_badges($user->ID)?>
+        </a>
+      </div>
       <div class="smallusername">
-		
         <?php
-
           if ( !empty( $user->user_nicename ) ) {
             $user_nicename = $user->user_nicename;
             echo "<a href='/community/members/".$user_nicename."/'>" . $user_nicename . '</a>';
           }
-
         ?>
-		
-
       </div>
 
 

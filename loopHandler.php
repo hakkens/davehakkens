@@ -174,7 +174,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
       ?></div>
      <div class="commenticon">
        <a href="<?php comments_link(); ?>">
-       <img src="http://davehakkens.nl/wp-content/themes/davehakkens2/img/comment.png" alt="comments" height="23" width="23"><?php
+       <img src="https://davehakkens.nl/wp-content/themes/davehakkens2/img/comment.png" alt="comments" height="23" width="23"><?php
    comments_popup_link( '', '1', '%', 'comments-link', 'X');?></p></a></div>
 
  <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?>

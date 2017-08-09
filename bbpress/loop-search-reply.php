@@ -30,18 +30,24 @@
   </div>
   <div class="result">
     <div class="bbp-meta">
-      <div id="country" style="float:left;margin-right:.5em;"> <?php  $user = get_userdata( bbp_get_reply_author_id() );  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?></div>
+      <?php $user = get_userdata( bbp_get_reply_author_id() ); ?>
+      <div id="country">
+        <a href='/community/members/<?php echo $user->user_nicename?> '>
+          <?php  $country = xprofile_get_field_data( 42, $user->ID ); dh_get_flag_by_location($country); ?>
+        </a>
+      </div>
+      <div id="badges">
+        <a href='/community/dedication/'>
+          <?php mycred_display_custom_users_badges($user->ID)?>
+        </a>
+      </div>
       <div class="smallusername">
-
         <?php
-
           if ( !empty( $user->user_nicename ) ) {
             $user_nicename = $user->user_nicename;
-            echo "".$user_nicename;
+            echo "<a href='/community/members/".$user_nicename."/'>" . $user_nicename . '</a>';
           }
-
         ?>
-
 
       </div>
       <span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
