@@ -1,5 +1,5 @@
 /*
-  Theme Name: Dave Hakkens 2.0
+  Theme Name: Dave Hakkens 2.1
   Theme URI: https://davehakkens.nl
   Author: Dave Hakkens
   Author URI: https://davehakkens.nl
@@ -1798,6 +1798,7 @@ div#post-mention {
 
 #buddypress ul.item-list li img.avatar{
   margin: 15px 10px 0 0 !important;
+  width: 50px;
 }
 
 .activity #buddypress {
@@ -2853,7 +2854,7 @@ li.widget .bbp-forum-title:hover {
 .alt-forum-sidebar .avatar {
   height: auto !important;
   margin: 0% 0% 4% 4% !important;
-  width: 16% !important;
+  width: 60px !important;
   border-radius: 100%;
 }
 
@@ -3770,6 +3771,7 @@ div#item-header h2.user-nicename {
   float: none !important;
   border-radius: 100%;
   border: 4px solid rgba(255, 255, 255, 0);
+  width: 200px;
 }
 
 #item-header-content #latest-update,
@@ -4287,6 +4289,11 @@ h3#message-subject {
 .message-content p {
   font-size: 14px;
   padding-top: 10px;
+}
+
+.message-content a {
+    word-break: break-all;
+    color: #5e94da;
 }
 
 #buddypress div#message.updated p {
