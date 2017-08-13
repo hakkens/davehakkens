@@ -132,7 +132,7 @@ function pp_pin_db_install() {
     imgs json,
     status varchar(32) NOT NULL,
     approval_status varchar(32) DEFAULT 'AWAITING_APPROVAL' NOT NULL,
-    created_date datetime DEFAULT CURRENT_TIMESTAMP,
+    created_date datetime,
     modified_date datetime ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY  (ID),
     KEY user_ID (user_ID)
