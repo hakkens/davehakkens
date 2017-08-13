@@ -114,6 +114,7 @@ class ProcessPin {
     $columns = $this->get_columns();
 
     foreach ($columns as $key => $value) {
+
       if (array_key_exists($key, $request)) {
         $record[$key] = empty($value[2])
           ? $request[$key]
@@ -122,8 +123,11 @@ class ProcessPin {
       }
     }
 
-    //if you're not an admin, reset approval_status to false (waiting approval)
-    if ($this->isCreate || ($this->currentRecord->approval_status == 'APPROVED' && !$this->userIsAdmin)) {
+    //if create, set defaults
+    if ($this->isCreate) {
+      $record['created_date'] = current_time( 'mysql' );
+      array_push($formats, '%s');
+
       $record['approval_status'] = 'WAITING_APPROVAL';
       array_push($formats, '%s');
     }
@@ -144,6 +148,7 @@ class ProcessPin {
     if ($this->isCreate) {
       //default user_ID to current user
       $record['user_ID'] = get_current_user_id();
+      array_push($formats, '%d');
 
       $wpdb->insert(
         $table_name,
