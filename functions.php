@@ -9,11 +9,11 @@ function login_redirect_control( $redirect_to, $request, $user ) {
   if (isset($query['redirect_to'])) {
     $redir = $query['redirect_to'];
     if (substr($redir, 0, 4) == 'USER') {
-      return '/members/' . $user->user_login . substr($redir, 4);
+      return '/community/members/' . $user->user_login . substr($redir, 4);
     }
     return '/' . $redir;
   }
-  return '/community/forum';
+  return '/community/forums';
 }
 add_filter( 'login_redirect', 'login_redirect_control', 10 ,3);
 
