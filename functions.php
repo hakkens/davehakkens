@@ -9,7 +9,7 @@ function login_redirect_control( $redirect_to, $request, $user ) {
   if (isset($query['redirect_to'])) {
     $redir = $query['redirect_to'];
     if (substr($redir, 0, 4) == 'USER') {
-      return '/community/members/' . $user->user_login . substr($redir, 4);
+      return '/community/members/' . $user->user_nicename . substr($redir, 4);
     }
     return '/' . $redir;
   }
