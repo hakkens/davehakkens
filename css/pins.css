@@ -104,6 +104,10 @@
   width: 100%;
 }
 
+.pins .pin-edit__input#website {
+    color: #5e94da;
+}
+
 .pins .pin-edit__choice {
   margin-bottom: 5px;
 }

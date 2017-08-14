@@ -19,9 +19,9 @@ class UserPinEdit {
 
   function get_filters() {
     return array(
-      'WORKSHOP' => 'I have a Precious Plastic workspace',
-      'MACHINE' => 'I sell machines / can build machines for others',
-      'STARTED' => 'I want to find people locally to help me get started'
+      'WORKSHOP' => 'I have Precious Plastic machines',
+      'MACHINE' => 'I sell / can build machines for others',
+      'STARTED' => 'I want to get started and connect with people near me'
     );
   }
 
@@ -87,7 +87,7 @@ $statuses = $table->get_statuses();
   </div>
 
   <fieldset class="pin-edit__field">
-    <legend class="pin-edit__label">How are you involved with Precious Plastic?</legend>
+    <legend class="pin-edit__label">What defines you best?</legend>
     <?php
     foreach ($filters as $key => $value) {
       $checked = !empty($record->filters) && in_array($key, json_decode($record->filters)) ? "checked" : "";
@@ -101,24 +101,24 @@ $statuses = $table->get_statuses();
   </fieldset>
 
   <div class="pin-edit__field">
-    <label class="pin-edit__label" for="name">What's the name of your pin?</label>
+    <label class="pin-edit__label" for="name">Pick a name for your pin</label>
     <input class="pin-edit__input" type="text" id="name" name="name" maxlength="200" value="<?php echo $record->name; ?>">
     <p class="pin-edit__error pin-edit__error--name">Name is required</p>
   </div>
 
   <div class="pin-edit__field">
-    <label class="pin-edit__label" for="description">Tell us about yourself or your place.</label>
+    <label class="pin-edit__label" for="description">Tell us about yourself, your machines or workspace.</label>
     <textarea class="pin-edit__input" id="description" name="description" maxlength="200"><?php echo $record->description; ?></textarea>
   </div>
 
   <div class="pin-edit__field">
-    <label class="pin-edit__label" for="website">Have you got an account on our marketspace where you sell items or a website where people can find you?</label>
+    <label class="pin-edit__label" for="website">Insert a link on the web where people can find you or your work.  Instagram, Facebook, website or even better your Bazar account if you have it.</label>
     <input class="pin-edit__input" type="text" id="website" name="website" maxlength="200" value="<?php echo $record->website; ?>">
     <p class="pin-edit__error pin-edit__error--website">Website is invalid</p>
   </div>
 
   <fieldset class="pin-edit__field">
-    <legend class="pin-edit__label">Can people drop by and visit your pin?</legend>
+    <legend class="pin-edit__label">Are you open for visits or to meet people in person?</legend>
     <?php
     foreach ($statuses as $key => $value) {
       $checked = ($key == $record->status || (empty($record->status) && $key == 'OPEN')) ? "checked" : "";
