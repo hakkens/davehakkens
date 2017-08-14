@@ -45,7 +45,7 @@ class UserPinList {
 
       $decodedFilters = json_decode($record->filters, true);
       $filters = implode(",", $decodedFilters);
-      $viewLink = "http://precious-plastic-dev.s3-website-us-east-1.amazonaws.com/?lat=$record->lat&lng=$record->lng&filters=$filters";
+      $viewLink = "http://map.preciousplastic.com/?lat=$record->lat&lng=$record->lng&filters=$filters";
       $itemActions .= "<a href='$viewLink' target='_blank' class='pin-item__button'>View</a>";
 
       $status = $this->isUser
