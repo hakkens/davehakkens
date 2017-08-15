@@ -37,10 +37,12 @@ class UserPinList {
       $published = $this->getStatusFromSOM($record->approval_status);
       $desc = substr($record->description, 0, 45);
       $urlFragment = $this->getPinUrlFragment($record->ID);
-
+      $user = wp_get_current_user();
+      $username = $user->user_nicename;
+      
       $itemActions = $this->isUser
-        ? "<a href='?action=edit&$urlFragment' class='pin-item__button'>Edit</a>
-          <a href='?action=del&$urlFragment' class='pin-item__button'>Delete</a>"
+        ? "<a href='/community/members/$username/pins/?action=edit&$urlFragment' class='pin-item__button'>Edit</a>
+          <a href='/community/members/$username/pins/?action=del&$urlFragment' class='pin-item__button'>Delete</a>"
         : "";
 
       $decodedFilters = json_decode($record->filters, true);
