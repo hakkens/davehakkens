@@ -53,7 +53,10 @@ class UserPins {
       include dirname(__FILE__) . '/user-pin-edit.php';
     } elseif (bp_displayed_user_id() == get_current_user_id()) {
       $newUrlFragment = $this->getPinUrlFragment('');
-      echo "<a href='?action=edit&$newUrlFragment' class='pin-add__button'>Add New Pin</a>";
+      $user = wp_get_current_user();
+      $username = $user->user_nicename;
+      
+      echo "<a href='/community/members/$username/pins/?action=edit&$newUrlFragment' class='pin-add__button'>Add New Pin</a>";
     }
 
     $userPinList = new UserPinList(bp_displayed_user_id());
