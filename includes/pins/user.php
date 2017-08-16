@@ -22,6 +22,7 @@ class UserPins {
 
       case 'edit_pin':
         if ($_POST['submit'] != 'Save Pin') return;
+        echo "Saving... Please wait.";
         $processor = new ProcessPin(stripslashes_deep($_POST), $_FILES, false);
         $validation = $processor->validate();
         if ($validation !== true) die($validation);
@@ -43,15 +44,22 @@ class UserPins {
   }
 
   function reloadPage() {
-    echo '
-    <script type="text/javascript">
-      location.reload();
-    </script>';
+    $username = $this->getUserName();
+    $pinsPage = "/community/members/$username/pins";
+    echo "
+    <script type='text/javascript'>
+      location.href = '$pinsPage';
+    </script>";
   }
 
   function getPinUrlFragment($value) {
     $wpNonce = wp_create_nonce('user_' . $value);
     return 'id=' . $value . '&_wpnonce=' . $wpNonce;
+  }
+
+  function getUserName() {
+    $user = wp_get_current_user();
+    return $user->user_nicename;
   }
 
   function renderPage() {
@@ -61,8 +69,7 @@ class UserPins {
       include dirname(__FILE__) . '/user-pin-edit.php';
     } elseif (bp_displayed_user_id() == get_current_user_id()) {
       $newUrlFragment = $this->getPinUrlFragment('');
-      $user = wp_get_current_user();
-      $username = $user->user_nicename;
+      $username = $this->getUserName();
       
       echo "<a href='/community/members/$username/pins/?action=edit&$newUrlFragment' class='pin-add__button'>Add New Pin</a>";
     }
