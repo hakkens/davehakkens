@@ -26,6 +26,7 @@ class UserPins {
         $validation = $processor->validate();
         if ($validation !== true) die($validation);
         $processor->upsert_pin();
+        $this->reloadPage();
         break;
 
       case 'del':
@@ -39,6 +40,13 @@ class UserPins {
         );
         break;
     }
+  }
+
+  function reloadPage() {
+    echo '
+    <script type="text/javascript">
+      location.reload();
+    </script>';
   }
 
   function getPinUrlFragment($value) {
