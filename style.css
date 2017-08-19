@@ -3192,6 +3192,12 @@ span.create-a-group > a,
 .login .forgot_password a {
   color: #5e94da!important;
 }
+
+.page-template-reset-password,
+.page-template-reset-password p {
+  text-align: center;
+}
+
 .forgot_password a {
   color: #999;
 }
@@ -4764,9 +4770,11 @@ form#bps_directory72873 {
 .topic-archive,
 .page-id-4271,
 .category,
-.single-post {
+.single-post,
+.page-template-reset-password {
   background: #edefed;
 }
+
 
 
 .topic-archive .bbp-topic-title a{
@@ -4899,6 +4907,10 @@ select#field_8_month {
 
 select#field_8_year {
   width: 25%;
+}
+
+p#field_38-3, p#field_667-3 {
+    display: none;
 }
 
 #signup_form {
