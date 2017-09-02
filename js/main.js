@@ -6,6 +6,7 @@ DaveHakkens.Main = function(){
   var $mobileMenu;
   var $menuToggle;
   var $postGrid;
+  var $slider;
   var $postFilter;
   var $usermenu;
   var $usermenuContent;
@@ -24,6 +25,7 @@ DaveHakkens.Main = function(){
     $mobileMenu = $('#mobile-menu');
     $menuToggle = $('#menu-toggle');
     $postGrid = $('#post-grid');
+    $slider = $("#my-slider .sp-slides");
     $postFilter = $('#post-filter');
     $usermenu = $('#user-menu');
     $usermenuContent = $('#user-menu .content');
@@ -38,6 +40,8 @@ DaveHakkens.Main = function(){
     initMobileMenu();
     initIsotopeGrid();
     initFancybox();
+
+    initTabs();
 
     initProjects();
     initLogin();
@@ -241,6 +245,35 @@ DaveHakkens.Main = function(){
     });
   };
 
+  var initTabs = function(){
+    $tabs = $('.tabbed .tab');
+    $tabs2 = $('.tabbed .tab2');
+    if ($tabs.length > 0) {
+      $tabs.click(function(){
+        var tab_id = $(this).attr('data-tab');
+        var parent = $(this).parents('.tabbed');
+
+        parent.find('.tab').removeClass('active');
+        parent.find('.tabContent').removeClass('active');
+
+        $(this).addClass('active');
+        parent.find("#"+tab_id).addClass('active');
+      });
+    }
+    if ($tabs2.length > 0) {
+      $tabs2.click(function(){
+        var tab_id = $(this).attr('data-tab');
+        var parent = $(this).parents('.tabbed');
+
+        parent.find('.tab2').removeClass('active');
+        parent.find('.tab2Content').removeClass('active');
+
+        $(this).addClass('active');
+        parent.find("."+tab_id).addClass('active');
+      });
+    }
+  }
+
   var initIsotopeGrid = function(){
     $postGrid.isotope({
       percentPosition: true,
@@ -277,8 +310,8 @@ DaveHakkens.Main = function(){
 
     if ($postGrid.length > 0) {
       bottonLoad = document.createElement("button");
-//bottonLoad.setAttribute('class', 'btn');
-      bottonLoad.innerHTML = 'Load more';
+      bottonLoad.setAttribute('class', 'btn-main');
+      bottonLoad.innerHTML = 'More please!';
       $postGrid.after(bottonLoad);
         
       bottonLoad.onclick = function () {
@@ -289,12 +322,14 @@ DaveHakkens.Main = function(){
         }
       };
       // load posts when page loads
+      loadPosts(8, 1);
       loadPosts(8);
     }
   };
 
-  var loadPosts = function(numPosts){
+  var loadPosts = function(numPosts, stickyPosts){
     var pathname = window.location.pathname;
+    var format = ''
     if( pathname.indexOf('tag') !== -1 ){   // if pathname contains the word tag
       console.log('tag in URL');
       var tag = pathname.replace('/tag/','');
@@ -304,39 +339,98 @@ DaveHakkens.Main = function(){
       var category = pathname.replace('/category/','');
       category = category.replace('/','');
     }
+    if(stickyPosts === undefined){
+      stickyPosts = 0;
+    }
+    if(stickyPosts){
+      format = 'json';
+    }
   // otherwise check to see if there is a category
     $('#overlay').show();
     $.ajax({
       type       : "GET",
-      data       : {numPosts : numPosts, pageNumber: page, tag: tag, category: category, skipPosts: skipPosts},
+      data       : {numPosts : numPosts, pageNumber: page, tag: tag, category: category, skipPosts: skipPosts, stickyPosts: stickyPosts, format: format},
       dataType   : "html",
       url        : homeURL + "/wp-content/themes/davehakkens2/loopHandler.php",
       beforeSend : function(){
       },
       success    : function(data){
 
-        $data = $(data);
-//console.log($data);
+        if(stickyPosts){
+console.log("Sticky:");
+//console.log(data);
+          $data = JSON.parse(data);
+          for(i = 0; i< $data.length; i++){
+            if($data[i].images === undefined)continue;
+//            $($data[i]).addClass("sp-slide");
+            var $slide = $("<div></div>").addClass("sp-slide");
+            var img = $(document.createElement("img")).addClass("sp-image");
+            console.log($data[i].images);
+            /* tunnel me hack TODO:remove */
+            $data[i].images.small  = '/' + $data[i].images.small.split('/').slice(3).join('/'); 
+            $data[i].images.medium = '/' + $data[i].images.medium.split('/').slice(3).join('/'); 
+            $data[i].images.large  = '/' + $data[i].images.large.split('/').slice(3).join('/'); 
+            $data[i].images.full   = '/' + $data[i].images.full.split('/').slice(3).join('/'); 
+            /*                            */
+            $(img).attr('data-small', $data[i].images.small);
+            $(img).attr('data-medium', $data[i].images.medium);
+            $(img).attr('data-large', $data[i].images.large);
+            $(img).attr('data-src', $data[i].images.full);
+            $slide.append(img);
+            $slide.append('<div class="shadow"></div><div class="meta"><h1>'+$data[i].title+'</h1><h3>#preciousplastic<h3></div>');
+            $slider.append($slide);
+/*src="path/to/blank.gif" 
+*/
+          }
+        }else{
+          $data = $(data);
+        }
+//console.log(data);
         for(i = 0; i< $data.length; i++){
           if($data[i].nodeType == 3){ //Remove empty text nodes
             $data.splice(i, 1);
             i--;
             continue;
           }
-          if(firstPostLoad){
-            if(i<2){
-//              console.log($data[i]);
-              $($data[i]).addClass("big");
+
+          if(stickyPosts){
+/*
+      <div class="sp-slide">
+        <img class="sp-image" src="path/to/image1.jpg"/>
+      </div>
+            $($data[i]).addClass("sp-slide");
+            $slider.append($data[i]);
+*/
+          }else{
+            if(firstPostLoad){
+              if(i<2){
+//                console.log($data[i]);
+                $($data[i]).addClass("big");
+              }
             }
           }
         }
-        $postGrid.append($data).isotope('appended', $data);
+        if(stickyPosts){
+          $( '#my-slider' ).sliderPro({
+            forceSize: "fullWindow",
+/*
+            width: "100vw",
+            height: "100vh",
+*/
+            buttons: true,
+            slideDistance: 0,
+//            autoScaleLayers: false,
+            smallSize:300,
+            fade: true,
+          });
+        }else{
+          $postGrid.append($data).isotope('appended', $data);
+          setTimeout(function(){
+            $postGrid.isotope('layout');
+          }, 250);
 
-        setTimeout(function(){
-          $postGrid.isotope('layout');
-        }, 250);
-
-        firstPostLoad = false;
+          firstPostLoad = false;
+        }
         loading = false;
       },
       error     : function(jqXHR, textStatus, errorThrown) {

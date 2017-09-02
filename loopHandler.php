@@ -19,47 +19,72 @@ $tag = (isset($_GET['tag'])) ? $_GET['tag'] : "";
 $category = (isset($_GET['category'])) ? $_GET['category'] : "";
 $catID = get_term_by('name', $category, 'category');
 $catID = $catID->term_id;
+
+$format = (isset($_GET['format'])) ? $_GET['format'] : '';
+
+$queryArgs = array(
+  'posts_per_page' => $numPosts,
+  'paged'          => $page,
+  'tag'            => $tag,
+  'cat'            => $catID,
+  'ignore_sticky_posts' => 1,
+);
+
+$sticky = get_option( 'sticky_posts' );
+if($_GET['stickyPosts'] == true){
+  $queryArgs['post__in']  = get_option( 'sticky_posts' );
+}else{
+  $skipPosts = array_merge($skipPosts, $sticky);
+}
+//print_r($skipPosts);
 if (count($skipPosts) > 0)
 {
-   query_posts(array(
-    'post__not_in'   => $skipPosts,
-    'posts_per_page' => $numPosts,
-    'paged'          => $page,
-    'tag'            => $tag,
-	'cat' 		     => $catID
-  ));
-}
-else
-{
-   query_posts(array(
-    'posts_per_page' => $numPosts,
-    'paged'          => $page,
-    'tag'            => $tag,
-	'cat' 		     => $catID
-  ));
+   $queryArgs['post__not_in'] = $skipPosts;
 }
 
+query_posts($queryArgs);
 
-
-
-if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
+$responseData = array();
+if ( have_posts() ) : while ( have_posts() ) : the_post();
+  if($format == 'json'){
+    $mPost = array();
+    $postID = get_the_ID();
+    if (get_post_format() == ''){
+      $mPost = array(
+        "title" => the_title('','',false),
+        "url" => get_permalink($postID),
+        "images" => array(
+          "small" => get_the_post_thumbnail_url($postID, 'medium'),
+          "medium" => get_the_post_thumbnail_url($postID, 'medium_large'),
+          "large" => get_the_post_thumbnail_url($postID, 'large'),
+          "full" => get_the_post_thumbnail_url($postID, 'full'),
+        ),
+      );
+    }
+//    if (get_post_format() == 'link'):
+//    if (get_post_format() == 'video'): $post_meta = get_post_meta(get_the_ID());
+//    if (get_post_format() == 'status'):
+//    if (get_post_format() == 'image'): 
+    $responseData[] = $mPost;
+  }else{
+?>
 
   <div id="post-<?php the_ID(); ?>" class="item <?php echo get_post_format() ? get_post_format() : 'standard' ; ?><?php
 
   foreach (get_the_tags() as $tag){
     echo ' ' . $tag->name;
   }
-
   ?>">
-
     <?php
     /**
      * Default post
      */
     if (get_post_format() == ''): ?>
-    <a href="/tag/highlight"><div class="highlightlabel"> highlight</div></a>
+      <a href="/tag/highlight"><div class="highlightlabel"> highlight</div></a>
       <a href="<?php echo get_post_permalink(); ?>">
-        <?php the_post_thumbnail('small'); ?>
+        <div class="featuredImage">
+          <?php the_post_thumbnail('medium_large'); ?>
+        </div>
       </a>
       <h3><a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a></h3>
       <?php the_content(); ?>
@@ -155,9 +180,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
       <h3><a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a></h3>
       <?php the_content(); ?>
     <?php endif; ?>
-
-
-
 <div class="post_meta">
   <div class="category-footer">
       <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
@@ -179,16 +201,15 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();  ?>
 
  <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?>
  </div>
-
-
      <?php edit_post_link(); ?>
-
     </div>
-
-
-
   </div>
-
-<?php endwhile; endif; ?>
+<?php
+  }
+  endwhile;
+  if($format == 'json'){
+    echo json_encode($responseData);
+  }
+  endif; ?>
 
 <?php wp_reset_query(); ?>
