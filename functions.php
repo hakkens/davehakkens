@@ -1,6 +1,21 @@
 <?php
 
 include dirname( __FILE__ ) . '/includes/meta-boxes.php';
+include_once dirname( __FILE__ ) . '/includes/pins.php';
+
+function login_redirect_control( $redirect_to, $request, $user ) {
+  $urlParts = parse_url($request);
+  parse_str($urlParts['query'], $query);
+  if (isset($query['redirect_to'])) {
+    $redir = $query['redirect_to'];
+    if (substr($redir, 0, 4) == 'USER') {
+      return '/community/members/' . $user->user_nicename . substr($redir, 4);
+    }
+    return '/' . $redir;
+  }
+  return '/community/forums';
+}
+add_filter( 'login_redirect', 'login_redirect_control', 10 ,3);
 
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'post-formats', [ 'image', 'status', 'video', 'link' ] );
@@ -23,12 +38,6 @@ function exclude_category( $query ) {
     }
 }
 add_action( 'pre_get_posts', 'exclude_category' );
-
-
-
-
-
-
 
 
 function get_vine_thumbnail( $id ) {
@@ -360,8 +369,6 @@ function ntwb_bbpress_topic_css_role() {
 
 	return $args;
 }
-
-
 
 
 //Redirect wp-login to community login

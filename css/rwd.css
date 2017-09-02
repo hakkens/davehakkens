@@ -223,6 +223,10 @@
   }
 
 
+  .alt-forum-sidebar .avatar {
+      width: 45px !important;
+  }
+
   .notifications th.date {
       display: none;
   }

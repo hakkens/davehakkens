@@ -5,6 +5,10 @@
   Description: Login page
 */
 
+if (is_user_logged_in()) {
+  wp_redirect(login_redirect_control(null, $_SERVER['REQUEST_URI'], wp_get_current_user()));
+}
+
 get_header();
 get_template_part( 'navbar' );
 
@@ -19,7 +23,7 @@ get_template_part( 'navbar' );
 
 
       <div class="post-content">
-         <div class="loginamigo"><h1>hello amigo<h1></div>
+         <div class="loginamigo"><h1>hello amigo</h1></div>
 
 
         <?php if( $_GET['action'] == 'reset_success' ): ?>
@@ -36,8 +40,8 @@ get_template_part( 'navbar' );
           <p class="centered">Wrong username / password!</p>
         <?php endif; ?>
 
-        <?php wp_login_form( [ 'redirect' => 'https://davehakkens.nl/community/forums/' ] ); ?>
-        <?php  do_action( 'anr_captcha_form_field' ); ?>
+        <?php wp_login_form(); ?>
+        <?php do_action( 'anr_captcha_form_field' ); ?>
 
         <div class="forgot_password">
           <a href="/community/forgot-password/">Forgot your password?</a>

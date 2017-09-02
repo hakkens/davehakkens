@@ -1,5 +1,5 @@
 /*
-  Theme Name: Dave Hakkens 2.0
+  Theme Name: Dave Hakkens 2.1
   Theme URI: https://davehakkens.nl
   Author: Dave Hakkens
   Author URI: https://davehakkens.nl
@@ -2115,6 +2115,7 @@ div#post-mention {
 
 #buddypress ul.item-list li img.avatar{
   margin: 15px 10px 0 0 !important;
+  width: 50px;
 }
 
 .activity #buddypress {
@@ -3170,7 +3171,7 @@ li.widget .bbp-forum-title:hover {
 .alt-forum-sidebar .avatar, #mainCommunity .avatar {
   height: auto !important;
   margin: 0% 0% 4% 4% !important;
-  width: 16% !important;
+  width: 60px !important;
   border-radius: 100%;
 }
 
@@ -3526,6 +3527,12 @@ span.create-a-group > a,
 .login .forgot_password a {
   color: #5e94da!important;
 }
+
+.page-template-reset-password,
+.page-template-reset-password p {
+  text-align: center;
+}
+
 .forgot_password a {
   color: #999;
 }
@@ -4106,6 +4113,7 @@ div#item-header h2.user-nicename {
   float: none !important;
   border-radius: 100%;
   border: 4px solid rgba(255, 255, 255, 0);
+  width: 200px;
 }
 
 #item-header-content #latest-update,
@@ -4625,6 +4633,11 @@ h3#message-subject {
   padding-top: 10px;
 }
 
+.message-content a {
+    word-break: break-all;
+    color: #5e94da;
+}
+
 #buddypress div#message.updated p {
   background-color: #aceabd;
   border: 2px solid #fff;
@@ -5092,9 +5105,11 @@ form#bps_directory72873 {
 .topic-archive,
 .page-id-4271,
 .category,
-.single-post {
+.single-post,
+.page-template-reset-password {
   background: #edefed;
 }
+
 
 
 .topic-archive .bbp-topic-title a{
@@ -5227,6 +5242,10 @@ select#field_8_month {
 
 select#field_8_year {
   width: 25%;
+}
+
+p#field_38-3, p#field_667-3 {
+    display: none;
 }
 
 #signup_form {

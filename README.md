@@ -10,3 +10,29 @@ Couple of key plugins we use to make this community happen
 - Buddypress for the community parts
 - Mycred for gamification
 - GD bbPress Attachments for forum attachments
+
+## Getting started using Docker
+
+Make sure you have docker installed with docker compose
+
+To Run:
+
+    docker-compose up -d
+
+Then browse to http://localhost:8000/
+
+To bring offline
+
+    docker-compose down
+
+When you first install, you will need to install plugins and select the Dave Hakkens theme. Plugins and theme selection should persist
+
+Since the pages are part of the database, you will need to create the community page, and a login page (parented to the community page to not break links). This will enable you to get back in once you restart the container
+
+## Creating custom pins tables
+
+After first boot of the containers, you will need to create the map table (used for pin queries). You can use the following command to create the table:
+
+    cat pp_pins_create.sql | docker exec -i 3c205c210033 mysql --user=<username> --password=<password> -D <database>
+
+By default, username, password, and database are all `wordpress` according to the docker file

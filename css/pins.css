@@ -1,0 +1,225 @@
+/*USER'S LIST OF PINS*/
+
+.pins .pin-list {
+  padding: 0;
+}
+
+.pins .pin-item {
+  border-bottom: 1px solid #eaeaea;
+  list-style: none;
+  padding: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+  border-radius: 4px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.pins .pin-item__title {
+  font-family: 'medium';
+  font-size: 20px;
+  line-height: 1.2em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.pins .pin-item__text {
+  font-family: 'medium';
+  font-size: 16px;
+  line-height: 1.6em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.pins .pin-item__text:last-of-type {
+  margin-bottom: 0;
+}
+
+.pins .pin-item__status {
+  color: #abcde2;
+}
+
+.pins .pin-item__button {
+  color: #fff;
+  font-family: 'medium';
+  font-size: 15px;
+  background: #abcde2;
+  text-transform: lowercase;
+  padding: 2px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  text-align: center;
+  width: 50px;
+  transition: all .2s ease-in-out;
+}
+
+.pin-item__button + .pin-item__button {
+  margin-top: 5px;
+}
+
+.pins .pin-item__button:hover {
+  background-color: #5f9eef;
+}
+
+.pins .pin-item__actions {
+  float: right;
+  width: 85px;
+  text-align: right;
+  margin: 0 0 5px 5px;
+}
+
+
+/*USER EDIT PIN FORM*/
+
+.pins .pin-edit__title {
+  font-size: 30px;
+  font-family: 'medium';
+  margin: 15px 60px;
+  line-height: 1.2em;
+  margin: 0 60px 20px 60px;
+}
+
+.pins .pin-edit {
+  margin: 0 60px 60px 60px;
+}
+
+.pins .pin-edit__field {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.pins .pin-edit__label {
+  font-weight: 700;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.pins .pin-edit__input {
+  border-radius: 0;
+  border: 0;
+  padding: 18px;
+  font-family: 'medium';
+  font-size: 18px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.pins .pin-edit__input#website {
+    color: #5e94da;
+}
+
+.pins .pin-edit__choice {
+  margin-bottom: 5px;
+}
+
+.pins .pin-edit__choice input {
+  margin-right: 5px;
+  transition: none;
+}
+
+.pins .pin-edit__upload {
+  background-color: #fff;
+  background-size: cover;
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  margin-right: 4%;
+  border: 3px solid #abcde2;
+  box-sizing: border-box;
+}
+
+.pins .pin-edit__upload--active .pin-edit__upload__icon,
+.pins .pin-edit__upload--active .pin-edit__upload__desc {
+  opacity: 0;
+}
+
+.pins .pin-edit__upload:last-of-type {
+  margin-right: 0;
+}
+
+.pins .pin-edit__upload:hover {
+  cursor: pointer;
+  border-color: #7d7d7d;
+  transition: border-color .2s;
+}
+
+.pins .pin-edit__upload__icon {
+  width: 60%;
+  fill: #abcde2;
+}
+
+.pins .pin-edit__upload:hover .pin-edit__upload__icon {
+  fill: #7d7d7d;
+  transition: fill .2s;
+}
+
+.pins .pin-edit__upload__desc {
+  color: #abcde2;
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.pins .pin-edit__upload:hover .pin-edit__upload__desc {
+  color: #7d7d7d;
+  transition: color .2s;
+}
+
+.pins .pin-edit__upload__input {
+  display: none;
+}
+
+.pins #pin-edit-map {
+  height: 300px;
+}
+
+.pins #buddypress input[type="submit"].pin-edit__btn:focus {
+  outline: #3b99fc auto 5px;
+}
+
+.pins .pin-edit__error--outline {
+  border: 2px solid #d00e00;
+}
+
+.pins .pin-edit__error {
+  display: none;
+  color: #d00e00;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+
+/*USER ADD PIN FORM*/
+
+.pins .pin-add__button {
+  color: #fff;
+  font-family: 'medium';
+  font-size: 15px;
+  background: #abcde2;
+  padding: 5px 15px;
+  border-radius: 4px;
+  line-height: 1.9;
+  letter-spacing: 0.5px;
+  display: block;
+  text-align: center;
+  width: 100px;
+  margin: 0 auto 20px auto;
+  transition: all .2s ease-in-out;
+}
+
+.pins .pin-add__button:hover {
+  background-color: #5f9eef;
+}
+
+/*UTILITIES*/
+
+.pins .pin-center {
+  margin: 0 auto;
+  display: block !important;
+}
+
+.pins #subnav,
+.pins #subnav + h3 {
+  display: none;
+}
