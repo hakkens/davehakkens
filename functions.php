@@ -458,4 +458,10 @@ if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) :
     }
 endif;
 
+function davehakkens2_widgets_init() {
+  require get_template_directory() . '/includes/widgets.php';
+  register_widget( 'Latest_Community_Uploads' );
+}
+
+add_action( 'widgets_init', 'davehakkens2_widgets_init' );
 ?>

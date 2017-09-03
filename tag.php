@@ -1,4 +1,6 @@
 <?php
+include("home.php");
+return;
   get_header();
   get_template_part( 'navbar' );
 ?>
