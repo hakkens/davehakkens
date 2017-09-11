@@ -5233,18 +5233,35 @@ div#member-dir-count-bottom {
   padding: 0px!important;
   }
 
-
 .register-section input{
-  background-color: white !important;
-  border: 0px !important;
-  padding: 18px!important;
-  box-sizing: border-box;
-  font-size: 18px!important;
+background-color: white !important;
+border: 0px !important;
+padding: 18px!important;
+ box-sizing: border-box;
+}
+
+div#field_1055 input{
+  font-size: 16px!important;
+  margin-right: 7px;
+  padding: 0px!important;
 }
 
 .register-section select{
   background-color: white !important;
   border: 0px !important;
+}
+
+.register .editfield.field_38, .editfield.field_667 {
+    display: none;
+}
+
+.registration label.option-label {
+  display: inline-block!important;
+  background-color: #b7f7b7;
+  padding: 9px 9px;
+  margin: 3px 14px 5px 0px!important;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 
