@@ -1,5 +1,5 @@
 /*
-  Theme Name: Dave Hakkens 2.1
+  Theme Name: Dave Hakkens 2.2
   Theme URI: https://davehakkens.nl
   Author: Dave Hakkens
   Author URI: https://davehakkens.nl
@@ -1416,7 +1416,7 @@ cursor:pointer;
 }
 
 #montlyNews{
-  background-image: linear-gradient(rgba(255,255,255,0) 50%, #FFFFFF 0%);  
+  background-image: linear-gradient(rgba(255,255,255,0) 50%, #FFFFFF 0%);
   background-size: 100% 100%;
   padding:10px;
 }
@@ -1474,10 +1474,16 @@ cursor:pointer;
   position: relative;
 }
 
+.widget.latest_community_uploads h2 {
+    font-family: 'medium';
+    padding: 4px;
+    margin-top: 3px;
+}
+
 /*#mainCommunity #communityContent .latest_community_uploads img{*/
 .latest_community_uploads img{
   display: block;
-  width:  100%;
+  width:  180%;
   height: auto;
   margin: 0;
   position: absolute;
@@ -1521,9 +1527,11 @@ cursor:pointer;
   width: 35%;
   padding-right: 20px;
   box-sizing: border-box;
+  margin-top: 72px;
 }
 .smallHalf>div{
   background-color: white;
+  padding: 15px;
 }
 .single-post img {
   margin: 0 auto;
@@ -1604,6 +1612,19 @@ cursor:pointer;
 }
 
 
+.smallHalf .widget a{
+  color: #5e94da;
+}
+
+
+.smallHalf .widget .widget_display_topics .topic-author{
+  display:inline-block;
+}
+
+.smallHalf .widget .widget.widget_display_topics div {
+    font-size: 11px;
+}
+
 
 .widget a{
   color: #51595F;
@@ -1624,16 +1645,15 @@ cursor:pointer;
 }
 .tabbed .tab2Content.active{
   display: block;
+
 }
 .tabbed .tab2Content li{
-  border-top: 2px solid #E2E4E7;
+  border-bottom: 2px solid #E2E4E7;
+  padding: 11px 0px;
 }
 
 .activity .bigHalf #buddypress{
   width: 100%;
-}
-.activity .bigHalf #buddypress #subnav{
-  display: none;
 }
 .activity .bigHalf #buddypress #activity-stream{
   margin-top: 0px;
@@ -1916,7 +1936,7 @@ div#post-mention {
   float: inherit!important;
   margin: 0 auto!important;
   text-align: center;
-  padding: 40px;
+  padding-bottom: 20px;
 }
 
 .activity select#activity-filter-by {
@@ -3000,6 +3020,22 @@ form#profile-edit-form .button-nav {
 
 }
 
+li#text-2 {
+    padding: 0px;
+    width: 100%;
+}
+
+
+li#text-2 .textwidget p {
+    text-align: center;
+    width: 200px;
+    margin: 0 auto;
+    background-color: #F96854;
+    font-family: medium;
+    padding: 10px;
+    color: white;
+}
+
 
 #bp_core_recently_active_widget-3 {
     text-align: center;
@@ -3335,6 +3371,10 @@ code {
 
 .widget_display_topics .topic-author {
   display: block;
+}
+
+.smallHalf .widget_display_topics .topic-author {
+  display: inline-block;
 }
 
 .nocomments {
@@ -5106,7 +5146,8 @@ form#bps_directory72873 {
 .page-id-4271,
 .category,
 .single-post,
-.page-template-reset-password {
+.page-template-reset-password,
+.page-id-99202  {
   background: #edefed;
 }
 
@@ -5141,7 +5182,7 @@ form#bps_directory72873 {
 .bbp-forum-title img {
   padding: 10px 15px 10px 0px;
 }
-
+.page-id-99202 section#primary,
 #buddypress {
   margin: 0 auto;
   width: 80%;
