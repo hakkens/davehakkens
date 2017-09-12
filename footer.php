@@ -1,5 +1,6 @@
   <script>
     var homeURL = '<?php bloginfo( 'home' ); ?>';
+    var templateURL = '<?php bloginfo( 'template_url' ); ?>';
   </script>
 
   <div id="overlay">

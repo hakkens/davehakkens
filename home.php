@@ -13,8 +13,8 @@ function load_my_script(){
 }
 add_action('wp_enqueue_scripts', 'load_my_script');¡*/
 ?>
-<link rel="stylesheet" href="/wp-content/themes/davehakkens2/css/slider-pro.min.css"/>
-<script src="/wp-content/themes/davehakkens2/js/jquery.sliderPro.min.js"></script>
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/slider-pro.min.css"/>
+<script src="<?php bloginfo( 'template_url' ); ?>/js/jquery.sliderPro.min.js"></script>
 
 <div id="content">
   <div class="slider-pro" id="my-slider">
@@ -84,7 +84,7 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
     </div>
   </div>
 
-  <img id="latest" class="imgTitle" src="/wp-content/themes/davehakkens2/img/latest.png"/>
+  <img id="latest" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/latest.png"/>
   <div id="post-filter">
     <ul>
 
@@ -111,11 +111,11 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
   <button id="post-grid-more" class="btn-main" type="button">More please!</button>
 
   <div id="montlyNews">
-    <img src="/wp-content/themes/davehakkens2/img/monthly.png"/>
+    <img src="<?php bloginfo( 'template_url' ); ?>/img/monthly.png"/>
     <iframe src="https://www.youtube.com/embed/4yL-LHnzL7A?list=PLtYgsstkMPuVdh4Y-L9RFRG1Hv3w4JC-j&modestbranding=1" frameborder="0" allowfullscreen></iframe>
   </div>
   <div id="mainCommunity" class="army-support">
-    <img id="community" class="imgTitle" src="/wp-content/themes/davehakkens2/img/community.png"/>
+    <img id="community" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/community.png"/>
     <div id="communityContent">
       <div id="members">
         <?php
@@ -125,7 +125,7 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
       </div>
       <?php the_widget("Latest_Community_Uploads", "max=8"); ?>
     </div>
-    <img id="solving" class="imgTitle" src="/wp-content/themes/davehakkens2/img/solving.png"/>
+    <img id="solving" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/solving.png"/>
     <button class="btn-main" onclick="window.location.href='/community/register/'">Join the community</button>
   </div>
 </div>
