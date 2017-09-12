@@ -1102,7 +1102,7 @@ h3#comments, div#respond h3 {
 }
 
 #post-grid, #mainCommunity #communityContent{
-  margin: 0 auto 40px auto;
+  margin: 0px auto 40px auto;
   width: 90%;
   max-width: 1200px;
 }
@@ -1123,7 +1123,9 @@ h3#comments, div#respond h3 {
 }
 
 #post-grid .item:hover{
-  box-shadow: 12px 12px 10px #51595F;
+  box-shadow: 8px 8px 0px #51595F;
+  margin-left: 2px;
+  margin-top: -2px;
 }
 
 #post-grid .item.big{
@@ -1316,13 +1318,13 @@ float:right;
 }
 
 .imgTitle{
-  width: 30%;
+  width: 22%;
   min-width: 310px;
   height: auto;
   display: block;
   margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin-top: 120px;
+  margin-bottom: 100px;
 }
 
 .home-page img#latest{
@@ -1419,6 +1421,8 @@ cursor:pointer;
   background-image: linear-gradient(rgba(255,255,255,0) 50%, #FFFFFF 0%);
   background-size: 100% 100%;
   padding:10px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 #montlyNews>img{
   width:200px;
@@ -1483,19 +1487,27 @@ cursor:pointer;
 /*#mainCommunity #communityContent .latest_community_uploads img{*/
 .latest_community_uploads img{
   display: block;
-  width:  180%;
+  width: 300px;
   height: auto;
   margin: 0;
+  min-height: 200px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 #mainCommunity #communityContent .avatar{
-  max-width: 90px;
-  min-width: 40px;
-  padding: 6%;
+  max-width: 200px;
+  min-width: 100px;
+  padding: 20px;
+  margin: 0 auto!Important;
 }
+
+
+#mainCommunity #communityContent .widget.buddypress .item-avatar a{
+  margin: 0 auto;
+}
+
 
 #mainCommunity #communityContent>div h2{
   width: 100%;
@@ -1505,7 +1517,13 @@ cursor:pointer;
   margin-top: 0px;
 }
 #mainCommunity img#solving{
-  width: 50%;
+  width: 35%;
+  margin-top: 200px;
+}
+
+
+.home-page .army-support{
+  padding-bottom: 454px;
 }
 
 .single-post .meta p {
@@ -3533,11 +3551,11 @@ form#loginform p {
   border: 3px solid #51595F;
   margin-bottom: 20px;
 /*.btn-more:hover{*/
-  box-shadow: 8px 8px 7px #51595F;
+  box-shadow: 8px 8px 0px #51595F;
 }
 
 .btn-main:active{
-  box-shadow: 5px 5px 7px #51595F;
+  box-shadow: 5px 5px 0px #51595F;
 }
 
 .btn,

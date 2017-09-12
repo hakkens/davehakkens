@@ -119,7 +119,7 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
     <div id="communityContent">
       <div id="members">
         <?php
-          the_widget("BP_Core_Recently_Active_Widget", "title=Members&max_members=8");
+          the_widget("BP_Core_Recently_Active_Widget", "title=Members&max_members=12");
 //          the_widget("BP_Core_Members_Widget", "title=Members2&max_members=8");
         ?>
       </div>
