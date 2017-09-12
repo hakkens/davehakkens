@@ -15,7 +15,7 @@
   <a href="https://davehakkens.nl/community/army"><div id="menuitems" class="menuitemjoinus">join us</div></a>
 </div>
 
-<img id="forumActivity" class="imgTitle" src="/wp-content/themes/davehakkens2/img/forums.png"/>
+<img id="forumActivity" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/forums.png"/>
 <section id="primary" class="site-content">
   <div id="content" role="main">
     <div class="bigHalf">

@@ -357,7 +357,7 @@ DaveHakkens.Main = function(){
       type       : "GET",
       data       : {numPosts : numPosts, pageNumber: page, tag: tag, category: category, skipPosts: skipPosts, stickyPosts: stickyPosts, format: format},
       dataType   : "html",
-      url        : homeURL + "/wp-content/themes/davehakkens2/loopHandler.php",
+      url        : templateURL + "/loopHandler.php",
       beforeSend : function(){
       },
       success    : function(data){
@@ -372,12 +372,6 @@ console.log("Sticky:");
             var $slide = $("<div></div>").addClass("sp-slide");
             var img = $(document.createElement("img")).addClass("sp-image");
             console.log($data[i].images);
-            /* tunnel me hack TODO:remove */
-            $data[i].images.small  = '/' + $data[i].images.small.split('/').slice(3).join('/'); 
-            $data[i].images.medium = '/' + $data[i].images.medium.split('/').slice(3).join('/'); 
-            $data[i].images.large  = '/' + $data[i].images.large.split('/').slice(3).join('/'); 
-            $data[i].images.full   = '/' + $data[i].images.full.split('/').slice(3).join('/'); 
-            /*                            */
             $(img).attr('data-small', $data[i].images.small);
             $(img).attr('data-medium', $data[i].images.medium);
             $(img).attr('data-large', $data[i].images.large);
