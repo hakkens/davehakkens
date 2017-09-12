@@ -30,7 +30,7 @@ DaveHakkens.Main = function(){
     $usermenu = $('#user-menu');
     $usermenuContent = $('#user-menu .content');
     $projects = $('.projects-page');
-    $loader = $('#overlay');
+    $loader = $('#post-grid-loader');
     $window = $(window);
     loading = true;
     page = 1;
@@ -309,20 +309,26 @@ DaveHakkens.Main = function(){
     });*/
 
     if ($postGrid.length > 0) {
-      bottonLoad = document.createElement("button");
-      bottonLoad.setAttribute('class', 'btn-main');
-      bottonLoad.innerHTML = 'More please!';
-      $postGrid.after(bottonLoad);
-        
-      bottonLoad.onclick = function () {
+      bottonLoad = $('#post-grid-more');
+      bottonLoad.on('click', function () {
         if (!loading) {
           loading = true;
           page++;
           loadPosts(9);
         }
-      };
+      });
+      // Enable slider
+      if ($slider.length > 0) {
+        $( '#my-slider' ).sliderPro({
+          forceSize: "fullWindow",
+          buttons: true,
+          slideDistance: 0,
+//          autoScaleLayers: false,
+          smallSize:300,
+          fade: true,
+        });
+      }
       // load posts when page loads
-      loadPosts(8, 1);
       loadPosts(8);
     }
   };
@@ -346,7 +352,7 @@ DaveHakkens.Main = function(){
       format = 'json';
     }
   // otherwise check to see if there is a category
-    $('#overlay').show();
+    $loader.show();
     $.ajax({
       type       : "GET",
       data       : {numPosts : numPosts, pageNumber: page, tag: tag, category: category, skipPosts: skipPosts, stickyPosts: stickyPosts, format: format},
@@ -393,21 +399,9 @@ console.log("Sticky:");
             continue;
           }
 
-          if(stickyPosts){
-/*
-      <div class="sp-slide">
-        <img class="sp-image" src="path/to/image1.jpg"/>
-      </div>
-            $($data[i]).addClass("sp-slide");
-            $slider.append($data[i]);
-*/
-          }else{
-            if(firstPostLoad){
-              if(i<2){
-//                console.log($data[i]);
-                $($data[i]).addClass("big");
-              }
-            }
+          if(!stickyPosts && firstPostLoad && i<2){
+//            console.log($data[i]);
+            $($data[i]).addClass("big");
           }
         }
         if(stickyPosts){

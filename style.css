@@ -4005,6 +4005,12 @@ div#mycred-users-badges {
   margin-left: -100px;
 }
 
+#post-grid-loader{
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  margin-bottom: 20px;
+}
 .post-content .vine-container,
 .post-content .vimeo-container,
 .post-content .youtube-container {
