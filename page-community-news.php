@@ -71,9 +71,9 @@
       </div>
       <div class="tabbed">
         <div class="header">
-          <h3 class="tab2" data-tab="monthly">Monthly</h3>
-          <h3 class="tab2 active" data-tab="single">Single</h3>
-          <h2>Donations</h2>
+          <h3 class="tab2" data-tab="monthly">Patreons</h3>
+          <h3 class="tab2 active" data-tab="single">Donations</h3>
+          <h2>Supporters </h2>
         </div>
         <div class="tab2Content single active donations">
           <?php
