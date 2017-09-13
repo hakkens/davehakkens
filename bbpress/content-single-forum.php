@@ -12,8 +12,10 @@
 <div id="bbpress-forums">
 
   <?php bbp_breadcrumb(); ?>
-
+<div class="center">
   <div class="subscribe-center"><?php bbp_forum_subscription_link(); ?></div>
+<div class="starttopic"><a href="#start"><p>start a topic</p></a></div>
+</div>
 
   <?php do_action( 'bbp_template_before_single_forum' ); ?>
 

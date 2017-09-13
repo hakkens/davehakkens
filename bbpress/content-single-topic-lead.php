@@ -8,9 +8,8 @@
  */
 
 ?>
-
+<?php bbp_topic_subscription_link(); ?>
 <div class="topic-lead">
-
 
   <div class="author">
       <?php $user = get_userdata( bbp_get_reply_author_id() ); ?>
@@ -36,7 +35,6 @@
       ?>
         <h1><?php the_title(); ?></h1>
 <div class="date"><?php bbp_topic_post_date(); ?></div>
-
     </div>
 
 

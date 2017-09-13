@@ -409,6 +409,15 @@ function verify_username_password( $user, $username, $password ) {
 add_filter( 'authenticate', 'verify_username_password', 1, 3);
 
 
+//Remove | (stripe) next to bbpress subscripe and favorites
+function hide_before3 ($args = array() ) {
+$args['before'] = '';
+return $args;
+}
+add_filter ('bbp_before_get_user_subscribe_link_parse_args','hide_before3');
+
+
+
 
 //change logo login
 function custom_loginlogo() {
