@@ -56,12 +56,11 @@
 }
 
 @media screen and (max-width: 1700px) {
-
   #post-grid .item{
-    width: 29.5%;
+    width: 31.9%;
   }
   #post-grid .item.big{
-    width: 45%;
+    width: 48.6%;
   }
 
 }

@@ -320,12 +320,17 @@ DaveHakkens.Main = function(){
       // Enable slider
       if ($slider.length > 0) {
         $( '#my-slider' ).sliderPro({
-          forceSize: "fullWindow",
+          responsive: true,
+          touchSwipe: false,
+          forceSize: 'fullWidth',
+          height: 150,
+//          height: '50vh',
           buttons: true,
           slideDistance: 0,
-//          autoScaleLayers: false,
-          smallSize:300,
+          autoScaleLayers: true,
+          smallSize: 300,
           fade: true,
+          fullScreen: true,
         });
       }
       // load posts when page loads
