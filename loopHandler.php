@@ -155,7 +155,9 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
       <a href="<?php echo get_post_permalink(); ?>">
         <div class="status">
         <div class="status-image">
-          <?php the_post_thumbnail('small'); ?>
+        <div class="featuredImage">
+          <?php the_post_thumbnail('medium_large'); ?>
+        </div>
 
       <div class="status-text">
         <?php the_content(); ?>  </a>
@@ -174,7 +176,9 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
     if (get_post_format() == 'image'): ?>
     <a href="/tag/highlight"><div class="highlightlabel"> highlight</div></a>
       <a href="<?php echo get_post_permalink(); ?>">
-        <?php the_post_thumbnail('medium'); ?>
+        <div class="featuredImage">
+          <?php the_post_thumbnail('medium_large'); ?>
+        </div>
       </a>
       <div class="shadow"></div>
       <h3><a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a></h3>

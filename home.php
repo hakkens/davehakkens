@@ -56,25 +56,28 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
 //    if (get_post_format() == 'status'):
 //    if (get_post_format() == 'image'):
 ?>
-      <div class="sp-slide">
-        <img class="sp-image"
-          data-small="<?php echo $mPost['images']['small'] ?>"
-          data-medium="<?php echo $mPost['images']['medium'] ?>"
-          data-large="<?php echo $mPost['images']['large'] ?>"
-          data-src="<?php echo $mPost['images']['full'] ?>"
-        />
-        <div class="shadow"></div>
-        <div class="meta">
-          <h1><?php echo $mPost['title'] ?></h1>
-          <h3>
+      <div class="sp-slide sp-selectable">
+        <a href="<?php echo $mPost['url'] ?>">
+          <img class="sp-image"
+            data-small="<?php echo $mPost['images']['small'] ?>"
+            data-medium="<?php echo $mPost['images']['medium'] ?>"
+            data-large="<?php echo $mPost['images']['large'] ?>"
+            data-src="<?php echo $mPost['images']['full'] ?>"
+          />
+          <div class="shadow"></div>
+          <div class="meta">
+            <h1><?php echo $mPost['title'] ?></h1>
+            <h3>
 <?php
   foreach(get_the_tags() as $tag){
     echo '#' . $tag->name .' ';
   }
 ?>
-          </h3>
-        </div>
+            </h3>
+          </div>
+        </a>
       </div>
+
 <?php
   }
   endwhile;
@@ -86,22 +89,22 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
 
   <img id="latest" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/latest.png"/>
   <div id="post-filter">
-    <ul>
-
-      <li class="label"></li>
-
-      <li class="active">
-        <a href="<?php echo site_url(); ?>">Show all</a>
-      </li>
-
-      <?php
-        wp_nav_menu([
-          'container' => '',
-          'theme_location' => 'grid_filter'
-        ]);
-      ?>
-
-    </ul>
+      <ul>
+        <li class="all"><a href="/"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_03.png"></a></li>
+        <li class="preciousplastic"><a href="/tag/preciousplastic"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_04.png"></a></li>
+        <li class="storyhopper"><a href="/tag/storyhopper"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_05.png"></a></li>
+        <li class="phonebloks"><a href="/tag/phonebloks"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_06.png"></a></li>
+        <li class="community"><a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_07.png"></a></li>
+        <li class="highlights"><a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_08.png"></a></li>
+      </ul>
+    <?php
+/* //Removed in favor of fixed menu with images
+      wp_nav_menu([
+        'container' => '',
+        'theme_location' => 'grid_filter'
+      ]);
+*/
+    ?>
   </div>
   <div id="post-grid">
   </div>

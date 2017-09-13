@@ -1085,8 +1085,19 @@ h3#comments, div#respond h3 {
 #post-filter li.active a,
 #post-filter li a:hover {
   border-bottom: 2px solid rgb(66, 66, 66);
+  background-color: white;
 }
-
+#post-filter li{
+/*  height: 40px;
+  width: 200px;
+  background-repeat: no-repeat;
+  background-size: contain;
+*/
+}
+#post-filter li img{
+  height: 50px;
+  width: auto;
+}
 #post-filter li.label {
   background: url( 'img/filterchaos.png' ) no-repeat;
   background-size: cover;
@@ -1094,6 +1105,25 @@ h3#comments, div#respond h3 {
   margin: 0px 15px 0 0;
   width: 164px;
 }
+#post-filter li#menu-item-95528 {
+  background-image: url('img/filter_normal_03.png');
+}
+#post-filter li#menu-item-95480 {
+  background-image: url('img/filter_normal_04.png');
+}
+#post-filter li#menu-item-95482 {
+  background-image: url('img/filter_normal_05.png');
+}
+#post-filter li#menu-item-95481 {
+  background-image: url('img/filter_normal_06.png');
+}
+#post-filter li#menu-item-95529 {
+  background-image: url('img/filter_normal_07.png');
+}
+#post-filter li#menu-item-95530 {
+  background-image: url('img/filter_normal_08.png');
+}
+
 
 #post-filter:after {
   content: " ";
@@ -1112,7 +1142,7 @@ h3#comments, div#respond h3 {
   color: #51595F !important;
   letter-spacing: 0.1px;
   float: left;
-  width: 30%;
+  width: 31.9%;
   height: 320px;
   overflow: hidden;
   margin: .7%;
@@ -1120,6 +1150,7 @@ h3#comments, div#respond h3 {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
   font-size: 10px;
   padding: 5px;
+  box-sizing: border-box;
 }
 
 #post-grid .item:hover{
@@ -1129,7 +1160,7 @@ h3#comments, div#respond h3 {
 }
 
 #post-grid .item.big{
-  width: 45%;
+  width: 48.6%;
   height: 630px;
 }
 
@@ -1429,8 +1460,9 @@ cursor:pointer;
   margin-bottom: 10px;
 }
 #montlyNews>iframe{
-  width:85%;
   height: calc(100vh - 100px);
+  width:85%;
+  max-width: 1500px;
   padding: 5px;
   background-color: white;
   display: block;
