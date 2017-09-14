@@ -15,6 +15,7 @@ DaveHakkens.Main = function(){
   var $loader;
   var loading;
   var page;
+  var initialLoad = 8;
   var skipPosts;
   var userMenuTimeout;
   var firstPostLoad = true;
@@ -335,10 +336,13 @@ DaveHakkens.Main = function(){
         img.attr('src',img_src);
         var url= $(this).attr('href');
         event.preventDefault();
+        $postGrid.height(0);
         $postGrid.empty();
         history.pushState('data', '', url);
-        loadPosts();
-        return false; //for good measure
+        page = 1;
+        firstPostLoad = true;
+        loadPosts(initialLoad);
+        return false;
       });
       $('#post-filter').find('a').hover(
         function (event){
@@ -355,7 +359,7 @@ DaveHakkens.Main = function(){
         },
       );
       // load posts when page loads
-      loadPosts(8);
+      loadPosts(initialLoad);
     }
     // Enable slider
     if ($slider.length > 0) {
@@ -455,9 +459,7 @@ console.log("Sticky:");
           });
         }else{
           $postGrid.append($data).isotope('appended', $data);
-          setTimeout(function(){
             $postGrid.isotope('layout');
-          }, 250);
 
           firstPostLoad = false;
         }
