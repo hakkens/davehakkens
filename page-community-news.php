@@ -97,10 +97,8 @@
 //                echo "<pre>"; var_dump( $donor );echo "</pre>";
               }
               echo "</ul>";
-            }else{
-              echo "Missing Give Class";
             }
-         ?>
+          ?>
         </div>
         <div class="tab2Content monthly donations">
           <?php include('includes/patreonDonors.php');?>
