@@ -89,13 +89,45 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
 
   <img id="latest" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/latest.png"/>
   <div id="post-filter">
+<?php
+  global $wp;
+  $tag = '';
+  $requested = explode('/', $wp->request);
+  if($requested[0]=='tag'){
+    $tag = $requested[1];
+  }
+?>
       <ul>
-        <li class="all"><a href="/"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_03.png"></a></li>
-        <li class="preciousplastic"><a href="/tag/preciousplastic"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_04.png"></a></li>
-        <li class="storyhopper"><a href="/tag/storyhopper"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_05.png"></a></li>
-        <li class="phonebloks"><a href="/tag/phonebloks"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_06.png"></a></li>
-        <li class="community"><a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_07.png"></a></li>
-        <li class="highlights"><a href="#"><img src="<?php bloginfo( 'template_url' ); ?>/img/filter_normal_08.png"></a></li>
+        <li class="all">
+          <a href="/" class="<?php echo $tag==''?' active':'' ?>">
+            <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag==''?'active':'normal' ?>_03.png">
+          </a>
+        </li>
+        <li class="preciousplastic">
+          <a href="/tag/preciousplastic" class="<?php echo $tag=='preciousplastic'?' active':'' ?>">
+            <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag=='preciousplastic'?'active':'normal' ?>_04.png">
+          </a>
+        </li>
+        <li class="storyhopper">
+          <a href="/tag/storyhopper" class="<?php echo $tag=='storyhopper'?' active':'' ?>">
+            <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag=='storyhopper'?'active':'normal' ?>_06.png">
+          </a>
+        </li>
+        <li class="phonebloks">
+          <a href="/tag/phonebloks" class="<?php echo $tag=='phonebloks'?' active':'' ?>">
+            <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag=='phonebloks'?'active':'normal' ?>_05.png">
+          </a>
+        </li>
+        <li class="community">
+          <a href="/tag/community" class="<?php echo $tag=='community'?' active':'' ?>">
+            <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag=='community'?'active':'normal' ?>_07.png">
+          </a>
+        </li>
+        <li class="highlights">
+          <a href="/tag/highlight" class="<?php echo $tag=='highlight'?' active':'' ?>">
+            <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag=='highlight'?'active':'normal' ?>_08.png">
+          </a>
+        </li>
       </ul>
     <?php
 /* //Removed in favor of fixed menu with images
