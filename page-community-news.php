@@ -44,7 +44,7 @@
             <?php the_widget('BBP_Topics_Widget', "order_by=freshness&show_user=1&show_date=1&title="); ?>
           </div>
           <div class="tab2Content popular">
-            <?php the_widget('BBP_Topics_Widget', "order_by=popular&show_user=1&show_date=1&title="); ?>
+            <?php the_widget('wp_ulike_widget', "type=topic&period=week&count=5&show_thumb&show_count&trim=10&size=20&style=love&title="); ?>
           </div>
         </div>
         <div class="tabContent" id="tab_posts">
@@ -52,7 +52,7 @@
             <?php the_widget('WP_Widget_Recent_Posts', "title= &show_date=1"); ?>
           </div>
           <div class="tab2Content popular">
-            <?php the_widget('wp_ulike_widget', "type=post&count=5&show_thumb&show_count&trim=10&size=20&style=love&title="); ?>
+            <?php the_widget('wp_ulike_widget', "type=post&period=week&count=5&show_thumb&show_count&trim=10&size=20&style=love&title="); ?>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
           <h2>Members</h2>
         </div>
         <div class="tab2Content likes">
-          <?php the_widget('wp_ulike_widget', "type=users&count=5&show_thumb&show_count&trim=8&size=20&style=love&title="); ?>
+          <?php the_widget('wp_ulike_widget', "type=users&period=week&count=5&show_thumb&show_count&trim=8&size=20&style=love&title="); ?>
         </div>
         <div class="tab2Content active points">
           <?php the_widget('myCRED_Widget_Leaderboard', "type=mycred_default&show_visitors=1&title=&number=8&based_on=balance&text=#%position% %user_profile_link%</br> %cred_f%"); ?>
@@ -97,6 +97,8 @@
 //                echo "<pre>"; var_dump( $donor );echo "</pre>";
               }
               echo "</ul>";
+            }else{
+              echo "Missing Give Class";
             }
          ?>
         </div>
