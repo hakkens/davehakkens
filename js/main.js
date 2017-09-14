@@ -317,24 +317,61 @@ DaveHakkens.Main = function(){
           loadPosts(9);
         }
       });
-      // Enable slider
-      if ($slider.length > 0) {
-        $( '#my-slider' ).sliderPro({
-          responsive: true,
-          touchSwipe: false,
-          forceSize: 'fullWidth',
-          height: 150,
-//          height: '50vh',
-          buttons: true,
-          slideDistance: 0,
-          autoScaleLayers: true,
-          smallSize: 300,
-          fade: true,
-          fullScreen: true,
-        });
-      }
+      //transform filters href to ajax request
+      $('#post-filter').find('a').click(function (event){ 
+        if($(this).hasClass('active'))return false;
+        var img, img_src;
+        var oldCurrent = $('#post-filter').find('.active')
+        if(oldCurrent.length>0){
+          oldCurrent.removeClass('active');
+          img = oldCurrent.children('img');
+          img_src = img.attr('src').replace('/active_', '/normal_');
+          img_src = img_src.replace('active', 'normal');
+          img.attr('src',img_src);
+        }
+        $(this).addClass('active');
+        img = $(this).children('img');
+        img_src = img.attr('src').replace('/hover_', '/active_');;
+        img.attr('src',img_src);
+        var url= $(this).attr('href');
+        event.preventDefault();
+        $postGrid.empty();
+        history.pushState('data', '', url);
+        loadPosts();
+        return false; //for good measure
+      });
+      $('#post-filter').find('a').hover(
+        function (event){
+          var img, img_src;
+          img = $(this).children('img');
+          img_src = img.attr('src').replace('/normal_', '/hover_');
+          img.attr('src',img_src);
+        },
+        function (event){
+          var img, img_src;
+          img = $(this).children('img');
+          img_src = img.attr('src').replace('/hover_', '/normal_');
+          img.attr('src',img_src);
+        },
+      );
       // load posts when page loads
       loadPosts(8);
+    }
+    // Enable slider
+    if ($slider.length > 0) {
+      $( '#my-slider' ).sliderPro({
+        responsive: true,
+        touchSwipe: false,
+        forceSize: 'fullWidth',
+        height: 150,
+//          height: '50vh',
+        buttons: true,
+        slideDistance: 0,
+        autoScaleLayers: true,
+        smallSize: 300,
+        fade: true,
+        fullScreen: true,
+      });
     }
   };
 
