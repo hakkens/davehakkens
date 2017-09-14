@@ -49,7 +49,7 @@ $cursor = null;
 ?>
 <ul>
 <?php
-while (true) {
+//while (true) {
     $pledges_response = $api_client->fetch_page_of_pledges($campaign_id, 5, $cursor);
 //print_r($pledges_response);
 
@@ -73,7 +73,7 @@ while (true) {
         echo "<span class='since'>". $since . "</span>";
         echo "</li>";
     }
-/**/
+/*
     // get the link to the next page of pledges
     $next_link = $pledges_response['links']['next'];
     if (!$next_link) {
