@@ -15,6 +15,7 @@ if( $_GET['skipPosts'] != '' ){
 
 $numPosts = (isset($_GET['numPosts'])) ? $_GET['numPosts'] : 10;
 $page = (isset($_GET['pageNumber'])) ? $_GET['pageNumber'] : 1;
+$both = (isset($_GET['both'])) ? $_GET['both'] : "";
 $tag = (isset($_GET['tag'])) ? $_GET['tag'] : "";
 $category = (isset($_GET['category'])) ? $_GET['category'] : "";
 $catID = get_term_by('name', $category, 'category');
@@ -29,6 +30,21 @@ $queryArgs = array(
   'cat'            => $catID,
   'ignore_sticky_posts' => 1,
 );
+if($both!=""){
+  $queryArgs['tax_query'] = array(
+    'relation' => 'OR',
+    array(
+      'taxonomy' => 'category',
+      'field' => 'slug',
+      'terms' => array($both)
+    ),
+    array(
+      'taxonomy' => 'post_tag',
+      'field' => 'slug',
+      'terms' => array($both)
+    )
+  );
+}
 
 $sticky = get_option( 'sticky_posts' );
 if($_GET['stickyPosts'] == true){
