@@ -390,10 +390,6 @@ DaveHakkens.Main = function(){
       console.log('category in URL');
       var category = pathname.replace('/category/','');
       category = category.replace('/','');
-    } else if ( pathname.indexOf('both') !== -1 ) { // if special both in URL
-      console.log('both in URL');
-      var both = pathname.replace('/both/','');
-      both = both.replace('/','');
     }
     if(stickyPosts === undefined){
       stickyPosts = 0;
@@ -405,7 +401,7 @@ DaveHakkens.Main = function(){
     $loader.show();
     $.ajax({
       type       : "GET",
-      data       : {numPosts : numPosts, pageNumber: page, both: both, tag: tag, category: category, skipPosts: skipPosts, stickyPosts: stickyPosts, format: format},
+      data       : {numPosts : numPosts, pageNumber: page, tag: tag, category: category, skipPosts: skipPosts, stickyPosts: stickyPosts, format: format},
       dataType   : "html",
       url        : templateURL + "/loopHandler.php",
       beforeSend : function(){
