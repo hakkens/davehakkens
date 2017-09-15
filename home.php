@@ -93,7 +93,7 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
   global $wp;
   $tag = '';
   $requested = explode('/', $wp->request);
-  if($requested[0]=='tag' || $requested[0]=='both'){
+  if($requested[0]=='tag'){
     $tag = $requested[1];
   }
 ?>
@@ -119,7 +119,7 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
           </a>
         </li>
         <li class="community">
-          <a href="/both/community" class="<?php echo $tag=='community'?' active':'' ?>">
+          <a href="/tag/community" class="<?php echo $tag=='community'?' active':'' ?>">
             <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag=='community'?'active':'normal' ?>_07.png">
           </a>
         </li>
