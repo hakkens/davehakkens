@@ -30,14 +30,7 @@ function allow_origin() {
 }
 
 
-//Exclude community category from main query
-function exclude_category( $query ) {
-	// EXCLUDE COMMUNITY CATEGORY POSTS FROM HOMEPAGE AND TAG ARCHVIES
-    if ( $query->is_home() || $query->is_tag() ) {
-        $query->set( 'cat', '-621' );
-    }
-}
-add_action( 'pre_get_posts', 'exclude_category' );
+
 
 
 function get_vine_thumbnail( $id ) {
