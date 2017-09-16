@@ -49,7 +49,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
   if($format == 'json'){
     $mPost = array();
     $postID = get_the_ID();
-    if (get_post_format() == ''){
+    if (get_post_format() == '' || get_post_format() == image){
       $mPost = array(
         "title" => the_title('','',false),
         "url" => get_permalink($postID),
@@ -64,7 +64,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 //    if (get_post_format() == 'link'):
 //    if (get_post_format() == 'video'): $post_meta = get_post_meta(get_the_ID());
 //    if (get_post_format() == 'status'):
-//    if (get_post_format() == 'image'): 
     $responseData[] = $mPost;
   }else{
 ?>
