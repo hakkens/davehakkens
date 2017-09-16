@@ -24,14 +24,9 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
 
   $numPosts = (isset($_GET['numPosts'])) ? $_GET['numPosts'] : 10;
   $tag = (isset($_GET['tag'])) ? $_GET['tag'] : "";
-  $category = (isset($_GET['category'])) ? $_GET['category'] : "";
-  $catID = get_term_by('name', $category, 'category');
-  $catID = $catID->term_id;
 
   $queryArgs = array(
     'posts_per_page' => $numPosts,
-    'tag'            => $tag,
-    'cat'            => $catID,
     'post__in'       => get_option('sticky_posts'),
   );
 
@@ -40,7 +35,7 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
   if ( have_posts() ) : while ( have_posts() ) : the_post();
     $mPost = array();
     $postID = get_the_ID();
-    if (get_post_format() == ''){
+    if (get_post_format() == '' || get_post_format() == image){
       $mPost = array(
         "title" => the_title('','',false),
         "url" => get_permalink($postID),
@@ -52,9 +47,7 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
         ),
       );
 //    if (get_post_format() == 'link'):
-//    if (get_post_format() == 'video'): $post_meta = get_post_meta(get_the_ID());
 //    if (get_post_format() == 'status'):
-//    if (get_post_format() == 'image'):
 ?>
       <div class="sp-slide sp-selectable">
         <a href="<?php echo $mPost['url'] ?>">
@@ -69,9 +62,9 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
             <h1><?php echo $mPost['title'] ?></h1>
             <h3>
 <?php
-  foreach(get_the_tags() as $tag){
-    echo '#' . $tag->name .' ';
-  }
+      foreach(get_the_tags() as $tag){
+         echo '#' . $tag->name .' ';
+      }
 ?>
             </h3>
           </div>
@@ -79,6 +72,27 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
       </div>
 
 <?php
+  }elseif (get_post_format() == 'video'){
+    $post_meta = get_post_meta(get_the_ID());
+//TODO: handle video show
+continue;
+    if ($post_meta['_youtube_video_url'][0] != ''){
+      $video_url = $post_meta['_youtube_video_url'][0];
+      parse_str(parse_url($video_url, PHP_URL_QUERY ), $querystring);
+?>
+    <div class="sp-slide sp-selectable">
+      <a class="sp-video" href=<?php echo $video_url ?>>
+        <img src="https://img.youtube.com/vi/<?php echo $querystring['v']?>/maxresdefault.jpg" width="100vw"/>
+      </a>
+    </div>
+<?php
+    }elseif ($post_meta['_vimeo_video_url'][0] != ''){
+      $video_url = $post_meta['_vimeo_video_url'][0];
+    }elseif ($post_meta['_vine_video_url'][0] != ''){
+      $video_url = $post_meta['_vine_video_url'][0];
+    }elseif ($post_meta['mega_youtube_vimeo_url'][0] != ''){
+      $video_url = $post_meta['mega_youtube_vimeo_url'][0];
+    }
   }
   endwhile;
   endif;
