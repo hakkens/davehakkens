@@ -168,14 +168,14 @@ continue;
     <div id="communityContent">
       <div id="members">
         <?php
-          the_widget("BP_Core_Recently_Active_Widget", "title=Members&max_members=12");
+          the_widget("BP_Core_Recently_Active_Widget", "title=Members&max_members=9");
 //          the_widget("BP_Core_Members_Widget", "title=Members2&max_members=8");
         ?>
       </div>
-      <?php the_widget("Latest_Community_Uploads", "max=8"); ?>
+      <?php the_widget("Latest_Community_Uploads", "max=9"); ?>
     </div>
     <img id="solving" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/solving.png"/>
-    <button class="btn-main" onclick="window.location.href='/community/register/'">Join the community</button>
+    <button class="btn-main" onclick="window.location.href='/community/army/'">Join the community</button>
   </div>
 </div>
 <?php get_footer(); ?>

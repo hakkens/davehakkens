@@ -31,6 +31,7 @@
       <?php endwhile; endif; ?>
     </div>
     <div class="smallHalf">
+    
       <?php the_widget('Latest_Community_Uploads', "max=12");?>
       <div class="tabbed">
         <div class="header">
@@ -58,15 +59,17 @@
       </div>
       <div class="tabbed">
         <div class="header">
-          <h3 class="tab2 active" data-tab="points">Points</h3>
-          <h3 class="tab2" data-tab="likes">Likes</h3>
+          <h3 class="tab2 active" data-tab="likes">Most points</h3>
+          <h3 class="tab2" data-tab="points">Most likes</h3>
           <h2>Members</h2>
         </div>
         <div class="tab2Content likes">
-          <?php the_widget('wp_ulike_widget', "type=users&period=week&count=5&show_thumb&show_count&trim=8&size=20&style=love&title="); ?>
+          Most likes given last month
+          <?php the_widget('wp_ulike_widget', "type=users&period=month&count=10&show_thumb&show_count&size=60&style=love&title="); ?>
         </div>
         <div class="tab2Content active points">
-          <?php the_widget('myCRED_Widget_Leaderboard', "type=mycred_default&show_visitors=1&title=&number=8&based_on=balance&text=#%position% %user_profile_link%</br> %cred_f%"); ?>
+          Overall most points
+          <?php the_widget('myCRED_Widget_Leaderboard', "type=mycred_default&show_visitors=1&title=&number=8&based_on=balance&text=#%position% %user_profile_link%  %cred_f%"); ?>
         </div>
       </div>
       <div class="tabbed">

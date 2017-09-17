@@ -41,7 +41,6 @@ body.home-page{
 
 body.archive.tag {
   background: #edefed;
-  padding: 100px 0 0 0;
 }
 
 .no-touch body {
@@ -892,8 +891,12 @@ padding: 6px 10px;
     text-align:center;
 }
 
-.tags{
-  margin-top: 50px;
+#post-grid .item .tags a{
+  padding: 6px;
+  margin-right: 5px;
+  font-size: 17px;
+  font-family: 'medium';
+  color: #979797!important;
 }
 
 .other-updates {
@@ -991,7 +994,7 @@ single-format-status .post-thumbnail,
 }
 
 .status .featuredImage {
-    height: 500px!important;
+    height: 380px!important;
 }
 
 
@@ -1211,9 +1214,15 @@ a.read-more {
   color: #5e94da;
 }
 
+#post-grid .item .tags a:hover {
+    color: white!important;
+    background-color: #a6c9f8;
+    border-radius: 4px;
+}
+
 #post-grid .item img {
    display: block;
-   height: auto;
+   height: 100%;
    width: 100%;
 }
 
@@ -1252,11 +1261,30 @@ a.read-more {
 #post-grid .item h3 {
   margin: 25px 17px 15px 15px;
   font-weight:700;
-  font-family: 'medium', sans-serif;
-  font-size: 16px;
+  font-family: 'bold', 'medium', sans-serif;
+  font-size: 23px;
 }
 #post-grid .item.big h3 {
-  font-size: 18px;
+  font-size: 25px;
+}
+
+#post-grid .item.big p {
+  display:inline-block;
+}
+
+#post-grid .item p {
+  display:none;
+}
+
+#post-grid .item .status-text p {
+    display: inline-block!important;
+    color: white;
+    font-size: 18px;
+    padding: 17px;
+}
+
+#post-grid .item .status-text a {
+  color:white!important;
 }
 
 #post-grid .item p {
@@ -1267,7 +1295,7 @@ a.read-more {
   letter-spacing: 0.1px;
 }
 #post-grid .item.big p {
-  font-size: 13.4px;
+  font-size: 15px;
 }
 
 #post-grid .item .read_more {
@@ -1297,7 +1325,7 @@ video {
 #post-grid .post_meta {
   color: #999;
   font-size: 10px;
-  padding: 0px 20px 4px 20px;
+  padding: 10px 26px 6px 20px;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -1308,6 +1336,7 @@ video {
 
 #post-grid .post_meta a {
   color: #bbb;
+  padding-right: 4px;
 }
 
 #post-navigation {
@@ -1338,6 +1367,20 @@ video {
 */
 float:right;
 }
+
+
+.most_liked_users .tabbed .tab2Content li {
+  border-bottom: 0px solid #E2E4E7;
+  padding: 0px 0px;
+}
+
+.commenticon {
+    margin-top: 2px;
+    font-family: 'medium';
+    font-size: 14px;
+    color: #cdcdcd;
+}
+
 .home-page .wpulike .wp_ulike_btn{
   border: none;
   background: none;
@@ -1368,11 +1411,6 @@ float:right;
 .home-page img#latest{
 }
 
-#post-grid .status {
-    position: relative;
-		padding: 0;
-		text-align: center;
-	}
 
 #post-grid .status-image{
 cursor:pointer;
@@ -1406,7 +1444,7 @@ cursor:pointer;
     padding: 0px;
     margin: 0px;
   }
-
+``
 #post-grid .status-text p{
 	    color: white;
 	    display: inline-table;
@@ -1416,27 +1454,21 @@ cursor:pointer;
 
 
 #post-grid .status .post_meta {
-    display:none;
+    font-size: 13px;
+    display: inline-block;
 }
 
 #post-grid .post_meta .date {
     font-family: medium;
-    font-size: 17px;
-    display: none;
-}
-
-#post-grid .post_meta .date:hover {
-    font-family: medium;
-    font-size: 17px;
-    display: none;
+    font-size: 14px;
+    padding-top: 3px;
+    display: inline-block;
 }
 
 
-#post-grid .post_meta .tags {
-  font-family: medium;
-  font-size: 15px;
-  margin-top: 0px;
-  float: left;
+
+#post-grid  .tags {
+    margin-left:8px;
 }
 #post-grid .post_meta a.post-edit-link {
   display: block;
@@ -1463,14 +1495,14 @@ cursor:pointer;
   padding-bottom: 100px;
 }
 #montlyNews>img{
-  width:200px;
-  margin-bottom: 10px;
+  width:300px;
+  margin-bottom: 40px;
+  margin-left: 20px;
 }
 #montlyNews>iframe{
-  height: calc(100vh - 100px);
-  width:85%;
-  max-width: 1500px;
-  padding: 5px;
+  height: calc(100vh - 400px);
+  width: 85%;
+  max-width: 1200px;
   background-color: white;
   display: block;
   margin: 0 auto;
@@ -1487,12 +1519,10 @@ cursor:pointer;
 }
 #mainCommunity #communityContent>div{
   width: 50%;
-  height:100%;
-  float:left;
+  height: 100%;
+  float: left;
   box-sizing: border-box;
-  background-image: linear-gradient(#E5E7E8 55%, rgba(255,255,255,0) 0%);
-  background-size: 4px 50px;
-  background-repeat: repeat-y;
+  padding: 20px;
 }
 #mainCommunity #communityContent #members{
   padding-right: 4px;
@@ -1500,7 +1530,6 @@ cursor:pointer;
 }
 /*#mainCommunity #communityContent #images{*/
 #mainCommunity #communityContent .latest_community_uploads{
-  padding-left: 4px;
   background-position: left;
 /*  overflow: auto;*/
 }
@@ -1508,25 +1537,21 @@ cursor:pointer;
   overflow: auto;
 }
 .latest_community_uploads a{
-  float:left;
+  float: left;
   display: block;
-  width:  150px;
-  height: 150px;
+  width: 23%;
+  height: 130px;
   overflow: hidden;
-  margin: 10px;
+  margin: 5%;
   position: relative;
+
 }
 
-.widget.latest_community_uploads h2 {
-    font-family: 'medium';
-    padding: 4px;
-    margin-top: 3px;
-}
 
 /*#mainCommunity #communityContent .latest_community_uploads img{*/
 .latest_community_uploads img{
   display: block;
-  width: 300px;
+  width: 200px;
   height: auto;
   margin: 0;
   min-height: 200px;
@@ -1536,21 +1561,26 @@ cursor:pointer;
   transform: translate(-50%, -50%);
 }
 #mainCommunity #communityContent .avatar{
-  max-width: 200px;
-  min-width: 100px;
-  padding: 20px;
-  margin: 0 auto!Important;
+  width: 100%!important;
+}
+
+.latest_community_uploads a:hover {
+    opacity: 0.5;
 }
 
 
 #mainCommunity #communityContent .widget.buddypress .item-avatar a{
-  margin: 0 auto;
+  margin: 5%;
+  width: 23%;
 }
 
 
 #mainCommunity #communityContent>div h2{
   width: 100%;
   text-align: center;
+  font-family: 'medium';
+  padding: 4px;
+  margin-top: 3px;
 }
 #mainCommunity img#community{
   margin-top: 0px;
@@ -2031,6 +2061,7 @@ div#post-mention {
     padding: 10px 0px;
     margin-top:30px;
 }
+
 
 
 .joinusbutton a {
@@ -6072,7 +6103,7 @@ body#tinymce {
 
 .category-footer {
   width: 100%;
-  color: #838383;
+  color: #c9c9c9;
   font-size: 14px;
   height: 100%;
 }
@@ -6128,6 +6159,17 @@ p.postmetadata {
 .category-post .youtube-placeholder {
     width: 100%;
 }
+
+.youtube-container {
+    height: 250px;
+}
+
+#post-grid .item.big .youtube-container {
+    height: 360px;
+}
+
+
+
 
 .category .youtube-container a img {
     height: 62px;

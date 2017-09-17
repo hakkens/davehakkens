@@ -222,6 +222,55 @@
   }
 
 
+  .bigHalf {
+      width: 100%;
+      padding-left: 0px;
+      padding-right: 0px;
+  }
+
+  .activity .bigHalf #buddypress {
+      padding: 0px;
+  }
+
+  .smallHalf>div {
+    width: 100%;
+    display: inline-block;
+    top: 0px;
+    box-sizing: border-box;
+}
+
+
+.smallHalf {
+    width: 100%;
+    padding-right: 0px; 
+}
+
+#mainCommunity #communityContent>div{
+    width: 100%;
+    margin-bottom: 50px;
+    float: inherit;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.latest_community_uploads a {
+    height: 88px;
+  }
+
+  #montlyNews>img {
+    width: 200px;
+}
+
+#mainCommunity #communityContent>div h2 {
+    text-align: center!important;
+    font-size: 30px;
+}
+
+#montlyNews>iframe {
+    height: calc(100vh - 600px);
+}
+
+
   .alt-forum-sidebar .avatar {
       width: 45px !important;
   }
@@ -1106,7 +1155,6 @@ div#expertiseinfo {
 
   #post-grid .item,  #post-grid .item.big {
     border-bottom: none;
-    margin: 0 0 0px 0;
   }
 
   #bbpress-forums li {
