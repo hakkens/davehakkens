@@ -54,7 +54,9 @@ class UserPinList {
       $decodedFilters = json_decode($record->filters, true);
       $filters = implode(",", $decodedFilters);
       $viewLink = "http://map.preciousplastic.com/?lat=$record->lat&lng=$record->lng&filters=$filters";
-      $itemActions .= "<a href='$viewLink' target='_blank' class='pin-item__button'>View</a>";
+      if ($record->approval_status == 'APPROVED') {
+        $itemActions .= "<a href='$viewLink' target='_blank' class='pin-item__button'>View</a>";
+      }
 
       $status = $this->isUser
         ? "<p class='pin-item__text pin-item__status'>$published</p>"
