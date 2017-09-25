@@ -223,3 +223,15 @@
 .pins #subnav + h3 {
   display: none;
 }
+
+.pins #buddypress div#message a {
+  color: #5e94da;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1000px) {
+  .pins .pin-edit,
+  .pins .pin-edit__title {
+    margin: 0 0 20px 0;
+  }
+}

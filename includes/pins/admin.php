@@ -184,13 +184,16 @@ class Pin_Table extends WP_List_Table {
   function getColumnActions($record) {
     $recordId = $record->ID;
     $actionNonce = wp_create_nonce('action_' . $recordId);
-
     $pageIdNonce = 'page=pp-admin&id=' . $recordId . '&_wpnonce=' . $actionNonce;
+    $decodedFilters = json_decode($record->filters, true);
+    $filters = implode(",", $decodedFilters);
+    $viewLink = "http://map.preciousplastic.com/?lat=$record->lat&lng=$record->lng&filters=$filters";
 
     $functions = array();
 
     array_push($functions, '<a href="?' . $pageIdNonce . '&action=edit">Edit</a>');
     array_push($functions, '<a href="?' . $pageIdNonce . '&action=del">Delete</a>');
+    array_push($functions, '<a target="_blank" href="' . $viewLink . '">View</a>');
 
     $toggleText = $record->approval_status == 'WAITING_APPROVAL' ? 'Activate' : 'Deactivate';
     $toggleValue = $record->approval_status == 'WAITING_APPROVAL' ? 'APPROVED' : 'WAITING_APPROVAL';

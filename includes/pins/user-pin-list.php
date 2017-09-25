@@ -31,6 +31,12 @@ class UserPinList {
   function displayItems() {
     $records = $this->getItems();
 
+    if (!$this->isUser && empty($records)) {
+      echo "<div id='message' class='info'>
+        <p>This user doesn't have any pins on the <a target='_blank' href='http://map.preciousplastic.com'>map</a> yet.</p>
+      </div>";
+    }
+
     echo "<ul class='pin-list'>";
 
     foreach ($records as $record) {
@@ -48,7 +54,9 @@ class UserPinList {
       $decodedFilters = json_decode($record->filters, true);
       $filters = implode(",", $decodedFilters);
       $viewLink = "http://map.preciousplastic.com/?lat=$record->lat&lng=$record->lng&filters=$filters";
-      $itemActions .= "<a href='$viewLink' target='_blank' class='pin-item__button'>View</a>";
+      if ($record->approval_status == 'APPROVED') {
+        $itemActions .= "<a href='$viewLink' target='_blank' class='pin-item__button'>View</a>";
+      }
 
       $status = $this->isUser
         ? "<p class='pin-item__text pin-item__status'>$published</p>"
