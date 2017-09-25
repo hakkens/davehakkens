@@ -40,7 +40,9 @@ function pp_admin_menu() {
   $table_name = $wpdb->prefix . 'pp_pins';
   $unapproved = $wpdb->get_var("SELECT COUNT(*) FROM $table_name WHERE approval_status != 'APPROVED';");
 
-  $title = "PP Pins <span class='update-plugins count-1'><span class='update-count'>$unapproved</span></span>";
+  $title = $unapproved > 0
+    ? "PP Pins <span class='update-plugins count-1'><span class='update-count'>$unapproved</span></span>"
+    : "PP Pins";
 
 	add_menu_page( 'PP Pin Admin', $title, 'manage_options', 'pp-admin', 'pp_admin_page', '', 99);
 }
