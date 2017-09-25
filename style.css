@@ -703,7 +703,6 @@ a:hover {
     width: 100%;
     height: auto;
     display: inline-block;
-    margin-top: 40px;
     font-family: 'medium';
     font-size: 16px;
     letter-spacing: 0.5px;
@@ -892,9 +891,9 @@ padding: 6px 10px;
 }
 
 #post-grid .item .tags a{
-  padding: 6px;
   margin-right: 5px;
-  font-size: 17px;
+  font-size: 12px;
+  padding: 3px;
   font-family: 'medium';
   color: #979797!important;
 }
@@ -1151,25 +1150,29 @@ h3#comments, div#respond h3 {
   color: #51595F !important;
   letter-spacing: 0.1px;
   float: left;
-  width: 31.9%;
-  height: 500px;
+  width: 31.3%;
+  height: 480px;
   overflow: hidden;
-  margin: .7%;
+  margin: 1%;
   display: block;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
   font-size: 10px;
-  padding: 5px;
   box-sizing: border-box;
 }
 
-#post-grid .item:hover{
-  box-shadow: 8px 8px 0px #51595F;
-  margin-left: 2px;
-  margin-top: -2px;
+#post-grid .item:hover {
+    box-shadow: 4px 4px 0px #51595F;
+    opacity: 0.8;
+    margin-top: 0.5%;
+    -webkit-transition: all 0.5s ease-in-out; 
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
 #post-grid .item.big{
-  width: 48.6%;
+  width: 48%;
   height: 630px;
 }
 
@@ -1221,7 +1224,6 @@ a.read-more {
 }
 
 #post-grid .item img {
-   display: block;
    height: 100%;
    width: 100%;
 }
@@ -1251,7 +1253,8 @@ a.read-more {
 
 .commenticon img {
     display: inline-block;
-    max-width:25px;
+    max-width: 20px;
+    opacity: 0.3;
 }
 
 .commenticon a {
@@ -1260,8 +1263,8 @@ a.read-more {
 
 #post-grid .item h3 {
   margin: 25px 17px 15px 15px;
-  font-weight:700;
-  font-family: 'bold', 'medium', sans-serif;
+  text-align: center;
+  font-family: 'medium', sans-serif;
   font-size: 23px;
 }
 #post-grid .item.big h3 {
@@ -1293,6 +1296,7 @@ a.read-more {
   font-size: 12.4px;
   overflow: hidden;
   letter-spacing: 0.1px;
+  text-align: center;
 }
 #post-grid .item.big p {
   font-size: 15px;
@@ -1325,7 +1329,8 @@ video {
 #post-grid .post_meta {
   color: #999;
   font-size: 10px;
-  padding: 10px 26px 6px 20px;
+  text-align: center;
+  padding: 10px 26px 20px 20px;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -1358,28 +1363,25 @@ video {
 }
 
 
-.home-page .commenticon,
-.home-page .wpulike,
-.tag .commenticon,
-.tag .wpulike {
-/*
-    display: none;
-*/
-float:right;
-}
-
-
 .most_liked_users .tabbed .tab2Content li {
   border-bottom: 0px solid #E2E4E7;
   padding: 0px 0px;
 }
 
 .commenticon {
-    margin-top: 2px;
+    margin-top: 10px;
     font-family: 'medium';
     font-size: 14px;
     color: #cdcdcd;
+    display: inline-block;
 }
+
+
+.item .wpulike {
+    float: inherit;
+    padding-left: 0px;
+    margin-top:-8px;
+  }
 
 .home-page .wpulike .wp_ulike_btn{
   border: none;
@@ -1393,10 +1395,64 @@ float:right;
   margin-right: 10px;
   min-width: 1em;
   padding: 0;
+  color: grey;
+  font-size: 10px;
+
 }
 .home-page .wpulike .count-box::before{
   display: none;
 }
+
+
+
+.wpulike-heart .wp_ulike_general_class {
+    border: 0px!important;
+    background: none!important;
+    padding: 0px!important;
+    margin-top:5px!important;
+}
+
+.wpulike-heart .wp_ulike_btn.wp_ulike_put_image {
+    border-right: 0px!important;
+}
+
+
+.wpulike-heart  .wp_ulike_btn.wp_ulike_put_image {
+    background: url(/wp-content/themes/davehakkens2.2/img/like_grey.png) no-repeat !important;
+    background-size: 20px auto !important;
+    background-position: center center !important;
+}
+
+
+a.wp_ulike_btn.wp_ulike_put_image.image-unlike {
+    background: url(/wp-content/themes/davehakkens2.2/img/like.png) no-repeat !important;
+    background-size: 20px auto !important;
+    background-position: center center !important;
+}
+
+
+.topic-reply .wpulike {
+    display: inline-block;
+    float: right;
+    margin-top: -6px;
+}
+
+
+
+.topic-reply .wpulike-heart .count-box {
+  font-size: 10px;
+  margin-top: 1px;
+  float: left;
+}
+
+
+.comment .wpulike {
+    float: right;
+    top: -5px;
+}
+
+
+
 
 .imgTitle{
   width: 22%;
@@ -1463,13 +1519,9 @@ cursor:pointer;
     font-size: 14px;
     padding-top: 3px;
     display: inline-block;
+    display:none;
 }
 
-
-
-#post-grid  .tags {
-    margin-left:8px;
-}
 #post-grid .post_meta a.post-edit-link {
   display: block;
   clear: both;
@@ -2221,9 +2273,41 @@ div#post-mention {
   border: 4px solid rgba(255, 255, 255, 0) !important;
 }
 
-#members-list .friendship-button {
+
+.friends #buddypress #admins-list li, .friends #buddypress #members-list li, .friends #buddypress #mods-list li {
+    width: 46%!important;
+}
+
+#buddypress .friends .is_friend a {
+    text-align: center!important;
+    background: none!important;
+    color: #2196F3!important;
+}
+
+.friends div#expertise {
     display: none;
 }
+
+.friends li.odd, .friends li.even {
+    margin: 2%!important;
+    background-color: white;
+    overflow:visible!important;
+}
+
+.directory .members .action {
+    display: none;
+}
+
+.members.friends {
+    background: none;
+}
+
+.friends #buddypress ul.item-list li div.action {
+    display: block;
+    bottom: 0px;
+    text-align: center!important;
+  }
+
 
 #buddypress ul.item-list li img.avatar{
   margin: 15px 10px 0 0 !important;
@@ -2885,16 +2969,16 @@ ul.bbp-topic-revision-log li {
 
 .topic-reply .content .reply-date {
   color: #bbb;
-  float: right;
+  float: left;
   font-size: 12px;
   text-transform: uppercase;
   font-family: medium;
-  margin-top: -2px;
 }
 
 .replyheader {
   vertical-align: middle;
   height: 40px;
+  display: inline-block;
 }
 
 .smallrank {
@@ -3759,9 +3843,11 @@ div#respond {
   border-radius: 100%;
 }
 
-.comment-body .comment-author cite {
-  display: block;
-  font-style: normal;
+.comment-body .comment-meta {
+    display: inline-block;
+    font-size: 12px;
+    padding-right: 65px;
+    padding-left: 10px;
 }
 
 .comment-body .comment-meta {
@@ -4362,9 +4448,6 @@ a.bp-avatar-nav-item {
 }
 
 
-.activity.bbp-user-page div#subnav {
-    display: none;
-}
 
 tr.field_1.field_current_balance_mycred_default td.label,
 tr.field_1.field_current_balance_mycred_default td.data {
@@ -6106,6 +6189,7 @@ body#tinymce {
   color: #c9c9c9;
   font-size: 14px;
   height: 100%;
+  margin-top: 5px;
 }
 
 
@@ -6113,14 +6197,12 @@ body#tinymce {
     padding-left: 10px;
     font-size: 14px;
 }
-.commenticon  {
-  float:right;
-  max-width: 30px;
-}
-
 .commenticon  a.comments-link {
     padding: 3px;
     position: absolute;
+    font-family: 'open sans';
+    font-size: 10px;
+    color: grey!important;
 }
 
 

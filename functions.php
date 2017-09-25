@@ -285,6 +285,18 @@ function hide_before3 ($args = array() ) {
 add_filter ('bbp_before_get_user_subscribe_link_parse_args','hide_before3');
 
 
+//remove the + from wp ulike
+add_filter('wp_ulike_format_number','wp_ulike_new_format_number',10,3);
+function wp_ulike_new_format_number($value, $num, $plus){
+	if ($num >= 1000 && get_option('wp_ulike_format_number') == '1'):
+	$value = round($num/1000, 2) . 'K';
+	else:
+	$value = $num;
+	endif;
+	return $value;
+}
+
+
 
 //change logo login
 function custom_loginlogo() {

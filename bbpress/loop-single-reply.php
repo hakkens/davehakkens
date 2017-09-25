@@ -71,8 +71,6 @@
 
         ?>
       </div>
-
-      <div class="wpulike"><?php if(function_exists('wp_ulike')) wp_ulike('get'); ?></div>
       <div class="reply-date">
         <?php bbp_reply_post_date(); ?>
       </div>

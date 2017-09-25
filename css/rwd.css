@@ -57,10 +57,10 @@
 
 @media screen and (max-width: 1700px) {
   #post-grid .item{
-    width: 31.9%;
+    width: 31.3%;
   }
   #post-grid .item.big{
-    width: 48.6%;
+    width: 48%;
   }
 
 }
@@ -80,6 +80,10 @@
   .single .post .thumbnail {
     height: 500px;
   }
+
+  #post-grid .item {
+    width: 48%;
+}
 
 
   div#submenu{
@@ -224,7 +228,12 @@
   #post-grid .item.big .youtube-container {
       height: inherit;
   }
-  
+
+  #post-grid, #mainCommunity #communityContent {
+    max-width: 500px;
+  }
+
+
 
   .bigHalf {
       width: 100%;
@@ -889,6 +898,31 @@ font-size: 18px;
   }
 
 
+  #post-filter li img {
+      height: 35px;
+  }
+
+  #post-filter {
+    padding: 10px;
+    padding-bottom:30px
+}
+
+#post-filter li a{
+  margin-left:0px
+}
+
+
+
+#post-filter li {
+    float: inherit;
+    display: inline;
+}
+
+.imgTitle {
+    margin-top: 100px;
+    margin-bottom: 50px;
+
+}
 
 
 .single .post .post-content{

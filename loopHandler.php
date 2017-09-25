@@ -183,27 +183,27 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
       <h3><a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a></h3>
       <?php the_content(); ?>
     <?php endif; ?>
-  <div class="tags"> <?php
-  if($catID!= ''){
-    foreach (get_the_tags() as $tag){
-      echo ' #' . $tag->name . ' ';
-    }
-  } else {
-    foreach (get_the_tags() as $tag){
-      echo ' <a href="/tag/' . $tag->name . '">#' . $tag->name . '</a>';
-    }
-  }
-  ?></div>
   <div class="post_meta">
+    <div class="tags"> <?php
+    if($catID!= ''){
+      foreach (get_the_tags() as $tag){
+        echo ' #' . $tag->name . ' ';
+      }
+    } else {
+      foreach (get_the_tags() as $tag){
+        echo ' <a href="/tag/' . $tag->name . '">#' . $tag->name . '</a>';
+      }
+    }
+    ?></div>
   <div class="category-footer">
       <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
 
+ <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?>
      <div class="commenticon">
        <a href="<?php comments_link(); ?>">
-       <img src="https://davehakkens.nl/wp-content/themes/davehakkens2/img/comment.png" alt="comments" height="23" width="23"><?php
+       <img src="<?php bloginfo( 'template_url' ); ?>/img/comment.png" alt="comments" height="23" width="23"><?php
    comments_popup_link( '', '1', '%', 'comments-link', '');?></p></a></div>
 
- <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?>
  </div>
      <?php edit_post_link(); ?>
     </div>

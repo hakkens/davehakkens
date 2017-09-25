@@ -117,6 +117,11 @@ continue;
             <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag==''?'active':'normal' ?>_03.png">
           </a>
         </li>
+        <li class="highlights">
+          <a href="/tag/highlight" class="<?php echo $tag=='highlight'?' active':'' ?>">
+            <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag=='highlight'?'active':'normal' ?>_08.png">
+          </a>
+        </li>
         <li class="preciousplastic">
           <a href="/tag/preciousplastic" class="<?php echo $tag=='preciousplastic'?' active':'' ?>">
             <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag=='preciousplastic'?'active':'normal' ?>_04.png">
@@ -135,11 +140,6 @@ continue;
         <li class="community">
           <a href="/tag/community" class="<?php echo $tag=='community'?' active':'' ?>">
             <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag=='community'?'active':'normal' ?>_07.png">
-          </a>
-        </li>
-        <li class="highlights">
-          <a href="/tag/highlight" class="<?php echo $tag=='highlight'?' active':'' ?>">
-            <img src="<?php bloginfo( 'template_url' ); ?>/img/filters/<?php echo $tag=='highlight'?'active':'normal' ?>_08.png">
           </a>
         </li>
       </ul>

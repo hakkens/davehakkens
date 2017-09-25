@@ -31,7 +31,7 @@
       <?php endwhile; endif; ?>
     </div>
     <div class="smallHalf">
-    
+
       <?php the_widget('Latest_Community_Uploads', "max=12");?>
       <div class="tabbed">
         <div class="header">
