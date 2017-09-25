@@ -120,7 +120,8 @@ class Pin_Table extends WP_List_Table {
     $query = "SELECT p.ID, p.name, p.lat, p.lng, p.filters,
                      p.approval_status, p.created_date, p.modified_date, u.display_name
               FROM   $table_name p INNER JOIN wp_users u
-                       on p.user_ID = u.ID";
+                       on p.user_ID = u.ID
+              ORDER BY created_date DESC";
 
     if (!empty($_GET["orderby"])) {
       $orderBy = esc_sql($_GET['orderby']);
