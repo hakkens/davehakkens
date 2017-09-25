@@ -77,4 +77,3 @@ class Latest_Community_Uploads extends WP_Widget {
 	}
 }
 ?>
-

@@ -21,7 +21,6 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'post-formats', [ 'image', 'status', 'video', 'link' ] );
 
 add_action( 'init', 'register_project_post_type' );
-add_action( 'init', 'register_challenge_post_type' );
 
 add_action( 'init', 'allow_origin' );
 
@@ -137,32 +136,7 @@ add_filter( 'the_content_feed', 'wcs_post_thumbnails_in_feeds' );
 register_nav_menus([
   'grid_filter' => 'Filter for post grid',
 ]);
-/*
-add_filter( 'wp_mail', 'my_wp_mail_filter' );
 
-function my_wp_mail_filter( $args ) {
-
-  $header = file_get_contents( dirname(__FILE__) . '/emailtemplate/header.html' );
-  $footer = file_get_contents( dirname(__FILE__) . '/emailtemplate/footer.html' );
-
-  $new_wp_mail = [
-    'to' => $args['to'],
-    'subject' => $args['subject'],
-    'message' => $header . nl2br( $args['message'] ) . $footer,
-    'headers' => $args['headers'],
-    'attachments' => $args['attachments']
-  ];
-
-  return $new_wp_mail;
-
-}
-
-add_filter( 'wp_mail_content_type', 'set_content_type' );
-
-function set_content_type( $content_type ) {
-  return 'text/html';
-}
-*/
 function dave_hakkens_scripts() {
   wp_enqueue_script( 'jcrop', '/wp-includes/js/jcrop/jquery.Jcrop.min.js', array( 'jquery' ) );
   wp_enqueue_script( 'fancybox', get_bloginfo( 'template_url' ) . '/js/vendor/fancybox/jquery.fancybox.pack.js', array( 'jquery' ) );
@@ -197,52 +171,6 @@ function dsgnwrks_qa_make_title_excerpted( $import ) {
 	return $import;
 }
 
-/*
-//chnage logo login page
-function my_login_logo() { ?>
-    <style type="text/css">
-        #login h1 a, .login h1 a {
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/dave_community-logo.svg);
-            width: 150px;
-            height: 150px;
-            background-size: 150px;
-        }
-    </style>
-<?php }
-add_action( 'login_enqueue_scripts', 'my_login_logo' );
-
-
-//chnage URL login page
-function my_login_logo_url() {
-    return home_url();
-}
-add_filter( 'login_headerurl', 'my_login_logo_url' );
-
-function my_login_logo_url_title() {
-    return 'Your Site Name and Info';
-}
-add_filter( 'login_headertitle', 'my_login_logo_url_title' );
-
-
-
-/*
-
-//Visual editor without tiny mc
-function bbp_enable_visual_editor( $args = array() ) {
-    $args['tinymce'] = true;
-    return $args;
-}
-add_filter( 'bbp_after_get_the_content_parse_args', 'bbp_enable_visual_editor' );
-
-//Visual editor paste clean text
-function bbp_tinymce_paste_plain_text( $plugins = array() ) {
-    $plugins[] = 'paste';
-    return $plugins;
-}
-add_filter( 'bbp_get_tiny_mce_plugins', 'bbp_tinymce_paste_plain_text' );
-
-*/
-
 //change more.. on homepage
 function modify_read_more_link() {
     return '<a class="more-link" href="' . get_permalink() . '">Read all..</a>';
@@ -263,59 +191,6 @@ return $default ;
 add_filter('show_admin_bar', '__return_false');
 
 
-/*
-//Goto forums after login
-function my_login_redirect( $url, $request, $user ){
-if( $user && is_object( $user ) && is_a( $user, 'WP_User' ) ) {
-if( $user->has_cap( 'administrator' ) ) {
-$url = admin_url();
-} else {
-$url = home_url()/community/forums;
-}
-}
-return $url;
-}
-add_filter('login_redirect', 'my_login_redirect', 10, 3 );
-
-
-//Change name user roles
-add_filter( 'bbp_get_dynamic_roles', 'ntwb_bbpress_custom_role_names' );
-
-function ntwb_bbpress_custom_role_names() {
-	return array(
-
-		// Keymaster
-		bbp_get_keymaster_role() => array(
-			'name'         => 'Team',
-			'capabilities' => bbp_get_caps_for_role( bbp_get_keymaster_role() )
-		),
-
-		// Moderator
-		bbp_get_moderator_role() => array(
-			'name'         => 'Moderator',
-			'capabilities' => bbp_get_caps_for_role( bbp_get_moderator_role() )
-		),
-
-		// Participant
-		bbp_get_participant_role() => array(
-			'name'         => '.',
-			'capabilities' => bbp_get_caps_for_role( bbp_get_participant_role() )
-		),
-
-		// Spectator
-		bbp_get_spectator_role() => array(
-			'name'         => '.',
-			'capabilities' => bbp_get_caps_for_role( bbp_get_spectator_role() )
-		),
-
-		// Blocked
-		bbp_get_blocked_role() => array(
-			'name'         => '.',
-			'capabilities' => bbp_get_caps_for_role( bbp_get_blocked_role() )
-		)
-	);
-}
-*/
 //Remove user info
 add_filter('user_contactmethods','hide_profile_fields',10,1);
  function hide_profile_fields( $contactmethods ) {
@@ -404,36 +279,30 @@ add_filter( 'authenticate', 'verify_username_password', 1, 3);
 
 //Remove | (stripe) next to bbpress subscripe and favorites
 function hide_before3 ($args = array() ) {
-$args['before'] = '';
-return $args;
+  $args['before'] = '';
+  return $args;
 }
 add_filter ('bbp_before_get_user_subscribe_link_parse_args','hide_before3');
 
 
 
-
 //change logo login
 function custom_loginlogo() {
-echo '<style type="text/css">
-h1 a {background-image: url('.get_bloginfo('template_directory').'/images/login.svg) !important; }
+  echo '<style type="text/css">
+    h1 a {background-image: url('.get_bloginfo('template_directory').'/images/login.svg) !important; }
 </style>';
 }
 add_action('login_head', 'custom_loginlogo');
 
 //ad sidebar
-if ( is_active_sidebar( 'primary' ) ) : ?>
+if ( is_active_sidebar( 'primary' ) ) {
+  echo '<div id="primary" class="sidebar aside">';
+  dynamic_sidebar( 'primary' );
+  echo '</div>';
+}
 
-    <div id="primary" class="sidebar aside">
-
-        <?php dynamic_sidebar( 'primary' ); ?>
-
-    </div><!-- #primary .aside -->
-
-<?php endif; ?>
-
-<?php
 /* Modified from  'mycred_display_users_badges' to just display selected badges, TODO: pass argumment and merge upstream */
-if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) :
+if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) {
     function mycred_display_custom_users_badges( $user_id = NULL, $width = MYCRED_BADGE_WIDTH, $height = MYCRED_BADGE_HEIGHT ) {
         $user_id = absint( $user_id );
         if ( $user_id === 0 ) return;
@@ -458,7 +327,7 @@ if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) :
         do_action( 'mycred_after_users_badges', $user_id, $users_badges );
         echo '</div></div>';
     }
-endif;
+}
 
 function davehakkens2_widgets_init() {
   require get_template_directory() . '/includes/widgets.php';
