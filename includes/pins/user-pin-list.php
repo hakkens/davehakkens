@@ -31,6 +31,12 @@ class UserPinList {
   function displayItems() {
     $records = $this->getItems();
 
+    if (!$this->isUser && empty($records)) {
+      echo "<div id='message' class='info'>
+        <p>This user doesn't have any pins on the <a target='_blank' href='http://map.preciousplastic.com'>map</a> yet.</p>
+      </div>";
+    }
+
     echo "<ul class='pin-list'>";
 
     foreach ($records as $record) {
