@@ -61,7 +61,8 @@ function get_pp_pins( $data ) {
   $table_name = $wpdb->prefix . 'pp_pins';
 
   $query = "SELECT p.ID, p.name, p.lat, p.lng, p.description,
-                   p.website, p.filters, p.imgs, p.status, u.user_nicename as username
+                   p.website, p.filters, p.imgs, p.status,
+                   p.created_date, p.modified_date, u.user_nicename as username
             FROM   $table_name p INNER JOIN wp_users u
                      on p.user_ID = u.ID
             WHERE  approval_status = 'APPROVED';";
