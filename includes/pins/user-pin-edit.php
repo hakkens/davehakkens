@@ -89,12 +89,18 @@ $statuses = $table->get_statuses();
   <fieldset class="pin-edit__field">
     <legend class="pin-edit__label">What defines you best?</legend>
     <?php
+    $hasChecked = false;
+
     foreach ($filters as $key => $value) {
-      $checked = !empty($record->filters) && in_array($key, json_decode($record->filters)) ? "checked" : "";
+      $isChecked = !empty($record->filters) && in_array($key, json_decode($record->filters));
+      $checked = $isChecked && !$hasChecked ? "checked" : "";
+
       echo "<div class='pin-edit__choice'>
-        <input type='checkbox' id='$key' name='filters[]' value='$key' $checked>
+        <input type='radio' id='$key' name='filters[]' value='$key' $checked>
         <label for='$key'>$value</label>
       </div>";
+
+      $hasChecked |= $isChecked;
     }
     ?>
     <p class="pin-edit__error pin-edit__error--filters">At least one option must be selected</p>
