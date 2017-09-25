@@ -20,7 +20,7 @@ class Admin_Edit_Form {
   function get_columns() {
     return array(
       'ID' => array('Record ID', false),
-      'user_ID' => array('User ID', false),
+      'user_ID' => array('User ID', true),
       'name' => array('Name', true),
       'lat' => array('Latitude', true),
       'lng' => array('Longitude', true),

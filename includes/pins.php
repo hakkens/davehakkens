@@ -40,7 +40,9 @@ function pp_admin_menu() {
   $table_name = $wpdb->prefix . 'pp_pins';
   $unapproved = $wpdb->get_var("SELECT COUNT(*) FROM $table_name WHERE approval_status != 'APPROVED';");
 
-  $title = "PP Pins <span class='update-plugins count-1'><span class='update-count'>$unapproved</span></span>";
+  $title = $unapproved > 0
+    ? "PP Pins <span class='update-plugins count-1'><span class='update-count'>$unapproved</span></span>"
+    : "PP Pins";
 
 	add_menu_page( 'PP Pin Admin', $title, 'manage_options', 'pp-admin', 'pp_admin_page', '', 99);
 }
@@ -61,7 +63,8 @@ function get_pp_pins( $data ) {
   $table_name = $wpdb->prefix . 'pp_pins';
 
   $query = "SELECT p.ID, p.name, p.lat, p.lng, p.description,
-                   p.website, p.filters, p.imgs, p.status, u.user_nicename as username
+                   p.website, p.filters, p.imgs, p.status,
+                   p.created_date, p.modified_date, u.user_nicename as username
             FROM   $table_name p INNER JOIN wp_users u
                      on p.user_ID = u.ID
             WHERE  approval_status = 'APPROVED';";
