@@ -6164,6 +6164,10 @@ p.postmetadata {
     height: 250px;
 }
 
+.single-format-video .youtube-container {
+    height: auto;
+}
+
 #post-grid .item.big .youtube-container {
     height: 360px;
 }
