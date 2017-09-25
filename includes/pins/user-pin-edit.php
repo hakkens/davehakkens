@@ -131,7 +131,8 @@ $statuses = $table->get_statuses();
   </fieldset>
 
   <fieldset class="pin-edit__field">
-    <legend class="pin-edit__label">Share some images of your machines, workspace or yourself.</legend>
+    <legend class="pin-edit__label">Share some images of your machines, workspace or yourself (preferred size 900 x 525 px).
+*If you're signing up as a "Workshops" we can't validate you without images</legend>
     <?php
       for ($x = 0; $x < 3; $x++) {
         $imgs = json_decode($record->imgs, true);

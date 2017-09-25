@@ -221,6 +221,10 @@
     padding-bottom: 1200px;
   }
 
+  #post-grid .item.big .youtube-container {
+      height: inherit;
+  }
+  
 
   .bigHalf {
       width: 100%;
@@ -242,7 +246,7 @@
 
 .smallHalf {
     width: 100%;
-    padding-right: 0px; 
+    padding-right: 0px;
 }
 
 #mainCommunity #communityContent>div{
