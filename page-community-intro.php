@@ -28,7 +28,7 @@ get_template_part( 'navbar' );
   </div>
 
 <div class="communitypage">
-<div class="thumbnail"><a href="https://davehakkens.nl/category/community"><img class="introthumbnail" src="<?php bloginfo( 'template_url' ); ?>/img/community_news_color.png" width="400" height="400" /></a> <h1>news</h1> <p>News from the troops </p></div>
+<div class="thumbnail"><a href="https://davehakkens.nl/community/dashboard"><img class="introthumbnail" src="<?php bloginfo( 'template_url' ); ?>/img/community_news_color.png" width="400" height="400" /></a> <h1>activity</h1> <p>Latest forum activity  </p></div>
 <div class="thumbnail"><a href="https://davehakkens.nl/community/forums/"><img class="introthumbnail" src="<?php bloginfo( 'template_url' ); ?>/img/community_forum_color.png" width="400" height="400" /></a> <h1>forums</h1> <p>Start a conversation </p></div>
 <div class="thumbnail"><a href="https://davehakkens.nl/community/members/"><img class="introthumbnail" src="<?php bloginfo( 'template_url' ); ?>/img/community_army_color.png" width="400" height="400" /></a> <h1>army</h1><p>Connect with eachother</p></div>
 <div class="thumbnail"><a href="https://davehakkens.nl/community/help-out"><img class="introthumbnail" src="<?php bloginfo( 'template_url' ); ?>/img/community_helpus_color.png" width="400" height="400" /></a> <h1>help out</h1><p>Participate in our projects</p></div>
