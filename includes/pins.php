@@ -85,12 +85,23 @@ function get_pp_pins( $data ) {
   return $pins;
 }
 
+function get_pp_pin_latest( $data ) {
+  global $wpdb;
+  $table_name = $wpdb->prefix . 'pp_pins';
+
+  $maxCreated = $wpdb->get_var("SELECT UNIX_TIMESTAMP(MAX(created_date)) FROM $table_name;");
+  return array('lastCreated' => $maxCreated);
+}
+
 add_action( 'rest_api_init', function () {
   $namespace	= 'map/v1';
-  $route	= 'pins';
-  register_rest_route( $namespace, $route, array(
+  register_rest_route( $namespace, 'pins', array(
     'methods' => WP_REST_Server::READABLE,
-    'callback' => 'get_pp_pins',
+    'callback' => 'get_pp_pins'
+  ));
+  register_rest_route( $namespace, 'latest', array(
+    'methods' => WP_REST_Server::READABLE,
+    'callback' => 'get_pp_pin_latest'
   ));
 });
 
