@@ -33,7 +33,7 @@
     <div class="smallHalf">
 
       <?php the_widget('Latest_Community_Uploads', "max=12");?>
-      <div class="tabbed">
+      <div class="tabbed"><div class="posttab">
         <div class="header">
           <h2 class="tab active" data-tab="tab_topics">Topics</h2>
           <h2 class="tab" data-tab="tab_posts">Posts</h2>
@@ -57,26 +57,27 @@
           </div>
         </div>
       </div>
-      <div class="tabbed">
+          </div>
+      <div class="tabbed"><div class="memberstab">
         <div class="header">
-          <h3 class="tab2 active" data-tab="likes">Most points</h3>
-          <h3 class="tab2" data-tab="points">Most likes</h3>
+          <h3 class="tab2 active" data-tab="points">points</h3>
+          <h3 class="tab2" data-tab="likes">likes</h3>
           <h2>Members</h2>
         </div>
         <div class="tab2Content likes">
           Most likes given last month
-          <?php the_widget('wp_ulike_widget', "type=users&period=month&count=10&show_thumb&show_count&size=60&style=love&title="); ?>
+          <?php the_widget('wp_ulike_widget', "type=users&period=month&count=12&show_thumb&show_count&size=60&style=love&title="); ?>
         </div>
         <div class="tab2Content active points">
           Overall most points
           <?php the_widget('myCRED_Widget_Leaderboard', "type=mycred_default&show_visitors=1&title=&number=8&based_on=balance&text=#%position% %user_profile_link%  %cred_f%"); ?>
         </div>
-      </div>
-      <div class="tabbed">
+      </div></div>
+      <div class="tabbed"><div class="donationstab">
         <div class="header">
           <h3 class="tab2" data-tab="monthly">Patreons</h3>
           <h3 class="tab2 active" data-tab="single">Donations</h3>
-          <h2>Supporters </h2>
+          <h2>Latest donations </h2>
         </div>
         <div class="tab2Content single active donations">
           <?php
@@ -108,6 +109,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 <?php get_footer(); ?>
   <script>

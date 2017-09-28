@@ -1161,10 +1161,10 @@ h3#comments, div#respond h3 {
 }
 
 #post-grid .item:hover {
-    box-shadow: 4px 4px 0px #51595F;
+    box-shadow: 5px 5px 0px #51595F;
     opacity: 0.8;
     margin-top: 0.5%;
-    -webkit-transition: all 0.5s ease-in-out; 
+    -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
@@ -1366,6 +1366,45 @@ video {
 .most_liked_users .tabbed .tab2Content li {
   border-bottom: 0px solid #E2E4E7;
   padding: 0px 0px;
+}
+
+.donationstab h3.tab2 {
+    display: none;
+}
+.posttab .widget.widget_recent_entries {
+    font-size: 20px;
+    font-weight: 300;
+    font-family: medium;
+    word-wrap: break-word;
+    letter-spacing: 0.7px;
+    color: #b0b0b0;
+    margin-top: -30px;
+}
+
+.memberstab {
+    font-size: 20px;
+    font-weight: 300;
+    font-family: medium;
+    word-wrap: break-word;
+}
+
+.memberstab .most_liked_users img {
+    border-radius: 100px;
+    padding: 11%;
+}
+
+.memberstab li {
+    border-bottom: 0px!important;
+}
+
+
+.posttab h3.tab2 {
+    display: none;
+}
+
+.posttab .widget_display_topics div {
+    display: inline-block;
+    font-size: 14px;
 }
 
 .commenticon {
@@ -1667,6 +1706,7 @@ cursor:pointer;
   padding-right: 20px;
   box-sizing: border-box;
   margin-top: 72px;
+  padding-bottom: 200px;
 }
 .smallHalf>div{
   background-color: white;
@@ -1708,22 +1748,25 @@ cursor:pointer;
 .tabbed .tab.active{
   border-top: 3px solid #EE8B90;
   color: #313131;
+  border-radius: 4px;
 }
 
 .tabbed .tab2{
-  padding: 3px 15px 3px 15px;
+  padding: 8px 15px 8px 15px;
   margin: 15px 10px 0 0px;
-  font-size: 11px;
+  font-size: 14px;
   float: right;
   cursor: pointer;
   background-color: #FFFFFF;
 }
 .tabbed .tab2:hover{
   background-color: #CBCFD4;
+  border-radius:3px;
 }
 .tabbed .tab2.active{
   background-color: #EE8B90;
   color: #FFFFFF;
+  border-radius:3px;
 }
 .tabbed .donations{
   font-weight: bolder;
@@ -1736,18 +1779,24 @@ cursor:pointer;
   font-size: 30px;
   width: 41%;
   display: inline-block;
+  vertical-align: middle;
+  line-height: 0px;
 }
+
+.tab2Content.single.active.donations li {
+    padding: 22px 0px;
+}
+
 .tabbed .user{
-  width: 40%;
+  width: 59%;
   display: inline-block;
-  font-size: 11px;
+  font-size: 14px;
 }
-.tabbed .since{
-  width: 19%;
-  display: inline-block;
+.tabbed .since {
+  display: inherit;
   color: #CBCFD4;
   font-size: 10px;
-  text-align: right;
+  margin-left: 41%;
 }
 
 
@@ -1764,6 +1813,15 @@ cursor:pointer;
     font-size: 11px;
 }
 
+.smallHalf h2 {
+    padding-left: 16px;
+    font-family: 'medium';
+    font-size: 28px;
+}
+
+.widget.latest_community_uploads a {
+    height: 88px;
+}
 
 .widget a{
   color: #51595F;
