@@ -34,6 +34,11 @@ function action_bp_before_register_page() {
 }
 add_action('bp_before_register_page', 'action_bp_before_register_page');
 
+function action_bp_before_activation_page() {
+  include_once 'activate-message.php';
+}
+add_action('bp_before_activation_page', 'action_bp_before_activation_page');
+
 
 function get_vine_thumbnail( $id ) {
   $vine = file_get_contents("http://vine.co/v/{$id}");
