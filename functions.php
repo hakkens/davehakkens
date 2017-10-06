@@ -39,6 +39,16 @@ function action_bp_before_activation_page() {
 }
 add_action('bp_before_activation_page', 'action_bp_before_activation_page');
 
+function bp_loggedin_register_redirect( $redirect ) {
+  $user = get_userdata(bp_loggedin_user_id());
+
+  $redirect = isset($_REQUEST['add-pin'])
+    ? '/community/members/' . $user->user_nicename . '/pins/'
+    : '/community/forums';
+
+	return $redirect;
+}
+add_filter( 'bp_loggedin_register_page_redirect_to', 'bp_loggedin_register_redirect' );
 
 function get_vine_thumbnail( $id ) {
   $vine = file_get_contents("http://vine.co/v/{$id}");
