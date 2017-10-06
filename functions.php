@@ -29,7 +29,10 @@ function allow_origin() {
 }
 
 
-
+function action_bp_before_register_page() {
+  include_once 'register-message.php';
+}
+add_action('bp_before_register_page', 'action_bp_before_register_page');
 
 
 function get_vine_thumbnail( $id ) {
