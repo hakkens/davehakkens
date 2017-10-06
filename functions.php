@@ -50,6 +50,14 @@ function bp_loggedin_register_redirect( $redirect ) {
 }
 add_filter( 'bp_loggedin_register_page_redirect_to', 'bp_loggedin_register_redirect' );
 
+function my_expiration_filter($seconds, $user_id, $remember){
+    $expiration = 14*24*60*60; //UPDATE HERE;
+
+    return $expiration;
+}
+add_filter('auth_cookie_expiration', 'my_expiration_filter', 99, 3);
+
+
 function get_vine_thumbnail( $id ) {
   $vine = file_get_contents("http://vine.co/v/{$id}");
   preg_match('/property="og:image" content="(.*?)"/', $vine, $matches);
