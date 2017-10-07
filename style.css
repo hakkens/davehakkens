@@ -6506,3 +6506,35 @@ color: black;
 
 
 }
+
+
+/* page messages! */
+
+.page-message {
+    box-sizing: border-box;
+    background: #f58d8e;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    position: fixed;
+}
+
+.page-message p {
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    float: left;
+    width: calc(100% - 25px);
+}
+
+.page-message .page-message--close {
+    line-height: 1.9;
+    float: right;
+    width: 25px;
+}
+
+.page-message--close_image {
+  width: 25px;
+  height: 25px;
+}
