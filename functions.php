@@ -28,7 +28,7 @@ function allow_origin() {
     header("Access-Control-Allow-Origin: *");
 }
 
-
+//Load php partials for particular parts of BP
 function action_bp_before_register_page() {
   include_once 'register-message.php';
 }
@@ -39,6 +39,8 @@ function action_bp_before_activation_page() {
 }
 add_action('bp_before_activation_page', 'action_bp_before_activation_page');
 
+
+//Change BP already registered redirect
 function bp_loggedin_register_redirect( $redirect ) {
   $user = get_userdata(bp_loggedin_user_id());
 
@@ -50,9 +52,10 @@ function bp_loggedin_register_redirect( $redirect ) {
 }
 add_filter( 'bp_loggedin_register_page_redirect_to', 'bp_loggedin_register_redirect' );
 
-function my_expiration_filter($seconds, $user_id, $remember){
-    $expiration = 14*24*60*60; //UPDATE HERE;
 
+//change the exipiration of the auth token
+function my_expiration_filter($seconds, $user_id, $remember){
+    $expiration = 14*24*60*60; //2 weeks
     return $expiration;
 }
 add_filter('auth_cookie_expiration', 'my_expiration_filter', 99, 3);

@@ -164,6 +164,8 @@ class ProcessPin {
         array('%d')
       );
     }
+
+    update_user_meta(get_current_user_id(), 'hide_add_pin_message', true);
   }
 }
 ?>
