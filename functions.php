@@ -342,6 +342,7 @@ if ( is_active_sidebar( 'primary' ) ) {
   echo '</div>';
 }
 
+
 /* Modified from  'mycred_display_users_badges' to just display selected badges, TODO: pass argumment and merge upstream */
 if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) {
     function mycred_display_custom_users_badges( $user_id = NULL, $width = MYCRED_BADGE_WIDTH, $height = MYCRED_BADGE_HEIGHT ) {

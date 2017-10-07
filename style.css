@@ -1613,10 +1613,10 @@ cursor:pointer;
   height: 100%;
   float: left;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 100px;
+  padding-top: 0px;
 }
 #mainCommunity #communityContent #members{
-  padding-right: 4px;
   background-position: right;
 }
 /*#mainCommunity #communityContent #images{*/
@@ -1653,6 +1653,7 @@ cursor:pointer;
 }
 #mainCommunity #communityContent .avatar{
   width: 100%!important;
+  max-width: 80px;
 }
 
 .latest_community_uploads a:hover {

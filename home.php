@@ -160,8 +160,8 @@ continue;
   <button id="post-grid-more" class="btn-main" type="button">More please!</button>
 
   <div id="montlyNews">
-    <img src="<?php bloginfo( 'template_url' ); ?>/img/monthly.png"/>
-    <iframe src="https://www.youtube.com/embed/4yL-LHnzL7A?list=PLtYgsstkMPuVdh4Y-L9RFRG1Hv3w4JC-j&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+    <img src="<?php bloginfo( 'template_url' ); ?>/img/monthly.png"/>    
+    <iframe src="https://www.youtube.com/embed/videoseries?list=PLtYgsstkMPuVdh4Y-L9RFRG1Hv3w4JC-j&modestbranding=1" frameborder="0" allowfullscreen></iframe>
   </div>
   <div id="mainCommunity" class="army-support">
     <img id="community" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/community.png"/>
