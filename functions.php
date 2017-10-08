@@ -243,6 +243,14 @@ add_filter( 'bbp_get_time_since', 'short_freshness_time' );
 //Add extra class for topic lead
 add_filter( 'bbp_show_lead_topic', '__return_true' );
 
+//increae logout time
+add_filter( 'auth_cookie_expiration', 'keep_me_logged_in_for_1_year' );
+
+function keep_me_logged_in_for_1_year( $expirein ) {
+    return 604800; // 1 year in seconds
+}
+
+
 
 //Custom css moderator
 add_filter('bbp_before_get_reply_author_role_parse_args', 'ntwb_bbpress_reply_css_role' );
