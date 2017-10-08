@@ -112,9 +112,15 @@
   margin-bottom: 5px;
 }
 
+.pins .pin-edit__choice label {
+  display: block;
+  margin-left: 20px;
+}
+
 .pins .pin-edit__choice input {
+  display: inline-block;
   margin-right: 5px;
-  transition: none;
+  margin-left: -20px;
 }
 
 .pins .pin-edit__upload {

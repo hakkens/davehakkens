@@ -19,9 +19,9 @@ class UserPinEdit {
 
   function get_filters() {
     return array(
-      'WORKSHOP' => 'I have Precious Plastic machines',
-      'MACHINE' => 'I sell / can build machines for others',
-      'STARTED' => 'I want to get started and connect with people near me'
+      'WORKSHOP' => 'WORKSPACE (I have Precious Plastic machines)',
+      'MACHINE' => 'MACHINE BUILDER (I can sell / build machines for others)',
+      'STARTED' => 'WANT TO GET STARTED (I want to add myself to the map and collaborate with people to start recycling)'
     );
   }
 
@@ -74,19 +74,7 @@ $statuses = $table->get_statuses();
   <input type="hidden" id="lat" name="lat" value="<?php echo $record->lat; ?>" />
   <input type="hidden" id="lng" name="lng" value="<?php echo $record->lng; ?>" />
 
-  <div class="pin-edit__field">
-    <label class="pin-edit__label" for="address">Type your pin address, so we can locate it on the map.</label>
-    <input class="pin-edit__input" placeholder="Amsterdam, The Netherlands" type="text" id="address" name="address" maxlength="200" value="<?php echo $record->address; ?>">
-    <p class="pin-edit__error pin-edit__error--address">Address is required</p>
-  </div>
-
-  <div class="pin-edit__field pin-edit__map">
-    <label class="pin-edit__label">Click and drag the pin to the location you would like to show on the map.</label>
-    <div id="pin-edit-map"></div>
-    <p class="pin-edit__error pin-edit__error--map">Map pin is required</p>
-  </div>
-
-  <fieldset class="pin-edit__field">
+  <fieldset class="pin-edit__field" id="pin-type">
     <legend class="pin-edit__label">What defines you best?</legend>
     <?php
     $hasChecked = false;
@@ -96,8 +84,7 @@ $statuses = $table->get_statuses();
       $checked = $isChecked && !$hasChecked ? "checked" : "";
 
       echo "<div class='pin-edit__choice'>
-        <input type='radio' id='$key' name='filters[]' value='$key' $checked>
-        <label for='$key'>$value</label>
+        <label for='$key'><input type='radio' id='$key' name='filters[]' value='$key' $checked /> $value</label>
       </div>";
 
       $hasChecked |= $isChecked;
@@ -107,24 +94,37 @@ $statuses = $table->get_statuses();
   </fieldset>
 
   <div class="pin-edit__field">
-    <label class="pin-edit__label" for="name">Pick a name for your pin</label>
+    <label class="pin-edit__label" for="address" id="address-label">Type your pin address, so we can locate it on the map.</label>
+    <input class="pin-edit__input" placeholder="Amsterdam, The Netherlands" type="text" id="address" name="address" maxlength="200" value="<?php echo $record->address; ?>">
+    <p class="pin-edit__error pin-edit__error--address">Address is required</p>
+  </div>
+
+  <div class="pin-edit__field pin-edit__map">
+    <label class="pin-edit__label" id="location-label">Click and drag the pin to the location you would like to show on the map.</label>
+    <div id="pin-edit-map"></div>
+    <p class="pin-edit__error pin-edit__error--map">Map pin is required</p>
+  </div>
+
+
+  <div class="pin-edit__field">
+    <label class="pin-edit__label" for="name" id="name-label">Pick a name for your pin</label>
     <input class="pin-edit__input" type="text" id="name" name="name" maxlength="200" value="<?php echo $record->name; ?>">
     <p class="pin-edit__error pin-edit__error--name">Name is required</p>
   </div>
 
   <div class="pin-edit__field">
-    <label class="pin-edit__label" for="description">Tell us about yourself, your machines or workspace.</label>
+    <label class="pin-edit__label" for="description" id="description-label">Tell us bit  about workspace, what machines you have and products you make</label>
     <textarea class="pin-edit__input" id="description" name="description" maxlength="200"><?php echo $record->description; ?></textarea>
   </div>
 
   <div class="pin-edit__field">
-    <label class="pin-edit__label" for="website">Insert a link on the web where people can find you or your work.  Instagram, Facebook, website or even better your Bazar account if you have it.</label>
+    <label class="pin-edit__label" for="website" id="website-label">Put a link to your website or even better your Bazar account</label>
     <input class="pin-edit__input" type="text" id="website" name="website" maxlength="200" value="<?php echo $record->website; ?>">
     <p class="pin-edit__error pin-edit__error--website">Website is invalid</p>
   </div>
 
   <fieldset class="pin-edit__field">
-    <legend class="pin-edit__label">Are you open for visits or to meet people in person?</legend>
+    <legend class="pin-edit__label" id="status-label">Can people drop by your workspace?</legend>
     <?php
     foreach ($statuses as $key => $value) {
       $checked = ($key == $record->status || (empty($record->status) && $key == 'OPEN')) ? "checked" : "";
@@ -137,8 +137,7 @@ $statuses = $table->get_statuses();
   </fieldset>
 
   <fieldset class="pin-edit__field">
-    <legend class="pin-edit__label">Share some images of your machines, workspace or yourself (preferred size 900 x 525 px).
-*If you're signing up as a "Workshops" we can't validate you without images</legend>
+    <legend class="pin-edit__label" id="image-label">Share some images of your workspace/ machines/ team (900 x 525 px). *Pin without images are not approved</legend>
     <?php
       for ($x = 0; $x < 3; $x++) {
         $imgs = json_decode($record->imgs, true);

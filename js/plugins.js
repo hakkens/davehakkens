@@ -21,6 +21,51 @@
   }
 }());
 
+var formLabels = {
+  'WORKSHOP' : {
+    'name-label': 'Pick a name for your pin',
+    'description-label': 'Tell us bit about workspace, what machines you have and products you make',
+    'website-label': 'Put a link to your website or even better your Bazar account',
+    'status-label': 'Can people drop by your workspace?',
+    'image-label': 'Share some images of your workspace/machines/team (900 x 525 px). *Pin without images are not approved'
+  },
+  'MACHINE' : {
+    'name-label': 'Pick a name for your pin',
+    'description-label': 'Tell us about yourself and what machines you can build',
+    'website-label': 'Put a link to your website or even better your Bazar account',
+    'status-label': 'Can people drop by your workspace?',
+    'image-label': 'Share some images of you or your workspace (900 x 525 px)'
+  },
+  'STARTED' : {
+    'name-label': 'What’s your name',
+    'description-label': 'Tell a bit about yourself, your skills or things you can offer',
+    'website-label': 'Put a link to your Facebook/twitter/website',
+    'status-label': 'Are you up to meet people in real life?',
+    'image-label': 'Upload a picture of yourself so we can make this place a bit more friendly (900 x 525 px)'
+  }
+};
+
+(function () {
+  var $ = jQuery.noConflict();
+  $(document).ready(function () {
+
+    $('#pin-type input').click(function () {
+      changeLabels($(this).attr('value'));
+    });
+
+    var selectedType = $('#pin-type input:checked').val();
+    changeLabels(selectedType ? selectedType : 'WORKSHOP');
+  });
+
+  function changeLabels(type) {
+    var labels = formLabels[type];
+    $.each(Object.keys(labels), function(index, value) {
+      $('#' + value).html(labels[value]);
+    });
+  }
+}());
+
+
 //Edit pin form validation
 (function () {
   var $ = jQuery.noConflict();
@@ -67,7 +112,7 @@
     function isEmpty(el) {
       return $(el).val() === '';
     }
-    
+
     function isUrlValid(url) {
       return url === '' || /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(url);
     }
