@@ -44,7 +44,7 @@ class Latest_Community_Uploads extends WP_Widget {
         foreach ($attachments as $post) {
           setup_postdata($post);
           $link = get_permalink($post->post_parent);
-          $img  = wp_get_attachment_image($post->ID);
+          $img  = wp_get_attachment_image($post->ID,'medium');
           if(strpos($link, 'reply')){
             $link = get_permalink($topics[$post->post_parent]);
           }
