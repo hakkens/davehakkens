@@ -6,6 +6,7 @@
 
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="google-site-verification" content="dAHZ1jmv016uFCvfRnjpvQc1CllBvCFUCR-3M2FKvwQ" />
 
   <title><?php wp_title(); ?></title>
 
