@@ -2,6 +2,7 @@
 
 .pins .pin-list {
   padding: 0;
+  padding-bottom: 10px;
 }
 
 .pins .pin-item {
@@ -11,8 +12,9 @@
   margin-bottom: 10px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.07);
   border-radius: 4px;
-  background-color: #fff;
+  background-color: #dedede;
   overflow: hidden;
+  margin: 3%;
 }
 
 .pins .pin-item__title {
@@ -84,14 +86,16 @@
 }
 
 .pins .pin-edit__field {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-size: 14px;
 }
 
 .pins .pin-edit__label {
-  font-weight: 700;
   margin-bottom: 5px;
   display: block;
+  font-family: 'medium';
+  font-size: 16px;
+  color: #7e7e7e;
 }
 
 .pins .pin-edit__input {
@@ -102,6 +106,7 @@
   font-size: 18px;
   box-sizing: border-box;
   width: 100%;
+  background-color: #e9e9e9;
 }
 
 .pins .pin-edit__input#website {
@@ -113,7 +118,7 @@
 }
 
 .pins .pin-edit__choice label {
-  display: block;
+  display: inline-block;
   margin-left: 20px;
 }
 
@@ -199,7 +204,7 @@
 /*USER ADD PIN FORM*/
 
 .pins .pin-add__button {
-  color: #fff;
+  color: #313131;
   font-family: 'medium';
   font-size: 15px;
   background: #abcde2;
