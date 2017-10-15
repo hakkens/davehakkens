@@ -356,7 +356,7 @@ DaveHakkens.Main = function(){
           img = $(this).children('img');
           img_src = img.attr('src').replace('/hover_', '/normal_');
           img.attr('src',img_src);
-        },
+        }
       );
       // load posts when page loads
       loadPosts(initialLoad);
