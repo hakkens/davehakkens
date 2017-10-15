@@ -29,10 +29,10 @@ function allow_origin() {
 }
 
 //Load php partials for particular parts of BP
-function action_bp_before_register_page() {
+function action_bp_before_account_details_fields() {
   include_once 'register-message.php';
 }
-add_action('bp_before_register_page', 'action_bp_before_register_page');
+add_action('bp_before_account_details_fields', 'action_bp_before_account_details_fields');
 
 function action_bp_before_activation_page() {
   include_once 'activate-message.php';
