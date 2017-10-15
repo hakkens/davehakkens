@@ -67,6 +67,7 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
       }
 ?>
             </h3>
+            <p>Read more</p>
           </div>
         </a>
       </div>
@@ -160,7 +161,7 @@ continue;
   <button id="post-grid-more" class="btn-main" type="button">More please!</button>
 
   <div id="montlyNews">
-    <img src="<?php bloginfo( 'template_url' ); ?>/img/monthly.png"/>    
+    <img src="<?php bloginfo( 'template_url' ); ?>/img/monthly.png"/>
     <iframe src="https://www.youtube.com/embed/videoseries?list=PLtYgsstkMPuVdh4Y-L9RFRG1Hv3w4JC-j&modestbranding=1" frameborder="0" allowfullscreen></iframe>
   </div>
   <div id="mainCommunity" class="army-support">

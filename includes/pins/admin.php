@@ -196,11 +196,11 @@ class Pin_Table extends WP_List_Table {
     array_push($functions, '<a href="?' . $pageIdNonce . '&action=del">Delete</a>');
     array_push($functions, '<a target="_blank" href="' . $viewLink . '">View</a>');
 
-    $toggleText = $record->approval_status == 'WAITING_APPROVAL' ? 'Activate' : 'Deactivate';
-    $toggleValue = $record->approval_status == 'WAITING_APPROVAL' ? 'APPROVED' : 'WAITING_APPROVAL';
+    $toggleText = $record->approval_status == 'APPROVED' ? 'Deactivate' : 'Activate';
+    $toggleValue = $record->approval_status == 'APPROVED' ? 'WAITING_APPROVAL' : 'APPROVED';
     array_push($functions, '<a href="?' . $pageIdNonce . '&action=toggle&value=' . $toggleValue . '">' . $toggleText . '</a>');
 
-    return join('&nbsp;|&nbsp;', $functions);
+    return join(' | ', $functions);
   }
 }
 

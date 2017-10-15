@@ -85,6 +85,10 @@
     width: 48%;
 }
 
+#mainCommunity #communityContent>div {
+    padding: 40px;
+}
+
 
   div#submenu{
     display:none;
@@ -891,6 +895,12 @@ font-size: 18px;
 }
 
 @media screen and (max-width: 540px) {
+
+
+  .slider-pro {
+      display: none;
+    }
+
 
   .category-meta p {
   font-size: 20px;

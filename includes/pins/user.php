@@ -70,8 +70,8 @@ class UserPins {
     } elseif (bp_displayed_user_id() == get_current_user_id()) {
       $newUrlFragment = $this->getPinUrlFragment('');
       $username = $this->getUserName();
-      
-      echo "<a href='/community/members/$username/pins/?action=edit&$newUrlFragment' class='pin-add__button'>Add New Pin</a>";
+
+      echo "<a href='/community/members/$username/pins/?action=edit&$newUrlFragment' class='pin-add__button'>Add map pin</a>";
     }
 
     $userPinList = new UserPinList(bp_displayed_user_id());

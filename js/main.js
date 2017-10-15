@@ -319,7 +319,7 @@ DaveHakkens.Main = function(){
         }
       });
       //transform filters href to ajax request
-      $('#post-filter').find('a').click(function (event){ 
+      $('#post-filter').find('a').click(function (event){
         if($(this).hasClass('active'))return false;
         var img, img_src;
         var oldCurrent = $('#post-filter').find('.active')
@@ -367,12 +367,12 @@ DaveHakkens.Main = function(){
         responsive: true,
         touchSwipe: false,
         forceSize: 'fullWidth',
-        height: 150,
+        height: 230,
 //          height: '50vh',
         buttons: true,
         slideDistance: 0,
         autoScaleLayers: true,
-        smallSize: 300,
+        smallSize: 450,
         fade: true,
         fullScreen: true,
       });
@@ -425,7 +425,7 @@ console.log("Sticky:");
             $slide.append(img);
             $slide.append('<div class="shadow"></div><div class="meta"><h1>'+$data[i].title+'</h1><h3>#preciousplastic<h3></div>');
             $slider.append($slide);
-/*src="path/to/blank.gif" 
+/*src="path/to/blank.gif"
 */
           }
         }else{

@@ -19,9 +19,9 @@ class UserPinEdit {
 
   function get_filters() {
     return array(
-      'WORKSHOP' => 'WORKSPACE (I have Precious Plastic machines)',
-      'MACHINE' => 'MACHINE BUILDER (I can sell / build machines for others)',
-      'STARTED' => 'WANT TO GET STARTED (I want to add myself to the map and collaborate with people to start recycling)'
+      'WORKSHOP' => '<b>WORKSPACE</b> (I have Precious Plastic machines)',
+      'MACHINE' => '<b>MACHINE BUILDER</b>  (I can sell / build machines for others)',
+      'STARTED' => '<b>WANT TO GET STARTED</b>  (I want to add myself to the map and collaborate with people to start recycling)'
     );
   }
 
@@ -137,7 +137,7 @@ $statuses = $table->get_statuses();
   </fieldset>
 
   <fieldset class="pin-edit__field">
-    <legend class="pin-edit__label" id="image-label">Share some images of your workspace/ machines/ team (900 x 525 px). *Pin without images are not approved</legend>
+    <legend class="pin-edit__label" id="image-label">Share some images of your workspace/ machines/ team (900 x 525 px). <b>*Workspace-pins without an image are not approved</b></legend>
     <?php
       for ($x = 0; $x < 3; $x++) {
         $imgs = json_decode($record->imgs, true);
