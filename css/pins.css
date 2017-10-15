@@ -38,14 +38,14 @@
 }
 
 .pins .pin-item__status {
-  color: #abcde2;
+  color: #e57678;
 }
 
 .pins .pin-item__button {
   color: #fff;
   font-family: 'medium';
   font-size: 15px;
-  background: #abcde2;
+  background: #e57678;
   text-transform: lowercase;
   padding: 2px 10px;
   border-radius: 4px;
@@ -60,7 +60,7 @@
 }
 
 .pins .pin-item__button:hover {
-  background-color: #5f9eef;
+  background-color: #cc5c5e;
 }
 
 .pins .pin-item__actions {
@@ -136,7 +136,7 @@
   text-align: center;
   border-radius: 5px;
   margin-right: 4%;
-  border: 3px solid #abcde2;
+  border: 3px solid #e57678;
   box-sizing: border-box;
 }
 
@@ -157,7 +157,7 @@
 
 .pins .pin-edit__upload__icon {
   width: 60%;
-  fill: #abcde2;
+  fill: #e57678;
 }
 
 .pins .pin-edit__upload:hover .pin-edit__upload__icon {
@@ -166,7 +166,7 @@
 }
 
 .pins .pin-edit__upload__desc {
-  color: #abcde2;
+  color: #e57678;
   text-align: center;
   font-size: 14px;
   margin-bottom: 10px;
@@ -204,10 +204,10 @@
 /*USER ADD PIN FORM*/
 
 .pins .pin-add__button {
-  color: #313131;
+  color: #ffffff;
   font-family: 'medium';
   font-size: 15px;
-  background: #abcde2;
+  background: #f58d8e;
   padding: 5px 15px;
   border-radius: 4px;
   line-height: 1.9;
@@ -220,7 +220,7 @@
 }
 
 .pins .pin-add__button:hover {
-  background-color: #5f9eef;
+  background-color: #e57678;
 }
 
 /*UTILITIES*/

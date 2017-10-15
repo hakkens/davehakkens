@@ -2399,6 +2399,19 @@ div#post-mention {
     padding: 6px 12px!important;
 }
 
+.sp-slides p {
+    text-align: center;
+    font-family: 'medium';
+    margin-top: 20px!important;
+    padding: 2px 3px;
+    border: 4px solid white;
+    border-radius: 2px;
+    color: white;
+    width: 100px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.46);
+}
+
 /*
 li#activity-favorites,
 .postid-62269 #new-topic-0 {
@@ -4120,6 +4133,27 @@ div.indicator-hint p {
   display: inline-block;
 }
 
+.activation .post {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.activation-pin a {
+    color: #f58d8e;
+}
+
+
+div#activate-page {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+div#activate-page p {
+    text-align: center;
+}
+
+
+
 .list-replies-container {
   padding-bottom: 20px;
 }
@@ -5514,6 +5548,25 @@ div#member-dir-count-bottom {
   padding: 0px!important;
   }
 
+.register #submenu,
+.activation #submenu{
+      display: none;
+  }
+
+.activation #message {
+    display: none!important;
+}
+
+div#add-pin-message {
+    max-width: 500px;
+    padding-top: 20px;
+    padding: 30px 10px 10px 10px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+
 .register-section input{
 background-color: white !important;
 border: 0px !important;
@@ -6561,6 +6614,7 @@ color: black;
     width: 100%;
     height: auto;
     position: fixed;
+    z-index: 99999;
 }
 
 .page-message p {

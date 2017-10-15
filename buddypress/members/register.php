@@ -353,7 +353,7 @@
       do_action( 'bp_before_registration_confirmed' ); ?>
 
       <?php if ( bp_registration_needs_activation() ) : ?>
-        <p><?php _e( 'YEAH you have created your account! Welcome to the club. One more thing to do,  activate your account with the email we have just sent to your address. (make sure to check your spam-folder)', 'buddypress' ); ?></p>
+        <p><?php _e( 'YEAH!🤘 you have created your account!</ br> Welcome to the club. We have just sent you a mail (make sure to check your spam-folder) activate your account and go chatting in the forums or add a map pin. ', 'buddypress' ); ?></p>
       <?php else : ?>
         <p><?php _e( 'YEAH you have created your account! Go and login using the username and password you have just created.', 'buddypress' ); ?></p>
       <?php endif; ?>
