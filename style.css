@@ -1025,6 +1025,8 @@ single-format-status .post-thumbnail,
 
 .post-comments {
     padding-bottom: 10px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 textarea#comment {
@@ -3848,6 +3850,23 @@ span.create-a-group > a,
   width: 100%;
 }
 
+.page-template-page-community-images-php .post-content {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align:center;
+    font-family: medium;
+    padding-top: 0px!important;
+}
+
+.page-template-page-community-images-php .post-content h2{
+  display:none;
+}
+
+
+.page-template-page-community-images-php .post-content .widget.latest_community_uploads a{
+  height: 150px!important;
+  margin: 1%!important;
+}
 
 .single-post .tags a {
   padding: 6px 10px;
@@ -5461,7 +5480,8 @@ form#bps_directory72873 {
 .category,
 .single-post,
 .page-template-reset-password,
-.page-id-99202  {
+.page-id-99202,
+.page-template-page-community-images-php  {
   background: #edefed;
 }
 

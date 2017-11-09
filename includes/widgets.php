@@ -18,7 +18,7 @@ class Latest_Community_Uploads extends WP_Widget {
   public function widget( $args, $instance ) {
     echo !empty($args['before_widget']) ? $args['before_widget']: "<div class='latest-uploads'>";
 //    echo !empty($args['before_widget']) ? $args['before_widget']: "<div class='latest-uploads'>";
-    $title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Latest uploads' );
+    $title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( 'Latest Images' );
     $max = ( ! empty( $instance['max'] ) ) ? $instance['max'] : 10;
     if ( $title) {
       echo $args['before_title'] . apply_filters( 'widget_title', $title ) . $args['after_title'];
