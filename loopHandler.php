@@ -34,7 +34,8 @@ $sticky = get_option( 'sticky_posts' );
 if($_GET['stickyPosts'] == true){
   $queryArgs['post__in']  = get_option( 'sticky_posts' );
 }else{
-  $skipPosts = array_merge($skipPosts, $sticky);
+/** Show sticky at normal query too **/
+//  $skipPosts = array_merge($skipPosts, $sticky);
 }
 //print_r($skipPosts);
 if (count($skipPosts) > 0)
