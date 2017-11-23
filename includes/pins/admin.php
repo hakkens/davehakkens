@@ -12,9 +12,10 @@ include_once dirname( __FILE__ ) . '/pin-edit.php';
 
 class Pin_Table extends WP_List_Table {
 
-  function user_is_admin() {
+  function user_can_edit_pins() {
     $user = wp_get_current_user();
-    return in_array('administrator', (array) $user->roles);
+
+    return !!array_intersect(['administrator', 'contributor'], (array)$user->roles);
   }
 
   function __construct() {
@@ -84,7 +85,7 @@ class Pin_Table extends WP_List_Table {
       case 'edit_pin':
         if ($_POST['submit'] != 'Save') return;
         $request = $this->get_request_from_post($_POST);
-        $processor = new ProcessPin(stripslashes_deep($request), null, $this->user_is_admin());
+        $processor = new ProcessPin(stripslashes_deep($request), null, $this->user_can_edit_pins());
         $validation = $processor->validate();
         if ($validation !== true) die($validation);
         $processor->upsert_pin();
