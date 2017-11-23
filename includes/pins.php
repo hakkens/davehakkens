@@ -44,12 +44,12 @@ function pp_admin_menu() {
     ? "PP Pins <span class='update-plugins count-1'><span class='update-count'>$unapproved</span></span>"
     : "PP Pins";
 
-	add_menu_page( 'PP Pin Admin', $title, 'manage_options', 'pp-admin', 'pp_admin_page', '', 99);
+	add_menu_page( 'PP Pin Admin', $title, 'edit_posts', 'pp-admin', 'pp_admin_page', '', 99);
 }
 add_action( 'admin_menu', 'pp_admin_menu' );
 
 function pp_admin_page() {
-	if ( !current_user_can( 'manage_options' ) )  {
+	if ( !current_user_can( 'edit_posts' ) )  {
 		wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
   }
 
