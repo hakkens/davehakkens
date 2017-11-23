@@ -3,9 +3,9 @@ require_once(ABSPATH . 'wp-admin/includes/file.php');
 
 class ProcessPin {
 
-  function __construct($request, $files, $userIsAdmin) {
+  function __construct($request, $files, $canEditPins) {
     $this->request = $request;
-    $this->userIsAdmin = $userIsAdmin;
+    $this->canEditPins = $canEditPins;
     $this->recordId = $request['id'];
     $this->files = $files;
     $this->isCreate = empty($this->recordId);
@@ -42,7 +42,7 @@ class ProcessPin {
 
     //only admins can change records that aren't theirs
     $this->currentRecord = $this->get_record_by_id($this->recordId);
-    if (!$this->userIsAdmin && !$this->isCreate) {
+    if (!$this->canEditPins && !$this->isCreate) {
       if ($this->currentRecord->user_ID != get_current_user_id()) return 'You cannot edit other users records.';
     }
 
