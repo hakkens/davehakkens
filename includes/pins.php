@@ -4,7 +4,7 @@
 function wpse_enqueue_page_template_scripts() {
   if ( bp_is_current_component( 'pins' ) ) {
     wp_enqueue_style( 'pins', get_template_directory_uri() . '/css/pins.css' );
-    wp_enqueue_script( 'pins', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDWVlrKqGIsaic-hlfBJAHfvhvkLj_EvDo&callback=initMap&libraries=places', array('dh_plugins') );
+    wp_enqueue_script( 'pins', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCrb3BB8Wg-YaCs8JXtFCeNGY2YPAmATrc&callback=initMap&libraries=places', array('dh_plugins') );
   }
 }
 add_action( 'wp_enqueue_scripts', 'wpse_enqueue_page_template_scripts' );
