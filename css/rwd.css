@@ -1126,8 +1126,9 @@ div#expertiseinfo {
 
   .comment-body .comment-author img {
     border: none;
-    width: 30px;
+    width: 40px;
     height: auto;
+    margin-top: 30px;
   }
 
   .comment-body::before {

@@ -47,6 +47,7 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
     'avatar_size' => 80,
   ));
   ?>
+
   </ol>
 
   <div class="navigation">

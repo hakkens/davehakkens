@@ -481,4 +481,7 @@ function davehakkens2_widgets_init() {
 }
 
 add_action( 'widgets_init', 'davehakkens2_widgets_init' );
+
+
+
 ?>

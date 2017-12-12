@@ -59,10 +59,6 @@
             </div>
             </div>
 
-
-
-</div>
-
 <div class="background-comments">
 <div class="post-comments">
   <?php comments_template(); ?>

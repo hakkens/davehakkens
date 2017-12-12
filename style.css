@@ -674,6 +674,7 @@ a:hover {
 .single .post .commentlist {
   padding-left: 100px;
   padding-top: 40px;
+  margin: 0 auto;
 }
 
 .page .post .commentlist li,
@@ -1025,16 +1026,18 @@ single-format-status .post-thumbnail,
 
 .post-comments {
     padding-bottom: 10px;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
 textarea#comment {
-    padding: 20px;
+    padding: 15px;
     box-sizing: border-box;
     border: 0px;
-    height: 200px;
-    }
+    height: 100px;
+    font-size: 15px;
+    border-radius: 3px;
+}
 
 
 h3#comments, div#respond h3 {
@@ -1042,6 +1045,7 @@ h3#comments, div#respond h3 {
     text-align: center;
     padding: 40px;
     padding-top: 80px;
+    display: none;
 }
 
 .sp-buttons {
@@ -1465,6 +1469,11 @@ video {
     background-position: center center !important;
 }
 
+a.wp_ulike_btn.wp_ulike_put_image:hover {
+    opacity: 0.7;
+    background-size: 24px auto !important;
+}
+
 
 a.wp_ulike_btn.wp_ulike_put_image.image-unlike {
     background: url(/wp-content/themes/davehakkens2.2/img/like.png) no-repeat !important;
@@ -1489,8 +1498,16 @@ a.wp_ulike_btn.wp_ulike_put_image.image-unlike {
 
 
 .comment .wpulike {
-    float: right;
-    top: -5px;
+  float: right;
+  padding-top: 15px;
+  padding-left: 5px;
+  display:block;
+}
+
+.comment .wpulike-heart .count-box {
+    float: left;
+    padding-top: 4px;
+    padding:2px;
 }
 
 
@@ -3920,25 +3937,26 @@ div#respond {
 .comment-body {
   background: #fff;
   border: 1px solid #eee;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
   position: relative;
-  padding: 20px 20px 30px 20px;
+  padding: 0px 18px 0px 20px;
 }
 
 .comment-body .comment-author {
-  left: -120px;
+  left: -104px;
   padding: 10px;
   position: absolute;
   text-align: center;
-  width: 84px;
+  width: 60px;
   top: -10px;
 }
 
-.comment-body .comment-author a {
-  font-size: 12px;
-  text-decoration: none;
-  color: black;
-  word-break: break-all;
+.comment-body .comment-author a,
+.comment-body .comment-author {
+    font-size: 10px!important;
+    text-decoration: none;
+    color: #565656;
+    font-style: normal;
 }
 
 .comment-body .comment-author .says {
@@ -3946,8 +3964,9 @@ div#respond {
 }
 
 .comment-body .comment-author img {
-  border: 4px solid rgba(238, 238, 238, 0);
   border-radius: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .comment-body .comment-meta {
@@ -3965,6 +3984,7 @@ div#respond {
   font-size: 12px;
   padding-right: 65px;
   margin-top: 15px;
+  display: none;
 }
 
 .comment-body .comment-meta a {
@@ -3980,8 +4000,10 @@ div#respond {
 
 .comment-body p {
   margin: 0;
-  padding: 10px;
-  padding-top: 30px;
+  padding: 5px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 50px;
 }
 
 .comment-body::before {
@@ -3992,15 +4014,35 @@ div#respond {
   position: absolute;
   height: 40px;
   width: 20px;
-  top: 26px;
+  top: 10px;
 }
 
 .comment-body .reply {
-  left: 20px;
-  padding: 10px;
+  padding: 6px 6px 0px 0px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: right;
+  font-size: 12px;
+  text-transform: capitalize;
   display: inline-block;
-  font-size: 14px;
+  float: right;
 }
+
+.comment-body .reply a {
+    color: #9a9a9a;
+}
+
+.comment-body .reply a:hover {
+    color: #9a9a9a;
+}
+
+.comment-body .reply a:hover {
+    color: #5e94da!important;
+    text-decoration: underline;
+}
+
+
+
 
 ol.comment-list ol.children {
   margin-left: 120px;
