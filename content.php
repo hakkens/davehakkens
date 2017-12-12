@@ -5,13 +5,17 @@
 
   <div class="meta">
     <h1><?php the_title(); ?></h1>
-<div class="date"> <?php the_time('F j, Y'); ?><br /></div>
 
   </div>
 
 </div>
 
 <div class="post-content">
+  <div class="authorinfo"> <p>
+ <div class="avatar"><?php echo get_avatar( get_the_author_meta( 'ID' ), 32 ); ?> </div>
+<div class="author"> <?php the_author(); ?>  </div>
+<div class="date"> <?php the_time('F j, Y'); ?></p></div>
+</div>
   <?php the_content(); ?>
 </div>
 
@@ -58,6 +62,9 @@
               wp_reset_postdata(); ?>
             </div>
             </div>
+
+
+
 
 <div class="background-comments">
 <div class="post-comments">

@@ -105,8 +105,11 @@ p.wp-caption-text {
   color: #8f8f8f;
   font-family: 'bold';
   font-size: 14px;
-  margin-top: 50px;
+  margin-top: 0px;
+  display: inline-block;
+  margin-left: 20px;
 }
+
 
 .single-post h2 {
   font-weight: 200;
@@ -715,11 +718,7 @@ a:hover {
 }
 
 
-.single-format-image .date {
-    margin-top: 0px;
-    display: inline-block;
-    margin-left: 20px;
-}
+
 
 .authorinfo .author {
     display:inline-block;
@@ -880,17 +879,6 @@ padding: 6px 10px;
     text-align: center;
 }
 
-
-.single-post .date {
-
-}
-
-.single-format-standard .date.date {
-    color: gainsboro;
-    font-family: medium;
-    font-size: 20px;
-    text-align:center;
-}
 
 #post-grid .item .tags a{
   margin-right: 5px;
