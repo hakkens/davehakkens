@@ -6420,8 +6420,9 @@ body#tinymce {
     display: inline-block;
 }
 
-.single-post .tags {
-    display: none;
+.single-post .post-content .wpulike {
+    display:inherit;
+    text-align: center;
 }
 
 .category .tags a {

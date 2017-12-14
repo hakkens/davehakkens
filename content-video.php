@@ -39,8 +39,21 @@
     }?>
     <h1><?php the_title(); ?></h1>
     <?php the_content();?>
-    <div class="meta"> <div class="categories"> <?php the_category( ' ' ); ?></div>
-<div class="tags"> <p><?php the_tags('', ' ', '<br />'); ?> </p></div>  <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?></div>
+    <div class="meta">
+<div class="tags"> <p>
+<?php
+if($catID!= ''){
+  foreach (get_the_tags() as $tag){
+    echo ' #' . $tag->name . ' ';
+  }
+} else {
+  foreach (get_the_tags() as $tag){
+    echo ' <a href="/tag/' . $tag->name . '">#' . $tag->name . '</a>';
+  }
+}
+?>
+
+</p></div>  <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?></div>
 </div>
 </div>
 
