@@ -6666,6 +6666,7 @@ color: black;
     height: auto;
     position: fixed;
     z-index: 99999;
+    display:none;
 }
 
 .page-message p {
