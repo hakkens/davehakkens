@@ -6642,6 +6642,11 @@ color: black;
 }
 
 
+.activity option[value=activity_update],
+.activity option[value=wp_like_group] {
+    display: none;
+}
+
 
 /* END COUNTRY FLAG CODE */
 
