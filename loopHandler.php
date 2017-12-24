@@ -87,7 +87,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
         </div>
       </a>
       <h3><a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a></h3>
-      <?php the_content(); ?>
+      <?php the_excerpt(); ?>
       <div class="read_more">
         <a href="<?php echo get_post_permalink(); ?>">Read full story &rarr;</a>
       </div>
@@ -141,7 +141,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
           echo '<div class="vine-container"><img src="'.get_vine_thumbnail($video_code).'"><a href="' . $video_code . '"><img src="' . get_bloginfo('template_url') . '/img/youtube-style-play-button-md.png"></a></div>';}?>
 </div>
         <a href="<?php echo get_post_permalink(); ?>"> <h3><?php the_title(); ?></h3></a>
-          <?php the_content();?>
+          <?php the_excerpt(); ?>
 
 
     <?php endif; ?>
@@ -182,7 +182,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
       </a>
       <div class="shadow"></div>
       <h3><a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a></h3>
-      <?php the_content(); ?>
+      <?php the_excerpt(); ?>
     <?php endif; ?>
   <div class="post_meta">
     <div class="tags"> <?php

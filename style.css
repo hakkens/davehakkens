@@ -3918,6 +3918,7 @@ div#respond {
 
 #respond p {
   text-align: center;
+  font-size: 14px;
 }
 
 
@@ -5611,9 +5612,12 @@ div#member-dir-count-bottom {
   }
 
 .register #submenu,
-.activation #submenu{
+.activation #submenu,
+.bp-user {
       display: none;
   }
+
+
 
 .activation #message {
     display: none!important;

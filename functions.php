@@ -188,17 +188,7 @@ function give_remove_billing_fields(){
 add_action('init', 'give_remove_billing_fields');
 
 
-//Shorter title instagram imports
-add_filter( 'dsgnwrks_instagram_pre_save', 'dsgnwrks_qa_make_title_excerpted' );
-function dsgnwrks_qa_make_title_excerpted( $import ) {
-	if ( isset( $import['post_title'] ) ) {
-		// feel free to edit these 2 values
-		$number_of_words = 5;
-		$more = '...';
-		$import['post_title'] = wp_trim_words( $import['post_title'], $number_of_words, $more );
-	}
-	return $import;
-}
+
 
 //change more.. on homepage
 function modify_read_more_link() {
@@ -435,7 +425,7 @@ $isa_user_caps = new ISA_User_Caps();
 
 
 function tinymce_other_css_for_content( $init ) {
-$init['content_css'] = get_bloginfo('stylesheet_url') . "style.css";
+$init['content_css'] = get_bloginfo('stylesheet_url');
 return $init;
 }
 
@@ -484,7 +474,17 @@ add_filter('teeny_mce_before_init','configure_tinymce', 99999999999);
 
 
 
+function custom_excerpt_length( $length ) {
+	return 30;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+// Replaces the excerpt "Read More" text by a link
+function new_excerpt_more($more) {
+       global $post;
+	return '<a class="moretag" href="'. get_permalink($post->ID) . '"> Read more...</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 
 
