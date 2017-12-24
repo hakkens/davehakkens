@@ -33,6 +33,7 @@
     <div class="smallHalf">
 
       <?php the_widget('Latest_Community_Uploads', "max=12");?>
+      <div class="dashboard-detail">show more images</div>
       <div class="tabbed"><div class="posttab">
         <div class="header">
           <h2 class="tab active" data-tab="tab_topics">Topics</h2>
@@ -58,6 +59,7 @@
         </div>
       </div>
           </div>
+
       <div class="tabbed"><div class="memberstab">
         <div class="header">
           <h3 class="tab2 active" data-tab="points">points</h3>

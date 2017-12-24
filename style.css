@@ -4825,6 +4825,18 @@ form#send_message_form img.avatar.user-40296-avatar.avatar-15.photo {
   border-radius: 6px;
 }
 
+.menunotification {
+    display: inline-block;
+}
+
+.menunotification .littlenotification {
+    font-size: 14px;
+    margin-left: -11px;
+    margin-top: -20px;
+    position: absolute;
+    border-radius: 100px;
+}
+
 table.notifications tr {
     background-color: #fff!important;
 }
@@ -6221,19 +6233,21 @@ html.touch #content.projects-page {
 }
 
 
-.div#mceu_13, div#mceu_8, div#mceu_7, div#mceu_6, div#mceu_5, div#mceu_4, div#mceu_13 {
+.div#mceu_13, div#mceu_8, div#mceu_7, div#mceu_6, div#mceu_5, div#mceu_4, div#mceu_13, div#mceu_39 {
   display:none;
 }
 
 body#tinymce p,
 body#tinymce,
 .mce-content-body,
-.mce-content-body p{
+.mce-content-body p,
+body#tinymce.mceContentBody.bbp_reply_content.post-type-topic.wp-editor {
     line-height: 1.9!important;
     letter-spacing: 0.5px!important;
     font-family: 'Open Sans'!important;
     font-size: 14px!important;
 }
+
 
 
 .mce-content-body blockquote {
@@ -6424,6 +6438,13 @@ body#tinymce {
     display:inherit;
     text-align: center;
 }
+
+.single-post .tiles .avatar {
+    width: 50px;
+    margin: 5px;
+    border-radius: 100px;
+}
+
 
 .category .tags a {
     padding: 6px 10px;

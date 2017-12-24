@@ -81,6 +81,21 @@
           <span class="avatar">
             <a href="<?= bp_loggedin_user_domain(); ?>"><?= get_avatar( $current_user->user_email, 22 ); ?></a>
           </span>
+          <div class="menunotification">
+          <div class="littlenotification">
+
+
+
+<!--  bp_notifications_get_unread_notification_count -->
+<?php  $count = bp_get_total_unread_messages_count();
+            if ( $count > 0 ) {
+              echo $count;
+            } else {
+              // The notif count is 0.
+            }
+            ?> </div></div></a>
+
+
           <div class="actions">
             <div class="triangle"> </div>
             <div class="submenu">

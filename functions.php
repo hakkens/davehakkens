@@ -434,11 +434,52 @@ $isa_user_caps = new ISA_User_Caps();
 
 
 
+function tinymce_other_css_for_content( $init ) {
+$init['content_css'] = get_bloginfo('stylesheet_url') . "style.css";
+return $init;
+}
+
+add_filter('tiny_mce_before_init', 'tinymce_other_css_for_content');
 
 
+// ALTER TinyMCE INIT FOR VISUAL EDITOR ON FORUM TOPICS AND REPLIES
+// SOURCE: https://bbpress.org/forums/topic/alter-mceinit-for-visual-editor-on-topics/
 
+// Enable visual editor on tinymce in bbPress
+function bbp_enable_visual_editor( $args = array() ) {
+    $args['tinymce'] = true;
+    $args['quicktags'] = false;
+    return $args;
+}
+add_filter( 'bbp_after_get_the_content_parse_args', 'bbp_enable_visual_editor' );
 
+// Enable TinyMCE paste plugin
+function bbp_add_paste_plugin($args) {
+  $args[] = 'paste';
+  return $args;
+}
+add_filter( 'teeny_mce_plugins', 'bbp_add_paste_plugin');
 
+// ADDS A JQUERY PASTE PREPROCESSOR TO REMOVE DISALLOWED TAGS WHILE PASTING
+// SOURCE https://jonathannicol.com/blog/2015/02/19/clean-pasted-text-in-wordpress/
+function configure_tinymce($in) {
+  $in['paste_preprocess'] = "function(plugin, args){
+    // Strip all HTML tags except those we have whitelisted
+    var whitelist = 'a,p,b,strong,i';
+    var stripped = jQuery('<div>' + args.content + '</div>');
+    var els = stripped.find('*').not(whitelist);
+    for (var i = els.length - 1; i >= 0; i--) {
+      var e = els[i];
+      jQuery(e).replaceWith(e.innerHTML);
+    }
+    // Strip all class and id attributes
+    stripped.find('*').removeAttr('id').removeAttr('class');
+    // Return the clean HTML
+    args.content = stripped.html();
+  }";
+  return $in;
+}
+add_filter('teeny_mce_before_init','configure_tinymce', 99999999999);
 
 
 
