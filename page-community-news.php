@@ -88,17 +88,19 @@
               echo "<ul>";
               $donors = Give()->donors->get_donors( $args );
               foreach ( $donors as $donor ) {
-                echo "<li>";
-                echo "<span class='amount'>&euro;". number_format(floatval($donor->purchase_value)) . "</span>";
-                if($donor->user_id != 0){
-                  echo "<span class='user'><a href='". bp_core_get_userlink($donor->user_id, 0 ,1)  ."'>By ". $donor->name . "</a></span>";
-                }else{
-                  echo "<span class='user'>By ". $donor->name . "</span>";
+                if(floatval($donor->purchase_value) > 0){
+                  echo "<li>";
+                  echo "<span class='amount'>&euro;". number_format(floatval($donor->purchase_value)) . "</span>";
+                  if($donor->user_id != 0){
+                    echo "<span class='user'><a href='". bp_core_get_userlink($donor->user_id, 0 ,1)  ."'>By ". $donor->name . "</a></span>";
+                  }else{
+                    echo "<span class='user'>By ". $donor->name . "</span>";
+                  }
+                  $since = human_time_diff(strtotime($donor->date_created), current_time('timestamp')) .  " ago";
+                  echo "<span class='since'>". $since . "</span>";
+                  echo "</li>";
+//                  echo "<pre>"; var_dump( $donor );echo "</pre>";
                 }
-                $since = human_time_diff(strtotime($donor->date_created), current_time('timestamp')) .  " ago";
-                echo "<span class='since'>". $since . "</span>";
-                echo "</li>";
-//                echo "<pre>"; var_dump( $donor );echo "</pre>";
               }
               echo "</ul>";
             }
