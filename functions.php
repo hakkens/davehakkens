@@ -424,6 +424,7 @@ $isa_user_caps = new ISA_User_Caps();
 
 
 
+
 function tinymce_other_css_for_content( $init ) {
 $init['content_css'] = get_bloginfo('stylesheet_url');
 return $init;

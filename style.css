@@ -3215,7 +3215,7 @@ ul.bbp-topic-revision-log li {
 }
 
 #item-nav #notifications-personal-li,
-#forums-personal-li{
+#activity-personal-li{
   display: none !important;
 }
 
@@ -3257,10 +3257,11 @@ form#profile-edit-form .button-nav {
 }
 
 .profile-edit .standard-form input, select {
-    padding: 15px!important;
-    box-sizing: border-box;
-    border: 0px!important;
-    font-size: 18px!important;
+  padding: 15px!important;
+  box-sizing: border-box;
+  font-size: 18px!important;
+  background: #f3f3f3!important;
+  border: 1px dashed black!important;
 }
 
 .profile-edit select {
@@ -4909,6 +4910,21 @@ td.notification-actions {
   padding-bottom: 25px;
 }
 
+
+#message-threads td.thread-from {
+    width: 20%;
+}
+
+#buddypress #message-threads .thread-info {
+    width: 100%!important;
+}
+
+#buddypress table.notification-settings .yes {
+    text-align: right;
+    width: 100%;
+    padding: 10px;
+
+  }
 .messages span.activity {
   display: none!important;
 }
@@ -4968,17 +4984,19 @@ td.notification-since {
   font-family: 'medium'!important;
   color: black!important;
   font-size: 18px!important;
-  background-color:white!important;
+  border: 1px dashed black!important;
+  background-color: #f3f3f3!important;
 }
 
 form#send_message_form {
   font-family: 'medium';
   font-size: 20px;
+  padding: 20px;
 }
 
 .messages a.delete{
   padding: 7px;
-  background-color: #aceabd;
+  background-color: #da9292;
   border-radius: 3px;
 }
 
@@ -5372,6 +5390,7 @@ div#expertiseinfo {
   vertical-align: middle;
   -webkit-appearance: none;
   padding-left: 50px!important;
+  border: 1px dashed black!important;
 }
 
 .members input#field_any {
@@ -5613,7 +5632,7 @@ div#member-dir-count-bottom {
 
 .register #submenu,
 .activation #submenu,
-.bp-user {
+.bp-user #submenu {
       display: none;
   }
 
