@@ -3018,7 +3018,7 @@ ul.bbp-topic-revision-log li {
 }
 
 .topic-reply {
-  margin: 80px auto 0 auto;
+  margin: 40px auto 0 auto;
   width: auto;
 }
 
@@ -3267,6 +3267,55 @@ form#profile-edit-form .button-nav {
 .profile-edit select {
    height: 40px!important;
 }
+
+
+.bp-user .bbp-topic-title a {
+    display: inline;
+}
+
+.bp-user .bbp-topic-freshness {
+    display: none;
+}
+
+.bp-user .author-avatar {
+
+}
+
+.bp-user li.bbp-topic-title {
+    width: 90%!important;
+}
+
+.bp-user .bbp-topic-started-by img {
+    display: none;
+}
+
+
+.bp-user #bbpress-forums ul.bbp-topics {
+    border-top: 1px solid #eee!important;
+}
+
+
+.bp-user .bbp-pagination {
+    width: 100%;
+    margin: 0 auto;
+    float: inherit !important;
+    text-align: center;
+    padding: 0px;
+}
+
+.bp-user #bbpress-forums h2 {
+    text-align: center;
+}
+
+
+.bp-user .bbp-user-replies-created #mycred-users-badges {
+    display: none;
+}
+
+.bp-user .bbp-user-replies-created .list-replies{
+    background-color: #edefed!important;
+}
+
 
 
 #buddypress .standard-form p.description
@@ -4229,7 +4278,6 @@ div#activate-page p {
 
 .bp-user .post {
   margin: 0 auto;
-  padding-top: 40px;
 }
 
 .single.bp-user .post .post-content {
@@ -4245,14 +4293,15 @@ div#activate-page p {
   position: relative;
   text-align: center;
   letter-spacing: 0.7px;
+  background-color: #b0d7ff;
 }
 
 #buddypress #item-nav {
   margin-bottom: 20px;
   font-family: 'medium';
   box-sizing: border-box;
-  padding: 10px;
-  background-color: #edefed;
+  padding: 15px;
+  background-color: white;
 }
 
 li#profile-personal-li {
@@ -4269,7 +4318,9 @@ li#profile-personal-li {
 }
 
 #buddypress #item-nav a {
-  color: #5e94da!important;
+  color: #000000!important;
+  font-size: 16px!important;
+  margin: 5px;
 }
 
 #buddypress #item-body {
@@ -4504,6 +4555,7 @@ div#item-header h2.user-nicename {
   border-radius: 100%;
   border: 4px solid rgba(255, 255, 255, 0);
   width: 200px;
+  margin-top: 30px!important;
 }
 
 #item-header-content #latest-update,
@@ -5465,9 +5517,9 @@ form#bps_directory72873 {
   background: none !important;
   border-radius: 0% !important;
   border: 0px solid #ccc !important;
-  font-size: 100% !important;
+  font-size: 84% !important;
   vertical-align: inherit !important;
-  padding: 0px 10px 0px 0px !important;
+  padding: 2px 3px!important;
 }
 
 #buddypress div.item-list-tabs ul li a,
@@ -5581,8 +5633,7 @@ form#bps_directory72873 {
 .page-id-99202 section#primary,
 #buddypress {
   margin: 0 auto;
-  width: 80%;
-  max-width: 1200px;
+  width: 100%;
 }
 
 .post-content {
@@ -5595,15 +5646,18 @@ form#bps_directory72873 {
 }
 
 
-.bp-user .post #buddypress {
+.bp-user .post #item-body {
   background: white;
   margin-bottom: 100px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.07);
-  width: 60%;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 
+
+#buddypress table.notification-settings th.title, #buddypress table.profile-settings th.title {
+    width: 100%;
+}
 
 
 .page-template-page-empty #content {
