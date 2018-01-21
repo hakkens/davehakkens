@@ -4288,12 +4288,19 @@ div#activate-page p {
   box-shadow: none;
 }
 
+div#item-header-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
 #buddypress #item-header {
-  padding: 60px 10px 10px 10px;
   position: relative;
-  text-align: center;
   letter-spacing: 0.7px;
   background-color: #b0d7ff;
+  padding-top:80px!important;
+  padding-bottom:70px!important;
+
 }
 
 #buddypress #item-nav {
@@ -4330,9 +4337,12 @@ li#profile-personal-li {
 }
 
 .profile #buddypress #item-body {
-    padding: 20px;
-    padding: 0px 60px;
+    background: none;
+    margin-bottom: 100px;
+    box-shadow: none;
+    max-width: 800px;
 }
+
 
 
 
@@ -4341,15 +4351,13 @@ li#profile-personal-li {
   width: 24%;
   background-color: #ffffff;
   padding: 5px;
-  margin: 3%;
+  width: 32%;
+  margin: 1%;
   border-radius: 100%;
 }
 
 div#mycred-users-badges {
-  margin-top: 40px;
-  padding-bottom: 50px;
-  text-align: center;
-}
+  display: inline-block;}
 
 #item-header img.mycred-badge.earned{
   width: 50px;
@@ -4542,7 +4550,6 @@ div#mycred-users-badges {
 }
 
 #buddypress div#item-header div#item-header-content {
-  float: none !important;
   font-family: 'medium';
 }
 
@@ -4551,11 +4558,8 @@ div#item-header h2.user-nicename {
 }
 
 #buddypress div#item-header img.avatar {
-  float: none !important;
-  border-radius: 100%;
-  border: 4px solid rgba(255, 255, 255, 0);
-  width: 200px;
-  margin-top: 30px!important;
+    border-radius: 100%;
+    width: 150px;
 }
 
 #item-header-content #latest-update,
@@ -4624,6 +4628,7 @@ a.bp-avatar-nav-item {
 }
 
 
+
 #buddypress .change-avatar p.warning{
   padding:20px!important;
 }
@@ -4645,7 +4650,7 @@ a.bp-avatar-nav-item {
 }
 
 #buddypress div.profile p {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   padding: 20px;
   padding-left: 100px;
@@ -4655,6 +4660,9 @@ a.bp-avatar-nav-item {
 #buddypress .profile .bp-widget.base {
     background-color: white;
     border-radius: 4px;
+    width: 63%;
+    margin:1%;
+    display: inline-block;
 }
 
 #buddypress .profile .bp-widget.additional-information{
@@ -4679,8 +4687,17 @@ tr.field_1.field_current_balance_mycred_default td.data {
 #buddypress .profile .dedication {
     text-align: center;
     font-size: 30px;
-    padding-top: 40px;
 }
+
+.profilesidebar {
+    width: 32%;
+    margin: 1%;
+    vertical-align: top;
+    display: inline-block;
+    background-color: white;
+}
+
+
 
 #buddypress .profile .bp-widget.base .field_1 {
     background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/login.png")!important;
@@ -5452,6 +5469,7 @@ div#expertiseinfo {
 .field_any-field p.description {
     display: none;
 }
+
 
 .members .field_any-field, .members .editfield {
     display: block;

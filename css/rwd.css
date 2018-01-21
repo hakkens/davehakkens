@@ -897,6 +897,18 @@ font-size: 18px;
 @media screen and (max-width: 540px) {
 
 
+  .bp-widget.base {
+      width: 95%;
+      margin: 0 auto;
+      display: block;
+  }
+
+  .profilesidebar {
+    width: 95%;
+    margin: 0 auto;
+    display: block;
+}
+
   .slider-pro {
       display: none;
     }
