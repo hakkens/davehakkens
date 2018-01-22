@@ -897,6 +897,12 @@ font-size: 18px;
 @media screen and (max-width: 540px) {
 
 
+  #buddypress .messages span.activity {
+      float: left; 
+    }
+
+
+
   .bp-widget.base {
       width: 95%;
       margin: 0 auto;

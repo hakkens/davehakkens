@@ -49,6 +49,7 @@ do_action( 'bp_before_member_messages_loop' ); ?>
           <th scope="col" class="thread-from"><?php _e( 'From', 'buddypress' ); ?></th>
           <th scope="col" class="thread-info"><?php _e( 'Subject', 'buddypress' ); ?></th>
 
+
           <?php
 
           /**
@@ -80,23 +81,24 @@ do_action( 'bp_before_member_messages_loop' ); ?>
 
             <?php if ( 'sentbox' != bp_current_action() ) : ?>
               <td class="thread-from">
-                <?php bp_message_thread_avatar( array( 'width' => 25, 'height' => 25 ) ); ?>
-                <span class="from"><?php _e( '', 'buddypress' ); ?></span> <?php bp_message_thread_from(); ?>
-                <?php bp_message_thread_total_and_unread_count(); ?>
-                <span class="activity"><?php bp_message_thread_last_post_date(); ?></span>
+                <?php bp_message_thread_avatar( array( 'width' => 50, 'height' => 50 ) ); ?>
+
               </td>
             <?php else: ?>
               <td class="thread-from">
-                <?php bp_message_thread_avatar( array( 'width' => 25, 'height' => 25 ) ); ?>
-                <span class="to"><?php _e( 'To:', 'buddypress' ); ?></span> <?php bp_message_thread_to(); ?>
-                <?php bp_message_thread_total_and_unread_count(); ?>
-                <span class="activity"><?php bp_message_thread_last_post_date(); ?></span>
+                <?php bp_message_thread_avatar( array( 'width' => 50, 'height' => 50 ) ); ?>
+
+
               </td>
             <?php endif; ?>
 
             <td class="thread-info">
-              <p><a href="<?php bp_message_thread_view_link(); ?>" title="<?php esc_attr_e( "View Message", "buddypress" ); ?>"><?php bp_message_thread_subject(); ?></a></p>
-              <p class="thread-excerpt"><?php bp_message_thread_excerpt(); ?></p>
+              <div class="thread-header">
+              <span class="from"><?php _e( '', 'buddypress' ); ?></span> <?php bp_message_thread_from(); ?>    <?php bp_message_thread_total_and_unread_count(); ?>
+              <span class="activity"><?php bp_message_thread_last_post_date(); ?></span>
+            </div>
+              <p class="thread-excerpt"><a href="<?php bp_message_thread_view_link(); ?>" title="<?php esc_attr_e( "View Message", "buddypress" ); ?>"><?php bp_message_thread_excerpt(); ?></a></p>
+
             </td>
 
             <?php

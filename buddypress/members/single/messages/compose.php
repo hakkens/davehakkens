@@ -16,13 +16,13 @@
       <input type="text" name="send-to-input" class="send-to-input" id="send-to-input" />
     </li>
   </ul>
-
+<div class="toallusers">
   <?php if ( bp_current_user_can( 'bp_moderate' ) ) : ?>
-    <input type="checkbox" id="send-notice" name="send-notice" value="1" /> <?php _e( "This is a notice to all users.", "buddypress" ); ?>
-  <?php endif; ?>
+    <input type="checkbox" id="send-notice" name="send-notice" value="1" /> <?php _e( "This is a message to all users.(dont't use!)", "buddypress" ); ?>
+  <?php endif; ?></div>
 
-  <label for="subject"><?php _e( 'Subject', 'buddypress' ); ?></label>
-  <input type="text" name="subject" id="subject" value="<?php bp_messages_subject_value(); ?>" />
+  <label for="subject"></label>
+  <input type="hidden" name="subject" id="subject" value="private message" />
 
   <label for="content"><?php _e( 'Message', 'buddypress' ); ?></label>
   <textarea name="content" id="message_content" rows="15" cols="40"><?php bp_messages_content_value(); ?></textarea>
