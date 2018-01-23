@@ -6,7 +6,7 @@
 */
 
 header( 'HTTP/1.1 301 Moved Permanently' );
-header( 'Location: /community/introduction' );
+header( 'Location: /community/join' );
 exit;
 
 ?>

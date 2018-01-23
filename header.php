@@ -53,15 +53,23 @@
       <li><a class="news<?php echo $current_url == '/' ? ' current' : '' ; ?>" href="<?php bloginfo('url'); ?>">News</a></li>
       <li><a class="projects<?php echo $current_url == '/projects/' ? ' current' : '' ; ?>" href="/projects/">Projects</a></li>
       <li><a class="about<?php echo $current_url == '/about/' ? ' current' : '' ; ?>" href="/about/">About</a></li>
-      <li><a class="community<?php echo strpos($current_url, 'community') ? ' current' : '' ; ?>" href="/community/forums">Community</a>
+      <li><a class="community<?php echo strpos($current_url, 'community') ? ' current' : '' ; ?>" href="<?php
+if ( is_user_logged_in() )
+{
+   echo home_url( '/community/activity' );
+}
+else
+{
+    echo home_url( '/community' );
+}
+?>">Community</a>
 
         <ul>
-          <li><a class="introduction<?php echo strpos($current_url, 'introduction') ? ' current' : '' ; ?>" href="/community/introduction/">Introduction</a></li>
-          <li><a class="communitynews<?php echo strpos($current_url, 'communitynews') ? ' current' : '' ; ?>" href="/community/dashboard">Activity</a></li>
+          <li><a class="communitynews<?php echo strpos($current_url, 'communitynews') ? ' current' : '' ; ?>" href="/community/activity">Activity</a></li>
           <li><a class="forums<?php echo strpos($current_url, 'forums') ? ' current' : '' ; ?>" href="/community/forums/">Forums</a></li>
           <li><a class="members<?php echo strpos($current_url, 'members') ? ' current' : '' ; ?>" href="/community/members/">Members</a></li>
           <li><a class="helpus<?php echo strpos($current_url, 'helpus') ? ' current' : '' ; ?>" href="/community/help-out/">Help us</a></li>
-          <li><a class="army<?php echo strpos($current_url, 'army') ? ' current' : '' ; ?>" href="/community/army/">Army</a></li>
+          <li><a class="army<?php echo strpos($current_url, 'army') ? ' current' : '' ; ?>" href="/community/join/">Army</a></li>
         </ul>
 
       </li>
@@ -136,4 +144,3 @@
 
   </div>
 </div>
-<a href="https://next.preciousplastic.com" target="_tab"><div class="notification"> <div class="text"> Support our newest Precious Plastic campaign 🍌 </div></div></a>

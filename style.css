@@ -213,7 +213,7 @@ a:hover {
   padding: 10px;
 }
 
-.page-id-73512 #topbar {
+.page-template-page-community-join #topbar {
     height: auto;
     width: 100%;
     padding: 10px;
@@ -352,7 +352,7 @@ a:hover {
 }
 
 #navbar > ul {
-  margin-top: 0;
+  margin-top: 10px;
   margin-left: 135px;
   margin-right: 93px;
 }
@@ -363,6 +363,7 @@ a:hover {
   margin-left: -20px;
   font-size: 0;
   width: 100%;
+  float: left;
 }
 
 #community-menu {
@@ -2245,7 +2246,7 @@ div#post-mention {
   box-sizing: border-box;
 }
 
-.page-template-page-community-intro #background {
+.page-template-page-community-join #background {
     height: auto;
     background-color: #edefed;
     display: inline-block;
@@ -2253,7 +2254,7 @@ div#post-mention {
     padding-bottom: 100px;
 }
 
-.page-id-73512 h2 {
+.page-template-page-community-joinh2 {
     font-family: 'medium';
     font-size: 40px;
     padding-bottom: 20px;
@@ -2268,7 +2269,7 @@ div#post-mention {
     text-decoration: underline;
 }
 
-.page-id-73512 .thumbnail:hover {
+.page-template-page-community-join .thumbnail:hover {
     background-color: #ffffff;;
     border-radius:4px;
 }
@@ -2308,13 +2309,13 @@ div#post-mention {
     height: auto;
 }
 
-.page-id-73512 #wide {
+.page-template-page-community-join#wide {
     max-width: 1300px;
     margin: 0 auto;
     padding:20px;
 }
 
-.page-id-73512 #content .wide {
+.page-template-page-community-join#content .wide {
     max-width: 800px;
     margin: 0 auto;
     padding: 15px;
@@ -2689,7 +2690,7 @@ display:inline;
 .postid-62343 .page-forum,
 .postid-4560 .page-forum,
 .bbpress .post.no-headerimage,
-.page-id-73512 #content,
+.page-template-page-community-join#content,
 .page-template-page-with-sidebar #content,
 .page-template-page-redirect,
 .reply.bbpress,
@@ -3073,7 +3074,6 @@ ul.bbp-topic-revision-log li {
 
 .replyheader {
   vertical-align: middle;
-  height: 40px;
   display: inline-block;
 }
 
@@ -3290,10 +3290,14 @@ form#profile-edit-form .button-nav {
 }
 
 
-.bp-user #bbpress-forums ul.bbp-topics {
-    border-top: 1px solid #eee!important;
+.bp-user #bbpress-forums li.bbp-body ul.topic {
+    padding: 3px 0px!important;
+    padding-top: 9px!important;
 }
 
+.bp-user p.bbp-topic-meta.padding-left-20 {
+    text-align: left!important;
+}
 
 .bp-user .bbp-pagination {
     width: 100%;
@@ -3303,9 +3307,9 @@ form#profile-edit-form .button-nav {
     padding: 0px;
 }
 
-.bp-user #bbpress-forums p,
 .bp-user #bbpress-forums h2 {
     text-align: center;
+    display:none;
 }
 
 
@@ -3395,16 +3399,12 @@ li#text-2 .textwidget p {
   padding-bottom: 340px;
 }
 
-.page-id-73512 li.bbp-topic-reply-count,
-.page-id-73512 li.bbp-topic-freshness,
-.page-id-73512
-.page-id-73512
-.page-id-73512
-.page-id-73512  {
+.page-template-page-community-join li.bbp-topic-reply-count,
+.page-template-page-community-join li.bbp-topic-freshness {
     display: none;
 }
 
-.page-id-73512li.bbp-topic-title {
+.page-template-page-community-joinli.bbp-topic-title {
     width: 100%!important;
     max-width: 100%!important;
 }
@@ -4337,14 +4337,13 @@ li#profile-personal-li {
   background-color: white;
 }
 
+.bp-user.forums.replies #buddypress #item-body,
 .profile #buddypress #item-body {
     background: none;
     margin-bottom: 100px;
     box-shadow: none;
     max-width: 800px;
 }
-
-
 
 
 #buddypress #item-body #mycred-users-badges img {
@@ -5019,9 +5018,9 @@ td.notification-actions {
 
 .thread-header a,
 .thread-header {
-  color: grey!important;
-  font-size: 14px;
-  letter-spacing: 0.8px!important;
+  color: #a7a7a7!important;
+  font-size: 12px;
+  letter-spacing: 1px!important;
 }
 
 .messages td.bulk-select-check{
@@ -5633,7 +5632,6 @@ form#bps_directory72873 {
 .members,
 .page-template-login-page,
 .page-template-page-with-sidebar,
-.page-template-page-community-what,
 .forum-archive,
 .single-forum,
 .reply.bbpress,
@@ -5678,10 +5676,11 @@ form#bps_directory72873 {
 .bbp-forum-title img {
   padding: 10px 15px 10px 0px;
 }
-.page-id-99202 section#primary,
-#buddypress {
-  margin: 0 auto;
-  width: 100%;
+
+.page-template-page-community-activity #content, #buddypress {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .post-content {

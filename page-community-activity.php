@@ -1,18 +1,18 @@
 <?php
 
 /*
-  Template Name: Community-news page
+  Template Name: Community-activity page
   Description: Community page showing news
  */
    get_header();
    get_template_part( 'navbar' );
  ?>
 <div id="submenu">
-  <a href="https://davehakkens.nl/community/dashboard"><div id="menuitems" class="menuitemnews">activity</div></a>
-  <a href="https://davehakkens.nl/community/forums"><div id="menuitems" class="menuitemforums">forums</div></a>
-  <a href="https://davehakkens.nl/community/members"><div id="menuitems" class="menuitemarmy">army</div></a>
-  <a href="https://davehakkens.nl/community/help-out"><div id="menuitems" class="menuitemhelp">help</div></a>
-  <a href="https://davehakkens.nl/community/army"><div id="menuitems" class="menuitemjoinus">join us</div></a>
+  <a href="/community/activity"><div id="menuitems" class="menuitemnews">activity</div></a>
+  <a href="/community/forums"><div id="menuitems" class="menuitemforums">forums</div></a>
+  <a href="/community/members"><div id="menuitems" class="menuitemarmy">army</div></a>
+  <a href="/community/help-out"><div id="menuitems" class="menuitemhelp">help</div></a>
+  <a href="/community/join"><div id="menuitems" class="menuitemjoinus">join us</div></a>
 </div>
 
 <img id="forumActivity" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/forums.png"/>
@@ -31,19 +31,26 @@
       <?php endwhile; endif; ?>
     </div>
     <div class="smallHalf">
+<div class="dashboard-user">
 
+Your rank <?php echo do_shortcode('[mycred_my_rank show_title=1 show_logo=0]'); ?>
+Current points <?php echo do_shortcode('[mycred_my_balance]Please login to view your balance[/mycred_my_balance]'); ?>
+Recent replies <?php echo do_shortcode('[bbpress_recent_replies_by_topic show=10]'); ?>
+
+
+</div>
       <?php the_widget('Latest_Community_Uploads', "max=12");?>
       <div class="dashboard-detail">show more images</div>
       <div class="tabbed"><div class="posttab">
         <div class="header">
           <h2 class="tab active" data-tab="tab_topics">Topics</h2>
-          <h2 class="tab" data-tab="tab_posts">Posts</h2>
+          <h2 class="tab" data-tab="tab_posts">Replies</h2>
           <h3 class="tab2" data-tab="popular">Popular</h3>
           <h3 class="tab2 active" data-tab="new">New</h3>
         </div>
         <div class="tabContent active" id="tab_topics">
           <div class="tab2Content new active">
-            <?php the_widget('BBP_Topics_Widget', "order_by=freshness&show_user=1&show_date=1&title="); ?>
+            <?php the_widget('BBP_Topics_Widget', "order_by=freshness&show_user=0&show_avatar=1&show_date=1&title="); ?>
           </div>
           <div class="tab2Content popular">
             <?php the_widget('wp_ulike_widget', "type=topic&period=week&count=5&show_thumb&show_count&trim=10&size=20&style=love&title="); ?>
@@ -51,7 +58,7 @@
         </div>
         <div class="tabContent" id="tab_posts">
           <div class="tab2Content new active">
-            <?php the_widget('WP_Widget_Recent_Posts', "title= &show_date=1"); ?>
+            <?php the_widget('BBP_Replies_Widget', "order_by=freshness&show_user=0&show_date=1&title="); ?>
           </div>
           <div class="tab2Content popular">
             <?php the_widget('wp_ulike_widget', "type=post&period=week&count=5&show_thumb&show_count&trim=10&size=20&style=love&title="); ?>
