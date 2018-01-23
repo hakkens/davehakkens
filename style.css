@@ -4299,8 +4299,7 @@ div#item-header-container {
   position: relative;
   letter-spacing: 0.7px;
   background-color: #b0d7ff;
-  padding-top:80px!important;
-  padding-bottom:70px!important;
+  min-height: 320px;
 
 }
 
@@ -4550,10 +4549,33 @@ div#mycred-users-badges {
 }
 
 #buddypress div#item-header div#item-header-content {
-  font-family: 'medium';
-  margin-left: 20px!important;
-  margin-top: 15px;
+    font-family: 'medium';
+    margin-top: 120px!important;
+    clear: inherit!important;
+    z-index: 3;
+    margin-left: 0px!important;
 }
+
+#buddypress #header-cover-image {
+    z-index: -999!important;
+    height: 320px!important;
+    background-color: inherit!important;
+}
+
+
+#buddypress #item-header-cover-image #item-header-avatar {
+    margin-top: 80px!important;
+    margin-left: 100px;
+}
+
+div#item-header-cover-image {
+    margin: 0 auto!important;
+    position: relative;
+    display: table;
+    width: 1000px!important;
+}
+
+
 
 div#item-header h2.user-nicename {
     font-size: 45px;
@@ -5681,6 +5703,11 @@ form#bps_directory72873 {
     margin: 0 auto;
     width: 100%;
     max-width: 1200px;
+}
+
+.bp-user #buddypress{
+  max-width:inherit;
+  width:100%!important;
 }
 
 .post-content {
