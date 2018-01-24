@@ -8,7 +8,12 @@
  */
 
 ?>
+
+<div class="topic-lead-extra">
 <?php bbp_topic_subscription_link(); ?>
+<?php bbp_topic_favorite_link(); ?>
+<?php if(function_exists('wp_ulike')) wp_ulike('get'); ?>
+  </div>
 <div class="topic-lead">
 
   <div class="author">

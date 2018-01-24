@@ -3378,17 +3378,12 @@ li#text-2 .textwidget p {
   font-family: 'medium';
   letter-spacing: 0.8px;
   font-size: 16px;
-  background-color: rgba(255, 255, 255, 0.44);
   width: auto!important;
-  padding: 6px 11px;
 }
 
-.menu-community-sidebar-container a:hover{
-  background-color:white;
-}
 
 .topic-id {
-  display:none;
+
 }
 
 .army-support {
@@ -3513,6 +3508,25 @@ li.widget {
   padding-top: 20px;
 }
 
+.bp-tooltip:after {
+    background-color: #404040!important;
+    padding: 4px!important;
+    border: 0px!important;
+    box-shadow: inherit!important;
+    border-radius: 3px!important;
+    font-family: "open sans"!important;
+    color: white!important;
+    margin-top: 5px!important;
+}
+
+.widget.buddypress .item-avatar a{
+  margin:5px!important;
+}
+
+.alt-forum-sidebar .item-avatar {
+    display: inline-block;
+}s
+
 li.widget .bbp-forum-title{
   font-size: 16px;
   background-color: rgba(255, 255, 255, 0.44);
@@ -3525,10 +3539,11 @@ li.widget .bbp-forum-title:hover {
 }
 
 .alt-forum-sidebar .avatar, #mainCommunity .avatar {
-  height: auto !important;
-  margin: 0% 0% 4% 4% !important;
-  width: 60px !important;
   border-radius: 100%;
+}
+
+.alt-forum-sidebar .item {
+    display: none;
 }
 
 #bbpress-forums li.bbp-footer {
@@ -3629,7 +3644,7 @@ span.page-numbers.current{
 }
 
 #subscription-toggle {
-  display: block;
+  display: inline-block;
   margin: 30px 0;
   text-align: center;
 }
@@ -3651,10 +3666,10 @@ span.page-numbers.current{
 .widget_display_replies li,
 #menu-community-sidebar-1 li {
   position: relative;
-  height: 28px;
   vertical-align: middle;
   white-space: nowrap;
-  overflow: hidden;
+  display: inline-block;
+  width: 100%;
 }
 
 .widget_display_topics .topic-author .bbp-author-avatar img,
@@ -5397,7 +5412,7 @@ div#expertiseinfo {
   padding: 20px;
   text-align: center;
   font-family: 'medium';
-  font-size: 22px;
+  font-size: 16px;
   display: none;
   }
 
@@ -6195,18 +6210,56 @@ button#bbp_topic_submit:hover {
   background-color: #f59ad8!important;
 }
 
-.starttopic p, #subscription-toggle a {
+.favorite-toggle,
+.starttopic p,
+#subscription-toggle a {
   text-align: center;
   background-color: #5b9dd9;
   padding: 10px 14px;
-  color: white;
+  color: white!important;
   margin: 4px;
   font-family: medium;
   font-size: 16px;
   letter-spacing: 1px;
   border-radius: 4px;
   line-height: inherit;
+  vertical-align: middle;
 }
+
+.topic-lead-extra .favorite-toggle {
+    background-color: #f4d576;
+}
+
+.topic-lead-extra .favorite-toggle a:hover {
+    background-color: #f5de98;
+}
+
+.topic-lead-extra{
+  margin: 0 auto;
+  display: table;
+}
+
+.topic-lead-extra ul.tiles {
+    display: none;
+}
+
+
+.topic-lead-extra .wpulike {
+    border-radius: 4px;
+    padding: 8px 14px;
+    background-color: white;
+    margin: 4px;
+    font-family: medium;
+    font-size: 16px!important;
+}
+
+.topic-lead-extra  .wpulike-heart .wp_ulike_general_class{
+  margin-top: 0px!important;
+  height: 26px;
+}
+
+
+
 
 
 .is-subscribed a.subscription-toggle {
@@ -6330,16 +6383,12 @@ div#new-reply-64502 {
 }
 
 .widget.widget_nav_menu ul li {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 
 .widget.buddypress div.item-avatar img.avatar:hover {
     opacity: 0.6;
-}
-
-.alt-forum-sidebar a {
-    color: black!important;
 }
 
 .alt-forum-sidebar a:hover {
@@ -6728,7 +6777,7 @@ color: black;
 .menuitemnews:active {
     background: url(img/community_news_hover.png) center 9px no-repeat;
     background-size: 40%;
-    color: white;
+    color: grey!important;
 }
 
 

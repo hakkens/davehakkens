@@ -110,7 +110,5 @@
     ?>
 
 
-    <a href="#toggle-replies">Toggle replies</a>
-
   </div>
 </div>
