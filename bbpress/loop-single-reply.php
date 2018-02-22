@@ -9,6 +9,7 @@
 
 ?>
 
+<div id="post-<?php bbp_reply_id(); ?>"></div>
 
 <div class="topic-reply">
 
@@ -111,4 +112,5 @@
 
 
   </div>
+
 </div>
