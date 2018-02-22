@@ -33,14 +33,8 @@
     <div class="smallHalf">
 <div class="dashboard-user">
 
-Your rank <?php echo do_shortcode('[mycred_my_rank show_title=1 show_logo=0]'); ?>
-Current points <?php echo do_shortcode('[mycred_my_balance]Please login to view your balance[/mycred_my_balance]'); ?>
-Recent replies <?php echo do_shortcode('[bbpress_recent_replies_by_topic show=10]'); ?>
-
-
 </div>
       <?php the_widget('Latest_Community_Uploads', "max=12");?>
-      <div class="dashboard-detail">show more images</div>
       <div class="tabbed"><div class="posttab">
         <div class="header">
           <h2 class="tab active" data-tab="tab_topics">Topics</h2>

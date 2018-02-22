@@ -736,11 +736,17 @@ padding: 6px 10px;
     display: inline-block;
     margin-bottom: 5px;
     font-size: 14px;
+        display: inline-block;
 }
 
-.categories {
-    display: inline-block;
+.item .categories {
+    text-align: center!important;
+    text-transform: uppercase;
+    font-family: "medium";
+    letter-spacing: 3px;
+    padding-top: 20px;
 }
+
 
 .page .post .commentlist .pingback,
 .single .post .commentlist .pingback {
@@ -823,6 +829,30 @@ padding: 6px 10px;
   width: 100%;
 }
 
+.hoverhide:hover {
+  display: inline-block;
+  background-color: #ffffffe3;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.hoverhide {
+    display: inline-block;
+    opacity: 0;
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    background-size: contain;
+    height: 100%;
+    z-index: 3;
+}
+
+
+
 .relatedposts li {
   width: 25%;
   display: inline-block;
@@ -887,6 +917,7 @@ padding: 6px 10px;
   padding: 3px;
   font-family: 'medium';
   color: #979797!important;
+  display: none;
 }
 
 .other-updates {
@@ -984,7 +1015,7 @@ single-format-status .post-thumbnail,
 }
 
 .status .featuredImage {
-    height: 380px!important;
+    height: 480px!important;
 }
 
 
@@ -1157,9 +1188,7 @@ h3#comments, div#respond h3 {
 }
 
 #post-grid .item:hover {
-    box-shadow: 5px 5px 0px #51595F;
-    opacity: 0.8;
-    margin-top: 0.5%;
+    margin-top: 0.8%;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
@@ -1205,9 +1234,22 @@ a.read-more {
     height: 100px;
     margin-top: -25px;
     text-indent: -10000px;
-    z-index: 2;
+    z-index: 4;
     display:none;
 }
+
+.playbutton {
+    position: inherit;
+    background: url(img/icon/playbutton.png)no-repeat;
+    background-size: 100%;
+    height: 80px;
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 37%;
+    text-align: center;
+    z-index: 2;
+}
+
 
 #post-grid .item a:hover {
   color: #5e94da;
@@ -1226,7 +1268,7 @@ a.read-more {
 
 #post-grid .item .featuredImage {
   display: block;
-  height: 250px;
+  height: 320px;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -1238,8 +1280,8 @@ a.read-more {
 #post-grid .item .featuredImage img {
   display: block;
   height: auto;
-  min-height: 250px;
-  width: 140%;
+  min-height: 280px;
+  width: 164%;
   margin: 0;
   position: absolute;
   top: 50%;
@@ -1247,10 +1289,28 @@ a.read-more {
   transform: translate(-50%, -50%);
 }
 
+#post-grid .item .status .featuredImage img {
+  height: 100%!important;
+  min-height: 480px!important;
+  width: auto!important;
+}
+
+.item .wpulike-heart .wp_ulike_btn.wp_ulike_put_image {
+    padding: 20px!important;
+    background-size: 30px auto !important;
+}
+
+.item .wpulike .count-box,
+.item .commenticon a.comments-link {
+    color: black!important;
+    font-family: 'bold'!important;
+    font-size: 18px!important;
+}
+
+
 .commenticon img {
     display: inline-block;
-    max-width: 20px;
-    opacity: 0.3;
+    max-width: 30px;
 }
 
 .commenticon a {
@@ -1258,7 +1318,7 @@ a.read-more {
 }
 
 #post-grid .item h3 {
-  margin: 25px 17px 15px 15px;
+  margin: 20px 17px 15px 15px;
   text-align: center;
   font-family: 'medium', sans-serif;
   font-size: 23px;
@@ -1323,21 +1383,15 @@ video {
 }
 
 #post-grid .post_meta {
-  color: #999;
-  font-size: 10px;
   text-align: center;
-  padding: 20px 26px 20px 20px;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
+  margin-top: 50%;
   width: 100%;
-  box-sizing: border-box;
-  background-color: white;
 }
 
 #post-grid .post_meta a {
   color: #bbb;
-  padding-right: 4px;
+  font-size: 13px;
+  padding-top: 10px;
 }
 
 #post-navigation {
@@ -1416,6 +1470,8 @@ video {
     float: inherit;
     padding-left: 0px;
     margin-top:-8px;
+    margin-right: 10px;
+    margin-left: -20px;
   }
 
 .home-page .wpulike .wp_ulike_btn{
@@ -1559,7 +1615,7 @@ cursor:pointer;
 
 #post-grid .status .post_meta {
     font-size: 13px;
-    display: inline-block;
+    display: none;
 }
 
 #post-grid .post_meta .date {
@@ -3383,6 +3439,7 @@ li#text-2 .textwidget p {
 
 
 .topic-id {
+  display:none;
 
 }
 
@@ -5814,7 +5871,8 @@ div#field_1055 input{
   border: 0px !important;
 }
 
-.register .editfield.field_38, .editfield.field_667 {
+.register .editfield.field_38,
+.register .editfield.field_667 {
     display: none;
 }
 

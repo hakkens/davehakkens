@@ -73,6 +73,9 @@
 
 }
 
+#post-grid .item .featuredImage img {
+    min-height: 280px;
+    width: 164%;
 }
 
 @media screen and (max-width: 900px) {
@@ -898,7 +901,7 @@ font-size: 18px;
 
 
   #buddypress .messages span.activity {
-      float: left; 
+      float: left;
     }
 
 
