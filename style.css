@@ -6972,3 +6972,46 @@ color: black;
   width: 25px;
   height: 25px;
 }
+#custom_comment img,.custom_post_flag{
+ width: 23px;
+ max-height: 30px;
+ margin-bottom:0px;
+}
+#custom_comment{
+   display: inline-block;
+    float: left;
+    margin-right: 10px;
+}
+
+.comment_author_name{
+	 display: inline-block;
+
+}
+
+ul.commentlist {
+list-style: none;
+}
+
+.comment_author_name a {
+    font-size: 18px;
+    display: inline;
+    font-family: 'medium';
+    color: black;
+}
+
+.comment_author_name .date {
+    font-family: 'open sans';
+    font-size: 11px;
+    margin-left: 10px;
+}
+
+.comment-body{
+padding-top:15px;
+}
+.custom_post_flag {
+    display: inline-block;
+}
+.custom_post_flag img{
+
+    margin-bottom: -1px
+}

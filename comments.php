@@ -43,12 +43,17 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 
   <ol class="commentlist">
   <?php
-  wp_list_comments(array(
-    'avatar_size' => 80,
-  ));
-  ?>
+ /* wp_list_comments(array(
+   'avatar_size' => 80,
+	
+)); */
 
+  ?>
+<?php //wp_list_comments( 'type=comment&callback=davehakkens_theme_comment' ); ?>
   </ol>
+<ul class="commentlist">
+  <?php wp_list_comments( 'type=comment&callback=davehakkens_theme_comment' ); ?>
+</ul>
 
   <div class="navigation">
     <div class="alignleft"><?php previous_comments_link() ?></div>

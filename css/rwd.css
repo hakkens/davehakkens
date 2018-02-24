@@ -1128,9 +1128,19 @@ div#expertiseinfo {
   margin:0px!important;
 }
 
+.background-comments {
+    width: 97%;
+  }
+
+
+ul.commentlist {
+    padding: 0px;
+}
+
   .comment-body .comment-author {
     position: static;
     display: inline;
+    padding: 4px;
   }
 
   #topbar #breadcrumbs {
@@ -1149,8 +1159,15 @@ div#expertiseinfo {
     border: none;
     width: 40px;
     height: auto;
-    margin-top: 30px;
+    float: left;
+    margin-bottom: 0px;
+    margin-right: 10px;
   }
+
+  #custom_comment {
+    margin-right: 0px;
+    margin-left: 10px;
+}
 
   .comment-body::before {
     display: none;
