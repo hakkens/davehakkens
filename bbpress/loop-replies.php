@@ -13,6 +13,16 @@
 
   <div class="list-replies">
 
+    <?php
+    global $wp;
+    $sort_url = home_url(add_query_arg(array(),$wp->request));
+    if ( !stristr($sort_url, 'sort-by-likes') ) $sort_url .= '/sort-by-likes/#sort-by-likes';
+    ?>
+
+    <a id="sort-by-likes" class="sort-by-likes" href="<?php echo $sort_url ?>">sort on most likes</a>
+
+    <br class="clearfix">
+
     <?php if ( bbp_thread_replies() ) : ?>
 
       <?php bbp_list_replies(); ?>

@@ -31,7 +31,32 @@
 
     <?php endif; ?>
 
-    <?php if ( bbp_has_replies() ) : ?>
+    <?php
+
+    $sort_by_likes = get_query_var( 'sort-by-likes', 0 ); 
+
+    if ($sort_by_likes !== 0) $args = array(
+                                'meta_query' => array(
+                                  'relation' => 'OR',
+                                  array(
+                                    'key' => '_topicliked',
+                                    'value' => '0',
+                                    'compare' => 'NOT EXISTS',
+                                  ),
+                                  array(
+                                    'key' => '_topicliked',
+                                  ),
+                                ),
+                                'orderby' => 'meta_value_num',
+                                'order' => 'DESC',
+                                'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1
+                              );
+    else $args = array();
+
+    ?>
+
+    <?php if ( bbp_has_replies($args) ) : ?>
+
       <div class="list-replies-container">
 
         <?php bbp_get_template_part( 'loop',       'replies' ); ?>

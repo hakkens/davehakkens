@@ -48,10 +48,16 @@ function bp_loggedin_register_redirect( $redirect ) {
     ? '/community/members/' . $user->user_nicename . '/pins/'
     : '/community/forums';
 
-	return $redirect;
+  return $redirect;
 }
 add_filter( 'bp_loggedin_register_page_redirect_to', 'bp_loggedin_register_redirect' );
 
+//add "sort-by-likes" endpoint for reply sorting purposes
+function add_enpoint_for_reply_sorting() {
+  global $wp_rewrite;
+  add_rewrite_endpoint( 'sort-by-likes', EP_ALL );
+}
+add_action( 'init', 'add_enpoint_for_reply_sorting' );
 
 //change the exipiration of the auth token
 function my_expiration_filter($seconds, $user_id, $remember){
@@ -182,23 +188,13 @@ add_action( 'wp_enqueue_scripts', 'dave_hakkens_scripts' );
 
 //Remove "Billing Details" for all gateways give plugin
 function give_remove_billing_fields(){
-	remove_action( 'give_after_cc_fields', 'give_default_cc_address_fields' );
+  remove_action( 'give_after_cc_fields', 'give_default_cc_address_fields' );
 }
 
 add_action('init', 'give_remove_billing_fields');
 
 
-//Shorter title instagram imports
-add_filter( 'dsgnwrks_instagram_pre_save', 'dsgnwrks_qa_make_title_excerpted' );
-function dsgnwrks_qa_make_title_excerpted( $import ) {
-	if ( isset( $import['post_title'] ) ) {
-		// feel free to edit these 2 values
-		$number_of_words = 5;
-		$more = '...';
-		$import['post_title'] = wp_trim_words( $import['post_title'], $number_of_words, $more );
-	}
-	return $import;
-}
+
 
 //change more.. on homepage
 function modify_read_more_link() {
@@ -256,23 +252,23 @@ function keep_me_logged_in_for_1_year( $expirein ) {
 add_filter('bbp_before_get_reply_author_role_parse_args', 'ntwb_bbpress_reply_css_role' );
 function ntwb_bbpress_reply_css_role() {
 
-	$role = strtolower( bbp_get_user_display_role( bbp_get_reply_author_id( $reply_id ) ) );
-	$args['class']  = 'bbp-author-role bbp-author-role-' . $role;
-	$args['before'] = '';
-	$args['after']  = '';
+  $role = strtolower( bbp_get_user_display_role( bbp_get_reply_author_id( $reply_id ) ) );
+  $args['class']  = 'bbp-author-role bbp-author-role-' . $role;
+  $args['before'] = '';
+  $args['after']  = '';
 
-	return $args;
+  return $args;
 }
 
 add_filter('bbp_before_get_topic_author_role_parse_args', 'ntwb_bbpress_topic_css_role' );
 function ntwb_bbpress_topic_css_role() {
 
-	$role = strtolower( bbp_get_user_display_role( bbp_get_topic_author_id( $topic_id ) ) );
-	$args['class']  = 'bbp-author-role bbp-author-role-' . $role;
-	$args['before'] = '';
-	$args['after']  = '';
+  $role = strtolower( bbp_get_user_display_role( bbp_get_topic_author_id( $topic_id ) ) );
+  $args['class']  = 'bbp-author-role bbp-author-role-' . $role;
+  $args['before'] = '';
+  $args['after']  = '';
 
-	return $args;
+  return $args;
 }
 
 
@@ -325,12 +321,12 @@ add_filter ('bbp_before_get_user_subscribe_link_parse_args','hide_before3');
 //remove the + from wp ulike
 add_filter('wp_ulike_format_number','wp_ulike_new_format_number',10,3);
 function wp_ulike_new_format_number($value, $num, $plus){
-	if ($num >= 1000 && get_option('wp_ulike_format_number') == '1'):
-	$value = round($num/1000, 2) . 'K';
-	else:
-	$value = $num;
-	endif;
-	return $value;
+  if ($num >= 1000 && get_option('wp_ulike_format_number') == '1'):
+  $value = round($num/1000, 2) . 'K';
+  else:
+  $value = $num;
+  endif;
+  return $value;
 }
 
 
@@ -435,15 +431,67 @@ $isa_user_caps = new ISA_User_Caps();
 
 
 
+function tinymce_other_css_for_content( $init ) {
+$init['content_css'] = get_bloginfo('stylesheet_url');
+return $init;
+}
+
+add_filter('tiny_mce_before_init', 'tinymce_other_css_for_content');
+
+
+// ALTER TinyMCE INIT FOR VISUAL EDITOR ON FORUM TOPICS AND REPLIES
+// SOURCE: https://bbpress.org/forums/topic/alter-mceinit-for-visual-editor-on-topics/
+
+// Enable visual editor on tinymce in bbPress
+function bbp_enable_visual_editor( $args = array() ) {
+    $args['tinymce'] = true;
+    $args['quicktags'] = false;
+    return $args;
+}
+add_filter( 'bbp_after_get_the_content_parse_args', 'bbp_enable_visual_editor' );
+
+// Enable TinyMCE paste plugin
+function bbp_add_paste_plugin($args) {
+  $args[] = 'paste';
+  return $args;
+}
+add_filter( 'teeny_mce_plugins', 'bbp_add_paste_plugin');
+
+// ADDS A JQUERY PASTE PREPROCESSOR TO REMOVE DISALLOWED TAGS WHILE PASTING
+// SOURCE https://jonathannicol.com/blog/2015/02/19/clean-pasted-text-in-wordpress/
+function configure_tinymce($in) {
+  $in['paste_preprocess'] = "function(plugin, args){
+    // Strip all HTML tags except those we have whitelisted
+    var whitelist = 'a,p,b,strong,i';
+    var stripped = jQuery('<div>' + args.content + '</div>');
+    var els = stripped.find('*').not(whitelist);
+    for (var i = els.length - 1; i >= 0; i--) {
+      var e = els[i];
+      jQuery(e).replaceWith(e.innerHTML);
+    }
+    // Strip all class and id attributes
+    stripped.find('*').removeAttr('id').removeAttr('class');
+    // Return the clean HTML
+    args.content = stripped.html();
+  }";
+  return $in;
+}
+add_filter('teeny_mce_before_init','configure_tinymce', 99999999999);
 
 
 
 
+function custom_excerpt_length( $length ) {
+  return 30;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
-
-
-
-
+// Replaces the excerpt "Read More" text by a link
+function new_excerpt_more($more) {
+       global $post;
+  return '<a class="moretag" href="'. get_permalink($post->ID) . '"> Read more...</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
 
 
 
@@ -482,6 +530,110 @@ function davehakkens2_widgets_init() {
 
 add_action( 'widgets_init', 'davehakkens2_widgets_init' );
 
+/**
+* Over write existing comment
+*/
+
+function davehakkens_theme_comment($comment, $args, $depth) {
+    if ( 'div' === $args['style'] ) {
+        $tag       = 'div';
+        $add_below = 'comment';
+    } else {
+        $tag       = 'li';
+        $add_below = 'div-comment';
+    }?>
+<?php
+      $comment_data = get_comment( $comment->comment_ID, ARRAY_A  );
+      $user_info = get_userdata($comment_data['user_id']);?>
+    <<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>">
+  <?php
+    if ( 'div' != $args['style'] ) { ?>
+        <div id="div-comment-<?php comment_ID() ?>" class="comment-body"><?php
+    } ?>
+        <div class="comment-author vcard"><?php
+            if ( $args['avatar_size'] != 0 ) {
+                echo '<a href="/community/members/'.$user_info->user_nicename.'">'.get_avatar( $comment, $args['avatar_size'] ).'</a>';
+            }
+            //printf( __( '<cite class="fn">%s</cite> <span class="says">says:</span>' ), get_comment_author_link() );
+ ?>
+        </div><?php
+        if ( $comment->comment_approved == '0' ) { ?>
+            <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.' ); ?></em><br/><?php
+        } ?>
+        <div class="comment-meta commentmetadata">
+            <a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ); ?>"><?php
+                /* translators: 1: date, 2: time */
+                printf(
+                    __('%1$s at %2$s'),
+                    get_comment_date(),
+                    get_comment_time()
+                ); ?>
+            </a><?php
+            edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
+        </div>
+
+    <div id="custom_comment">
+
+      <a href='/community/members/<?php echo $user_info->user_nicename; ?> '>
+          <?php
+         $country = xprofile_get_field_data( 42, $comment_data['user_id']);
+        dh_get_flag_by_location($country);
+
+          ?>
+        </a>
+      </div>
+    <div class='comment_author_name'><a href='/community/members/<?php echo $user_info->user_nicename; ?> '><?php  echo '<span class="post_author_name">'.$user_info->display_name.'</span>'; ?> </a>
+<div class="date"> - 
+<?php
+
+ echo esc_html( human_time_diff( get_comment_date( 'U', $comment->comment_ID ), current_time('timestamp') ) ) . ' ago'; ?>
+</div>  </div>
 
 
-?>
+        <?php comment_text(); ?>
+
+        <div class="reply"><?php
+                comment_reply_link(
+                    array_merge(
+                        $args,
+                        array(
+                            'add_below' => $add_below,
+                            'depth'     => $depth,
+                            'max_depth' => $args['max_depth']
+                        )
+                    )
+                ); ?>
+        </div><?php
+    if ( 'div' != $args['style'] ) : ?>
+        </div><?php
+    endif;
+}
+
+/**
+ * Register our sidebars and widgetized areas.
+ *
+ */
+function community_widgets_init() {
+
+  register_sidebar( array(
+    'name'          => 'Community info',
+    'id'            => 'community_info',
+  ) );
+
+}
+add_action( 'widgets_init', 'community_widgets_init' );
+
+add_action('profile_pic_upload_button','show_profile_pic_button',10);
+function show_profile_pic_button(){
+  $user_id = get_current_user_id();
+  global $bp;
+  if(!empty($user_id)):
+    $profile = bp_core_get_user_domain($user_id);
+  if( !bp_get_user_has_avatar()) : ?>
+     <div class="upload_profile">
+        <a href="<?php echo $profile.'/profile/change-avatar/#avatar-upload-form'; ?>">Upload your Profile pic</a>
+    </div>
+  <?php
+     endif;
+  endif;
+ } ?> 
