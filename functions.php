@@ -52,6 +52,12 @@ function bp_loggedin_register_redirect( $redirect ) {
 }
 add_filter( 'bp_loggedin_register_page_redirect_to', 'bp_loggedin_register_redirect' );
 
+//add "sort-by-likes" endpoint for reply sorting purposes
+function add_enpoint_for_reply_sorting() {
+  global $wp_rewrite;
+  add_rewrite_endpoint( 'sort-by-likes', EP_ALL );
+}
+add_action( 'init', 'add_enpoint_for_reply_sorting' );
 
 //change the exipiration of the auth token
 function my_expiration_filter($seconds, $user_id, $remember){
