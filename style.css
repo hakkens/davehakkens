@@ -1070,7 +1070,7 @@ h3#comments, div#respond h3 {
 
 .sp-buttons {
     position: absolute !important;
-    top: 75% !important;
+    top: 85% !important;
 }
 .sp-button {
     width: 12px !important;
@@ -1279,9 +1279,9 @@ a.read-more {
 
 #post-grid .item .featuredImage img {
   display: block;
-  height: auto;
-  min-height: 280px;
-  width: 164%;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
   margin: 0;
   position: absolute;
   top: 50%;
@@ -1695,10 +1695,10 @@ cursor:pointer;
 .latest_community_uploads a{
   float: left;
   display: block;
-  width: 23%;
+  width: 31%;
   height: 130px;
   overflow: hidden;
-  margin: 5%;
+  margin: 1%;
   position: relative;
 
 }
@@ -1707,10 +1707,10 @@ cursor:pointer;
 /*#mainCommunity #communityContent .latest_community_uploads img{*/
 .latest_community_uploads img{
   display: block;
-  width: 200px;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   margin: 0;
-  min-height: 200px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1719,6 +1719,7 @@ cursor:pointer;
 #mainCommunity #communityContent .avatar{
   width: 100%!important;
   max-width: 80px;
+  height: auto;
 }
 
 .latest_community_uploads a:hover {
@@ -1883,10 +1884,6 @@ cursor:pointer;
     padding-left: 16px;
     font-family: 'medium';
     font-size: 28px;
-}
-
-.widget.latest_community_uploads a {
-    height: 88px;
 }
 
 .widget a{

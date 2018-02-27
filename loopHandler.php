@@ -83,7 +83,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
       <a href="/tag/highlight"><div class="highlightlabel"> highlight</div></a>
       <a href="<?php echo get_post_permalink(); ?>">
         <div class="featuredImage">
-          <?php the_post_thumbnail('medium_large'); ?>
+          <?php the_post_thumbnail('medium'); ?>
         </div>
       </a>
       <div class="categories"> <?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?> </div>
@@ -112,7 +112,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
     <a href="<?php echo get_post_permalink(); ?>">
       <div class="featuredImage">
           <div class="playbutton"></div>
-        <?php the_post_thumbnail('medium_large'); ?>
+          <?php the_post_thumbnail('medium'); ?>
       </div>
     </a>
 <div class="categories"> <?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?> </div>
@@ -132,7 +132,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
         <div class="status">
         <div class="status-image">
         <div class="featuredImage">
-          <?php the_post_thumbnail('medium_large'); ?>
+          <?php the_post_thumbnail('medium'); ?>
         </div>
 
       <div class="status-text">
@@ -153,7 +153,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
     <a href="/tag/highlight"><div class="highlightlabel"> highlight</div></a>
       <a href="<?php echo get_post_permalink(); ?>">
         <div class="featuredImage">
-          <?php the_post_thumbnail('medium_large'); ?>
+          <?php the_post_thumbnail('medium'); ?>
         </div>
       </a>
       <div class="categories"> <?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?> </div>
@@ -161,7 +161,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
       <?php the_excerpt(); ?>
     <?php endif; ?>
 
-      <div class="hoverhide">
+      <a href="<?php echo get_post_permalink(); ?>"><div class="hoverhide">
+       </a>
   <div class="post_meta">
     <div class="tags"> <?php
     if($catID!= ''){

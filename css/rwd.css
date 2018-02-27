@@ -73,10 +73,6 @@
 
 }
 
-#post-grid .item .featuredImage img {
-    min-height: 280px;
-    width: 164%;
-}
 
 @media screen and (max-width: 900px) {
 
