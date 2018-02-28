@@ -16,10 +16,18 @@
     <?php
     global $wp;
     $sort_url = home_url(add_query_arg(array(),$wp->request));
-    if ( !stristr($sort_url, 'sort-by-likes') ) $sort_url .= '/sort-by-likes/#sort-by-likes';
+    if ( !stristr($sort_url, 'sort-by-likes') ) {
+      $sort_url .= '/sort-by-likes/#sort-by-likes';
+      $sort_title = 'sort on most likes';
+    }
+    else {
+      $sort_url = str_replace('/sort-by-likes', '', $sort_url);
+      $sort_url = str_replace('/#sort-by-likes', '', $sort_url);
+      $sort_title = 'sort on date';
+    }
     ?>
 
-    <a id="sort-by-likes" class="sort-by-likes" href="<?php echo $sort_url ?>">sort on most likes</a>
+    <a id="sort-by-likes" class="sort-by-likes" href="<?php echo $sort_url ?>"><?php echo $sort_title ?></a>
 
     <br class="clearfix">
 

@@ -48,7 +48,7 @@ function bp_loggedin_register_redirect( $redirect ) {
     ? '/community/members/' . $user->user_nicename . '/pins/'
     : '/community/forums';
 
-	return $redirect;
+  return $redirect;
 }
 add_filter( 'bp_loggedin_register_page_redirect_to', 'bp_loggedin_register_redirect' );
 
@@ -58,6 +58,39 @@ function add_enpoint_for_reply_sorting() {
   add_rewrite_endpoint( 'sort-by-likes', EP_ALL );
 }
 add_action( 'init', 'add_enpoint_for_reply_sorting' );
+
+// edit editor content styles which can't be directly accessed because tinymce script writes an iframe
+function my_theme_add_editor_styles($content) {
+    $editor_content_styling = "
+      var observer = new MutationObserver(function(mutations, observer) {
+        mutations.forEach(function(mutation) {
+          if (jQuery('iframe').length && !jQuery('iframe').data('styling')) {
+            jQuery('iframe').data('styling', '1');
+            var x = document.getElementById('bbp_reply_content_ifr');
+            var y = (x.contentWindow || x.contentDocument);
+            if (y.document)y = y.document;
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '".get_template_directory_uri()."/style.css';
+            link.type = 'text/css';
+            y.head.appendChild(link);
+            observer.disconnect();
+          }
+        });
+      });
+
+      var observerConfig = {
+        attributes: true,
+        subtree: true
+      };
+
+      var targetNode = document.getElementById('wp-bbp_reply_content-wrap');
+      observer.observe(targetNode, observerConfig);";
+
+    echo '<script>'.$editor_content_styling.'</script>';
+    return $content;
+}
+add_filter( 'the_editor', 'my_theme_add_editor_styles' );
 
 //change the exipiration of the auth token
 function my_expiration_filter($seconds, $user_id, $remember){
@@ -188,7 +221,7 @@ add_action( 'wp_enqueue_scripts', 'dave_hakkens_scripts' );
 
 //Remove "Billing Details" for all gateways give plugin
 function give_remove_billing_fields(){
-	remove_action( 'give_after_cc_fields', 'give_default_cc_address_fields' );
+  remove_action( 'give_after_cc_fields', 'give_default_cc_address_fields' );
 }
 
 add_action('init', 'give_remove_billing_fields');
@@ -252,23 +285,23 @@ function keep_me_logged_in_for_1_year( $expirein ) {
 add_filter('bbp_before_get_reply_author_role_parse_args', 'ntwb_bbpress_reply_css_role' );
 function ntwb_bbpress_reply_css_role() {
 
-	$role = strtolower( bbp_get_user_display_role( bbp_get_reply_author_id( $reply_id ) ) );
-	$args['class']  = 'bbp-author-role bbp-author-role-' . $role;
-	$args['before'] = '';
-	$args['after']  = '';
+  $role = strtolower( bbp_get_user_display_role( bbp_get_reply_author_id( $reply_id ) ) );
+  $args['class']  = 'bbp-author-role bbp-author-role-' . $role;
+  $args['before'] = '';
+  $args['after']  = '';
 
-	return $args;
+  return $args;
 }
 
 add_filter('bbp_before_get_topic_author_role_parse_args', 'ntwb_bbpress_topic_css_role' );
 function ntwb_bbpress_topic_css_role() {
 
-	$role = strtolower( bbp_get_user_display_role( bbp_get_topic_author_id( $topic_id ) ) );
-	$args['class']  = 'bbp-author-role bbp-author-role-' . $role;
-	$args['before'] = '';
-	$args['after']  = '';
+  $role = strtolower( bbp_get_user_display_role( bbp_get_topic_author_id( $topic_id ) ) );
+  $args['class']  = 'bbp-author-role bbp-author-role-' . $role;
+  $args['before'] = '';
+  $args['after']  = '';
 
-	return $args;
+  return $args;
 }
 
 
@@ -321,12 +354,12 @@ add_filter ('bbp_before_get_user_subscribe_link_parse_args','hide_before3');
 //remove the + from wp ulike
 add_filter('wp_ulike_format_number','wp_ulike_new_format_number',10,3);
 function wp_ulike_new_format_number($value, $num, $plus){
-	if ($num >= 1000 && get_option('wp_ulike_format_number') == '1'):
-	$value = round($num/1000, 2) . 'K';
-	else:
-	$value = $num;
-	endif;
-	return $value;
+  if ($num >= 1000 && get_option('wp_ulike_format_number') == '1'):
+  $value = round($num/1000, 2) . 'K';
+  else:
+  $value = $num;
+  endif;
+  return $value;
 }
 
 
@@ -482,14 +515,14 @@ add_filter('teeny_mce_before_init','configure_tinymce', 99999999999);
 
 
 function custom_excerpt_length( $length ) {
-	return 30;
+  return 30;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 // Replaces the excerpt "Read More" text by a link
 function new_excerpt_more($more) {
        global $post;
-	return '<a class="moretag" href="'. get_permalink($post->ID) . '"> Read more...</a>';
+  return '<a class="moretag" href="'. get_permalink($post->ID) . '"> Read more...</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 
@@ -543,10 +576,10 @@ function davehakkens_theme_comment($comment, $args, $depth) {
         $add_below = 'div-comment';
     }?>
 <?php
-			$comment_data = get_comment( $comment->comment_ID, ARRAY_A  );
-			$user_info = get_userdata($comment_data['user_id']);?>
+      $comment_data = get_comment( $comment->comment_ID, ARRAY_A  );
+      $user_info = get_userdata($comment_data['user_id']);?>
     <<?php echo $tag; ?> <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?> id="comment-<?php comment_ID() ?>">
-	<?php
+  <?php
     if ( 'div' != $args['style'] ) { ?>
         <div id="div-comment-<?php comment_ID() ?>" class="comment-body"><?php
     } ?>
@@ -572,17 +605,17 @@ function davehakkens_theme_comment($comment, $args, $depth) {
             edit_comment_link( __( '(Edit)' ), '  ', '' ); ?>
         </div>
 
-		<div id="custom_comment">
+    <div id="custom_comment">
 
-			<a href='/community/members/<?php echo $user_info->user_nicename; ?> '>
+      <a href='/community/members/<?php echo $user_info->user_nicename; ?> '>
           <?php
-		     $country = xprofile_get_field_data( 42, $comment_data['user_id']);
-				dh_get_flag_by_location($country);
+         $country = xprofile_get_field_data( 42, $comment_data['user_id']);
+        dh_get_flag_by_location($country);
 
-					?>
+          ?>
         </a>
       </div>
-		<div class='comment_author_name'><a href='/community/members/<?php echo $user_info->user_nicename; ?> '><?php  echo '<span class="post_author_name">'.$user_info->display_name.'</span>'; ?> </a>
+    <div class='comment_author_name'><a href='/community/members/<?php echo $user_info->user_nicename; ?> '><?php  echo '<span class="post_author_name">'.$user_info->display_name.'</span>'; ?> </a>
 <div class="date"> - 
 <?php
 
