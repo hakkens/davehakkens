@@ -667,7 +667,7 @@ a:hover {
 
 #content {
   min-height:100%;
-	position:relative;
+  position:relative;
 }
 
 .bbpress.single.single-topic {
@@ -1520,7 +1520,7 @@ a.wp_ulike_btn.wp_ulike_put_image:hover {
 }
 
 
-a.wp_ulike_btn.wp_ulike_put_image.image-unlike {
+a.wp_ulike_put_image.image-unlike {
     background: url(/wp-content/themes/davehakkens2.2/img/like.png) no-repeat !important;
     background-size: 20px auto !important;
     background-position: center center !important;
@@ -1574,28 +1574,28 @@ a.wp_ulike_btn.wp_ulike_put_image.image-unlike {
 
 #post-grid .status-image{
 cursor:pointer;
-		position: relative;
-		display: block;
-	}
+    position: relative;
+    display: block;
+  }
 
 #post-grid .status-text{
-	    position: absolute;
-	    top: 0; right: 0;
-	    bottom: 0; left: 0;
-	    text-align: center;
+      position: absolute;
+      top: 0; right: 0;
+      bottom: 0; left: 0;
+      text-align: center;
       font-family:'medium';
-	    background-color: rgba(0, 0, 0, 0.6);
-	    opacity: 0;
-	    -webkit-transition: opacity 0.6s;
-	    -moz-transition: opacity 0.6s;
-	    transition: opacity 0.6s;
+      background-color: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      -webkit-transition: opacity 0.6s;
+      -moz-transition: opacity 0.6s;
+      transition: opacity 0.6s;
        vertical-align:middle;
        line-height:200px;
-	}
+  }
 
 #post-grid .status-text:hover, #post-grid .status-text:focus {
-	    opacity: 1;
-	}
+      opacity: 1;
+  }
 
 
 #post-grid .status-text a.post-edit-link {
@@ -1606,11 +1606,11 @@ cursor:pointer;
   }
 ``
 #post-grid .status-text p{
-	    color: white;
-	    display: inline-table;
+      color: white;
+      display: inline-table;
       font-size: 25px;
       text-align: center;
-	}
+  }
 
 
 #post-grid .status .post_meta {
@@ -6378,14 +6378,14 @@ p.bbp-attachments-form {
 }
 
 .bbp-form .bbp-template-notice {
-	display: none;
+  display: none;
 }
 
 .bbp-template-notice.info,
 .bbp-template-notice.error,
 .bbp-template-notice.important,
 .bbp-template-notice.warning {
-	display: block;
+  display: block;
 }
 
 
@@ -6984,7 +6984,7 @@ color: black;
 }
 
 .comment_author_name{
-	 display: inline-block;
+   display: inline-block;
 
 }
 
@@ -7113,7 +7113,7 @@ padding-top:15px;
   vertical-align: -3px;
 }
 
-.topic-lead-extra .wp_ulike_is_unliked::after, {
+.topic-lead-extra .wp_ulike_is_unliked::after {
   content: "Like";
   color: #9a9a9a;
 }
