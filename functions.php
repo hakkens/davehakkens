@@ -616,7 +616,7 @@ function davehakkens_theme_comment($comment, $args, $depth) {
         </a>
       </div>
     <div class='comment_author_name'><a href='/community/members/<?php echo $user_info->user_nicename; ?> '><?php  echo '<span class="post_author_name">'.$user_info->display_name.'</span>'; ?> </a>
-<div class="date"> - 
+<div class="date"> -
 <?php
 
  echo esc_html( human_time_diff( get_comment_date( 'U', $comment->comment_ID ), current_time('timestamp') ) ) . ' ago'; ?>
@@ -641,6 +641,27 @@ function davehakkens_theme_comment($comment, $args, $depth) {
         </div><?php
     endif;
 }
+
+/**
+* upload profile image button
+*/
+add_action('profile_pic_upload_button','show_profile_pic_button',10);
+function show_profile_pic_button(){
+    $user_id = get_current_user_id();
+    global $bp;
+    if(!empty($user_id)):
+        $profile = bp_core_get_user_domain($user_id);
+    if( !bp_get_user_has_avatar()) : ?>
+         <div class="dave_upload_profile">
+         <div class="upload_profile">
+                <a href="<?php echo $profile.'/profile/change-avatar/#avatar-upload-form'; ?>">Upload your Profile pic</a>
+        <    /div>
+        </div>
+    <?php
+       endif;
+    endif;
+ }
+
 
 
 ?>
