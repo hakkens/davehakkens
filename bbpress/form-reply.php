@@ -21,7 +21,7 @@
 
   <div id="new-reply-<?php bbp_topic_id(); ?>" class="bbp-reply-form">
 
-    <form id="post-<?php bbp_topic_id(); ?>" name="new-post" method="post" action="<?php the_permalink(); ?>">
+    <form id="post-<?php bbp_topic_id(); ?>" name="new-post" method="post" action="<?php the_permalink(); ?>" enctype="multipart/form-data" encoding="multipart/form-data">
 
       <?php do_action( 'bbp_theme_before_reply_form' ); ?>
 
