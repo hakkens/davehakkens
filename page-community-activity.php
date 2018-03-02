@@ -39,29 +39,29 @@
 					<div class="upload_profile">
 							<a href="#">Upload your Profile pic</a>
 			</div>
-
+x§
 
 		</div>-->
 
 
 <div class="community_info">
-				<h3>Community info</h3>
+				<h2>🤖 Community info</h2>
 				<?php //dynamic_sidebar( 'community_info' );
 						$stats = bbp_get_statistics();  ?>
 						<div class="community-content">
-						<dt><?php _e( 'Members', 'bbpress' ); ?></dt>
+						<dt><?php _e( '🙃 Members', 'bbpress' ); ?></dt>
 				<dd>
 				<strong><?php echo esc_html( $stats['user_count'] ); ?></strong>
 
 					</dd></div>
 					<div class="community-content">
-				<dt><?php _e( 'Topics', 'bbpress' ); ?></dt>
+				<dt><?php _e( '📓 Topics', 'bbpress' ); ?></dt>
 				<dd>
 					<strong><?php echo esc_html( $stats['topic_count'] ); ?></strong>
 				</dd>
 				</div>
 					<div class="community-content">
-					 <dt><?php _e( 'Replies', 'bbpress' ); ?></dt>
+					 <dt><?php _e( '✏️ Replies', 'bbpress' ); ?></dt>
 				  <dd>
 					<strong><?php echo esc_html( $stats['reply_count'] ); ?></strong>
 				      </dd>
@@ -71,7 +71,7 @@
   		if(!empty($user_id)):
  	?>
      <div class="community-content">
-				       <dt><?php _e( 'Your points', 'bbpress' ); ?></dt>
+				       <dt><?php _e( '💪 Your points', 'bbpress' ); ?></dt>
 					<dd>
 					<strong><?php echo do_shortcode('[mycred_my_balance]'); ?></strong>
 					</dd>
@@ -87,8 +87,8 @@
       <?php the_widget('Latest_Community_Uploads', "max=12");?>
       <div class="tabbed"><div class="posttab">
         <div class="header">
-          <h2 class="tab active" data-tab="tab_topics">Topics</h2>
-          <h2 class="tab" data-tab="tab_posts">Replies</h2>
+          <h2 class="tab active" data-tab="tab_topics">📓 Topics</h2>
+          <h2 class="tab" data-tab="tab_posts">✏️ Replies</h2>
           <h3 class="tab2" data-tab="popular">Popular</h3>
           <h3 class="tab2 active" data-tab="new">New</h3>
         </div>
@@ -246,7 +246,7 @@ $widget_query = new WP_Query( array(
         <div class="header">
           <h3 class="tab2 active" data-tab="points">points</h3>
           <h3 class="tab2" data-tab="likes">likes</h3>
-          <h2>Members</h2>
+          <h2>🙃 Members</h2>
         </div>
         <div class="tab2Content likes">
           Most likes given last month
@@ -261,7 +261,7 @@ $widget_query = new WP_Query( array(
         <div class="header">
           <h3 class="tab2" data-tab="monthly">Patreons</h3>
           <h3 class="tab2 active" data-tab="single">Donations</h3>
-          <h2>Latest donations </h2>
+          <h2>💰 Latest donations </h2>
         </div>
         <div class="tab2Content single active donations">
           <?php

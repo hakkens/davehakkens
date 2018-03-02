@@ -143,7 +143,7 @@ do_action( 'bp_before_directory_activity' ); ?>
       do_action( 'bp_activity_syndication_options' ); ?>
 
       <li id="activity-filter-select" class="last">
-        <label for="activity-filter-by"><?php _e( 'Show:', 'buddypress' ); ?></label>
+        <label for="activity-filter-by"><?php _e( 'Show fresh:', 'buddypress' ); ?></label>
         <select id="activity-filter-by">
           <option value="-1"><?php _e( '&mdash; Everything &mdash;', 'buddypress' ); ?></option>
 

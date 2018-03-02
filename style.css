@@ -1714,6 +1714,7 @@ cursor:pointer;
   position: absolute;
   top: 50%;
   left: 50%;
+  border-radius: 4px;
   transform: translate(-50%, -50%);
 }
 #mainCommunity #communityContent .avatar{
@@ -1775,9 +1776,19 @@ cursor:pointer;
   margin-top: 72px;
   padding-bottom: 200px;
 }
+
+.community_info{
+  padding:0px!important;
+}
+
+.tabbed.upload-block {
+    margin: 0px 0 20px!important;
+    background-color: white!important;
+}
+
 .smallHalf>div{
   background-color: white;
-  padding: 15px;
+  padding: 25px!important;
 }
 .single-post img {
   margin: 0 auto;
@@ -1800,8 +1811,9 @@ cursor:pointer;
   overflow: auto;
 }
 .tabbed h2{
-  margin: 0 5px 0 0;
+  margin: 0 20px 0 0;
   padding: 10px;
+  padding-left: 0px;
 }
 .tabbed .tab{
   border-top: 3px solid rgba(255,255,255,0);
@@ -1810,21 +1822,31 @@ cursor:pointer;
   cursor: pointer;
 }
 .tabbed .tab:hover{
-  border-top: 3px solid #CBCFD4;
+  border-bottom: 6px solid #CBCFD4;
 }
 .tabbed .tab.active{
-  border-top: 3px solid #EE8B90;
+  border-bottom: 6px solid #EE8B90;
   color: #313131;
   border-radius: 4px;
 }
 
 .tabbed .tab2{
   padding: 8px 15px 8px 15px;
-  margin: 15px 10px 0 0px;
+  margin: 0px 10px 0 0px;
   font-size: 14px;
   float: right;
   cursor: pointer;
   background-color: #FFFFFF;
+}
+
+.tab2Content a.bbp-reply-topic-title {
+    font-size: 15px!important;
+}
+.community-content {
+    margin: 0 0 12px;
+    font-family: 'medium';
+    letter-spacing: 0.7px;
+    font-size: 16px;
 }
 .tabbed .tab2:hover{
   background-color: #CBCFD4;
@@ -1871,6 +1893,22 @@ cursor:pointer;
   color: #5e94da;
 }
 
+.davekha-activity-avatar .activity-avatar > a img {
+    width: 40px;
+    height: auto;
+}
+
+.davekha-activity-avatar .activity-avatar {
+    display: inline-block;
+    width: 15%;
+    vertical-align: middle;
+}
+
+.activity.tabbed. a.bbp-forum-title,
+.activity.tabbed. a.bbp-reply-topic-title{
+  font-size:15px!important
+}
+
 
 .smallHalf .widget .widget_display_topics .topic-author{
   display:inline-block;
@@ -1881,9 +1919,16 @@ cursor:pointer;
 }
 
 .smallHalf h2 {
-    padding-left: 16px;
     font-family: 'medium';
     font-size: 28px;
+    padding-top: 0px!important;
+}
+
+.latest_community_uploads h2 img {
+    display: inherit;
+    position: inherit;
+    top: inherit;
+    transform: inherit;
 }
 
 .widget a{
@@ -1900,16 +1945,27 @@ cursor:pointer;
   display: inline-block;
   width: 100%;
   box-sizing: border-box;
-  padding: 20px;
   display: none;
 }
 .tabbed .tab2Content.active{
   display: block;
 
 }
+
+.bp-user #item-header-content div.generic-button a {
+    background-color: #313131!important;
+    padding: 7px 11px!important;
+    border-radius: 3px!important;
+}
+
+
 .tabbed .tab2Content li{
   border-bottom: 2px solid #E2E4E7;
-  padding: 11px 0px;
+  padding: 10px 0px;
+}
+
+.widget-mycred-list li{
+  padding:4px 0px!important;
 }
 
 .activity .bigHalf #buddypress{
@@ -1919,10 +1975,10 @@ cursor:pointer;
   margin-top: 0px;
 }
 .activity .latest_community_uploads a{
-  width: 30%;
+  width: 32%;
   padding: 15%;
   height: 0;
-  margin: 1.6%;
+  margin: 0.6%;
   max-width: 150px;
   box-sizing: border-box;
 }
@@ -4822,6 +4878,11 @@ a.bp-avatar-nav-item {
 
 #buddypress #activity-stream {
     box-sizing: border-box;
+}
+
+
+.activity.community_info{
+  font-family: 'medium';
 }
 
 
