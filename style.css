@@ -3347,7 +3347,6 @@ form#profile-edit-form .button-nav {
   padding: 15px!important;
   box-sizing: border-box;
   font-size: 18px!important;
-  background: #f3f3f3!important;
   border: 1px dashed black!important;
 }
 
@@ -4446,6 +4445,22 @@ li#profile-personal-li {
     box-shadow: none;
     max-width: 800px;
 }
+
+.bp-user.profile-edit div#item-body {
+    background-color: white!important;
+    padding: 50px!important;
+    box-sizing: border-box;
+}
+
+.bp-user.profile-edit #buddypress .standard-form label {
+    display: inline-block!important;
+    background-color: #b7f7b7;
+    padding: 9px 9px;
+    margin: 3px 14px 5px 0px!important;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
 
 
 #buddypress #item-body #mycred-users-badges img {
