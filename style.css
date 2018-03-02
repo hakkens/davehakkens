@@ -2445,6 +2445,40 @@ div#post-mention {
   float:inherit!important;
 }
 
+.bp-user .bbp-row-actions #subscription-toggle a,
+.bp-user .bbp-row-actions #favorite-toggle span.is-favorite a {
+    padding: 0px 16px;
+    font-size: 25px;
+    color: white!important;
+    background-color: #ff7474!important;
+    border:0px!important;
+    float: left;
+    margin-left: 20px;
+    border-radius: 0px;
+}
+
+.bp-user.subscriptions ul#forums-list-0 {
+    display: none!important;
+}
+
+.bp-user.forums .topic-id a {
+    display: inline-block;
+    background-color: #9dd49d;
+    color: #9dd49d!important;
+    padding: 7px;
+    width: 100%;
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+}
+
+.bp-user.subscriptions #subscription-toggle {
+    display: inherit!important;
+}
+
+.bp-user.forums a#sort-by-likes {
+    display: none;
+}
 
 .bp-user a.activity-button.mention {
     display: none!important;
@@ -3154,8 +3188,8 @@ ul.bbp-topic-revision-log li {
 }
 
 .topic-reply .content .bbp-admin-links {
-  display: block;
-  float: inherit;
+  display: inline-block;
+  float: left;
   padding-top: 10px;
 }
 
@@ -4750,9 +4784,9 @@ a.bp-avatar-nav-item {
 #buddypress div.profile p {
   font-size: 18px;
   font-weight: 400;
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 0px;
-  padding-left: 80px;
+  padding-left: 70px;
 }
 
 #buddypress .profile .bp-widget.base {
@@ -4804,81 +4838,50 @@ tr.field_1.field_current_balance_mycred_default td.data {
 }
 
 
+#buddypress .profile .bp-widget.base .field_1,
+#buddypress .profile .bp-widget .field_8,
+#buddypress .profile .bp-widget .field_42,
+#buddypress .profile .bp-widget .field_1055,
+#buddypress .profile .bp-widget .field_38,
+#buddypress .profile .bp-widget .field_667,
+#buddypress .profile .bp-widget .field_piggy {
+  width: 50px;
+  height: 50px;
+  float: left;
+  text-indent: -9999px;
+  background-position: 10px 10px;
+  background-size: 64%;
+  background-repeat: no-repeat;
+
+}
+
 
 #buddypress .profile .bp-widget.base .field_1 {
     background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/login.png")!important;
-    width: 75px;
-    height: 70px;
-    float: left;
-    text-indent: -9999px;
-    background-position: 20px 20px;
-    background-size: 48%;
-    background-repeat: no-repeat;
+
 }
 #buddypress .profile .bp-widget .field_8 {
     background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/birthday.png")!important;
-    width: 75px;
-    height: 70px;
-    float: left;
-    text-indent: -9999px;
-    background-position: 20px 20px;
-    background-size: 48%;
-    background-repeat: no-repeat;
 }
 
 #buddypress .profile .bp-widget .field_42 {
     background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/country.png")!important;
-    width: 75px;
-    height: 70px;
-    float: left;
-    text-indent: -9999px;
-    background-position: 20px 20px;
-    background-size: 48%;
-    background-repeat: no-repeat;
 }
 
 #buddypress .profile .bp-widget .field_1055 {
     background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/expertise.png")!important;
-    width: 75px;
-    height: 70px;
-    float: left;
-    text-indent: -9999px;
-    background-position: 20px 20px;
-    background-size: 48%;
-    background-repeat: no-repeat;
 }
 
 #buddypress .profile .bp-widget .field_38 {
     background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/url.png")!important;
-    width: 75px;
-    height: 70px;
-    float: left;
-    text-indent: -9999px;
-    background-position: 20px 20px;
-    background-size: 48%;
-    background-repeat: no-repeat;
 }
 
 #buddypress .profile .bp-widget .field_667 {
     background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/about.png")!important;
-    width: 75px;
-    height: 70px;
-    float: left;
-    text-indent: -9999px;
-    background-position: 20px 20px;
-    background-size: 48%;
-    background-repeat: no-repeat;
 }
 
 #buddypress .profile .bp-widget .field_piggy {
     background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/piggy.png")!important;
-    width: 75px;
-    height: 70px;
-    float: left;
-    text-indent: -9999px;
-    background-position: 20px 20px;
-    background-size: 48%;
-    background-repeat: no-repeat;
 }
 
 
@@ -5090,28 +5093,41 @@ td.notification-actions {
 }
 
 #buddypress table.notification-settings .yes {
-    text-align: right;
-    width: 100%;
+    text-align: right!important;
+    width: 100%!important;
     padding: 10px;
 
   }
-  #buddypress .messages span.activity {
-      float: right;
+
+  .bp-user.friends div.item-list-tabs#subnav {
+    display: none;
+}
+
+
+  #buddypress .messages span.activity,
+  #buddypress .my-messages span.activity {
       font-size: 11px!important;
-      margin-right: 20px;
+      margin-left: 10px;
       margin-top: 6px;
   }
+  .bp-user.messages  ul.first.acfb-holder img,
+  .bp-user.messages .ac_results li img {
+      width: 40px!important;
+      border-radius: 100px;
+      padding: 15px;
+  }
 
-#buddypress table tr td.thread-info p.thread-excerpt {
-    font-size: 100%!important;
-    color:black!important;
-}
+
+#buddypress table tr td.thread-info p.thread-excerpt a {
+  font-size: 16px!important;
+  }
 
 .thread-header a,
 .thread-header {
-  color: #a7a7a7!important;
-  font-size: 12px;
-  letter-spacing: 1px!important;
+  font-size: 13px;
+  letter-spacing: 0.4px!important;
+  color: #5a5a5a;
+  font-family: 'open sans';
 }
 
 .messages td.bulk-select-check{
@@ -5136,6 +5152,7 @@ table.notifications {
     display: block;
     margin: 0 auto;
     width: 60px;
+    margin: 14px 0px;
 }
 
 .notifications-options-nav select {
@@ -5170,11 +5187,14 @@ td.notification-since {
 }
 div#message-thread,
 form#send_message_form {
-  font-family: 'medium';
-  padding: 20px;
-  max-width: 500px;
   margin: 0 auto;
 }
+
+.bp-user.compose form#send_message_form {
+  padding:40px;
+}
+
+
 
 .toallusers{
   display:none;
@@ -5184,6 +5204,18 @@ form#send_message_form {
     padding: 10px;
     width: 30px;
     height: auto;
+}
+
+#buddypress div#message-thread div.message-box {
+    padding: 30px 40px!important;
+}
+
+#buddypress div#message-thread div.message-content {
+    margin-left: 60px!important;
+}
+
+#buddypress div#message-thread img.avatar {
+    margin: -16px 14px 0px -16px!important;
 }
 
 .messages a.button.confirm,
@@ -6502,6 +6534,8 @@ body#tinymce.mceContentBody.bbp_reply_content.post-type-topic.wp-editor {
     letter-spacing: 0.5px!important;
     font-family: 'Open Sans'!important;
     font-size: 14px!important;
+    background-color: white;
+    height: auto;
 }
 
 

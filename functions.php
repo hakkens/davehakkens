@@ -655,12 +655,24 @@ function show_profile_pic_button(){
          <div class="dave_upload_profile">
          <div class="upload_profile">
                 <a href="<?php echo $profile.'/profile/change-avatar/#avatar-upload-form'; ?>">Upload your Profile pic</a>
-        <    /div>
+        < /div>
         </div>
     <?php
        endif;
     endif;
  }
+
+
+
+
+ function your_theme_xprofile_cover_image( $settings = array() ) {
+     $settings['width']  = 1000;
+     $settings['height'] = 400;
+
+     return $settings;
+ }
+ add_filter( 'bp_before_xprofile_cover_image_settings_parse_args', 'your_theme_xprofile_cover_image', 10, 1 );
+
 
 
 

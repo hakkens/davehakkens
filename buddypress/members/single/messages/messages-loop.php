@@ -9,17 +9,10 @@ do_action( 'bp_before_member_messages_loop' ); ?>
 
 <?php if ( bp_has_message_threads( bp_ajax_querystring( 'messages' ) ) ) : ?>
 
-  <div class="pagination no-ajax" id="user-pag">
+  /**
+   * pagination was here originally
+   */
 
-    <div class="pag-count" id="messages-dir-count">
-      <?php bp_messages_pagination_count(); ?>
-    </div>
-
-    <div class="pagination-links" id="messages-dir-pag">
-      <?php bp_messages_pagination(); ?>
-    </div>
-
-  </div><!-- .pagination -->
 
   <?php
 
@@ -167,6 +160,19 @@ do_action( 'bp_before_member_messages_loop' ); ?>
   </div>
 
 <?php endif;?>
+
+<div class="pagination no-ajax" id="user-pag">
+
+  <div class="pag-count" id="messages-dir-count">
+    <?php bp_messages_pagination_count(); ?>
+  </div>
+
+  <div class="pagination-links" id="messages-dir-pag">
+    <?php bp_messages_pagination(); ?>
+  </div>
+
+</div><!-- .pagination -->
+
 
 <?php
 

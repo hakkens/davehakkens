@@ -32,6 +32,7 @@ do_action( 'bp_before_member_header' ); ?>
     <h2 class="user-nicename">@<?php bp_displayed_user_mentionname(); ?></h2>
   <?php endif; ?>
 
+
   <span class="activity"><?php bp_last_activity( bp_displayed_user_id() ); ?></span>
 
   <?php

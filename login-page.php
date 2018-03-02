@@ -37,7 +37,7 @@ get_template_part( 'navbar' );
         <?php the_content(); ?>
 
         <?php if( $_GET['login'] == 'failed' ): ?>
-          <p class="centered">Wrong username / password!</p>
+          <p class="centered">Ohoh. wrong username or password buddy 🙊</p>
         <?php endif; ?>
 
         <?php wp_login_form(); ?>

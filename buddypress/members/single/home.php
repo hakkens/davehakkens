@@ -23,7 +23,7 @@
 		endif;
 	 ?>
 
-  </div><!-- #item-header -->
+</div><!-- #item-header -->
 
   <div id="item-nav">
     <div class="item-list-tabs no-ajax" id="object-nav" role="navigation">
