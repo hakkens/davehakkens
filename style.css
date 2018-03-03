@@ -1717,10 +1717,11 @@ cursor:pointer;
   border-radius: 4px;
   transform: translate(-50%, -50%);
 }
-#mainCommunity #communityContent .avatar{
-  width: 100%!important;
-  max-width: 80px;
-  height: auto;
+#mainCommunity #communityContent .avatar {
+    width: 100%!important;
+    padding: 4px;
+    box-sizing: border-box;
+    height: auto;
 }
 
 .latest_community_uploads a:hover {
@@ -1728,9 +1729,9 @@ cursor:pointer;
 }
 
 
-#mainCommunity #communityContent .widget.buddypress .item-avatar a{
-  margin: 5%;
-  width: 23%;
+#mainCommunity #communityContent .widget.buddypress .item-avatar a {
+    margin: 1%!Important;
+    width: 23%;
 }
 
 
@@ -3246,7 +3247,6 @@ ul.bbp-topic-revision-log li {
 .topic-reply .content .bbp-admin-links {
   display: inline-block;
   float: left;
-  padding-top: 10px;
 }
 
 .topic-reply .content p {
@@ -6955,6 +6955,16 @@ color: black;
     background: url(img/community_join_hover.png) center 9px no-repeat;
     background-size: 40%;
     color: white;
+}
+
+
+#project-project-kamp h2 {
+    margin-top: 232px!important;
+    text-align: center;
+}
+
+.single-forum.bbpress span#subscription-toggle {
+    display: none;
 }
 
 #project-precious-plastic h2 {

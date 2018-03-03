@@ -55,7 +55,7 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
             data-small="<?php echo $mPost['images']['small'] ?>"
             data-medium="<?php echo $mPost['images']['medium'] ?>"
             data-large="<?php echo $mPost['images']['large'] ?>"
-            data-src="<?php echo $mPost['images']['full'] ?>"
+            data-src="<?php echo $mPost['images']['large'] ?>"
           />
           <div class="shadow"></div>
           <div class="meta">
@@ -169,7 +169,7 @@ continue;
     <div id="communityContent">
       <div id="members">
         <?php
-          the_widget("BP_Core_Recently_Active_Widget", "title=Members&max_members=9");
+          the_widget("BP_Core_Recently_Active_Widget", "title=🙃 Latest Members&max_members=16");
 //          the_widget("BP_Core_Members_Widget", "title=Members2&max_members=8");
         ?>
       </div>
