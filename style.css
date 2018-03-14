@@ -108,6 +108,7 @@ p.wp-caption-text {
   margin-top: 0px;
   display: inline-block;
   margin-left: 20px;
+  vertical-align: middle;
 }
 
 
@@ -724,6 +725,11 @@ a:hover {
 .authorinfo .author {
     display:inline-block;
 }
+.single-page .author a {
+    color: black!important;
+    vertical-align: middle;
+}
+
 
 .single-post .meta .categories a{
 padding: 6px 10px;
@@ -4967,6 +4973,9 @@ tr.field_1.field_current_balance_mycred_default td.data {
 
 
 
+
+
+
 #buddypress .editfield.field_1 label {
 
 }
@@ -7168,7 +7177,7 @@ padding-top:15px;
 .bbpress .topic-lead-extra .favorite-toggle::before,
 .bbpress .topic-lead-extra #favorite-toggle .is-favorite .favorite-toggle:hover::before {
     display: inline-block;
-    background-image: url(http://dev.davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/favorite.png);
+    background-image: url('/wp-content/themes/davehakkens2.3/img/icon/favorite.png');
     width: 20px;
     height: 20px;
     content: "";
@@ -7183,7 +7192,7 @@ padding-top:15px;
 .topic-lead-extra #subscription-toggle a::before,
 .topic-lead-extra #subscription-toggle .is-subscribed a:hover::before {
     display: inline-block;
-    background-image: url(http://dev.davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/subscribe.png);
+    background-image: url('/wp-content/themes/davehakkens2.3/img/icon/subscribe.png');
     width: 24px;
     height: 20px;
     content: "";
@@ -7300,11 +7309,14 @@ a.sort-by-likes {
 /* user profile page */
 
 .button.donate {
-    background-image: url("https://dev.davehakkens.nl/wp-content/themes/davehakkens2.3/img/icons-profile/icon-header-verified.png");
-    background-size: 25px 25px;
+    background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-header-verified.png");
+    background-size: cover;
     width: 25px;
     height: 25px;
     vertical-align: -3px;
+}
+.button.donate:hover {
+    opacity: .7;
 }
 
 .tooltip {
@@ -7359,10 +7371,10 @@ a.sort-by-likes {
 .header-location::before {
     display: inline-block;
     content: '';
-    background-image: url("https://dev.davehakkens.nl/wp-content/themes/davehakkens2.3/img/icons-profile/icon-map.png");
+    background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-map.png");
     width: 30px;
     height: 30px;
-    background-size: 30px 30px;
+    background-size: cover;
     vertical-align: -8px;
 }
 
@@ -7374,29 +7386,29 @@ a.sort-by-likes {
     display: inline-block;
     content: "";
     margin: 0 2px 0 0;
-    background-size: 22px;
+    background-size: cover;
     width: 22px;
     height: 22px;
     vertical-align: -4px;
 }
 
 #user-xprofile::before {
-    background-image: url("https://dev.davehakkens.nl/wp-content/themes/davehakkens2.3/img/icons-profile/icon-profile.png");
+    background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-profile.png");
 }
 #user-messages::before {
-    background-image: url("https://dev.davehakkens.nl/wp-content/themes/davehakkens2.3/img/icons-profile/icon-messages.png");
+    background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-messages.png");
 }
 #user-pins::before {
-    background-image: url("https://dev.davehakkens.nl/wp-content/themes/davehakkens2.3/img/icons-profile/icon-map.png");
+    background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-map.png");
 }
 #user-friends::before {
-    background-image: url("https://dev.davehakkens.nl/wp-content/themes/davehakkens2.3/img/icons-profile/icon-friends.png");
+    background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-friends.png");
 }
 #user-forums::before {
-    background-image: url("https://dev.davehakkens.nl/wp-content/themes/davehakkens2.3/img/icons-profile/icon-forums.png");
+    background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-forums.png");
 }
 #user-settings::before {
-    background-image: url("https://dev.davehakkens.nl/wp-content/themes/davehakkens2.3/img/icons-profile/icon-settings.png");
+    background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-settings.png");
 }
 
 #buddypress div.profile-name p {
@@ -7450,7 +7462,7 @@ a.sort-by-likes {
     display: flex;
     padding: 10px 0;
     margin-bottom: -5px;
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
 }
 .user-attachments .image {
@@ -7463,4 +7475,3 @@ a.sort-by-likes {
 }
 
 /* ends Codeable edits */
-

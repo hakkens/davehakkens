@@ -44,7 +44,10 @@ do_action( 'bp_before_member_header' ); ?>
 
 			<?php endif; ?>
 
-			<div class="header-location"><?php bp_profile_field_data( array('field' => 'Location') ); ?></div>
+			<?php if ( bp_get_profile_field_data( array('field' => 'Location') ) ) : ?>
+
+				<div class="header-location"><?php bp_profile_field_data( array('field' => 'Location') ); ?></div>
+			<?php endif; ?>
 
 			<div id="item-buttons"><?php
 

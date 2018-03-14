@@ -63,9 +63,11 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 
                   <div <?php bp_field_css_class(); ?>><?php bp_the_profile_field_name(); ?></div>
 
-                  <?php $birthday = strtotime( strip_tags( bp_get_profile_field_data( array('field' => 'Birthday') ) ) ); ?>
-
-                  <div class="data"><p><?php echo (date('Y') - date('Y', $birthday)); ?></p></div>
+                  <?php
+                      $date = DateTime::createFromFormat('F j, Y', strip_tags( bp_get_profile_field_data( array('field' => 'Birthday') ) ) );
+                      $now = new DateTime("now");
+                      $interval = $date->diff($now); ?>
+                  <div class="data"><p><?php echo $interval->y; ?></p></div>
 
                 </tr>
 
@@ -74,9 +76,15 @@ do_action( 'bp_before_profile_loop_content' ); ?>
                   <div class="field_member"><?php bp_the_profile_field_name(); ?></div>
 
                   <?php $displayed_user = get_userdata( bp_displayed_user_id() );
-                      $joined = date('Y') - date('Y', strtotime($displayed_user->user_registered)); ?>
+                      $date = new DateTime($displayed_user->user_registered);
+                      $now = new DateTime("now");
+                      $interval = $date->diff($now);
+                  ?>
 
-                  <div class="data"><p><?php echo $joined ?> year member</p></div>
+                  <div class="data"><p>
+                    <?php if ( $interval->y != 0 ) echo $interval->y.' year';
+                          elseif ( $interval->m != 0 ) echo $interval->m.' month';
+                          else echo $interval->d.' day';?> member</p></div>
 
                 </tr>
 
@@ -159,9 +167,9 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 <div class="user-attachments">
 
 <?php
-$the_query = new WP_Query( array( 'post_type' => 'attachment', 'post_status' => 'inherit', 'posts_per_page' => 6, 'author' => bp_displayed_user_id()) );
+$the_query = new WP_Query( array( 'post_type' => 'attachment', 'post_status' => 'inherit', 'posts_per_page' => 6, 'author' => bp_displayed_user_id(), 'post_parent__not_in' => array(0) ) );
 if ( $the_query->have_posts() ) while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-  <div class="image" style="background-image: url(<?php echo wp_get_attachment_thumb_url(get_the_ID()); ?>);"></div><?php
+  <a href="<?php echo get_permalink($post->post_parent); ?>"><div class="image" style="background-image: url(<?php echo wp_get_attachment_thumb_url(get_the_ID()); ?>);"></div></a><?php
 endwhile;
 ?>
 
