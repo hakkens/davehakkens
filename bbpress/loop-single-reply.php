@@ -10,7 +10,7 @@
 ?>
 
 
-<div class="topic-reply">
+<div id="post-<?php echo bbp_get_reply_id(); ?>" class="topic-reply">
 
   <div class="author">
 
