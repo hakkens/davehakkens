@@ -45,9 +45,35 @@ class Latest_Community_Uploads extends WP_Widget {
           setup_postdata($post);
           $link = get_permalink($post->post_parent);
           $img  = wp_get_attachment_image($post->ID,'medium');
+
           if(strpos($link, 'reply')){
-            //TODO: get pagination
-            $link = get_permalink($topics[$post->post_parent])."#post-".$post->post_parent;
+            //calculate pagination
+            $argsX = array(
+              'post_type' => 'reply',
+              'numberposts' => -1,
+              'post_status' => 'publish',
+              'orderby' => 'date',
+              'order' => 'ASC',
+              'post_parent' => $topics[$post->post_parent],
+              'fields'      => 'ids',
+            );
+            $siblings = get_posts($argsX);
+            $indx = array_search($post->post_parent, $siblings);
+            $page = floor($indx/get_option('posts_per_page'));
+            $page = floor($indx/15);
+/*
+echo "Parent(";
+echo ($post->post_parent);
+echo ")[";
+echo ($indx);
+echo "]: ";
+echo ($topics[$post->post_parent]);
+echo " -> ";
+echo count($siblings);
+echo ":</br>";
+echo get_option('posts_per_page');
+*/
+            $link = get_permalink($topics[$post->post_parent]). ($page>0?"page/".($page+1)."/":"") . "#post-".$post->post_parent;
           }
           echo "<a href='". $link ."'>". $img ."</a>";
         }
