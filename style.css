@@ -108,6 +108,7 @@ p.wp-caption-text {
   margin-top: 0px;
   display: inline-block;
   margin-left: 20px;
+  vertical-align: middle;
 }
 
 
@@ -724,6 +725,11 @@ a:hover {
 .authorinfo .author {
     display:inline-block;
 }
+.single-post .author a {
+    color: black!important;
+    vertical-align: middle;
+}
+
 
 .single-post .meta .categories a{
 padding: 6px 10px;
