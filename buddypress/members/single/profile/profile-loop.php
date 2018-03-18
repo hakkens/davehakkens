@@ -173,7 +173,7 @@ if ( $the_query->have_posts() ) while ( $the_query->have_posts() ) : $the_query-
 
   $link = get_permalink($post->post_parent);
 
-  if(strpos($link, 'reply')){ //link back to topic page instead of reply page
+  if(strpos($link, '/reply/')){ //link back to topic page instead of reply page
     $reply_post = get_post($post->post_parent);
     //calculate pagination
     $argsX = array(
