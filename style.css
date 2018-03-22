@@ -725,7 +725,11 @@ a:hover {
 .authorinfo .author {
     display:inline-block;
 }
+<<<<<<< HEAD
+.single-post .author a {
+=======
 .single-page .author a {
+>>>>>>> 5a36a16204e5a327ad519046553ed4cafefc9c3d
     color: black!important;
     vertical-align: middle;
 }
