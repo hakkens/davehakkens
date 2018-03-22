@@ -17,7 +17,6 @@ class Latest_Community_Uploads extends WP_Widget {
    */
   public function widget( $args, $instance ) {
     echo !empty($args['before_widget']) ? $args['before_widget']: "<div class='latest-uploads'>";
-//    echo !empty($args['before_widget']) ? $args['before_widget']: "<div class='latest-uploads'>";
     $title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( '📷 Latest Images' );
     $max = ( ! empty( $instance['max'] ) ) ? $instance['max'] : 10;
     if ( $title) {
@@ -47,7 +46,7 @@ class Latest_Community_Uploads extends WP_Widget {
           $img  = wp_get_attachment_image($post->ID,'medium');
           if(strpos($link, 'reply')){
             //calculate pagination
-            $argsX = array(
+            $args = array(
               'post_type' => 'reply',
               'numberposts' => -1,
               'post_status' => 'publish',
@@ -56,7 +55,7 @@ class Latest_Community_Uploads extends WP_Widget {
               'post_parent' => $topics[$post->post_parent],
               'fields'      => 'ids',
             );
-            $siblings = get_posts($argsX);
+            $siblings = get_posts($args);
             $indx = array_search($post->post_parent, $siblings);
             $page = floor($indx/get_option('_bbp_replies_per_page'));
             $link = get_permalink($topics[$post->post_parent]). ($page>0?"page/".($page+1)."/":"") . "#post-".$post->post_parent;
