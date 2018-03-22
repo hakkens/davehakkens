@@ -48,7 +48,7 @@
 
              // Loop through posts
              foreach( $wpex_query->posts as $post ) : setup_postdata( $post ); ?>
-             <li><div class="relatedthumb"><a href="<? the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'thumbnail' ); ?></a></div>
+             <li><div class="relatedthumb"><a href="<?php the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'thumbnail' ); ?></a></div>
              <div class="relatedcontent">
              </div>
              </li>

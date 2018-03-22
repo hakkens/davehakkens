@@ -187,8 +187,7 @@ if ( $the_query->have_posts() ) while ( $the_query->have_posts() ) : $the_query-
     );
     $siblings = get_posts($argsX);
     $indx = array_search($post->post_parent, $siblings);
-    $page = floor($indx/get_option('posts_per_page'));
-    $page = floor($indx/15);
+    $page = floor($indx/get_option('_bbp_replies_per_page'));
 
     $link = get_permalink($reply_post->post_parent). ( $page > 0 ? "page/" . ( $page + 1 ) . "/" : "" ) . "#post-" . $post->post_parent;
   }
