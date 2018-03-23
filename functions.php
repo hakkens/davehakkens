@@ -711,7 +711,7 @@ if ( !class_exists( 'ImageRotationRepair' ) ) {
     public function fixImageOrientation( $file, $type ) {
       if ( is_callable('exif_read_data') && !isset( $this->oreintation_fixed[$file] ) ) {
         $exif = @exif_read_data( $file );
-        if ( isset($exif) && isset($exif['Orientation']) && $exif['Orientation'] > 1 ) { 
+        if ( isset($exif) && isset($exif['Orientation']) && $exif['Orientation'] > 1 ) {
           include_once( ABSPATH . 'wp-admin/includes/image-edit.php' );
           switch ( $exif['Orientation'] ) {
             case 3:

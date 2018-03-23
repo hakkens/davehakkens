@@ -128,20 +128,18 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
      */
     if (get_post_format() == 'status'): ?>
     <a href="/tag/highlight"><div class="highlightlabel"> highlight</div></a>
-      <a href="<?php echo get_post_permalink(); ?>">
+
+<a href="<?php echo get_post_permalink(); ?>">
         <div class="status">
         <div class="status-image">
-        <div class="featuredImage">
           <?php the_post_thumbnail('medium'); ?>
-        </div>
-
       <div class="status-text">
-        <?php the_content(); ?>  </a>
+        <h3><?php the_title(); ?></h3>
         <?php edit_post_link(); ?>
 
         </div>
         </div>
-        </div>
+        </div></a>
 <?php  endif; ?>
 
 
@@ -157,13 +155,14 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
         </div>
       </a>
       <div class="categories"> <?php foreach((get_the_category()) as $category) { echo $category->cat_name . ' '; } ?> </div>
-      <h3><a href="<?php echo get_post_permalink(); ?>"><?php the_title(); ?></a></h3>
+      <a href="<?php echo get_post_permalink(); ?>"><h3><?php the_title(); ?></h3></a>
       <?php the_excerpt(); ?>
     <?php endif; ?>
 
-      <a href="<?php echo get_post_permalink(); ?>"><div class="hoverhide">
-       </a>
+      <a href="<?php echo get_post_permalink(); ?>">
+
   <div class="post_meta">
+    <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
     <div class="tags"> <?php
     if($catID!= ''){
       foreach (get_the_tags() as $tag){
@@ -177,17 +176,16 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
     ?>
 
   </div>
-
+  </div>
   <div class="category-footer">
-      <div class="date"> <?php the_time('F j, Y'); ?><br /></div>
-
- <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?>
+    <?php if(function_exists('wp_ulike')) wp_ulike('get'); ?>
      <div class="commenticon">
        <a href="<?php comments_link(); ?>">
        <img src="<?php bloginfo( 'template_url' ); ?>/img/comment.png" alt="comments" height="23" width="23"><?php
-   comments_popup_link( '', '1', '%', 'comments-link', '');?></p></a></div>
-
+   comments_popup_link( '', '1', '%', 'comments-link', '');?></a>
  </div>
+
+
      <?php edit_post_link(); ?>
    </div></div>
   </div>

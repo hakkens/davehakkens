@@ -37,6 +37,25 @@
       echo '<iframe src="https://vine.co/v/' . $video_code . '/embed/simple" width="800" height="800" frameborder="0"></iframe><script src="https://platform.vine.co/static/scripts/embed.js"></script>';
 
     }?>
+
+    <?php
+    			$author_id = get_the_author_meta( 'ID' );
+    			$user_info = get_userdata($author_id );?>
+           <div class="authorinfo"> <p>
+          <div class="avatar"><?php echo get_avatar( get_the_author_meta( 'ID' ), 32 ); ?> </div>
+
+        <div class="custom_post_flag"><a href='/community/members/<?php echo $user_info->user_nicename; ?> '>
+              <?php
+    		     $country = xprofile_get_field_data( 42, $author_id );
+    				dh_get_flag_by_location($country);
+
+    					?>
+            </a></div>
+    <div class="author"><a href='/community/members/<?php echo $user_info->user_nicename; ?> '><?php echo $user_info->user_nicename; ?> </a> </div>
+        <div class="date"> <?php the_time('F j, Y'); ?></p></div>
+      </div>
+
+      
     <h1><?php the_title(); ?></h1>
     <?php the_content();?>
     <div class="meta">
