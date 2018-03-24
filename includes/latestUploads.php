@@ -20,6 +20,7 @@ class Latest_Community_Uploads extends WP_Widget {
     $title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( '📷 Latest Images' );
     $max = ( ! empty( $instance['max'] ) ) ? $instance['max'] : 10;
     $user_id = ( ! empty( $instance['user_id'] ) ) ? $instance['user_id'] : '';
+    $size = ( ! empty( $instance['size'] ) ) ? $instance['size'] : 'thumbnail';
     if ( $title) {
       echo $args['before_title'] . apply_filters( 'widget_title', $title ) . $args['after_title'];
     }
@@ -47,7 +48,7 @@ class Latest_Community_Uploads extends WP_Widget {
         foreach ($attachments as $post) {
           setup_postdata($post);
           $link = get_permalink($post->post_parent);
-          $img  = wp_get_attachment_image($post->ID,'medium');
+          $img  = wp_get_attachment_image($post->ID, $size);
           if(strpos($link, 'reply')){
             //calculate pagination
             if(array_key_exists ( $post->post_parent , $cachedReplies )){
@@ -73,7 +74,7 @@ class Latest_Community_Uploads extends WP_Widget {
         }
       }
     }
-    echo "</div>";
+    echo !empty($args['after_widget']) ? $args['after_widget']: "</div>";
   }
 
   /**
