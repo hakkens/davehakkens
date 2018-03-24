@@ -2,6 +2,7 @@
 
 include dirname( __FILE__ ) . '/includes/meta-boxes.php';
 include_once dirname( __FILE__ ) . '/includes/pins.php';
+include_once dirname( __FILE__ ) . '/includes/latestUploads.php';
 
 function login_redirect_control( $redirect_to, $request, $user ) {
   $urlParts = parse_url($request);
@@ -557,7 +558,6 @@ if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) {
 }
 
 function davehakkens2_widgets_init() {
-  require get_template_directory() . '/includes/widgets.php';
   register_widget( 'Latest_Community_Uploads' );
 }
 
