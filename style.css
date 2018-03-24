@@ -7495,3 +7495,17 @@ a.sort-by-likes {
 }
 
 /* ends Codeable edits */
+
+.topicounter{ text-align:center; margin: 20px 0 0;}
+.dav_reply_topic{ display:inline-block;}
+.dav_reply_topic span{ position: relative; padding: 0 33px;}
+.dav_reply_topic span:before{ background-image: url(http://dev.davehakkens.nl/wp-content/uploads/2018/03/chat-icon.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
+.dav_topic_subscriber{display:inline-block;}
+.dav_topic_subscriber span{position: relative; padding: 0 33px;}
+.dav_topic_subscriber span:before{background-image: url(http://dev.davehakkens.nl/wp-content/uploads/2018/03/message-icon.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
+.dav_topic_favorit{display:inline-block;}
+.dav_topic_favorit span{position: relative; padding: 0 33px;}
+.dav_topic_favorit span:before{background-image: url(http://dev.davehakkens.nl/wp-content/uploads/2018/03/star-icon.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
+.dav_topic_like{display:inline-block;}
+.dav_topic_like span{position: relative; padding: 0 33px;}
+.dav_topic_like span:before{background-image: url(http://dev.davehakkens.nl/wp-content/uploads/2018/03/heart-icon.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
