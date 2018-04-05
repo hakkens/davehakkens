@@ -11,7 +11,7 @@ do_action( 'bp_before_profile_avatar_upload_content' ); ?>
 
 <?php if ( !(int)bp_get_option( 'bp-disable-avatar-uploads' ) ) : ?>
 
-  <p><?php _e( 'We would love to see who is behind that screen of yours. It would make our day if you upload a picture of yourself or make a new one :) ', 'buddypress' ); ?></p>
+  <p><?php _e( 'We would love to see who is behind that screen of yours. Throw a picture of yourself in here :) ', 'buddypress' ); ?></p>
 
   <form action="" method="post" id="avatar-upload-form" class="standard-form" enctype="multipart/form-data">
 
@@ -27,7 +27,7 @@ do_action( 'bp_before_profile_avatar_upload_content' ); ?>
       </p>
 
       <?php if ( bp_get_user_has_avatar() ) : ?>
-        <p><?php _e( "If you'd like to delete your current profile photo but not upload a new one, please use the delete profile photo button.", 'buddypress' ); ?></p>
+        <p><?php _e( "If you'd like to delete your cool big photo press this big black button", 'buddypress' ); ?></p>
         <p><a class="button edit" href="<?php bp_avatar_delete_link(); ?>" title="<?php esc_attr_e( 'Delete Profile Photo', 'buddypress' ); ?>"><?php _e( 'Delete My Profile Photo', 'buddypress' ); ?></a></p>
       <?php endif; ?>
 

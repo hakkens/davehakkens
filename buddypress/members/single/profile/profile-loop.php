@@ -67,7 +67,7 @@ do_action( 'bp_before_profile_loop_content' ); ?>
                       $date = DateTime::createFromFormat('F j, Y', strip_tags( bp_get_profile_field_data( array('field' => 'Birthday') ) ) );
                       $now = new DateTime("now");
                       $interval = $date->diff($now); ?>
-                  <div class="data"><p><?php echo $interval->y; ?></p></div>
+                  <div class="data"><p><?php echo $interval->y; ?> years</p></div>
 
                 </tr>
 
@@ -136,6 +136,9 @@ do_action( 'bp_before_profile_loop_content' ); ?>
             //}
           ?>
         </table>
+        <?php
+          the_widget("Latest_Community_Uploads", array("max"=>"6", "user_id"=>bp_displayed_user_id()));
+        ?>
       </div>
 
 
@@ -156,19 +159,14 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 
 <?php endif; ?>
 
-<div class="dedication"><a href="https://davehakkens.nl/community/dedication/">Dedication</a></div>
+
+<div class="dedication"><a href="https://davehakkens.nl/community/dedication/"><h2>💪 Dedication</h2></a>
 
 <div class="mycred"><?php echo do_shortcode('[mycred_my_ranks user_id='.bp_displayed_user_id().']') ?> with <?php echo do_shortcode('[mycred_my_balance user_id='.bp_displayed_user_id().']'); ?> points
 
 </div>
 
 <div class="badges"><?php echo do_shortcode('[mycred_my_badges user_id='.bp_displayed_user_id().']') ?></div>
-
-<div class="user-attachments">
-
-<?php
-  the_widget("Latest_Community_Uploads", array("max"=>"6", "user_id"=>bp_displayed_user_id()));
-?>
 
 </div>
 

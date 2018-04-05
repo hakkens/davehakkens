@@ -36,7 +36,7 @@ do_action( 'bp_before_member_header' ); ?>
 
 				<?php if ( function_exists('give_has_purchases') ) :
 	              if ( give_has_purchases( bp_displayed_user_id() ) ) : ?>
-	              <div class="button donate tooltip"><span class="tooltiptext">made a donation</span></div>
+	              <div class="button donate tooltip"><span class="tooltiptext">supported with a donation</span></div>
 	              <?php
 	          	  endif;
 	          	endif; ?>

@@ -108,9 +108,9 @@ else
             <div class="triangle"> </div>
             <div class="submenu">
             <div class="hello"> Hello <?= $current_user->user_firstname; ?></div>
-            <a href="<?= bp_loggedin_user_domain(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/profile.png">My profile</a>
+            <a href="<?= bp_loggedin_user_domain(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/icons-profile/profile-white.png">My profile</a>
             <a href="<?= bp_loggedin_user_domain(); ?>/profile/change-avatar/"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/avatar-change.png">Change avatar</a>
-            <a href="<?= bp_loggedin_user_domain(); ?>/messages"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/messages.png">Inbox <div class="littlenotification">
+            <a href="<?= bp_loggedin_user_domain(); ?>/messages"><img src="<?php bloginfo( 'template_url' ); ?>/img/icons-profile/messages-white.png">Inbox <div class="littlenotification">
 
 
 

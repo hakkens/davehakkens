@@ -76,6 +76,18 @@
 
 @media screen and (max-width: 900px) {
 
+
+
+  .bp-user #topbar {
+      margin-top: 22px;
+  }
+
+  .bp-user #topbar #breadcrumbs {
+  display:none
+  }
+
+
+
   .single .post .thumbnail {
     height: 500px;
   }
@@ -225,8 +237,71 @@
   .page-template-page-redirect,
   .page-id-73414,
   .bp-user .post{
-    padding-bottom: 1200px;
+    padding-bottom: 1400px;
   }
+
+
+  .bbp-attachments {
+      margin: -20px;
+  }
+
+
+  #bbpress-forums .bbp-attachments ol li.bbp-atthumb img {
+      max-height: 350px;
+  }
+
+
+
+#buddypress div.profile{
+  padding:10px;
+}
+
+
+
+  #buddypress #item-body #mycred-users-badges img {
+      width: 24%;
+  }
+
+
+
+  #buddypress #item-header-cover-image #item-header-avatar,
+  .bp-user #buddypress #item-header #item-header-cover-image #item-header-avatar{
+    width: auto!important
+  }
+
+.bp-user div#item-header-avatar {
+      display: block!important;
+      width: 100%!important;
+      margin: 0 auto!important;
+  }
+
+.bp-user #buddypress div#item-header div#item-header-content {
+    margin-top: 0px!important;
+    width: 100%!important;
+}
+
+div#item-header-cover-image {
+    width: 100%!important;
+}
+
+#buddypress div#item-header img.avatar {
+    width: 120px;
+}
+
+
+#buddypress .profile .bp-widget.base {
+    width: 96%;
+    box-sizing: border-box;
+    margin:2%;
+}
+
+.profilesidebar {
+    width: 100%;
+    padding: 20px;
+}
+
+
+
 
   #post-grid .item.big .youtube-container {
       height: inherit;
@@ -235,6 +310,13 @@
   #post-grid, #mainCommunity #communityContent {
     max-width: 500px;
   }
+
+
+#buddypress #item-header-cover-image #item-header-avatar,
+.bp-user #buddypress #item-header #item-header-cover-image #item-header-avatar{
+  width: 100%!important
+}
+
 
 
 
@@ -894,6 +976,12 @@ font-size: 18px;
 }
 
 @media screen and (max-width: 540px) {
+
+
+
+  #buddypress #item-nav a {
+      font-size: 12px!important;
+  }
 
 
   #buddypress .messages span.activity {

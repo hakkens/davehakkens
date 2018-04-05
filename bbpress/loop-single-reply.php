@@ -94,6 +94,9 @@
 
       </span>
     <?php endif; ?>
+
+
+
     <?php
 
       do_action( 'bbp_theme_before_reply_content' );
@@ -104,13 +107,13 @@
 
     ?>
 
-    <?php
-      do_action( 'bbp_theme_before_reply_admin_links' );
-      bbp_reply_admin_links();
-      do_action( 'bbp_theme_after_reply_admin_links' );
-    ?>
 
 
   </div>
+  <?php
+    do_action( 'bbp_theme_before_reply_admin_links' );
+    bbp_reply_admin_links();
+    do_action( 'bbp_theme_after_reply_admin_links' );
+  ?>
 
 </div>

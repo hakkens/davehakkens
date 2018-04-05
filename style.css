@@ -89,7 +89,7 @@ p.wp-caption-text {
 }
 
 .single-post h1 {
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
   font-size: 50px;
   padding: 00px 0px 0px 0px;
   text-align:left;
@@ -103,7 +103,7 @@ p.wp-caption-text {
 
 .single-post .date {
   color: #8f8f8f;
-  font-family: 'bold';
+  font-family: 'bold' ,Verdana, serif;
   font-size: 14px;
   margin-top: 0px;
   display: inline-block;
@@ -265,7 +265,7 @@ a:hover {
 #topbar #breadcrumbs a,
 #topbar #breadcrumbs .breadcrumb_last {
   font-size: 14px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   letter-spacing: 1px;
   padding-left: 0px!important;
   color: #5e94da;
@@ -709,7 +709,7 @@ a:hover {
     width: 100%;
     height: auto;
     display: inline-block;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     font-size: 16px;
     letter-spacing: 0.5px;
 }
@@ -737,7 +737,7 @@ padding: 6px 10px;
     border-radius: 1px;
     margin-right: 4px;
     color: white;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     letter-spacing: 0.6px;
     display: inline-block;
     margin-bottom: 5px;
@@ -807,7 +807,7 @@ padding: 6px 10px;
 }
 .sp-slide .meta h3 {
   font-size: 17px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
 }
 .page .post .thumbnail h3,
 .single .post .thumbnail h3 {
@@ -921,7 +921,7 @@ padding: 6px 10px;
   margin-right: 5px;
   font-size: 12px;
   padding: 3px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   color: #979797!important;
   display: none;
 }
@@ -946,7 +946,7 @@ padding: 6px 10px;
 .categorylabel {
   text-align: center!important;
   color: #b0b0b0;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   padding-bottom: 60px;
   font-size: 18px;
 }
@@ -1067,7 +1067,7 @@ textarea#comment {
 
 
 h3#comments, div#respond h3 {
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     text-align: center;
     padding: 40px;
     padding-top: 80px;
@@ -1119,7 +1119,7 @@ h3#comments, div#respond h3 {
   margin-left: 18px;
   font-size: 16px;
   letter-spacing: 0.4px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
 }
 /*
 #post-filter li.active a,
@@ -1433,7 +1433,7 @@ video {
 .posttab .widget.widget_recent_entries {
     font-size: 20px;
     font-weight: 300;
-    font-family: medium;
+    font-family: 'medium' ,Verdana ,sans-serif;
     word-wrap: break-word;
     letter-spacing: 0.7px;
     color: #b0b0b0;
@@ -1443,7 +1443,7 @@ video {
 .memberstab {
     font-size: 20px;
     font-weight: 300;
-    font-family: medium;
+    font-family: 'medium' ,Verdana ,sans-serif;
     word-wrap: break-word;
 }
 
@@ -1468,7 +1468,7 @@ video {
 
 .commenticon {
     margin-top: 10px;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     font-size: 14px;
     color: #cdcdcd;
     display: inline-block;
@@ -1517,7 +1517,7 @@ video {
 
 
 .wpulike-heart  .wp_ulike_btn.wp_ulike_put_image {
-    background: url(/wp-content/themes/davehakkens2.2/img/like_grey.png) no-repeat !important;
+    background: url(/wp-content/themes/davehakkens2.3/img/like_grey.png) no-repeat !important;
     background-size: 20px auto !important;
     background-position: center center !important;
 }
@@ -1529,7 +1529,13 @@ a.wp_ulike_btn.wp_ulike_put_image:hover {
 
 
 a.wp_ulike_put_image.image-unlike {
-    background: url(/wp-content/themes/davehakkens2.2/img/like.png) no-repeat !important;
+    background: url(/wp-content/themes/davehakkens2.3/img/like.png) no-repeat !important;
+    background-size: 20px auto !important;
+    background-position: center center !important;
+}
+
+.home-page a.wp_ulike_put_image.image-unlike {
+    background: url(/wp-content/themes/davehakkens2.3/img/like.png) no-repeat !important;
     background-size: 20px auto !important;
     background-position: center center !important;
 }
@@ -1600,7 +1606,7 @@ a.wp_ulike_put_image.image-unlike {
       left: 0px;
       margin: 0 auto;
       text-align: center;
-      font-family: 'medium';
+      font-family: 'medium' ,Verdana, serif;
   }
 
 
@@ -1627,7 +1633,7 @@ a.wp_ulike_put_image.image-unlike {
 }
 
 #post-grid .post_meta .date {
-    font-family: medium;
+    font-family: 'medium' ,Verdana ,sans-serif;
     font-size: 14px;
     padding-top: 3px;
     display: inline-block;
@@ -1640,7 +1646,7 @@ a.wp_ulike_put_image.image-unlike {
 }
 
 #post-grid a.more-link {
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
   font-size: 16px;
   color: #5e94da!important;
   display: none;
@@ -1711,12 +1717,16 @@ a.wp_ulike_put_image.image-unlike {
 
 }
 
+.bp-widget .widget.latest_community_uploads {
+    padding: 16px;
+}
+
 
 /*#mainCommunity #communityContent .latest_community_uploads img{*/
 .latest_community_uploads img{
   display: block;
   width: 100%;
-  height: 100%;
+  height: 100%!important;
   object-fit: cover;
   margin: 0;
   position: absolute;
@@ -1746,7 +1756,7 @@ a.wp_ulike_put_image.image-unlike {
 #mainCommunity #communityContent>div h2{
   width: 100%;
   text-align: center;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   padding: 4px;
   margin-top: 3px;
 }
@@ -1765,7 +1775,7 @@ a.wp_ulike_put_image.image-unlike {
 
 .single-post .meta p {
   text-align: center;
-  font-family: 'Open Sans';
+  font-family: 'Open Sans', sans-serif;
   margin-top: 10px;
   color: white;
 }
@@ -1853,7 +1863,7 @@ a.wp_ulike_put_image.image-unlike {
 }
 .community-content {
     margin: 0 0 12px;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     letter-spacing: 0.7px;
     font-size: 16px;
 }
@@ -1928,7 +1938,7 @@ a.wp_ulike_put_image.image-unlike {
 }
 
 .smallHalf h2 {
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     font-size: 28px;
     padding-top: 0px!important;
 }
@@ -2174,7 +2184,7 @@ a.wp_ulike_put_image.image-unlike {
 }
 
 #user-menu .submenu{
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   color: black;
   background: #313131;
   border-radius: 4px;
@@ -2275,7 +2285,7 @@ div#post-mention {
 }
 
 #gallery-2 .gallery-caption {
-    font-family: medium;
+    font-family: 'medium' ,Verdana ,sans-serif;
     padding-bottom: 10px;
 }
 
@@ -2287,14 +2297,14 @@ div#post-mention {
 }
 
 #gallery-2 .gallery-caption {
-    font-family: medium;
+    font-family: 'medium' ,Verdana ,sans-serif;
     padding-bottom: 10px;
     margin-top: -10px;
 }
 
 
 .page-id-73414 h2 {
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     padding: 10px 0px;
     margin-top:30px;
 }
@@ -2308,7 +2318,7 @@ div#post-mention {
     padding: 10px 20px;
     border-radius: 4px;
     color: white;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     letter-spacing: 1.4px;
     cursor: pointer;
 }
@@ -2341,7 +2351,7 @@ div#post-mention {
 
 .communitypage .thumbnail h1 {
   font-size: 21px;
-  font-family: 'bold';
+  font-family: 'bold' ,Verdana, serif;
   letter-spacing: 1.5px;
   color: black;
   margin: 0px;
@@ -2373,7 +2383,7 @@ div#post-mention {
 }
 
 .page-template-page-community-joinh2 {
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     font-size: 40px;
     padding-bottom: 20px;
     padding-top: 80px;
@@ -2460,8 +2470,8 @@ div#post-mention {
 
 
 .friends #buddypress #admins-list li, .friends #buddypress #members-list li, .friends #buddypress #mods-list li {
-  width: 42%!important;
-  margin: 4%!important;
+  width: 31%!important;
+  margin: 1%!important;
 }
 
 #buddypress .friends .is_friend a {
@@ -2501,7 +2511,7 @@ div#post-mention {
 }
 
 .activity-header p {
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   font-size: 16px!important;
 }
 
@@ -2561,7 +2571,7 @@ div#post-mention {
 
 .sp-slides p {
     text-align: center;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     margin-top: 20px!important;
     padding: 2px 3px;
     border: 4px solid white;
@@ -2719,7 +2729,7 @@ span.bbp-topic-freshness-author a {
 .bbp-header li.bbp-topic-reply-count, .bbp-header li.bbp-topic-freshness {
     margin-top: 20px!important;
     font-size: 18px;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
 
 }
 
@@ -2798,7 +2808,7 @@ input#bbp_search_submit.button {
 }
 
 .page-forum #bbpress-forums form {
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
 }
 
 .bbp-search-form {
@@ -2809,7 +2819,7 @@ input#bbp_search_submit.button {
 .bbp-forum-title {
   font-size: 20px;
   font-weight: 300;
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
   text-decoration: none;
   text-transform: none;
   word-wrap: break-word;
@@ -2922,7 +2932,7 @@ display:inline;
 .bbp-form legend {
   font-size: 40px;
   padding: 25px 0px !important;
-  font-family: 'bold';
+  font-family: 'bold' ,Verdana, serif;
 }
 
 .bbp-pagination-count {
@@ -2937,7 +2947,7 @@ display:inline;
     color: #fff;
     padding: 8px 13px;
     border-radius: 4px;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
 }
 
 .bbp-topic-title {
@@ -2972,7 +2982,7 @@ span.create-a-group > a,
   color: #fff !important;
   font-size: 15px !important;
   letter-spacing: 1.2px;
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
   background: #313131!important;
   text-transform: lowercase;
   padding: 18px 19px!important;
@@ -3088,7 +3098,7 @@ body.bbp-search.forum-search.bbpress {
 .topic-lead .date {
     text-align: center;
     padding-bottom: 20px;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     font-size: 18px;
 }
 
@@ -3111,7 +3121,7 @@ body.bbp-search.forum-search.bbpress {
 
 .topic-lead .author {
   margin-bottom: 80px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   font-size: 18px;
   color: black;
 }
@@ -3170,8 +3180,17 @@ ul.bbp-topic-revision-log li {
   margin: 0 0 10px 20px !important;
 }
 
+span.bbp-admin-links {
+    text-align: right!important;
+    color: #ddd!important;
+    width: 100%!important;
+    display: inline-block!important;
+}
+
+
+
 .topic-reply {
-  margin: 40px auto 0 auto;
+  margin: 60px auto 0 auto;
   width: auto;
 }
 
@@ -3208,7 +3227,7 @@ ul.bbp-topic-revision-log li {
   margin-left: 110px;
   position: relative;
   padding: 30px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
   border-radius: 4px;
 }
 
@@ -3221,7 +3240,7 @@ ul.bbp-topic-revision-log li {
   float: left;
   font-size: 12px;
   text-transform: uppercase;
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
 }
 
 .replyheader {
@@ -3234,7 +3253,7 @@ ul.bbp-topic-revision-log li {
   display: inline;
   margin-right: 10px;
   color:grey;
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
   display:none;
 }
 
@@ -3248,7 +3267,7 @@ ul.bbp-topic-revision-log li {
   margin-top: -7px;
   font-size: 18px;
   display: inline;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   color: black;
 }
 
@@ -3388,7 +3407,7 @@ ul.bbp-topic-revision-log li {
 #settings-form {
   font-size: 14px;
   padding: 0 50px 50px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
 }
 
 #profile-edit-form {
@@ -3505,7 +3524,7 @@ li#text-2 .textwidget p {
     width: 200px;
     margin: 0 auto;
     background-color: #F96854;
-    font-family: medium;
+    font-family: 'medium' ,Verdana ,sans-serif;
     padding: 10px;
     color: white;
 }
@@ -3525,7 +3544,7 @@ li#text-2 .textwidget p {
 
 .menu-community-sidebar-container a {
   text-decoration: none;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   letter-spacing: 0.8px;
   font-size: 16px;
   width: auto!important;
@@ -3579,7 +3598,7 @@ li#text-2 .textwidget p {
   display: inline-block;
   padding: 20px;
   font-size: 30px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   padding-top: 10px;
 }
 .hero-about {
@@ -3915,7 +3934,7 @@ code {
   margin: 0 auto;
   padding: 10px 20px 10px 10px;
   width: 400px;
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
 }
 
 form#loginform {
@@ -3951,7 +3970,7 @@ form#loginform {
 .login .centered {
     text-align: center;
     color: #f55a5a;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     font-size: 20px;
 }
 
@@ -3961,7 +3980,7 @@ form#loginform {
 
 form#loginform p {
   font-size: 14px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   margin-bottom: 20px;
   color: #6b6b6b;
   letter-spacing: 1px;
@@ -3970,7 +3989,7 @@ form#loginform p {
 
 #loginform input[type="text"]{
   border: 0px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   width: 100%!important;
   box-sizing: border-box;
   font-size: 20px;
@@ -3981,7 +4000,7 @@ form#loginform p {
 
  #loginform input[type="password"]{
    border: 0px;
-   font-family: 'medium';
+   font-family: 'medium' ,Verdana, serif;
    width: 100%!important;
    box-sizing: border-box;
    font-size: 20px;
@@ -4076,7 +4095,7 @@ span.create-a-group > a,
     max-width: 760px;
     margin: 0 auto;
     text-align:center;
-    font-family: medium;
+    font-family: 'medium' ,Verdana ,sans-serif;
     padding-top: 0px!important;
 }
 
@@ -4096,7 +4115,7 @@ span.create-a-group > a,
   border-radius: 1px;
   margin-right: 4px;
   color: white;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   letter-spacing: 0.6px;
   display: inline-block;
   margin-bottom: 5px;
@@ -4206,8 +4225,7 @@ div#respond {
 
 .comment-body p {
   margin: 0;
-  padding: 5px;
-  padding-top: 20px;
+  padding-top: 5px;
   padding-bottom: 20px;
   padding-right: 50px;
 }
@@ -4470,7 +4488,7 @@ div#item-header-container {
 }
 
 #buddypress #item-nav {
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   box-sizing: border-box;
   padding: 4px;
   background-color: white;
@@ -4510,11 +4528,7 @@ li#profile-personal-li {
     max-width: 800px;
 }
 
-.bp-user.profile-edit div#item-body {
-    background-color: white!important;
-    padding: 50px!important;
-    box-sizing: border-box;
-}
+
 
 .bp-user.profile-edit #buddypress .standard-form label {
     display: inline-block!important;
@@ -4524,6 +4538,7 @@ li#profile-personal-li {
     border-radius: 4px;
     font-size: 14px;
 }
+
 
 
 
@@ -4546,7 +4561,7 @@ div#mycred-users-badges {
 
 #buddypress #item-body .item-list-tabs {
   border-radius: 3px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   margin: 0px 00px 0px!important;
 }
 
@@ -4640,7 +4655,7 @@ div#mycred-users-badges {
 .page .post-edit-link,
 .single-post .post-edit-link {
   display: inline-block;
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
   font-size: 18px;
   background-color: yellow;
   text-align: center;
@@ -4663,20 +4678,21 @@ div#mycred-users-badges {
 .bbp-attachments {
   padding: 0 !important;
   border-top: none !important;
-  overflow: inherit!important;
+  margin: -30px;
+  border-radius: 4px;
+  margin-bottom:-30px;
 }
 
 .bbp-attachments ol.with-icons {
   padding: 0 !important;
   min-height: 50px;
   padding-top: 10px!important;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
 }
 
 #bbpress-forums .bbp-attachments ol li.bbp-atthumb {
   width: 100%;
   font-size: 10px;
-  max-height: 500px;
   overflow: hidden;
 }
 
@@ -4695,8 +4711,10 @@ div#mycred-users-badges {
 }
 
 #bbpress-forums .bbp-attachments ol li.bbp-atthumb img {
-  height: auto;
+  height: 100%;
   width: 100%;
+  object-fit: cover;
+  max-height: 450px;
 }
 
 .topic-lead .bbp-attachments ol li.bbp-atthumb {
@@ -4731,7 +4749,7 @@ div#mycred-users-badges {
 }
 
 #buddypress div#item-header div#item-header-content {
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     margin-top: 120px!important;
     clear: inherit!important;
     z-index: 3;
@@ -4745,9 +4763,22 @@ div#mycred-users-badges {
 }
 
 
+#buddypress .bp-cover-image .bp-uploader-window {
+    padding-top: 30px;
+}
+
+.change-cover-image .profile p {
+    padding-left: 6px!important;
+}
+
+.bp-user #item-nav li#portfolio-personal-li {
+    display: none;
+}
+
+
 #buddypress #item-header-cover-image #item-header-avatar {
     margin-top: 80px!important;
-    margin-left: 100px;
+    margin-left: 140px;
 }
 
 div#item-header-cover-image {
@@ -4757,6 +4788,11 @@ div#item-header-cover-image {
     width: 1000px!important;
 }
 
+.bp-user .bbp-user-favorites .bbp-user-section p,
+.bp-user .bbp-user-replies-created .bbp-user-section p,
+.bp-user .bbp-user-topics-started .bbp-user-section p {
+    text-align: center;
+}
 
 
 div#item-header h2.user-nicename {
@@ -4796,9 +4832,23 @@ a.bp-avatar-nav-item {
 
 div#drag-drop-area {
     background-color: white;
-    border: 3px dashed black;
+    border: 3px dashed #828282;
     margin-top: -21px;
 }
+
+.drag-drop-buttons input#bp-browse-button {
+    background-color: #828282!important;
+    border-radius: 0px!important;
+    padding: 24px 28px!important;
+}
+
+
+.pins #buddypress #item-body {
+    padding-top: 40px!important;
+    box-sizing: border-box;
+}
+
+
 
 .change-avatar .profile p {
     padding: 18px 0px!important;
@@ -4815,7 +4865,7 @@ ul.avatar-nav-items {
     text-align: center;
     display: inline-block;
     margin: 0 auto;
-    width: 50%;
+    width: 100%;
 }
 
 a.bp-avatar-nav-item {
@@ -4857,15 +4907,21 @@ a.bp-avatar-nav-item {
 
 #buddypress div.profile {
   word-break: break-word;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
+  background-color: white;
+  padding: 40px;
+}
+
+.profile #buddypress div.profile{
+  background-color:inherit!important;
 }
 
 #buddypress div.profile p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
-  padding: 10px;
-  margin-bottom: 0px;
-  padding-left: 70px;
+  padding: 6px;
+  margin-bottom: 1px;
+  padding-left: 54px;
 }
 
 #buddypress .profile .bp-widget.base {
@@ -4890,7 +4946,7 @@ a.bp-avatar-nav-item {
 
 
 .activity.community_info{
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
 }
 
 
@@ -4903,11 +4959,15 @@ tr.field_1.field_current_balance_mycred_default td.data {
 }
 
 
-#buddypress .profile .dedication {
-  text-align: center;
-  font-size: 21px;
-  margin-top: 10px;
+#buddypress .profilesidebar h2 {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10px;
+    font-family: 'medium' ,Verdana;
+    font-weight: 400;
 }
+
+
 
 .profilesidebar {
   width: 32%;
@@ -4915,11 +4975,26 @@ tr.field_1.field_current_balance_mycred_default td.data {
   vertical-align: top;
   display: inline-block;
   text-align: center;
-  background-color: white;
   border-radius: 4px;
-  padding: 5px;
   box-sizing: border-box;
 }
+
+#buddypress .profilesidebar .latest_community_uploads {
+    background-color: white;
+    border-radius: 2px;
+    padding: 5px;
+}
+
+
+.latestU .latest_community_uploads {
+    padding: 10px 20px;
+}
+
+
+#buddypress .profilesidebar .dedication{
+
+}
+
 
 
 #buddypress .profile .bp-widget.base .field_1,
@@ -4930,14 +5005,13 @@ tr.field_1.field_current_balance_mycred_default td.data {
 #buddypress .profile .bp-widget .field_667,
 #buddypress .profile .bp-widget .field_piggy,
 #buddypress .profile .bp-widget .field_member {
-  width: 50px;
-  height: 50px;
-  float: left;
-  text-indent: -9999px;
-  background-position: 10px 10px;
-  background-size: 64%;
-  background-repeat: no-repeat;
-
+  width: 40px;
+      height: 35px;
+      float: left;
+      text-indent: -9999px;
+      background-position: 8px 6px;
+      background-size: 82%;
+      background-repeat: no-repeat;
 }
 
 
@@ -5046,7 +5120,7 @@ div#item-header-content #send-private-message {
 }
 
 form#messages-bulk-management {
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
 }
 
 div#messages-dir-count {
@@ -5128,7 +5202,7 @@ table.notifications tr {
 }
 
 .notifications thead {
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   font-size: 20px;
   text-align: left;
   }
@@ -5144,7 +5218,7 @@ td.notification-actions {
 
 
 .messages thead {
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   font-size: 20px;
   text-align: left;
   }
@@ -5189,6 +5263,9 @@ td.notification-actions {
   }
 
   .bp-user.friends div.item-list-tabs#subnav {
+}
+
+.bp-user select#members-friends {
     display: none;
 }
 
@@ -5228,7 +5305,7 @@ td.notification-actions {
 }
 
 table.notifications {
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
 }
 
 .notifications-options-nav {
@@ -5315,7 +5392,7 @@ form#send_message_form {
 }
 
 h3#message-subject {
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   font-size: 45px;
   text-align: center;
   display: none;
@@ -5399,7 +5476,7 @@ p#message-recipients {
 }
 
 .messages .message-metadata {
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     font-size: 20px;
 }
 
@@ -5523,7 +5600,7 @@ div#item-header-content div.generic-button a {
 .search-result .bbp-reply-title a,
 .search-result .bbp-topic-title a {
     font-size: 17px!important;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     color: #5e94da!important;
     line-height: 1.5;
 }
@@ -5531,7 +5608,7 @@ div#item-header-content div.generic-button a {
 .search-result .bbp-reply-title,
 .search-result .bbp-topic-title {
     font-size: 17px!important;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     color: grey!important;
 }
 
@@ -5562,7 +5639,6 @@ div#item-header-content div.generic-button a {
 
 .bp-user #members-list .membercard {
     background-color: #edefed!important;
-    padding: 30px;
     height: auto;
   }
 
@@ -5586,7 +5662,7 @@ div#expertise {
 div#expertiseinfo {
   padding: 20px;
   text-align: center;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   font-size: 16px;
   display: none;
   }
@@ -5604,6 +5680,8 @@ div#expertiseinfo {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
 #buddypress #admins-list li,
@@ -5624,7 +5702,7 @@ div#expertiseinfo {
 #buddypress #mods-list li a {
   text-decoration: none;
   display:inherit;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   font-size: 20px;
   border-radius: 0px !important;
 }
@@ -5700,7 +5778,6 @@ div#expertiseinfo {
   vertical-align: middle;
   -webkit-appearance: none;
   padding-left: 50px!important;
-  border: 1px dashed black!important;
 }
 
 .members input#field_any {
@@ -5764,7 +5841,7 @@ form#bps_directory72873 {
 }
 
 #bps_directory72873 label, span.label {
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
 }
 
 
@@ -5773,13 +5850,16 @@ form#bps_directory72873 {
 }
 
 #buddypress div.item-list-tabs ul li a span {
-  background: none !important;
-  border-radius: 0% !important;
-  border: 0px solid #ccc !important;
-  font-size: 84% !important;
-  vertical-align: inherit !important;
-  padding: 2px 3px!important;
+    background-color: #6da7dc!important;
+    color: white!important;
+    border-radius: 100%!important;
+    width: auto!important;
+    padding: 5px!important;
+    font-size: 12px!important;
+    border: 0px!important;
+    display: none!important;
 }
+
 
 #buddypress div.item-list-tabs ul li a,
 #buddypress div.item-list-tabs ul li span {
@@ -5792,8 +5872,10 @@ form#bps_directory72873 {
 
 
 .bp-user #buddypress div.generic-button a {
-    background-color: #f58d8e!important;
-    padding: 7px 11px!important;
+  background-color: #313131!important;
+  background-color: #ffffff14;
+  color: white!important;
+  padding: 5px 9px!important;
 }
 
 .bp-user #buddypress div.generic-button a:hover {
@@ -5971,7 +6053,8 @@ div#add-pin-message {
 
 
 
-.register-section input{
+.register-section input,
+.register #buddypress .standard-form input[type=text]{
 background-color: white !important;
 border: 0px !important;
 padding: 18px!important;
@@ -5990,7 +6073,7 @@ div#field_1055 input{
 }
 
 .register .editfield.field_38,
-.register .editfield.field_667 {
+.register .editfield.field_8 {
     display: none;
 }
 
@@ -6049,7 +6132,7 @@ p#field_38-3, p#field_667-3 {
   max-width: 400px;
   margin: 0 auto 80px auto;
   padding: 30px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   color: #6b6b6b;
   letter-spacing: 1px;
 }
@@ -6105,7 +6188,7 @@ p#field_38-3, p#field_667-3 {
 }
 
 #bbpress-forums li.bbp-header ul {
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     font-size: 16px;
 }
 
@@ -6373,7 +6456,7 @@ button#bbp_reply_submit,
 button#bbp_topic_submit {
   padding: 14px 28px;
   background-color: #313131;
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
   border: none;
   border-radius: 4px;
   color: white;
@@ -6394,7 +6477,7 @@ button#bbp_topic_submit:hover {
   padding: 10px 14px;
   color: white!important;
   margin: 4px;
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
   font-size: 16px;
   letter-spacing: 1px;
   border-radius: 4px;
@@ -6425,7 +6508,7 @@ button#bbp_topic_submit:hover {
     padding: 8px 14px;
     background-color: white;
     margin: 4px;
-    font-family: medium;
+    font-family: 'medium' ,Verdana ,sans-serif;
     font-size: 16px!important;
 }
 
@@ -6468,7 +6551,7 @@ div.bbp-submit-wrapper {
 a.d4p-attachment-addfile {
   padding: 10px 9px;
   font-size: 15px;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   background-color: #fff29a;
   border-radius: 5px;
 }
@@ -6747,7 +6830,7 @@ body#tinymce {
 }
 
 .category-title {
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     font-size: 25px;
     margin-bottom: -20px;
 }
@@ -6766,7 +6849,7 @@ body#tinymce {
 
 .category-header {
   text-align: center;
-  font-family: 'medium';
+  font-family: 'medium' ,Verdana, serif;
   font-weight: 400;
   font-size: 30px;
 }
@@ -6849,7 +6932,7 @@ body#tinymce {
     border-radius: 1px;
     margin-right: 4px;
     color: white;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     letter-spacing: 0.6px;
     display: inline;
 }
@@ -6924,7 +7007,7 @@ padding-bottom: 20px;
 width: 100px;
 text-align: center;
 margin-left: 10px;
-font-family: 'medium';
+font-family: 'medium' ,Verdana, serif;
 letter-spacing: 1.4px;
 color: black;
 }
@@ -7048,7 +7131,7 @@ color: black;
     width: 300px;
     margin: 0 auto!important;
     border-bottom: 4px white solid;
-    font-family: medium;
+    font-family: 'medium' ,Verdana ,sans-serif;
 }
 
 #give-donation-level-radio-list>li input[type=radio] {
@@ -7143,7 +7226,7 @@ list-style: none;
 .comment_author_name a {
     font-size: 18px;
     display: inline;
-    font-family: 'medium';
+    font-family: 'medium' ,Verdana, serif;
     color: black;
 }
 
@@ -7172,7 +7255,7 @@ padding-top:15px;
   padding: 9px 14px;
   color: #9a9a9a !important;
   margin: 4px;
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
   font-size: 16px;
   letter-spacing: 1px;
   border-radius: 4px;
@@ -7236,7 +7319,7 @@ padding-top:15px;
   border-radius: 4px;
   padding: 0;
   margin: 4px;
-  font-family: medium;
+  font-family: 'medium' ,Verdana ,sans-serif;
   font-size: 16px!important;
 }
 
@@ -7281,7 +7364,7 @@ padding-top:15px;
   margin: 0 0 0 -7px;
 }
 .topic-lead-extra .wpulike-heart .wp_ulike_btn.wp_ulike_put_image.image-unlike {
-  background-image:  url('/wp-content/themes/davehakkens2.2/img/like_grey.png') no-repeat !important;
+  background-image:  url('/wp-content/themes/davehakkens2.3/img/like_grey.png') no-repeat !important;
 }
 .topic-lead-extra .wpulike .wp_ulike_is_unliked:hover a.wp_ulike_btn.wp_ulike_put_image,
 .topic-lead-extra .wpulike .wp_ulike_is_unliked:hover a.wp_ulike_btn.wp_ulike_put_image:hover,
@@ -7328,6 +7411,11 @@ a.sort-by-likes {
 
 /* user profile page */
 
+.data.profile-name p {
+    font-family: 'medium' ,sans-serif!important;
+}
+
+
 .button.donate {
     background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-header-verified.png");
     background-size: cover;
@@ -7345,36 +7433,34 @@ a.sort-by-likes {
 }
 
 .tooltip .tooltiptext {
-    visibility: hidden;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 3px;
-    padding: 4px 10px 6px;
-    font-size: 9px;
-    font-weight: 400;
-    font-family: 'Open Sans', sans-serif;
-    white-space: nowrap;
-    top: -33px;
-    left: -38px;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 8px 13px 10px;
+  font-size: 11px;
+  font-weight: 400;
+  font-family: 'Open Sans', sans-serif;
+  white-space: nowrap;
+  top: -44px;
+  left: -78px
+  position: absolute;
+  z-index: 1;
 }
 
 .tooltiptext::after {
-    position: absolute;
-    bottom: -9px;
-    left: 50%;
-    margin-left: -5px;
-    width: 0;
-    border-top: 9px solid #000;
-    border-right: 4px solid transparent;
-    border-left: 4px solid transparent;
-    content: " ";
-    font-size: 0;
-    line-height: 0;
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  margin-left: -9px;
+  width: 0;
+  border-top: 9px solid #000;
+  border-right: 9px solid transparent;
+  border-left: 9px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
 
 }
 
@@ -7386,12 +7472,13 @@ a.sort-by-likes {
     font-size: 16px;
     letter-spacing: 0px;
     margin: -18px 0 10px;
+    color: white;
 }
 
 .header-location::before {
     display: inline-block;
     content: '';
-    background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-map.png");
+    background-image: url("/wp-content/themes/davehakkens2.3/img/icons-profile/icon-map-white.png");
     width: 30px;
     height: 30px;
     background-size: cover;
@@ -7434,7 +7521,7 @@ a.sort-by-likes {
 #buddypress div.profile-name p {
     font-size: 32px;
     font-weight: 600;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
     padding-left: 16px;
 }
 
@@ -7448,7 +7535,7 @@ a.sort-by-likes {
 }
 
 .data.profile-about {
-    margin: -32px 0 40px;
+    margin: -25px 0 30px;
 }
 #buddypress div.profile-about p {
     padding-left: 16px;
@@ -7459,10 +7546,15 @@ a.sort-by-likes {
     color: #50aceb;
 }
 
+.bp-user #buddypress div#item-header div#item-meta{
+  display:none;
+}
+
+
 .profilesidebar .mycred {
-    color: #c1c1c1;
+    color: #656565;
     font-size: 11px;
-    font-family: 'Open Sans';
+    font-family: 'Open Sans', sans-serif;
 }
 .profilesidebar .mycred-all-my-ranks {
     display: inline;
@@ -7472,40 +7564,34 @@ a.sort-by-likes {
     text-transform: capitalize;
 }
 
-.user-attachments {
-    position: relative;
-    margin-top: 10px;
-    width: calc(100% + 10px);
-    left: -5px;
-    background: #EDEFED;
-    height: auto;
-    display: flex;
-    padding: 10px 0;
-    margin-bottom: -5px;
-    justify-content: left;
-    flex-wrap: wrap;
-}
-.user-attachments .image {
-    width: 81px;
-    height: 81px;
-    margin: 2px;
-    background-size: cover;
-    border-radius: 2px;
-    flex-grow: 1;
+.profile .latest_community_uploads a {
+    height: 75px;
 }
 
-/* ends Codeable edits */
+.profile .latest_community_uploads img {
+    height: 100%!important;
+}
 
-.topicounter{ text-align:center; margin: 20px 0 0;}
-.dav_reply_topic{ display:inline-block;}
-.dav_reply_topic span{ position: relative; padding: 0 33px;}
-.dav_reply_topic span:before{ background-image: url(http://dev.davehakkens.nl/wp-content/uploads/2018/03/chat-icon.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
-.dav_topic_subscriber{display:inline-block;}
-.dav_topic_subscriber span{position: relative; padding: 0 33px;}
-.dav_topic_subscriber span:before{background-image: url(http://dev.davehakkens.nl/wp-content/uploads/2018/03/message-icon.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
-.dav_topic_favorit{display:inline-block;}
-.dav_topic_favorit span{position: relative; padding: 0 33px;}
-.dav_topic_favorit span:before{background-image: url(http://dev.davehakkens.nl/wp-content/uploads/2018/03/star-icon.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
-.dav_topic_like{display:inline-block;}
-.dav_topic_like span{position: relative; padding: 0 33px;}
-.dav_topic_like span:before{background-image: url(http://dev.davehakkens.nl/wp-content/uploads/2018/03/heart-icon.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
+.profile h2.widgettitle {
+    font-size: 18px;
+}
+
+
+
+.topicounter{
+  text-align:center;
+  margin: 20px 0 0;
+  color: #9a9a9a;
+}
+.dav_reply_topic{ display:inline-block; height: 30px;}
+.dav_reply_topic span{ position: relative; padding: 0px 35px 0px 28px;}
+.dav_reply_topic span:before{ background-image: url(/wp-content/themes/davehakkens2.3/img/icon/topic_info_replies.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
+.dav_topic_subscriber{display:inline-block; height: 30px;}
+.dav_topic_subscriber span{position: relative; padding: 0px 35px 0px 28px;}
+.dav_topic_subscriber span:before{background-image: url(/wp-content/themes/davehakkens2.3/img/icon/topic_info_subscribe.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
+.dav_topic_favorit{display:inline-block; height: 30px;}
+.dav_topic_favorit span{position: relative; padding: 0px 35px 0px 28px;}
+.dav_topic_favorit span:before{background-image: url(/wp-content/themes/davehakkens2.3/img/icon/topic_info_save.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
+.dav_topic_like{display:inline-block; height: 30px;}
+.dav_topic_like span{position: relative; padding: 0px 35px 0px 28px;}
+.dav_topic_like span:before{background-image: url(/wp-content/themes/davehakkens2.3/img/icon/topic_info_likes.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
