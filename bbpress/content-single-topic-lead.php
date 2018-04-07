@@ -52,10 +52,29 @@
     <?php do_action( 'bbp_theme_after_topic_content' ); ?>
     <?php do_action( 'bbp_template_after_lead_topic' ); ?>
   </div>
+
    <div class="actions">
-    <?php do_action( 'bbp_theme_before_topic_admin_links' ); ?>
-    <?php bbp_topic_admin_links(); ?>
-    <?php do_action( 'bbp_theme_after_topic_admin_links' ); ?>
+<div class="topicounter">
+<?php if ( 'topic' == get_post_type()  ) : ?>
+   <?php  $topic = get_the_ID(); ?>
+	<div class="dav_reply_topic"><span><?php echo bbp_get_topic_reply_count($topic);  ?> replies </span></div>
+	<div class="dav_topic_subscriber"><span><?php echo count(bbp_get_topic_subscribers($topic));  ?> subscribers</span></div>
+	<div class="dav_topic_favorit"><span><?php echo count(bbp_get_topic_favoriters($topic));  ?> Favorited</span></div>
+	<div class="dav_topic_like"><span><?php
+if (function_exists('wp_ulike_get_post_likes')):
+	echo wp_ulike_get_post_likes($topic);
+endif
+
+ ?>
+
+ likes</span></div>
+
+<?php endif; ?>
+ </div>
+
   </div>
 
+
 </div>
+<?php do_action( 'bbp_theme_before_topic_admin_links' ); ?>
+<?php bbp_topic_admin_links(); ?>

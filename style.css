@@ -2721,6 +2721,10 @@ span.bbp-topic-freshness-author a {
       margin: 0 0 2px !important;
 }
 
+#bbpress-forums .topic-reply .bbp-attachments li.bbp-atticon {
+    margin-left: 30px!important;
+}
+
 .topic-reply .content p img {
     width: 100%;
     margin-bottom: 2px;
@@ -2788,10 +2792,9 @@ input#bbp_search {
 
 */
 
-.bbp-search li.bbp-body a{
-  color: inherit;
+.bbp-search .bbp-reply-content a {
+    color: #5e94da;
 }
-
 
 
 
@@ -3053,7 +3056,7 @@ input[type="checkbox"]:focus {
   font-size: 18px;
   top: 2px;
   position: relative;
-  width: 40% !important;
+  width: 60% !important;
   box-sizing: border-box;
   height: 50px;
 }
@@ -4684,10 +4687,14 @@ div#mycred-users-badges {
 }
 
 .bbp-attachments ol.with-icons {
-  padding: 0 !important;
+  padding: 0px!important;
   min-height: 50px;
   padding-top: 10px!important;
   font-family: 'medium' ,Verdana, serif;
+}
+
+.bbp-attachments ol.with-icons a {
+    color: #5e94da;
 }
 
 #bbpress-forums .bbp-attachments ol li.bbp-atthumb {
@@ -4792,6 +4799,10 @@ div#item-header-cover-image {
 .bp-user .bbp-user-replies-created .bbp-user-section p,
 .bp-user .bbp-user-topics-started .bbp-user-section p {
     text-align: center;
+}
+
+.bp-user .bbp-user-replies-created .bbp-user-section .list-replies p {
+    text-align: left;
 }
 
 
@@ -5119,6 +5130,13 @@ div#item-header-content #send-private-message {
   display: none!important;
 }
 
+.bbp-search span.bbp-attachments-count {
+    display: none!important;
+}
+.bbp-search #bbpress-forums div.bbp-topic-title h3 {
+    text-align: right;
+}
+
 form#messages-bulk-management {
   font-family: 'medium' ,Verdana, serif;
 }
@@ -5207,9 +5225,9 @@ table.notifications tr {
   text-align: left;
   }
 
-td.notification-actions {
-  color: rgba(255, 255, 255, 0);
-}
+.bp-user .notifications td.notification-actions {
+      display: none;
+  }
 
 
 #buddypress table.messages-notices thead tr{
@@ -5300,8 +5318,31 @@ td.notification-actions {
   display: none;
 }
 
-.notifications td.bulk-select-check {
-    background-color: #bbbbbb;
+.bp-user .notifications td.bulk-select-check {
+    display: none;
+}
+
+.bp-user .notifications th.actions {
+    display: none;
+}
+
+.notifications div#item-body {
+    padding: 40px!important;
+    box-sizing: border-box;
+}
+
+.bp-user .notifications th.bulk-select-all {
+    display: none;
+}
+
+.notifications #buddypress #item-body .item-list-tabs {
+    display: none!important;
+}
+
+.notifications .notifications-options-nav {
+    padding: 30px;
+    text-align: center;
+    display: none;
 }
 
 table.notifications {
@@ -5551,7 +5592,7 @@ div#item-header-content div.generic-button a {
 }
 
 .search-result {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .search-result .avatar img {
@@ -5568,7 +5609,7 @@ div#item-header-content div.generic-button a {
   min-height: 100px;
   margin-left: 130px;
   position: relative;
-  padding: 40px 40px 10px 40px;
+  padding: 19px 30px 10px 30px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.07);
   border-radius: 4px;
 }
@@ -5592,9 +5633,25 @@ div#item-header-content div.generic-button a {
   top: 34px;
 }
 
+.bbp-search .bbp-author-role.bbp-author-role-keymaster {
+    display: none;
+}
+
+
+.search-result p {
+    margin: inherit;
+}
+
 .search-result span.bbp-reply-post-date,
 .search-result span.bbp-topic-post-date {
+  color: grey;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.bbp-search .wpulike {
     float: right;
+    margin-top: -25px;
 }
 
 .search-result .bbp-reply-title a,
@@ -5603,6 +5660,7 @@ div#item-header-content div.generic-button a {
     font-family: 'medium' ,Verdana, serif;
     color: #5e94da!important;
     line-height: 1.5;
+    display:inline;
 }
 
 .search-result .bbp-reply-title,
@@ -5610,12 +5668,14 @@ div#item-header-content div.generic-button a {
     font-size: 17px!important;
     font-family: 'medium' ,Verdana, serif;
     color: grey!important;
+    text-align: right;
 }
 
 
 .search-result .bbp-meta {
     display: inline-block;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .search-result div.bbp-reply-content,
@@ -7444,7 +7504,7 @@ a.sort-by-likes {
   font-family: 'Open Sans', sans-serif;
   white-space: nowrap;
   top: -44px;
-  left: -78px
+  left: -78px;
   position: absolute;
   z-index: 1;
 }
@@ -7577,8 +7637,13 @@ a.sort-by-likes {
 }
 
 
+.wp-admin img.emoji {
+    max-width: 20px;
+}
+
 
 .topicounter{
+  padding-top: 20px;
   text-align:center;
   margin: 20px 0 0;
   color: #9a9a9a;

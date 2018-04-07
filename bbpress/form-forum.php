@@ -23,7 +23,7 @@
 
   <div id="new-forum-<?php bbp_forum_id(); ?>" class="bbp-forum-form">
 
-    <form id="new-post" name="new-post" method="post" action="<?php the_permalink(); ?>">
+    <form id="new-post" name="new-post" method="post" action="<?php the_permalink(); ?>"enctype="multipart/form-data" encoding="multipart/form-data">
 
       <?php do_action( 'bbp_theme_before_forum_form' ); ?>
 

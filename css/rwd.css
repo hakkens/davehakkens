@@ -241,6 +241,10 @@
   }
 
 
+  .bbp-search .wpulike {
+      margin-top: -55px;
+  }
+
   .bbp-attachments {
       margin: -20px;
   }
@@ -421,12 +425,12 @@ div#item-header-cover-image {
 
   .bbp-search .avatar img {
     position: absolute!important;
-    z-index: 999;
+    z-index: 3;
     width: 50px!important;
     height: auto!important;
     border: 0px!important;
-    margin-left: -20px!important;
-    margin-top: 25px!important;
+    margin-left: -38px!important;
+    margin-top: 17px!important;
     top: inherit!important;
     left: inherit!important;
   }
@@ -449,10 +453,15 @@ div#item-header-cover-image {
 .bbp-search .smallusername {
   padding:0px;
 }
-
 .bbp-search .bbp-meta {
-    padding-bottom: 40px;
+    padding-bottom: 20px;
+    margin-top: 15px;
 }
+
+.search-result div.bbp-reply-content p, .search-result div.bbp-topic-content p {
+    margin-bottom: 10px;
+}
+
 
   #project-nav {
     display: none;
@@ -948,8 +957,9 @@ font-size: 18px;
   }
 
   .search-result .result {
-    margin: 80px auto 0 auto;
+    margin: 10px auto 0 auto;
     overflow: hidden;
+    padding: 20px;
   }
 
   #bbpress-forums .bbp-attachments ol {
@@ -977,6 +987,10 @@ font-size: 18px;
 
 @media screen and (max-width: 540px) {
 
+
+  .bbp-search .wpulike {
+      margin-top: -76px;
+  }
 
 
   #buddypress #item-nav a {
@@ -1075,6 +1089,10 @@ font-size: 18px;
 
 }
 
+.bbp-search .bbp-meta {
+    padding-bottom: 0px;
+    margin-top: 0px;
+}
 
 #post-grid .status-text p {
     font-size: 16px;
@@ -1107,14 +1125,21 @@ font-size: 18px;
     float: left;
     display: inline-block;
     width: 100%;
-    margin-left: 60px;
+    margin-left: 30px;
     margin-top: 4px;
 }
 
 .bbp-search .avatar img {
-    margin-left: -31px!important;
+    margin-left: -42px!important;
     margin-top: 22px!important;
-  }
+    width: 30px!important;
+}
+
+
+.bbp-search #country {
+    margin-left: 30px;
+}
+
 #bbp-search-results{
   padding:10px;
 }
