@@ -10,8 +10,14 @@
 ?>
 
 <div id="post-<?php bbp_reply_id(); ?>"></div>
-
 <div id="post-<?php echo bbp_get_reply_id(); ?>" class="topic-reply">
+
+  <div class="bbp-reply-title">
+
+    <h3><?php _e( 'In reply to: ', 'bbpress' ); ?>
+      <a class="bbp-topic-permalink" href="<?php bbp_reply_url(); ?>" class="bbp-reply-permalink"><?php bbp_topic_title( bbp_get_reply_topic_id() ); ?></a></h3>
+
+  </div>
 
   <div class="author">
 
@@ -78,7 +84,6 @@
 
 
 
-  <div class="topic-id"><a href="<?php bbp_reply_url(); ?>" class="bbp-reply-permalink">#<?php bbp_reply_id(); ?></a></div>
 
 
     </div>

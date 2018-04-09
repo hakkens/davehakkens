@@ -2536,16 +2536,38 @@ div#post-mention {
     display: none!important;
 }
 
-.bp-user.forums .topic-id a {
-    display: inline-block;
-    background-color: #9dd49d;
-    color: #9dd49d!important;
-    padding: 7px;
-    width: 100%;
-    bottom: 0px;
-    left: 0px;
-    position: absolute;
+
+.bbp-user-page.forums .bbp-reply-title {
+    text-align: right;
+    display: inline!important;
 }
+
+
+.bbp-user-page.forums a.bbp-topic-permalink {
+    display: inline;
+    color: #5e94da;
+
+}
+.bbp-reply-title {
+    display: none;
+}
+
+.bp-user.forums .topic-id a {
+  text-align: right;
+  color: #5e94da;
+  font-family: 'medium';
+  font-size: 13px;
+  letter-spacing: 1.3px;
+
+}
+
+.bbp-user-page .topic-id {
+    display: inherit;
+    text-align: right;
+    padding-bottom: 5px;
+}
+
+
 
 .bp-user.subscriptions #subscription-toggle {
     display: inherit!important;
