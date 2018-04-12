@@ -79,6 +79,11 @@ class Admin_Edit_Form {
     }
     echo '</td>';
   }
+
+  function getViewLink() {
+    $record = $this->record;
+    echo '<a target="_blank" style="padding:4px!important;font-size:22px;" href="http://map.preciousplastic.com/?lat='.$record->lat.'&lng='.$record->lng.'">🔍</a>';
+  }
 }
 
 $table = new Admin_Edit_Form();
@@ -93,4 +98,5 @@ $table->prepare_items();
   <?php $table->display(); ?>
 
   <input type="submit" name="submit" value="Save" class="button button-primary"/>
+  <?php $table->getViewLink(); ?>
 </form>
