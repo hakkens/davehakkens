@@ -137,7 +137,7 @@ do_action( 'bp_before_profile_loop_content' ); ?>
           ?>
         </table>
         <?php
-          the_widget("Latest_Community_Uploads", array("max"=>"6", "user_id"=>bp_displayed_user_id()));
+          the_widget("Latest_Community_Uploads", array("max"=>"6", "user_id"=>bp_displayed_user_id(), "more" => true));
         ?>
       </div>
 

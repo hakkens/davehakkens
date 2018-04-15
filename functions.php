@@ -774,7 +774,36 @@ if ( !class_exists( 'ImageRotationRepair' ) ) {
   new ImageRotationRepair();
 }
 
-
-
-
+//BuddyPress extra SubNav
+function bpfr_custom_profile_sub_nav() {
+  global $bp;
+  $parent_slug = 'friends';
+  bp_core_new_subnav_item( array(
+    'name'            => __( "Updates from friends" ),
+    'slug'            => "activity/friends",
+    'parent_url'      => bp_displayed_user_domain(),
+    'parent_slug'     => $parent_slug,
+    'screen_function' => "bp_activity_screen_my_activity",
+    'position'        => 15,
+  ));
+  $parent_slug = 'forums';
+  bp_core_new_subnav_item( array(
+    'name'            => __( "All activity" ),
+    'slug'            => "all_activity",
+    'parent_url'      => bp_displayed_user_domain(),
+    'parent_slug'     => $parent_slug,
+    'screen_function' => 'bp_activity_screen_my_activity',
+    'position'        => 10,
+    'link'            => bp_displayed_user_domain() . "activity/"
+  ));
+  bp_core_new_subnav_item( array(
+    'name'            => __( "Images" ),
+    'slug'            => "latestU",
+    'parent_url'      => bp_displayed_user_domain(),
+    'parent_slug'     => $parent_slug,
+    'screen_function' => "bp_activity_screen_my_activity",
+    'position'        => 70,
+  ));
+}
+add_action( 'bp_setup_nav', 'bpfr_custom_profile_sub_nav' );
 ?>
