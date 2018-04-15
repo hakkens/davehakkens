@@ -21,6 +21,8 @@ class Latest_Community_Uploads extends WP_Widget {
     $max = ( ! empty( $instance['max'] ) ) ? $instance['max'] : 10;
     $user_id = ( ! empty( $instance['user_id'] ) ) ? $instance['user_id'] : '';
     $size = ( ! empty( $instance['size'] ) ) ? $instance['size'] : 'thumbnail';
+    $more = ( ! empty( $instance['more'] ) ) ? $instance['more'] : false;
+    $show_more = false;
     if ( $title) {
       echo $args['before_title'] . apply_filters( 'widget_title', $title ) . $args['after_title'];
     }
@@ -39,12 +41,16 @@ class Latest_Community_Uploads extends WP_Widget {
         'post_type' => 'attachment',
         'post_mime_type' => 'image',
         'author' => $user_id,
-        'numberposts' => $max,
+        'numberposts' => $max + ($more?1:0),
         'post_status' => null,
         'post_parent__in' => array_keys($topics),
       );
       $attachments = get_posts($args);
       if ($attachments) {
+        if($more && count($attachments)>$max){
+          $show_more=true;
+          array_pop($attachments);
+        }
         foreach ($attachments as $post) {
           setup_postdata($post);
           $link = get_permalink($post->post_parent);
@@ -71,6 +77,11 @@ class Latest_Community_Uploads extends WP_Widget {
             $link = get_permalink($topics[$post->post_parent]). ($page>0?"page/".($page+1)."/":"") . "#post-".$post->post_parent;
           }
           echo "<a href='". $link ."'>". $img ."</a>";
+        }
+        if($show_more){
+          //TODO: handle no user_id request
+          $link = bp_core_get_userlink( $user_id, false, true). "latestU";
+          echo "<a href='". $link ."'>show more</a>";
         }
       }
     }
@@ -109,7 +120,7 @@ function bp_user_nav_latest_uploads() {
     'position' => 80,
     'show_for_displayed_user' => true,
     'screen_function' => 'bp_user_nav_latest_uploads_screen',
-    'item_css_id' => 'portfolio'
+    'item_css_id' => 'uploads'
   );
   bp_core_new_nav_item( $args );
 }
@@ -117,7 +128,7 @@ add_action( 'bp_setup_nav', 'bp_user_nav_latest_uploads', 99 );
 
 function bp_user_nav_latest_uploads_screen() {
   add_action( 'bp_template_content', function() {
-    the_widget("Latest_Community_Uploads", array("max"=>"50", "user_id"=>bp_displayed_user_id()));
+    the_widget("Latest_Community_Uploads", array("max"=>"50", "user_id"=>bp_displayed_user_id(), "size"=>"medium"));
   });
   bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
 }
