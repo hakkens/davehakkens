@@ -29,7 +29,7 @@ class Latest_Community_Uploads extends WP_Widget {
     $args = array(
       'post_type'   => array('topic','reply'),
       'author'	    => $user_id,
-      'numberposts' => 10*$max,
+      'numberposts' => 20*$max,
       'post_status' => null,
       'post_parent' => 'any', // any parent
       'fields'      => 'id=>parent',

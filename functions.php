@@ -792,7 +792,7 @@ function bpfr_custom_profile_sub_nav() {
     'slug'            => "all_activity",
     'parent_url'      => bp_displayed_user_domain(),
     'parent_slug'     => $parent_slug,
-    'screen_function' => 'bp_activity_screen_my_activity',
+    'screen_function' => "bp_activity_screen_my_activity",
     'position'        => 10,
     'link'            => bp_displayed_user_domain() . "activity/"
   ));
