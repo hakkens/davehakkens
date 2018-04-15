@@ -2068,6 +2068,14 @@ a.wp_ulike_put_image.image-unlike {
   text-align: center;
 }
 
+.social .bignotification {
+  position: fixed;
+  right: 80px!important;
+  top: 19px;
+  z-index: 100;
+  text-align: center;
+}
+
 #user-menu .user-toggle {
   background: url( 'img/key_icon_white.png' );
   background-position-y: 5px;
@@ -2536,15 +2544,51 @@ div#post-mention {
     display: none!important;
 }
 
+
+.bbp-user-page.forums .bbp-reply-title {
+    text-align: right;
+    display: inline!important;
+}
+
+
+.bbp-user-page.forums a.bbp-topic-permalink {
+    display: inline;
+    color: #5e94da;
+
+}
+.bbp-reply-title {
+    display: none;
+}
+
 .bp-user.forums .topic-id a {
-    display: inline-block;
-    background-color: #9dd49d;
-    color: #9dd49d!important;
-    padding: 7px;
-    width: 100%;
-    bottom: 0px;
-    left: 0px;
-    position: absolute;
+  text-align: right;
+  color: #5e94da;
+  font-family: 'medium';
+  font-size: 13px;
+  letter-spacing: 1.3px;
+
+}
+
+.bp-user.delete-account div#item-body,
+.bp-user.capabilities div#item-body  {
+    padding-bottom: 40px!important;
+}
+
+.bbp-user-page .topic-id {
+    display: inherit;
+    text-align: right;
+    padding-bottom: 5px;
+}
+
+
+form#account-delete-form,
+form#account-capabilities-form {
+    text-align: center;
+}
+
+form#account-delete-form input[type="checkbox"],
+form#account-capabilities-form input[type="checkbox"] {
+    border: 3px solid #ff5757;
 }
 
 .bp-user.subscriptions #subscription-toggle {
@@ -2834,6 +2878,10 @@ input#bbp_search_submit.button {
 .single-forum .bbp-topic-permalink,
 .single-forum .bbp-forum-title {
 display:inline;
+}
+
+.single-forum div#bbpress-forums .center {
+    display: none;
 }
 
 .bbp-topic-permalink:hover,
@@ -5198,6 +5246,11 @@ form#send_message_form img.avatar.user-40296-avatar.avatar-15.photo {
     border-radius: 100px;
 }
 
+
+.bp-user .notifications td.notification-description a:hover {
+    color: #8c8c8c;
+}
+
 table.notifications tr {
     background-color: #fff!important;
 }
@@ -5331,13 +5384,22 @@ table.notifications tr {
     box-sizing: border-box;
 }
 
+.notifications #buddypress div.item-list-tabs#subnav {
+    display: none;
+}
+.settings.notifications #buddypress div.item-list-tabs#subnav {
+    display: inherit;
+}
+
+.settings.notifications div#item-body {
+    padding-top: 0px!important;
+}
+
+
 .bp-user .notifications th.bulk-select-all {
     display: none;
 }
 
-.notifications #buddypress #item-body .item-list-tabs {
-    display: none!important;
-}
 
 .notifications .notifications-options-nav {
     padding: 30px;
@@ -7482,9 +7544,6 @@ a.sort-by-likes {
     width: 25px;
     height: 25px;
     vertical-align: -3px;
-}
-.button.donate:hover {
-    opacity: .7;
 }
 
 .tooltip {

@@ -35,13 +35,6 @@
 
      <div class="tabbed upload-block">
 		<?php do_action('profile_pic_upload_button'); ?>
-         <!--<div class="dave_upload_profile">
-					<div class="upload_profile">
-							<a href="#">Upload your Profile pic</a>
-			</div>
-x§
-
-		</div>-->
 
 
 <div class="community_info">
@@ -250,7 +243,7 @@ $widget_query = new WP_Query( array(
         </div>
         <div class="tab2Content likes">
           Most likes given last month
-          <?php the_widget('wp_ulike_widget', "type=users&period=month&count=12&show_thumb&show_count&size=60&style=love&title="); ?>
+          <?php the_widget('wp_ulike_widget', "type=users&period=month&count=12&show_thumb&show_count&size=60&style=love&title=&profile_url=bp"); ?>
         </div>
         <div class="tab2Content active points">
           Overall most points
@@ -266,12 +259,15 @@ $widget_query = new WP_Query( array(
         <div class="tab2Content single active donations">
           <?php
             $args = array(
-              'number' => 5,
+              'number' => 20,
             );
+            $count = 0;
             if (class_exists('Give')){
               echo "<ul>";
               $donors = Give()->donors->get_donors( $args );
               foreach ( $donors as $donor ) {
+                if ($donor->purchase_value < 0.001) continue;
+                if ($count >= 8) break;
                 echo "<li>";
                 echo "<span class='amount'>&euro;". number_format(floatval($donor->purchase_value)) . "</span>";
                 if($donor->user_id != 0){
@@ -282,7 +278,7 @@ $widget_query = new WP_Query( array(
                 $since = human_time_diff(strtotime($donor->date_created), current_time('timestamp')) .  " ago";
                 echo "<span class='since'>". $since . "</span>";
                 echo "</li>";
-//                echo "<pre>"; var_dump( $donor );echo "</pre>";
+                $count += 1;
               }
               echo "</ul>";
             }
@@ -296,10 +292,3 @@ $widget_query = new WP_Query( array(
   </div>
   </div>
 <?php get_footer(); ?>
-  <script>
-    $ = jQuery.noConflict();
-    $( document ).ready(function() {
-      $ = jQuery.noConflict();
-      $("#activity-filter-by").val("bbp_topic_create").change();
-    });
-  </script>

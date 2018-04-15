@@ -76,7 +76,9 @@ else
     </ul>
 
     <div class="social">
-
+      <div class="bignotification">
+        <a href="<?= bp_loggedin_user_domain(); ?>/notifications"><img src="<?php bloginfo( 'template_url' ); ?>/img/icons-profile/notifications.png"></a>
+      </div>
      <div id="user-menu">
 
        <?php if( !is_user_logged_in() ): ?>
@@ -85,7 +87,9 @@ else
 
         <?php global $current_user; get_currentuserinfo(); ?>
 
+
         <div class="user">
+
           <span class="avatar">
             <a href="<?= bp_loggedin_user_domain(); ?>"><?= get_avatar( $current_user->user_email, 22 ); ?></a>
           </span>
@@ -109,7 +113,14 @@ else
             <div class="submenu">
             <div class="hello"> Hello <?= $current_user->user_firstname; ?></div>
             <a href="<?= bp_loggedin_user_domain(); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/img/icons-profile/profile-white.png">My profile</a>
-            <a href="<?= bp_loggedin_user_domain(); ?>/profile/change-avatar/"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/avatar-change.png">Change avatar</a>
+            <a href="<?= bp_loggedin_user_domain(); ?>/forums/favorites/"><img src="<?php bloginfo( 'template_url' ); ?>/img/icons-profile/favorites-white.png">Saved topics</a>
+            <?php
+            $user_id = get_current_user_id();
+            if (!get_user_has_avatar($user_id)): ?>
+              <a href="<?= bp_loggedin_user_domain(); ?>/profile/change-avatar/"><img src="<?php bloginfo( 'template_url' ); ?>/img/icon/avatar-change.png">Upload avatar</a>
+              <?php
+            endif;
+            ?>
             <a href="<?= bp_loggedin_user_domain(); ?>/messages"><img src="<?php bloginfo( 'template_url' ); ?>/img/icons-profile/messages-white.png">Inbox <div class="littlenotification">
 
 

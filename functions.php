@@ -643,23 +643,32 @@ function davehakkens_theme_comment($comment, $args, $depth) {
 }
 
 /**
+* function to help if user has an avatar or not
+*/
+function get_user_has_avatar($user_id) {
+  return strpos(bp_core_fetch_avatar(array('item_id' => $user_id, 'html' => false)), 'www.gravatar.com') === false;
+}
+
+/**
 * upload profile image button
 */
 add_action('profile_pic_upload_button','show_profile_pic_button',10);
 function show_profile_pic_button(){
     $user_id = get_current_user_id();
     global $bp;
-    if(!empty($user_id)):
+
+    if(!empty($user_id)) {
         $profile = bp_core_get_user_domain($user_id);
-    if( !bp_get_user_has_avatar()) : ?>
-         <div class="dave_upload_profile">
-         <div class="upload_profile">
-                <a href="<?php echo $profile.'/profile/change-avatar/#avatar-upload-form'; ?>">Upload your Profile pic</a>
-        < /div>
-        </div>
-    <?php
-       endif;
-    endif;
+
+        if(!get_user_has_avatar($user_id)) : ?>
+             <div class="dave_upload_profile">
+               <div class="upload_profile">
+                 <a href="<?php echo $profile . '/profile/change-avatar/#avatar-upload-form'?>">Upload your Profile pic</a>
+               </div>
+             </div>
+            <?php
+        endif;
+    }
  }
 
 
@@ -764,6 +773,8 @@ if ( !class_exists( 'ImageRotationRepair' ) ) {
 
   new ImageRotationRepair();
 }
+
+
 
 
 ?>

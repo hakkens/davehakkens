@@ -48,7 +48,7 @@
         <?php if ( bbp_is_favorites_active() ) : ?>
           <li class="<?php if ( bbp_is_favorites() ) :?>current<?php endif; ?>">
             <span class="bbp-user-favorites-link">
-              <a href="<?php bbp_favorites_permalink(); ?>" title="<?php printf( esc_attr__( "%s's Favorites", 'bbpress' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>"><?php _e( 'Favorites', 'bbpress' ); ?></a>
+              <a href="<?php bbp_favorites_permalink(); ?>" title="<?php printf( esc_attr__( "%s's Favorites", 'bbpress' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>">Saved</a>
             </span>
           </li>
         <?php endif; ?>

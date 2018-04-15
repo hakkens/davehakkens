@@ -46,8 +46,7 @@ class Pin_Table extends WP_List_Table {
       'action' => 'Action',
       'display_name' => 'User',
       'name' => 'Name',
-      'lat' => 'Lat',
-      'lng' => 'Lng',
+      'imgs' => 'Has Images',
       'filters' => 'Filters',
       'created_date' => 'Created',
       'modified_date' => 'Last Modified'
@@ -57,8 +56,9 @@ class Pin_Table extends WP_List_Table {
   function get_sortable_columns() {
     return $sortable_columns = array(
       'display_name' => array('display_name', false),
-      'name' => array('name', true),
-      'created_date' => array('created_date', false),
+      'name' => array('name', false),
+      'filters' => array('filters', false),
+      'created_date' => array('created_date', true),
       'modified_date' => array('modified_date', false)
     );
   }
@@ -118,20 +118,25 @@ class Pin_Table extends WP_List_Table {
     global $wpdb;
     $table_name = $wpdb->prefix . 'pp_pins';
 
-    $query = "SELECT p.ID, p.name, p.lat, p.lng, p.filters,
+    $query = "SELECT p.ID, p.name, p.lat, p.lng, p.filters, p.imgs,
                      p.approval_status, p.created_date, p.modified_date, u.display_name
               FROM   $table_name p INNER JOIN wp_users u
-                       on p.user_ID = u.ID
-              ORDER BY created_date DESC";
+                       on p.user_ID = u.ID";
+
+    if (!empty($_GET["search"])) {
+       $query .= ' WHERE p.name LIKE \'%' . str_replace(' ', '%', $_GET["search"]) . '%\'';
+    }
 
     if (!empty($_GET["orderby"])) {
       $orderBy = esc_sql($_GET['orderby']);
       $order = esc_sql($_GET['order'] ? $_GET['order'] : 'ASC');
       $query .= ' ORDER BY ' . $orderBy . ' ' . $order . ', p.Id ASC';
+    } else {
+      $query .= ' ORDER BY created_date DESC';
     }
 
     $totalitems = $wpdb->query($query);
-    $perpage = 30;
+    $perpage = 60;
     $totalpages = ceil($totalitems / $perpage);
 
     //fix bounds on paged
@@ -173,6 +178,8 @@ class Pin_Table extends WP_List_Table {
           switch ($column_name) {
             case 'action':
               echo $this->getColumnActions($record); break;
+            case 'imgs':
+              echo $record->imgs !== '[[],[],[]]' ? '✌️' : '🔪'; break;
             default:
               echo $record->$column_name;
           }
@@ -210,5 +217,10 @@ $pin_table->prepare_items();
 ?>
 
 <div class="wrap">
+  <form method="GET" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <input type="hidden" name="page" value="pp-admin" />
+    <input type="text" name="search" class="regular-text"/>
+    <input type="submit" name="submit" value="Search" class="button button-primary"/>
+  </form>
   <?php $pin_table->display(); ?>
 </div>
