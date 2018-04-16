@@ -29,7 +29,7 @@ class Latest_Community_Uploads extends WP_Widget {
     $args = array(
       'post_type'   => array('topic','reply'),
       'author'	    => $user_id,
-      'numberposts' => 20*$max,
+      'numberposts' => 30*$max,
       'post_status' => null,
       'post_parent' => 'any', // any parent
       'fields'      => 'id=>parent',
@@ -128,6 +128,10 @@ add_action( 'bp_setup_nav', 'bp_user_nav_latest_uploads', 99 );
 
 function bp_user_nav_latest_uploads_screen() {
   add_action( 'bp_template_content', function() {
+
+    echo '<div class="item-list-tabs no-ajax" id="subnav" role="navigation"><ul>';
+    bp_get_options_nav('forums');
+    echo '</ul></div>';
     the_widget("Latest_Community_Uploads", array("max"=>"50", "user_id"=>bp_displayed_user_id(), "size"=>"medium"));
   });
   bp_core_load_template( apply_filters( 'bp_core_template_plugin', 'members/single/plugins' ) );
