@@ -806,4 +806,13 @@ function bpfr_custom_profile_sub_nav() {
   ));
 }
 add_action( 'bp_setup_nav', 'bpfr_custom_profile_sub_nav' );
+
+//change name in forums user profile
+function bpcodex_rename_profile_tabs() {
+
+      buddypress()->members->nav->edit_nav( array( 'name' => __( 'Activity', 'textdomain' ) ), 'forums' );
+
+}
+add_action( 'bp_actions', 'bpcodex_rename_profile_tabs' );
+
 ?>
