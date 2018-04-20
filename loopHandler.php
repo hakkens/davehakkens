@@ -133,11 +133,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
         <div class="status">
         <div class="status-image">
           <?php the_post_thumbnail('medium'); ?>
-      <div class="status-text">
-        <h3><?php the_title(); ?></h3>
-        <?php edit_post_link(); ?>
+          <a href="<?php echo get_post_permalink(); ?>">
+            <div class="status-text">
+              <h3><?php the_title(); ?></h3>
+              <?php edit_post_link(); ?>
 
-        </div>
+            </div>
+          </a>
         </div>
         </div></a>
 <?php  endif; ?>

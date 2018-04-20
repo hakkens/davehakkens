@@ -90,7 +90,7 @@
             <?php do_action( 'bbp_theme_before_topic_form_tags' ); ?>
 
             <p>
-              <label for="bbp_topic_tags"><?php _e( 'Topic Tags:', 'bbpress' ); ?></label><br />
+              <label for="bbp_topic_tags"><?php _e( 'Add some tags. separate, like, this, easier, searching  💪', 'bbpress' ); ?></label><br />
               <input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
             </p>
 

@@ -988,6 +988,12 @@ font-size: 18px;
 @media screen and (max-width: 540px) {
 
 
+
+  .bp-user.friend-requests ul.item-list li div.action  {
+        float: inherit;
+        display: flex;
+    }
+    
   .bbp-search .wpulike {
       margin-top: -76px;
   }

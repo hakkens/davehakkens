@@ -1090,7 +1090,7 @@ h3#comments, div#respond h3 {
 }
 
 #post-filter {
-  padding: 40px 0;
+  padding-bottom: 40px;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
@@ -1136,7 +1136,7 @@ h3#comments, div#respond h3 {
 */
 }
 #post-filter li img{
-  height: 50px;
+  height: 38px;
   width: auto;
 }
 #post-filter li.label {
@@ -1558,10 +1558,10 @@ a.wp_ulike_put_image.image-unlike {
 
 .comment .wpulike {
   float: right;
-  padding-top: 15px;
+  margin-top: -5px;
   padding-left: 5px;
-  display:block;
-}
+  display: block;
+  }
 
 .comment .wpulike-heart .count-box {
     float: left;
@@ -1600,7 +1600,6 @@ a.wp_ulike_put_image.image-unlike {
 
 #post-grid .status-text{
   position: absolute;
-      bottom: 0;
       top: 81px;
       right: 0px;
       left: 0px;
@@ -2253,6 +2252,16 @@ div.bbp-template-notice a {
   text-decoration: none;
 }
 
+
+
+.bp-user div#template-notices div#message {
+    margin: 0 0 15px;
+    z-index: 3!important;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto!important;
+}
+
 .buddypress h1 {
   font-weight: 400;
   margin: 20px 0 10px 00px;
@@ -2284,6 +2293,13 @@ div#post-mention {
 .activity select#activity-filter-by {
   color: #88a7d7;
 }
+
+.bp-user.my-activity li#activity-filter-select,
+.bp-user.latestU #item-body h3 {
+    display: none!important;
+}
+
+
 
 #gallery-2 img {
   background-color: #efefef;
@@ -4213,7 +4229,7 @@ div#respond {
 .comment-body {
   background: #fff;
   border: 1px solid #eee;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   position: relative;
   padding: 0px 18px 0px 20px;
 }
@@ -4246,10 +4262,10 @@ div#respond {
 }
 
 .comment-body .comment-meta {
-    display: inline-block;
-    font-size: 12px;
-    padding-right: 65px;
-    padding-left: 10px;
+  display: inline-block;
+  font-size: 12px;
+  padding-right: 65px;
+  padding-left: 10px;
 }
 
 .comment-body .comment-meta {
@@ -4278,7 +4294,6 @@ div#respond {
   margin: 0;
   padding-top: 5px;
   padding-bottom: 20px;
-  padding-right: 50px;
 }
 
 .comment-body::before {
@@ -4973,6 +4988,7 @@ a.bp-avatar-nav-item {
 
 .profile #buddypress div.profile{
   background-color:inherit!important;
+  padding: 0px;
 }
 
 #buddypress div.profile p {
@@ -5731,6 +5747,7 @@ div#item-header-content div.generic-button a {
     font-family: 'medium' ,Verdana, serif;
     color: grey!important;
     text-align: right;
+    display: inherit!important;
 }
 
 
@@ -5866,7 +5883,21 @@ div#expertiseinfo {
     right: inherit!important;
     top: inherit!important;
     position: inherit!important;
+
   }
+
+
+.bp-user.friend-requests ul.item-list li div.action {
+  float: right!important;
+}
+
+  .bp-user.friend-requests .item {
+    display: inline-block;
+}
+
+.friend-requests #buddypress ul.item-list li img.avatar {
+    margin-top: 5px!important;
+}
 
 #buddypress ul.item-list li div.action .generic-button a {
   padding: 5px 10px !important;
@@ -6057,7 +6088,8 @@ form#bps_directory72873 {
 .single-post,
 .page-template-reset-password,
 .page-id-99202,
-.page-template-page-community-images-php  {
+.page-template-page-community-images-php,
+.topic-tag  {
   background: #edefed;
 }
 
@@ -6348,6 +6380,22 @@ li.bbp-topic-title {
 
 .instagramsource {
   display: none;
+}
+
+.topic-tag .topic-desc {
+    display: inline-block;
+}
+
+.topic-tag p.bbp-topic-meta.padding-left-20 {
+    padding-left: 0px!important;
+}
+
+.topic-tag .bbp-forum-content {
+    display: none;
+}
+
+.topic #bbpress-forums div.bbp-topic-tags {
+    display: none;
 }
 
 .topic-reply .content p .quote {
@@ -7707,6 +7755,12 @@ a.sort-by-likes {
   margin: 20px 0 0;
   color: #9a9a9a;
 }
+/*admin backend*/
+body.wp-autoresize {
+    max-width: 800px;
+}
+
+
 .dav_reply_topic{ display:inline-block; height: 30px;}
 .dav_reply_topic span{ position: relative; padding: 0px 35px 0px 28px;}
 .dav_reply_topic span:before{ background-image: url(/wp-content/themes/davehakkens2.3/img/icon/topic_info_replies.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}

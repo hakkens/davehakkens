@@ -1,3 +1,4 @@
+<?php do_action('dh_before_notifications_loop'); ?>
 <form action="" method="post" id="notifications-bulk-management">
   <table class="notifications">
     <thead>

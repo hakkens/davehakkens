@@ -3,6 +3,8 @@
 include dirname( __FILE__ ) . '/includes/meta-boxes.php';
 include_once dirname( __FILE__ ) . '/includes/pins.php';
 include_once dirname( __FILE__ ) . '/includes/latestUploads.php';
+include_once dirname( __FILE__ ) . '/includes/captcha/bbpress-newrecaptcha.php';
+include_once dirname( __FILE__ ) . '/includes/notifications.php';
 
 function login_redirect_control( $redirect_to, $request, $user ) {
   $urlParts = parse_url($request);

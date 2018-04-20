@@ -76,9 +76,17 @@ else
     </ul>
 
     <div class="social">
-      <div class="bignotification">
-        <a href="<?= bp_loggedin_user_domain(); ?>/notifications"><img src="<?php bloginfo( 'template_url' ); ?>/img/icons-profile/notifications.png"></a>
-      </div>
+      <?php if (is_user_logged_in()): ?>
+        <?php if (bp_notifications_get_unread_notification_count(get_current_user_id()) > 0) : ?>
+          <div class="bignotification">
+            <a href="<?= bp_loggedin_user_domain(); ?>/notifications"><img src="<?php bloginfo( 'template_url' ); ?>/img/icons-profile/notifications_yes.png"></a>
+          </div>
+        <?php else: ?>
+          <div class="bignotification">
+            <a href="<?= bp_loggedin_user_domain(); ?>/notifications"><img src="<?php bloginfo( 'template_url' ); ?>/img/icons-profile/notifications.png"></a>
+          </div>
+        <?php endif; ?>
+    <?php endif; ?>
      <div id="user-menu">
 
        <?php if( !is_user_logged_in() ): ?>
