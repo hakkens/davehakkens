@@ -241,6 +241,12 @@
   }
 
 
+
+li#bbp_search_widget-2{
+  position: inherit;
+}
+
+
   .bbp-search .wpulike {
       margin-top: -55px;
   }
@@ -554,11 +560,11 @@ div#item-header-cover-image {
   }
 
   .alt-forum-sidebar {
-    height:1200px;
+    height:1400px;
   }
 
   .sidebar-banner {
-    bottom: 1200px;
+    bottom: 1400px;
 }
 
   .bbpress .post.no-headerimage {
@@ -993,7 +999,7 @@ font-size: 18px;
         float: inherit;
         display: flex;
     }
-    
+
   .bbp-search .wpulike {
       margin-top: -76px;
   }

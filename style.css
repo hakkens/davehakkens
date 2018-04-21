@@ -1441,14 +1441,14 @@ video {
 }
 
 .memberstab {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 300;
     font-family: 'medium' ,Verdana ,sans-serif;
     word-wrap: break-word;
 }
 
 .memberstab .most_liked_users img {
-    border-radius: 100px;
+    border-radius: 100%;
     padding: 11%;
 }
 
@@ -1669,9 +1669,9 @@ a.wp_ulike_put_image.image-unlike {
   margin-left: 20px;
 }
 #montlyNews>iframe{
-  height: calc(100vh - 400px);
+  height: calc(100vh - 630px);
   width: 85%;
-  max-width: 1200px;
+  max-width: 800px;
   background-color: white;
   display: block;
   margin: 0 auto;
@@ -1883,15 +1883,15 @@ a.wp_ulike_put_image.image-unlike {
 }
 .tabbed .amount{
   color: #3BC5A9;
-  font-size: 30px;
-  width: 41%;
+  font-size: 23px;
+  width: 30%;
   display: inline-block;
   vertical-align: middle;
   line-height: 0px;
 }
 
 .tab2Content.single.active.donations li {
-    padding: 22px 0px;
+    padding: 12px 0px;
 }
 
 .tabbed .user{
@@ -1903,7 +1903,7 @@ a.wp_ulike_put_image.image-unlike {
   display: inherit;
   color: #CBCFD4;
   font-size: 10px;
-  margin-left: 41%;
+  margin-left: 30%;
 }
 
 
@@ -1912,14 +1912,14 @@ a.wp_ulike_put_image.image-unlike {
 }
 
 .davekha-activity-avatar .activity-avatar > a img {
-    width: 40px;
-    height: auto;
+    width: 40px!important;
+    height: auto!important;
 }
 
 .davekha-activity-avatar .activity-avatar {
-    display: inline-block;
-    width: 15%;
-    vertical-align: middle;
+    display: inline-block!important;
+    width: 15%!important;
+    vertical-align: middle!important;
 }
 
 .activity.tabbed. a.bbp-forum-title,
@@ -1968,6 +1968,15 @@ a.wp_ulike_put_image.image-unlike {
 .tabbed .tab2Content.active{
   display: block;
 
+}
+
+
+.sidebar-footer {
+    position: inherit;
+    bottom: 0px;
+    font-size: 12px;
+    font-family: 'open sans';
+    font-weight: 400;
 }
 
 .bp-user #item-header-content div.generic-button a {
@@ -2833,7 +2842,7 @@ input#bbp_search {
   transform: skewY(-2deg);
   margin-bottom: -60px;
   width: 100%;
-  bottom: 500px;
+  bottom: 600px;
   position: absolute;
 }
 
@@ -2896,7 +2905,10 @@ input#bbp_search_submit.button {
 display:inline;
 }
 
-.single-forum div#bbpress-forums .center {
+.page-forum.general .center,
+.page-forum.🎥-story-hopper .center,
+.page-forum.♻️-precious-plastic .center,
+.page-forum.📱-phonebloks  {
     display: none;
 }
 
@@ -2924,7 +2936,7 @@ display:inline;
 .page-template-page-redirect,
 .reply.bbpress,
 .bp-user .post {
-  padding-bottom: 650px;
+  padding-bottom: 750px;
 }
 
 .activity .alt-forum-sidebar,
@@ -2966,10 +2978,15 @@ display:inline;
   margin-top: 150px;
 }
 
+
+.notifications.unread form {
+    text-align: center;
+}
+
 .alt-forum-sidebar {
   background-color: #abcde2;
   color: #555;
-  height: 500px;
+  height: 600px;
   width: 100%;
   bottom: 0px;
   position: absolute;
@@ -3233,6 +3250,8 @@ iframe.wp-embedded-content{
 
 .topic-lead .content p {
   font-size: 18px;
+  margin:0px;
+  padding:10px 0px;
 }
 
 .bbp-topic-revision-log {
@@ -3313,6 +3332,7 @@ span.bbp-admin-links {
 .replyheader {
   vertical-align: middle;
   display: inline-block;
+  margin-bottom:5px;
 }
 
 .smallrank {
@@ -3344,7 +3364,7 @@ span.bbp-admin-links {
 }
 
 .topic-reply .content p {
-  padding: 5px 0px 5px 0px;
+  padding: 10px 0px;
   font-size: 14px;
   margin: 0px;
   overflow-wrap: break-word;
@@ -3597,6 +3617,33 @@ li#text-2 .textwidget p {
 }
 
 
+li#bbp_search_widget-2 {
+    float: inherit;
+    padding: 0px!important;
+    height: auto;
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+    max-width: inherit;
+}
+
+li#bbp_search_widget-2 form#bbp-search-form {
+    text-align: center;
+}
+
+li#bbp_search_widget-2 input#bbp_search {
+    padding: 16px;
+    width: 200px;
+}
+
+
+.widget a.bbp-reply-topic-title {
+    font-size: 14px;
+    padding-left: 0px;
+    color: inherit;
+    margin-top: -4px;
+}
+
 #bp_core_recently_active_widget-3 {
     text-align: center;
 }
@@ -3731,7 +3778,7 @@ li.widget {
   text-decoration: none;
   text-transform: none;
   list-style: none;
-  margin: 0 0 40px 0;
+  margin: 0 0 20px 0;
   padding: 0;
 }
 
@@ -4211,7 +4258,7 @@ ol.comment-list {
 }
 
 .commentlist p {
-  font-size:14px;
+  font-size:12px;
 }
 
 div#respond {
@@ -6089,11 +6136,16 @@ form#bps_directory72873 {
 .page-template-reset-password,
 .page-id-99202,
 .page-template-page-community-images-php,
-.topic-tag  {
+.topic-tag,
+.activity {
   background: #edefed;
 }
 
-
+.activity section#primary, #buddypress {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 1200px;
+}
 
 .topic-archive .bbp-topic-title a{
   display:inline;
@@ -6863,7 +6915,7 @@ html.touch #content.projects-page {
 }
 
 
-.div#mceu_13, div#mceu_8, div#mceu_7, div#mceu_6, div#mceu_5, div#mceu_4, div#mceu_12, div#mceu_39 {
+.div#mceu_13, div#mceu_8, div#mceu_7, div#mceu_6, div#mceu_5, div#mceu_4, div#mceu_12 {
   display:none;
 }
 
@@ -6872,15 +6924,15 @@ body#tinymce,
 .mce-content-body,
 .mce-content-body p,
 body#tinymce.mceContentBody.bbp_reply_content.post-type-topic.wp-editor {
-    line-height: 1.9!important;
-    letter-spacing: 0.5px!important;
-    font-family: 'Open Sans'!important;
-    font-size: 14px!important;
-    background-color: white;
-    height: auto;
+  line-height: 1.9!important;
+  letter-spacing: 0.2px!important;
+  font-family: 'Open Sans'!important;
+  font-size: 14px!important;
+  background-color: white;
+  height: auto;
+      padding: 0px!important;
+
 }
-
-
 
 .mce-content-body blockquote {
     background-color: #f6f6f6;

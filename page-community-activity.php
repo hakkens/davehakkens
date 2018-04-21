@@ -78,6 +78,7 @@
 
 <!-- </div> -->
       <?php the_widget('Latest_Community_Uploads', "max=12");?>
+            <div class="sidebar-footer"><a href="http://dev.davehakkens.nl/community/images">Show all images</a></div>
       <div class="tabbed"><div class="posttab">
         <div class="header">
           <h2 class="tab active" data-tab="tab_topics">📓 Topics</h2>
@@ -227,11 +228,11 @@ $widget_query = new WP_Query( array(
 			<?php endwhile; ?>
 
 		</ul>
-          </div>
-          <div class="tab2Content popular">
-            <?php the_widget('wp_ulike_widget', "type=post&period=week&count=5&show_thumb&show_count&trim=10&size=20&style=love&title="); ?>
+
           </div>
         </div>
+        <div class="sidebar-footer"><a href="http://dev.davehakkens.nl/topics/">Show all topics</a> </div>
+
       </div>
           </div>
 
@@ -249,7 +250,9 @@ $widget_query = new WP_Query( array(
           Overall most points
           <?php the_widget('myCRED_Widget_Leaderboard', "type=mycred_default&show_visitors=1&title=&number=8&based_on=balance&text=#%position% %user_profile_link%  %cred_f%"); ?>
         </div>
-      </div></div>
+        <div class="sidebar-footer"><a href="https://davehakkens.nl/community/members/">Search all members</a> </div>
+      </div>
+    </div>
       <div class="tabbed"><div class="donationstab">
         <div class="header">
           <h3 class="tab2" data-tab="monthly">Patreons</h3>
@@ -283,6 +286,7 @@ $widget_query = new WP_Query( array(
               echo "</ul>";
             }
           ?>
+              <div class="sidebar-footer"><a href="https://davehakkens.nl/donate/preciousplastic/">Make a donation</a> </div>
         </div>
         <div class="tab2Content monthly donations">
           <?php include('includes/patreonDonors.php');?>
