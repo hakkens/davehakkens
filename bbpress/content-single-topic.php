@@ -47,8 +47,10 @@
                                     'key' => '_topicliked',
                                   ),
                                 ),
-                                'orderby' => 'meta_value_num',
-                                'order' => 'DESC',
+                                'orderby' => array(
+                                    'meta_value_num' => 'DESC',
+                                    'ID' => 'DESC',
+                                ),
                                 'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1
                               );
     else $args = array();
