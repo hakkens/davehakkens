@@ -16,13 +16,12 @@
     <?php
     global $wp;
     $sort_url = home_url(add_query_arg(array(),$wp->request));
-    if ( !stristr($sort_url, 'sort-by-likes') ) {
-      $sort_url .= '/sort-by-likes/#sort-by-likes';
+    if ( !stristr($sort_url, 'sortbylikes') ) {
+      $sort_url .= '/sortbylikes/#sort-by-likes';
       $sort_title = 'sort on most likes';
     }
     else {
-      $sort_url = str_replace('/sort-by-likes', '', $sort_url);
-      $sort_url = str_replace('/#sort-by-likes', '', $sort_url);
+      $sort_url = str_replace('/sortbylikes', '', $sort_url).'/#sort-by-likes';
       $sort_title = 'sort on date';
     }
     ?>

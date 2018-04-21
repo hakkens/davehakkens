@@ -55,12 +55,22 @@ function bp_loggedin_register_redirect( $redirect ) {
 }
 add_filter( 'bp_loggedin_register_page_redirect_to', 'bp_loggedin_register_redirect' );
 
-//add "sort-by-likes" endpoint for reply sorting purposes
-function add_enpoint_for_reply_sorting() {
-  global $wp_rewrite;
-  add_rewrite_endpoint( 'sort-by-likes', EP_ALL );
+//add "sortbylikes" variable to wp_query vars
+function add_query_var( $vars ) {
+  $vars[] = 'sortbylikes';
+
+  return $vars;
 }
-add_action( 'init', 'add_enpoint_for_reply_sorting' );
+add_filter( 'query_vars', 'add_query_var' );
+
+//extend rewrite rules with "sortbylikes" variable for reply sorting purposes
+function add_rules_for_reply_sorting() {
+  global $wp_rewrite;
+  add_rewrite_rule( 'community/forums/topic/([^/]+)/sortbylikes/?$', 'index.php?topic=$matches[1]&sortbylikes=1', 'top');
+  add_rewrite_rule( 'community/forums/topic/([^/]+)/page/([0-9]{1,})/sortbylikes/?$', 'index.php?topic=$matches[1]&paged=$matches[2]&sortbylikes=1', 'top');
+  $wp_rewrite->flush_rules();
+}
+add_action( 'init', 'add_rules_for_reply_sorting' );
 
 // edit editor content styles which can't be directly accessed because tinymce script writes an iframe
 function my_theme_add_editor_styles($content) {
