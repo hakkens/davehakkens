@@ -72,6 +72,21 @@ function add_rules_for_reply_sorting() {
 }
 add_action( 'init', 'add_rules_for_reply_sorting' );
 
+//add sortbtlikes variable to pager links
+function add_sorting_variable_to_replies_pagination($pagination_links) {
+    $sort_by_likes = get_query_var( 'sortbylikes', 0 );
+
+    if ($sort_by_likes) {
+      $regex = "/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i";
+      $pagination_links = preg_replace_callback($regex, function ($matches) {
+                                                            return $matches[0].'sortbylikes/#sort-by-likes';
+                                                        }, $pagination_links);
+    }
+
+    return $pagination_links;
+}
+add_filter('bbp_get_topic_pagination_links', 'add_sorting_variable_to_replies_pagination');
+
 // edit editor content styles which can't be directly accessed because tinymce script writes an iframe
 function my_theme_add_editor_styles($content) {
     $editor_content_styling = "
