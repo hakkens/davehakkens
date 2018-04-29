@@ -113,6 +113,7 @@ function my_theme_add_editor_styles($content) {
       };
 
       var targetNode = document.getElementById('wp-bbp_reply_content-wrap');
+      if (!targetNode) = targetNode = document.getElementById('wp-bbp_topic_content-wrap');
       observer.observe(targetNode, observerConfig);";
 
     echo '<script>'.$editor_content_styling.'</script>';
