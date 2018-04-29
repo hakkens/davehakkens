@@ -3044,6 +3044,16 @@ display:inline;
   text-transform: none;
 }
 
+.bbp-view .topics-with-no-replies .bbp-topic-title a {
+    display: inline;
+}
+
+.bbp-view .topics-with-no-replies .bbp-forum-content {
+    display: none;
+}
+
+
+
 button.give-btn.give-btn-reveal {
   display: inherit !important;
 }
@@ -3332,7 +3342,7 @@ span.bbp-admin-links {
 .replyheader {
   vertical-align: middle;
   display: inline-block;
-  margin-bottom:5px;
+  margin-bottom: 0px;
 }
 
 .smallrank {
@@ -6137,7 +6147,8 @@ form#bps_directory72873 {
 .page-id-99202,
 .page-template-page-community-images-php,
 .topic-tag,
-.activity {
+.activity,
+.bbp-view {
   background: #edefed;
 }
 
@@ -6923,14 +6934,15 @@ body#tinymce p,
 body#tinymce,
 .mce-content-body,
 .mce-content-body p,
-body#tinymce.mceContentBody.bbp_reply_content.post-type-topic.wp-editor {
-  line-height: 1.9!important;
-  letter-spacing: 0.2px!important;
-  font-family: 'Open Sans'!important;
-  font-size: 14px!important;
-  background-color: white;
-  height: auto;
-      padding: 0px!important;
+body#tinymce.mceContentBody.bbp_reply_content.post-type-topic.wp-editor,
+.forum body#tinymce p {
+line-height: 1.9!important;
+letter-spacing: 0.5px!important;
+font-family: 'Open Sans'!important;
+font-size: 14px!important;
+background-color: white;
+height: auto;
+padding: 0px!important;
 
 }
 

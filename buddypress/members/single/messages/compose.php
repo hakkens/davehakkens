@@ -22,7 +22,7 @@
   <?php endif; ?></div>
 
   <label for="subject"></label>
-  <input type="hidden" name="subject" id="subject" value="private message" />
+  <input type="text" name="subject" id="subject" value="private message" />
 
   <label for="content"><?php _e( 'Message', 'buddypress' ); ?></label>
   <textarea name="content" id="message_content" rows="15" cols="40"><?php bp_messages_content_value(); ?></textarea>
