@@ -678,7 +678,6 @@ a:hover {
 .page .post .commentlist,
 .single .post .commentlist {
   padding-left: 100px;
-  padding-top: 40px;
   margin: 0 auto;
 }
 
@@ -1062,7 +1061,7 @@ textarea#comment {
     border: 0px;
     height: 100px;
     font-size: 15px;
-    border-radius: 3px;
+    border-radius: 10px;
 }
 
 
@@ -1528,7 +1527,7 @@ a.wp_ulike_btn.wp_ulike_put_image:hover {
 }
 
 
-a.wp_ulike_put_image.image-unlike {
+.wpulike-heart .wp_ulike_btn.wp_ulike_put_image.image-unlike {
     background: url(/wp-content/themes/davehakkens2.3/img/like.png) no-repeat !important;
     background-size: 20px auto !important;
     background-position: center center !important;
@@ -2935,7 +2934,9 @@ display:inline;
 .page-template-page-with-sidebar #content,
 .page-template-page-redirect,
 .reply.bbpress,
-.bp-user .post {
+.bp-user .post,
+.directory.members #content
+ {
   padding-bottom: 750px;
 }
 
@@ -2978,10 +2979,6 @@ display:inline;
   margin-top: 150px;
 }
 
-
-.notifications.unread form {
-    text-align: center;
-}
 
 .alt-forum-sidebar {
   background-color: #abcde2;
@@ -3115,7 +3112,7 @@ input[type="checkbox"] {
   vertical-align: middle;
 }
 input[type="checkbox"]:checked {
-  background: url(https://davehakkens.nl/wp-content/themes/davehakkens2/img/checkbox.png) 0px 2px no-repeat!important;
+  background: url(https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/checkbox.png) 0px 2px no-repeat!important;
   background-size: 94%!important;
   text-indent: -9999px;
   border-radius: 3px;
@@ -3323,6 +3320,7 @@ span.bbp-admin-links {
   margin-left: 110px;
   position: relative;
   padding: 30px;
+  padding-bottom: 10px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16);
   border-radius: 4px;
 }
@@ -4080,7 +4078,7 @@ form#loginform {
 }
 
 .loginamigo {
-  background: url(https://davehakkens.nl/wp-content/themes/davehakkens2/img/helloamigo.png) 40px center no-repeat;
+  background: url(https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/helloamigo.png) 40px center no-repeat;
   background-size: 78%;
   width: 100%;
   height: 100px;
@@ -4268,12 +4266,13 @@ ol.comment-list {
 }
 
 .commentlist p {
-  font-size:12px;
+  font-size:14px;
 }
 
-div#respond {
-  max-width: 400px;
-  margin: 0 auto;
+.comments div#respond {
+    max-width: 700px;
+    margin: 0 auto;
+    margin-left: 100px;
 }
 
 #respond p {
@@ -4286,9 +4285,18 @@ div#respond {
 .comment-body {
   background: #fff;
   border: 1px solid #eee;
-  margin-bottom: 20px;
+  margin-top: 40px;
   position: relative;
   padding: 0px 18px 0px 20px;
+  border-radius: 10px;
+}
+
+.children .comment-body {
+    margin-top: 20px;
+}
+
+.commentlist ul.children {
+    padding-bottom: 10px;
 }
 
 .comment-body .comment-author {
@@ -4365,7 +4373,7 @@ div#respond {
 }
 
 .comment-body .reply {
-  padding: 6px 6px 0px 0px;
+  padding: 3px 6px 0px 0px;
   box-sizing: border-box;
   width: 100%;
   text-align: right;
@@ -4605,7 +4613,7 @@ div#item-header-container {
 #buddypress #item-header {
   position: relative;
   letter-spacing: 0.7px;
-  background-color: #b0d7ff;
+  background-color: #3c3c3c;
   min-height: 320px;
 
 }
@@ -4855,7 +4863,7 @@ div#mycred-users-badges {
 }
 
 #bbpress-forums .bbp-attachments-count {
-  background-image: url(https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/attachment_color_small.png)!important;
+  background-image: url(https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/attachment_color_small.png)!important;
   background-repeat: no-repeat!important;
   background-position: 1px 4px!important;
   background-size: 93%!important;
@@ -5103,6 +5111,7 @@ tr.field_1.field_current_balance_mycred_default td.data {
 
 .profilesidebar {
   width: 32%;
+  min-width: 150px;
   margin: 1%;
   vertical-align: top;
   display: inline-block;
@@ -5148,35 +5157,35 @@ tr.field_1.field_current_balance_mycred_default td.data {
 
 
 #buddypress .profile .bp-widget.base .field_1 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/login.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/login.png")!important;
 
 }
 #buddypress .profile .bp-widget .field_8 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/login.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/login.png")!important;
 }
 
 #buddypress .profile .bp-widget .field_42 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/country.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/country.png")!important;
 }
 
 #buddypress .profile .bp-widget .field_1055 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/expertise.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/expertise.png")!important;
 }
 
 #buddypress .profile .bp-widget .field_38 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/url.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/url.png")!important;
 }
 
 #buddypress .profile .bp-widget .field_667 {
-    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/about.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/about.png")!important;
 }
 
 #buddypress .profile .bp-widget .field_piggy {
-    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/piggy.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/piggy.png")!important;
 }
 
 #buddypress .profile .bp-widget .field_member {
-    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/birthday.png")!important;
+    background-image: url("https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/birthday.png")!important;
 }
 
 
@@ -5744,7 +5753,7 @@ div#item-header-content div.generic-button a {
   min-height: 100px;
   margin-left: 130px;
   position: relative;
-  padding: 19px 30px 10px 30px;
+  padding: 19px 30px 20px 30px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.07);
   border-radius: 4px;
 }
@@ -6317,7 +6326,7 @@ div#field_1055 input{
 
 .register h1 {
   color: transparent;
-  background: url(https://davehakkens.nl/wp-content/themes/davehakkens2/img/joinourarmy.png) -23px center no-repeat;
+  background: url(https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/joinourarmy.png) -23px center no-repeat;
   background-size: 100%;
   width: 100%;
   max-width: 500px;
@@ -6794,7 +6803,7 @@ a.d4p-attachment-addfile:hover {
 }
 
 .bbp-attachments-form input {
-  background-image: url(https://davehakkens.nl/wp-content/themes/davehakkens2/img/icon/upload-image.png)!important;
+  background-image: url(https://davehakkens.nl/wp-content/themes/davehakkens2.3/img/icon/upload-image.png)!important;
   background-repeat: no-repeat!important;
   background-position: 0px 25px!important;
   background-size: 100%!important;
@@ -7824,6 +7833,24 @@ body.wp-autoresize {
     max-width: 800px;
 }
 
+.tabbed.upload-block { padding: 0; margin: 26px 0 20px; background-color: transparent;}
+.dave_upload_profile{margin: 0 0 12px;}
+.upload_profile{display: inline-block; width: 100%; padding: 20px; background-color: #EE8B90; box-sizing: border-box;}
+.upload_profile a{position: relative; padding: 0 0 0 50px; color: #fff; font-size: 20px;}
+.upload_profile a:before{width: 36px; height: 36px; display: inline-block; content: ''; background-image: url(/wp-content/themes/davehakkens2.3/img/icon/emptyavatar.png); position: absolute; left: 0; top: -3px; background-size: cover; background-position: center center;}
+.community_info{background-color: #fff; padding: 15px;}
+.community_info h3{margin: 0 0 14px;}
+.community-content{margin: 0 0 10px;}
+.community_info dt{display: inline-block; font-weight: 700;}
+.community_info dd{margin: 0; float: right;}
+.community_info dd strong{}
+.latest_community_uploads > h2{margin: 8px 0; padding: 0;}
+.tabbed .tab2Content li{overflow: hidden; border: none;}
+.davekha-activity-avatar .activity-avatar{display: inline-block; width: 20%; vertical-align: middle;}
+.davekha-activity-avatar .activity-avatar > a{display: inline-block;}
+.davekha-activity-avatar .activity-avatar > a img{border-radius: 50%; width: 56px; height: 56px;}
+a.bbp-forum-title{display: inline-block; font-size: 18px; color: #000; width: 74% !important; padding-left: 10px; vertical-align: middle;}
+a.bbp-reply-topic-title{display: inline-block; font-size: 18px; color: #000; width: 74% !important; padding-left: 10px; vertical-align: middle;}
 
 .dav_reply_topic{ display:inline-block; height: 30px;}
 .dav_reply_topic span{ position: relative; padding: 0px 35px 0px 28px;}

@@ -242,6 +242,7 @@
 
 
 
+
 li#bbp_search_widget-2{
   position: inherit;
 }
@@ -993,6 +994,11 @@ font-size: 18px;
 
 @media screen and (max-width: 540px) {
 
+
+
+  .comments div#respond {
+    margin-left: 0px
+  }
 
 
   .bp-user.friend-requests ul.item-list li div.action  {

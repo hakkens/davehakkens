@@ -81,7 +81,7 @@ class Latest_Community_Uploads extends WP_Widget {
         if($show_more){
           //TODO: handle no user_id request
           $link = bp_core_get_userlink( $user_id, false, true). "latestU";
-          echo "<a href='". $link ."'>show more</a>";
+          echo "<a href='". $link ."'>show all</a>";
         }
       }
     }

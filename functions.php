@@ -704,7 +704,7 @@ function show_profile_pic_button(){
 
  function your_theme_xprofile_cover_image( $settings = array() ) {
      $settings['width']  = 1000;
-     $settings['height'] = 400;
+     $settings['height'] = 500;
 
      return $settings;
  }

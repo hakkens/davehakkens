@@ -142,7 +142,7 @@ do_action( 'bp_before_profile_loop_content' ); ?>
       </div>
 
 
-<div class="profilesidebar">
+
       <?php
 
       /** This action is documented in bp-templates/bp-legacy/buddypress/members/single/profile/profile-wp.php */
@@ -159,7 +159,7 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 
 <?php endif; ?>
 
-
+<div class="profilesidebar">
 <div class="dedication"><a href="https://davehakkens.nl/community/dedication/"><h2>💪 Dedication</h2></a>
 
 <div class="mycred"><?php echo do_shortcode('[mycred_my_ranks user_id='.bp_displayed_user_id().']') ?> with <?php echo do_shortcode('[mycred_my_balance user_id='.bp_displayed_user_id().']'); ?> points

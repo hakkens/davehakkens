@@ -78,7 +78,7 @@
 
 <!-- </div> -->
       <?php the_widget('Latest_Community_Uploads', "max=12");?>
-            <div class="sidebar-footer"><a href="http://dev.davehakkens.nl/community/images">Show all images</a></div>
+            <div class="sidebar-footer"><a href="http://davehakkens.nl/community/images">Show all images</a></div>
       <div class="tabbed"><div class="posttab">
         <div class="header">
           <h2 class="tab active" data-tab="tab_topics">📓 Topics</h2>
@@ -231,7 +231,7 @@ $widget_query = new WP_Query( array(
 
           </div>
         </div>
-        <div class="sidebar-footer"><a href="http://dev.davehakkens.nl/topics/">Show all topics</a> </div>
+        <div class="sidebar-footer"><a href="http://davehakkens.nl/topics/">Show all topics</a> </div>
 
       </div>
           </div>

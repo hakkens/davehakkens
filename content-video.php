@@ -77,7 +77,7 @@ if($catID!= ''){
 </div>
 
     <div class="randomtitle">
-      <img src="http://davehakkens.nl/wp-content/themes/davehakkens2/img/randomnews.png" alt="randomnews" height="102" width="500"></div>
+      <img src="http://davehakkens.nl/wp-content/themes/davehakkens2.3/img/randomnews.png" alt="randomnews" height="102" width="500"></div>
         <div class="other-updates">
 
           <div class="relatedposts">
