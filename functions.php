@@ -691,7 +691,7 @@ function show_profile_pic_button(){
         if(!get_user_has_avatar($user_id)) : ?>
              <div class="dave_upload_profile">
                <div class="upload_profile">
-                 <a href="<?php echo $profile . '/profile/change-avatar/#avatar-upload-form'?>">Upload your Profile pic</a>
+                 <a href="<?php echo $profile . '/profile/change-avatar/#avatar-upload-form'?>">Upload your avatar </a>
                </div>
              </div>
             <?php
