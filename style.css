@@ -43,6 +43,15 @@ body.archive.tag {
   background: #edefed;
 }
 
+.topic-tag .bbp-topic-title a {
+    display: inline;
+}
+.topic-tag li.bbp-footer,
+.topic-tag a.bbp-author-avatar {
+    display: none!important;
+}
+
+
 .no-touch body {
   box-sizing: border-box;
   position:relative;
@@ -1268,6 +1277,8 @@ a.read-more {
     background-color: #a6c9f8;
     border-radius: 4px;
 }
+
+
 
 #post-grid .item img {
    height: 100%;
@@ -3944,10 +3955,6 @@ span.page-numbers.current{
     text-align: center;
 }
 
-.single-forum #subscription-toggle{
-    display: none;
-
-}
 
 
 #bbpress-forums li.bbp-header, #bbpress-forums li.bbp-footer {
@@ -4306,6 +4313,7 @@ ol.comment-list {
 
 .commentlist ul.children {
     padding-bottom: 10px;
+    list-style-type: none;
 }
 
 .comment-body .comment-author {
@@ -4368,6 +4376,7 @@ ol.comment-list {
   margin: 0;
   padding-top: 5px;
   padding-bottom: 20px;
+  word-break: break-word;
 }
 
 .comment-body::before {
@@ -6464,7 +6473,7 @@ li.bbp-topic-title {
 }
 
 .topic-tag .topic-desc {
-    display: inline-block;
+    display: inline;
 }
 
 .topic-tag p.bbp-topic-meta.padding-left-20 {
@@ -6478,6 +6487,11 @@ li.bbp-topic-title {
 .topic #bbpress-forums div.bbp-topic-tags {
     display: none;
 }
+
+div#topic-cloud {
+    text-align: center;
+  }
+  
 
 .topic-reply .content p .quote {
   background: url( 'img/quote.png' ) no-repeat top left #f7f7f7;
@@ -7153,6 +7167,7 @@ body#tinymce {
 
 .item .wpulike-heart .wp_ulike_btn.wp_ulike_put_image {
     padding: 11px 12px!important;
+    background-size: 15px!important;
 }
 
 

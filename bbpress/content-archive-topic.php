@@ -10,13 +10,13 @@
 ?>
 
 <div id="bbpress-forums">
+  <div id="topic-cloud"><?php echo do_shortcode("[bbp-topic-tags]"); ?></div>
 
   <?php bbp_breadcrumb(); ?>
 
   <?php if ( bbp_is_topic_tag() ) bbp_topic_tag_description(); ?>
 
   <?php do_action( 'bbp_template_before_topics_index' ); ?>
-
   <?php if ( bbp_has_topics() ) : ?>
 
     <?php bbp_get_template_part( 'pagination', 'topics'    ); ?>
