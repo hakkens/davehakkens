@@ -16,15 +16,17 @@ class Latest_Community_Uploads extends WP_Widget {
    * @param array $instance
    */
   public function widget( $args, $instance ) {
-    echo !empty($args['before_widget']) ? $args['before_widget']: "<div class='latest-uploads'>";
+    $output = "";
+    $output .= !empty($args['before_widget']) ? $args['before_widget']: "<div class='latest-uploads'>";
     $title = ( ! empty( $instance['title'] ) ) ? $instance['title'] : __( '📷 Latest Images' );
     $max = ( ! empty( $instance['max'] ) ) ? $instance['max'] : 10;
     $user_id = ( ! empty( $instance['user_id'] ) ) ? $instance['user_id'] : '';
     $size = ( ! empty( $instance['size'] ) ) ? $instance['size'] : 'thumbnail';
     $more = ( ! empty( $instance['more'] ) ) ? $instance['more'] : false;
     $show_more = false;
+    $attachments = array();
     if ( $title) {
-      echo $args['before_title'] . apply_filters( 'widget_title', $title ) . $args['after_title'];
+      $output .= $args['before_title'] . apply_filters( 'widget_title', $title ) . $args['after_title'];
     }
     $args = array(
       'post_type'   => array('topic','reply'),
@@ -76,16 +78,20 @@ class Latest_Community_Uploads extends WP_Widget {
             $page = floor($indx/get_option('_bbp_replies_per_page'));
             $link = get_permalink($topics[$post->post_parent]). ($page>0?"page/".($page+1)."/":"") . "#post-".$post->post_parent;
           }
-          echo "<a href='". $link ."'>". $img ."</a>";
+          $output .= "<a href='". $link ."'>". $img ."</a>";
         }
         if($show_more){
           //TODO: handle no user_id request
           $link = bp_core_get_userlink( $user_id, false, true). "latestU";
-          echo "<a href='". $link ."'>show all</a>";
+          $output .= "<a href='". $link ."'>show all</a>";
         }
       }
     }
-    echo !empty($args['after_widget']) ? $args['after_widget']: "</div>";
+    $output .= !empty($args['after_widget']) ? $args['after_widget']: "</div>";
+    if( $user_id != '' && count($attachments)<1){
+      $output = "";
+    }
+    echo $output;
   }
 
   /**
