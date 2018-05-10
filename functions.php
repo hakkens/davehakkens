@@ -506,11 +506,18 @@ add_filter('tiny_mce_before_init', 'tinymce_other_css_for_content');
 
 // Enable visual editor on tinymce in bbPress
 function bbp_enable_visual_editor( $args = array() ) {
-    $args['tinymce'] = true;
+    $args['tinymce'] = array(
+		'content_css' => get_template_directory_uri() . "/style.css",
+		'remove_linebreaks' => false,
+		'convert_newlines_to_brs' => true,
+		'remove_redundant_brs' => false,
+		'forced_root_block' => false
+	);
     $args['quicktags'] = false;
     return $args;
 }
 add_filter( 'bbp_after_get_the_content_parse_args', 'bbp_enable_visual_editor' );
+
 
 // Enable TinyMCE paste plugin
 function bbp_add_paste_plugin($args) {
