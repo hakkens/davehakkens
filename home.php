@@ -176,7 +176,7 @@ continue;
       <?php the_widget("Latest_Community_Uploads", "max=9"); ?>
     </div>
     <img id="solving" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/solving.png"/>
-    <button class="btn-main" onclick="window.location.href='/community/army/'">Join the community</button>
+    <button class="btn-main" onclick="window.location.href='/community/join'">Join the community</button>
   </div>
 </div>
 <?php get_footer(); ?>
