@@ -111,6 +111,8 @@ class ProcessPin {
     $request = $this->request;
     $request['imgs'] = $this->imgs;
 
+    $isStarted = in_array('STARTED', $request['filters']);
+
     $columns = $this->get_columns();
 
     foreach ($columns as $key => $value) {
@@ -128,7 +130,7 @@ class ProcessPin {
       $record['created_date'] = current_time( 'mysql' );
       array_push($formats, '%s');
 
-      $record['approval_status'] = 'WAITING_APPROVAL';
+      $record['approval_status'] = $isStarted ? 'APPROVED' : 'WAITING_APPROVAL';
       array_push($formats, '%s');
     }
 
