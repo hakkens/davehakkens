@@ -132,8 +132,9 @@ class Pin_Table extends WP_List_Table {
       $order = esc_sql($_GET['order'] ? $_GET['order'] : 'ASC');
       $query .= ' ORDER BY ' . $orderBy . ' ' . $order . ', p.Id ASC';
     } else {
-      $query .= ' ORDER BY created_date DESC';
+      $query .= ' ORDER BY p.approval_status DESC, p.created_date DESC';
     }
+
 
     $totalitems = $wpdb->query($query);
     $perpage = 60;

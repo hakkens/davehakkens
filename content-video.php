@@ -55,7 +55,7 @@
         <div class="date"> <?php the_time('F j, Y'); ?></p></div>
       </div>
 
-      
+
     <h1><?php the_title(); ?></h1>
     <?php the_content();?>
     <div class="meta">
@@ -121,6 +121,7 @@ if($catID!= ''){
 
 
               <div class="background-comments">
+              <div class="comments">
               <div class="post-comments">
                 <?php comments_template(); ?>
               </div>

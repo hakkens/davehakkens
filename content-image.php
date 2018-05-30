@@ -85,12 +85,6 @@
     </div>
 
 
-    <div class="background-comments">
-    <div class="comments">
-    <div class="post-comments">
-      <?php comments_template(); ?>
-    </div>
-    </div>
 
 
 </div>
