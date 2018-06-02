@@ -2772,9 +2772,13 @@ span.bbp-topic-freshness-author a {
 
 
 #bbpress-forums .status-closed a {
-  color: #117121 !important;
-  text-decoration: line-through;
+    color: #b9b9b9 !important;
 }
+
+.status-closed a.bbp-topic-permalink:before {
+    content: "Closed: ";
+}
+
 
 #bbpress-forums .bbp-forum-info .bbp-forum-content {
   margin: 0px;
