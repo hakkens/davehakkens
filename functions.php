@@ -593,6 +593,7 @@ if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) {
 }
 
 function davehakkens2_widgets_init() {
+  require get_template_directory() . '/includes/widgets.php';
   register_widget( 'Latest_Community_Uploads' );
 }
 
@@ -676,6 +677,20 @@ function davehakkens_theme_comment($comment, $args, $depth) {
         </div><?php
     endif;
 }
+
+/**
+ * Register our sidebars and widgetized areas.
+ *
+ */
+function community_widgets_init() {
+
+  register_sidebar( array(
+    'name'          => 'Community info',
+    'id'            => 'community_info',
+  ) );
+
+}
+add_action( 'widgets_init', 'community_widgets_init' );
 
 /**
 * function to help if user has an avatar or not
