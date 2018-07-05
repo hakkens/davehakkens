@@ -583,7 +583,7 @@ function davehakkens_theme_comment($comment, $args, $depth) {
         </a>
       </div>
     <div class='comment_author_name'><a href='/community/members/<?php echo $user_info->user_nicename; ?> '><?php  echo '<span class="post_author_name">'.$user_info->display_name.'</span>'; ?> </a>
-<div class="date"> - 
+<div class="date"> -
 <?php
 
  echo esc_html( human_time_diff( get_comment_date( 'U', $comment->comment_ID ), current_time('timestamp') ) ) . ' ago'; ?>
@@ -636,4 +636,5 @@ function show_profile_pic_button(){
   <?php
      endif;
   endif;
- } ?> 
+}
+?>
