@@ -1,8 +1,14 @@
 # davehakkens
 WordPress theme for the Dave Hakkens Community website
 
-We wanted to have a place online which is truly ours, we are in control. No adds, open-source, build together in the way we want it to be. We started of building this thing, but invite you to help out and share feedback. It's build on Wordpress, we know. Not the best software to build a community on. But we like that it is a language many developers from all over the world speak. Which makes it easy to work on together. And we are always looking for passionate developers that want to help out improving this place. If you are one of those, reach out to us in the forums at http://davehakkens.nl/community
-
+We wanted to have a place online which is truly ours, we are in control. No
+ads, open-source, build together in the way we want it to be. We started of
+building this thing, but invite you to help out and share feedback. It's build
+on Wordpress, we know. Not the best software to build a community on. But we
+like that it is a language many developers from all over the world speak. Which
+makes it easy to work on together. And we are always looking for passionate
+developers that want to help out improving this place. If you are one of those,
+reach out to us in the forums at http://davehakkens.nl/community
 
 It's running on Wordpress.
 Couple of key plugins we use to make this community happen
@@ -13,26 +19,62 @@ Couple of key plugins we use to make this community happen
 
 ## Getting started using Docker
 
-Make sure you have docker installed with docker compose
+The theme has some dependencies that need to be installed before you will be
+able to test anything. A script has been created which automates some of this
+setup for you.
 
-To Run:
+*NOTE*: The setup script does a destructive change to the current docker
+containers that you have already built. This means you lose all the data and
+start from scratch again.
 
-    docker-compose up -d
+To run the setup script, should just need to run
 
-Then browse to http://localhost:8000/
+    ./setup.sh
 
-To bring offline
+Currently only works on Mac/Linux (sorry windows users)
+
+Once everything has completed (might take a minute or so), then you should be
+safe to browse to http://localhost:8001/
+
+If you change something in the congif of the docker image, you might need to
+restart all the containers. You can do this by running:
 
     docker-compose down
+    docker-compose up -d
 
-When you first install, you will need to install plugins and select the Dave Hakkens theme. Plugins and theme selection should persist
+After install, you will probably need to do the following:
 
-Since the pages are part of the database, you will need to create the community page, and a login page (parented to the community page to not break links). This will enable you to get back in once you restart the container
+ - WP admin -> Plugins -> Buddypress -> Settings -> Enable Private Messaging
+ - Enable the dave hakkens theme
 
-## Creating custom pins tables
+### Things to help you debug
 
-After first boot of the containers, you will need to create the map table (used for pin queries). You can use the following command to create the table:
+#### Pulling up a bash prompt
 
-    cat pp_pins_create.sql | docker exec -i 3c205c210033 mysql --user=<username> --password=<password> -D <database>
+Sometimes being able to get root access to a machine is nice. You can do this
+on the wordpress image by running:
 
-By default, username, password, and database are all `wordpress` according to the docker file
+    docker exec -it davehakkens_wordpress /bin/bash
+
+#### Accessing the database
+
+You can do this a couple of ways. If you're happy to run commands directly on
+mysql server, you will need to log into the container and run mysql. This can
+be done by:
+
+    docker exec -it davehakkens_database /bin/bash
+    mysql -p wordpress
+    # this prompts for a password. Default is "somewordpress"
+
+This image also includes a php myadmin install. To get to the phpmyadmin page,
+make sure the image(s) are running and goto http://localhost:8002/. Put `db` in
+the Database field, `root` as user, and the default database password in the
+password (currently `somewordpress`)
+
+### TODO
+
+ - Automate enable private messaging. Can't find a bp function, so might need
+   to edit the option\_value under wp\_options table
+ - Automate the activation of the theme (setup.sh)
+ - Automate creation of pages and buddypress mapping (login + community,
+   parented to community so static links don't break)
