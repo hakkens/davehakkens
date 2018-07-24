@@ -12,7 +12,20 @@
 <div class="item-list-tabs no-ajax" id="subnav" role="navigation">
   <ul>
 
-    <?php bp_get_options_nav(); ?>
+    <?php
+       global $bp;
+       switch ($bp->current_action){
+         case "friends":
+           $slug = "friends";
+           break;
+         case "just-me":
+           $slug = "forums";
+           break;
+         default:
+           $slug = "";
+       }
+       bp_get_options_nav($slug);
+    ?>
 
     <li id="activity-filter-select" class="last">
       <label for="activity-filter-by"><?php _e( 'Show:', 'buddypress' ); ?></label>

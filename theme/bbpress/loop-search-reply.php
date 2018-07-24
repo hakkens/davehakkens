@@ -10,6 +10,12 @@
 ?>
 
 <div class="search-result">
+  <div class="bbp-reply-title">
+
+    <h3><?php _e( 'In reply to: ', 'bbpress' ); ?>
+      <a class="bbp-topic-permalink" href="<?php bbp_topic_permalink( bbp_get_reply_topic_id() ); ?>"><?php bbp_topic_title( bbp_get_reply_topic_id() ); ?></a></h3>
+
+  </div><!-- .bbp-reply-title -->
   <div class="avatar">
     <div class="bbp-reply-author">
 
@@ -55,12 +61,7 @@
 
     </div><!-- .bbp-meta -->
 
-    <div class="bbp-reply-title">
 
-      <h3><?php _e( 'In reply to: ', 'bbpress' ); ?>
-        <a class="bbp-topic-permalink" href="<?php bbp_topic_permalink( bbp_get_reply_topic_id() ); ?>"><?php bbp_topic_title( bbp_get_reply_topic_id() ); ?></a></h3>
-
-    </div><!-- .bbp-reply-title -->
 
     <div class="bbp-reply-content">
 

@@ -9,15 +9,15 @@ class API {
   }
 
   public function fetch_user() {
-    return $this->__get_json("current_user");
+    return $this->_get_json("current_user");
   }
 
   public function fetch_campaign_and_patrons() {
-    return $this->__get_json("current_user/campaigns?include=rewards,creator,goals,pledges");
+    return $this->_get_json("current_user/campaigns?include=rewards,creator,goals,pledges");
   }
 
   public function fetch_campaign() {
-    return $this->__get_json("current_user/campaigns?include=rewards,creator,goals");
+    return $this->_get_json("current_user/campaigns?include=rewards,creator,goals");
   }
 
   public function fetch_page_of_pledges($campaign_id, $page_size, $cursor = null) {
@@ -26,10 +26,10 @@ class API {
       $escaped_cursor = urlencode($cursor);
       $url = $url . "&page%5Bcursor%5D={$escaped_cursor}";
     }
-    return $this->__get_json($url);
+    return $this->_get_json($url);
   }
 
-  private function __get_json($suffix) {
+  private function _get_json($suffix) {
     $api_endpoint = "https://api.patreon.com/oauth2/api/" . $suffix;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $api_endpoint);

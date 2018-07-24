@@ -11,7 +11,7 @@ class OAuth {
   }
 
   public function get_tokens($code, $redirect_uri) {
-    return $this->__update_token(array(
+    return $this->_update_token(array(
         "grant_type" => "authorization_code",
         "code" => $code,
         "client_id" => $this->client_id,
@@ -21,7 +21,7 @@ class OAuth {
   }
 
   public function refresh_token($refresh_token, $redirect_uri) {
-    return $this->__update_token(array(
+    return $this->_update_token(array(
         "grant_type" => "refresh_token",
         "refresh_token" => $refresh_token,
         "client_id" => $this->client_id,
@@ -29,7 +29,7 @@ class OAuth {
     ));
   }
 
-  private function __update_token($params) {
+  private function _update_token($params) {
     $api_endpoint = "https://api.patreon.com/oauth2/token";
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $api_endpoint);

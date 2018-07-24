@@ -25,7 +25,7 @@
 
       <?php else : ?>
 
-        <p><?php bbp_is_user_home() ? _e( 'You currently have no favorite topics.', 'bbpress' ) : _e( 'This user has no favorite topics.', 'bbpress' ); ?></p>
+        <p><?php bbp_is_user_home() ? _e( 'You currently have no saved topics.', 'bbpress' ) : _e( 'This user has no saved topics.', 'bbpress' ); ?></p>
 
       <?php endif; ?>
 

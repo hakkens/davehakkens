@@ -38,6 +38,11 @@ do_action( 'bp_before_profile_content' ); ?>
     bp_get_template_part( 'members/single/profile/change-avatar' );
     break;
 
+// Change Cover Image
+	case 'change-cover-image' :
+		bp_get_template_part( 'members/single/profile/change-cover-image' );
+		break;
+
   // Compose
   case 'public' :
 
@@ -56,6 +61,8 @@ do_action( 'bp_before_profile_content' ); ?>
     bp_get_template_part( 'members/single/plugins' );
     break;
 endswitch; ?>
+
+
 </div><!-- .profile -->
 
 <?php
@@ -65,4 +72,4 @@ endswitch; ?>
  *
  * @since BuddyPress (1.1.0)
  */
-do_action( 'bp_after_profile_content' ); ?>
+//do_action( 'bp_after_profile_content' ); ?>

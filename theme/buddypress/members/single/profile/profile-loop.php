@@ -27,15 +27,88 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 
           <?php while ( bp_profile_fields() ) : bp_the_profile_field(); ?>
 
-            <?php if ( bp_field_has_data() ) : ?>
+            <?php if ( bp_field_has_data() && bp_get_the_profile_field_name() != 'Location' && bp_get_the_profile_field_name() != 'About' ) : ?>
 
-              <tr>
+              <?php if ( bp_get_the_profile_field_name() == 'Name' ) : ?>
 
-                <div <?php bp_field_css_class(); ?>><?php bp_the_profile_field_name(); ?></div>
+                <tr>
 
-                <div class="data"><?php bp_the_profile_field_value(); ?></div>
+                  <div class="data profile-name">
 
-              </tr>
+                    <p>
+                      <?php echo strip_tags(bp_get_the_profile_field_value()); ?>
+
+                      <span id="country"><?php dh_get_flag_by_location( xprofile_get_field_data( 42, bp_displayed_user_id() ) ); ?></span>
+                    </p>
+
+                  </div>
+
+                </tr>
+
+                <?php $about = bp_get_profile_field_data( array('field' => 'About') ); ?>
+
+                <?php if ( $about != '' ): ?>
+
+                  <tr>
+
+                    <div class="data profile-about"><p><?php echo wp_kses($about); ?></p></div>
+
+                  </tr>
+
+                <?php endif; ?>
+
+              <?php elseif ( bp_get_the_profile_field_name() == 'Birthday' ): ?>
+
+                <tr>
+
+                  <div <?php bp_field_css_class(); ?>><?php bp_the_profile_field_name(); ?></div>
+
+                  <?php
+                      $date = DateTime::createFromFormat('F j, Y', strip_tags( bp_get_profile_field_data( array('field' => 'Birthday') ) ) );
+                      $now = new DateTime("now");
+                      $interval = $date->diff($now); ?>
+                  <div class="data"><p><?php echo $interval->y; ?> years</p></div>
+
+                </tr>
+
+                <tr>
+
+                  <div class="field_member"><?php bp_the_profile_field_name(); ?></div>
+
+                  <?php $displayed_user = get_userdata( bp_displayed_user_id() );
+                      $date = new DateTime($displayed_user->user_registered);
+                      $now = new DateTime("now");
+                      $interval = $date->diff($now);
+                  ?>
+
+                  <div class="data"><p>
+                    <?php if ( $interval->y != 0 ) echo $interval->y.' year';
+                          elseif ( $interval->m != 0 ) echo $interval->m.' month';
+                          else echo $interval->d.' day';?> member</p></div>
+
+                </tr>
+
+              <?php else: ?>
+
+                <tr>
+
+                  <div <?php bp_field_css_class(); ?>><?php bp_the_profile_field_name(); ?></div>
+
+                  <?php if ( bp_get_the_profile_field_name() == 'Website' ) : ?>
+
+                    <?php preg_match_all('/<a[^>]+href=([\'"])(?<href>.+?)\1[^>]*>/i', bp_get_the_profile_field_value(), $result); ?>
+
+                    <div class="data"><p><a href="<?php echo $result['href'][0] ?>" rel="nofollow">visit website</a></p></div>
+
+                  <?php else: ?>
+
+                    <div class="data"><?php bp_the_profile_field_value(); ?></div>
+
+                  <?php endif; ?>
+
+                </tr>
+
+              <?php endif; ?>
 
             <?php endif; ?>
 
@@ -52,18 +125,23 @@ do_action( 'bp_before_profile_loop_content' ); ?>
           <?php endwhile; ?>
 
           <?php
-            if(function_exists('give_has_purchases')) {
-              if(give_has_purchases( bp_displayed_user_id() )){ ?>
-              <tr>
+            //if(function_exists('give_has_purchases')) {
+            //  if(give_has_purchases( bp_displayed_user_id() )){ ?>
+              <!-- <tr>
                 <div class="field_piggy"></div>
                 <div class="data"><p>Supported with a donation :)<p></div>
-              </tr>
-          <?php
-              }
-            }
+              </tr> -->
+              <?php
+            //  }
+            //}
           ?>
         </table>
+        <?php
+          the_widget("Latest_Community_Uploads", array("max"=>"6", "user_id"=>bp_displayed_user_id(), "more" => true));
+        ?>
       </div>
+
+
 
       <?php
 
@@ -81,10 +159,18 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 
 <?php endif; ?>
 
+<div class="profilesidebar">
+<div class="dedication"><a href="https://davehakkens.nl/community/dedication/"><h2>💪 Dedication</h2></a>
 
+<div class="mycred"><?php echo do_shortcode('[mycred_my_ranks user_id='.bp_displayed_user_id().']') ?> with <?php echo do_shortcode('[mycred_my_balance user_id='.bp_displayed_user_id().']'); ?> points
 
-<div class="dedication"><a href="https://davehakkens.nl/community/dedication/">Dedication</a></div>
+</div>
+
+<div class="badges"><?php echo do_shortcode('[mycred_my_badges user_id='.bp_displayed_user_id().']') ?></div>
+
+</div>
+
 <?php
 
 /** This action is documented in bp-templates/bp-legacy/buddypress/members/single/profile/profile-wp.php */
-do_action( 'bp_after_profile_loop_content' ); ?>
+do_action( 'bp_after_profile_loop_content' ); ?>  </div>

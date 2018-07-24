@@ -23,19 +23,8 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 <!-- You can start editing here. -->
 
 <?php if ( have_comments() ) : ?>
-  <h3 id="comments">
-    <?php
-      if ( 1 == get_comments_number() ) {
-        /* translators: %s: post title */
-        printf( __( 'One Response to %s' ),  '&#8220;' . get_the_title() . '&#8221;' );
-      } else {
-        /* translators: 1: number of comments, 2: post title */
-        printf( _n( '%1$s Response to %2$s', '%1$s Responses to %2$s', get_comments_number() ),
-          number_format_i18n( get_comments_number() ),  '&#8220;' . get_the_title() . '&#8221;' );
-      }
-    ?>
-  </h3>
-
+  <div id="comments">
+  
   <div class="navigation">
     <div class="alignleft"><?php previous_comments_link() ?></div>
     <div class="alignright"><?php next_comments_link() ?></div>
@@ -43,12 +32,17 @@ _deprecated_file( sprintf( __( 'Theme without %1$s' ), basename(__FILE__) ), '3.
 
   <ol class="commentlist">
   <?php
-  wp_list_comments(array(
-    'avatar_size' => 80,
-  ));
-  ?>
+ /* wp_list_comments(array(
+   'avatar_size' => 80,
 
+)); */
+
+  ?>
+<?php //wp_list_comments( 'type=comment&callback=davehakkens_theme_comment' ); ?>
   </ol>
+<ul class="commentlist">
+  <?php wp_list_comments( 'type=comment&callback=davehakkens_theme_comment' ); ?>
+</ul>
 
   <div class="navigation">
     <div class="alignleft"><?php previous_comments_link() ?></div>
