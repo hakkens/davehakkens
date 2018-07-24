@@ -1924,6 +1924,11 @@ a.wp_ulike_btn.wp_ulike_put_image:hover {
   color: #5e94da;
 }
 
+.activity .activity-content img {
+    width: 100%;
+    height: auto;
+}
+
 .davekha-activity-avatar .activity-avatar > a img {
     width: 40px!important;
     height: auto!important;
@@ -4312,6 +4317,7 @@ ol.comment-list {
   position: relative;
   padding: 0px 18px 0px 20px;
   border-radius: 10px;
+  min-height: 50px;
 }
 
 .children .comment-body {
