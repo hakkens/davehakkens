@@ -18,8 +18,8 @@
     </li>
   </ul>
 </div>
-
 <?php
+do_action('dh_before_notifications');
 switch ( bp_current_action() ) :
 
   // Unread

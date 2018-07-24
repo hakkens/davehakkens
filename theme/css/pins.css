@@ -2,7 +2,8 @@
 
 .pins .pin-list {
   padding: 0;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
 .pins .pin-item {

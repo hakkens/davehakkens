@@ -33,9 +33,9 @@
 
     <?php
 
-    $sort_by_likes = get_query_var( 'sort-by-likes', 0 ); 
+    $sort_by_likes = get_query_var( 'sortbylikes', 0 );
 
-    if ($sort_by_likes !== 0) $args = array(
+    if ($sort_by_likes) $args = array(
                                 'meta_query' => array(
                                   'relation' => 'OR',
                                   array(
@@ -47,8 +47,10 @@
                                     'key' => '_topicliked',
                                   ),
                                 ),
-                                'orderby' => 'meta_value_num',
-                                'order' => 'DESC',
+                                'orderby' => array(
+                                    'meta_value_num' => 'DESC',
+                                    'ID' => 'DESC',
+                                ),
                                 'paged' => (get_query_var('paged')) ? get_query_var('paged') : 1
                               );
     else $args = array();

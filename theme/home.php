@@ -55,7 +55,7 @@ add_action('wp_enqueue_scripts', 'load_my_script');¡*/
             data-small="<?php echo $mPost['images']['small'] ?>"
             data-medium="<?php echo $mPost['images']['medium'] ?>"
             data-large="<?php echo $mPost['images']['large'] ?>"
-            data-src="<?php echo $mPost['images']['full'] ?>"
+            data-src="<?php echo $mPost['images']['large'] ?>"
           />
           <div class="shadow"></div>
           <div class="meta">
@@ -162,21 +162,21 @@ continue;
 
   <div id="montlyNews">
     <img src="<?php bloginfo( 'template_url' ); ?>/img/monthly.png"/>
-    <iframe src="https://www.youtube.com/embed/videoseries?list=PLtYgsstkMPuVdh4Y-L9RFRG1Hv3w4JC-j&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+    <iframe width="1920" height="1080" src="https://www.youtube.com/embed/videoseries?list=PLtYgsstkMPuVdh4Y-L9RFRG1Hv3w4JC-j&modestbranding=1" frameborder="0" allowfullscreen></iframe>
   </div>
   <div id="mainCommunity" class="army-support">
     <img id="community" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/community.png"/>
     <div id="communityContent">
       <div id="members">
         <?php
-          the_widget("BP_Core_Recently_Active_Widget", "title=Members&max_members=9");
+          the_widget("BP_Core_Recently_Active_Widget", "title=🙃 Latest Members&max_members=16");
 //          the_widget("BP_Core_Members_Widget", "title=Members2&max_members=8");
         ?>
       </div>
       <?php the_widget("Latest_Community_Uploads", "max=9"); ?>
     </div>
     <img id="solving" class="imgTitle" src="<?php bloginfo( 'template_url' ); ?>/img/solving.png"/>
-    <button class="btn-main" onclick="window.location.href='/community/army/'">Join the community</button>
+    <button class="btn-main" onclick="window.location.href='/community/join'">Join the community</button>
   </div>
 </div>
 <?php get_footer(); ?>

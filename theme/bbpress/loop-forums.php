@@ -97,16 +97,7 @@
 
       <?php endforeach; ?>
 
-    </li><!-- .bbp-body -->
-
-  <!-- delete footer   <li class="bbp-footer">
-
-      <div class="tr">
-        <p class="td colspan4">&nbsp;</p>
-      </div><!-- .tr
-
-    </li> -->
-
+    </li>
     <?php endif; endwhile; ?>
 
   </ul><!-- .forums-directory -->

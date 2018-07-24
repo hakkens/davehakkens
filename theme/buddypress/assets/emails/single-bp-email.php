@@ -173,7 +173,7 @@ $settings = bp_email_get_appearance_settings();
 						?>
 
 						<a href="https://davehakkens.nl/">
-						<img src="https://davehakkens.nl/wp-content/themes/davehakkens/buddypress/assets/emails/header.png" alt="alt text" title="title text" width="600" height="auto" style="width: 600px; height: auto;"/>
+						<img src="https://davehakkens.nl/wp-content/themes/davehakkens2.3/buddypress/assets/emails/header.png" alt="alt text" title="title text" width="600" height="auto" style="width: 600px; height: auto;"/>
 					</td>
 				</tr>
 			</table>

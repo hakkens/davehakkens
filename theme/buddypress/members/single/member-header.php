@@ -17,7 +17,7 @@
  * @since BuddyPress (1.2.0)
  */
 do_action( 'bp_before_member_header' ); ?>
-
+<div id="item-header-container">
 <div id="item-header-avatar">
   <a href="<?php bp_displayed_user_link(); ?>profile/">
 
@@ -31,6 +31,7 @@ do_action( 'bp_before_member_header' ); ?>
   <?php if ( bp_is_active( 'activity' ) && bp_activity_do_mentions() ) : ?>
     <h2 class="user-nicename">@<?php bp_displayed_user_mentionname(); ?></h2>
   <?php endif; ?>
+
 
   <span class="activity"><?php bp_last_activity( bp_displayed_user_id() ); ?></span>
 
@@ -85,6 +86,7 @@ do_action( 'bp_before_member_header' ); ?>
   </div><!-- #item-meta -->
 
 </div><!-- #item-header-content -->
+  </div>
 
 <?php
 

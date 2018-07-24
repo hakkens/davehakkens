@@ -1,13 +1,23 @@
 <?php $thumbnail_url = wp_get_attachment_url( get_post_thumbnail_id( $post->ID ) ); ?>
 
 <div class="post-content">
-
 <div class="post-thumbnail">
   <?php the_post_thumbnail( 'full' ); ?>
 </div>
+<?php
+			$author_id = get_the_author_meta( 'ID' );
+			$user_info = get_userdata($author_id );?>
        <div class="authorinfo"> <p>
       <div class="avatar"><?php echo get_avatar( get_the_author_meta( 'ID' ), 32 ); ?> </div>
-    <div class="author"> <?php the_author(); ?>  </div>
+
+    <div class="custom_post_flag"><a href='/community/members/<?php echo $user_info->user_nicename; ?> '>
+          <?php
+		     $country = xprofile_get_field_data( 42, $author_id );
+				dh_get_flag_by_location($country);
+
+					?>
+        </a></div>
+<div class="author"><a href='/community/members/<?php echo $user_info->user_nicename; ?> '><?php echo $user_info->user_nicename; ?> </a> </div>
     <div class="date"> <?php the_time('F j, Y'); ?></p></div>
   </div>
   <h1><?php the_title(); ?></h1>
@@ -30,7 +40,7 @@
 </div>
 
 <div class="randomtitle">
-  <img src="http://davehakkens.nl/wp-content/themes/davehakkens2/img/randomnews.png" alt="randomnews" height="102" width="500"></div>
+  <img src="http://davehakkens.nl/wp-content/themes/davehakkens2.3/img/randomnews.png" alt="randomnews" height="102" width="500"></div>
   <div class="relatedposts">  <div class="other-updates">
 
 
@@ -59,7 +69,7 @@
 
       // Loop through posts
       foreach( $wpex_query->posts as $post ) : setup_postdata( $post ); ?>
-      <li><div class="relatedthumb"><a href="<? the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'thumbnail' ); ?></a></div>
+      <li><div class="relatedthumb"><a href="<?php the_permalink()?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_post_thumbnail( 'thumbnail' ); ?></a></div>
       <div class="relatedcontent">
       </div>
       </li>
@@ -75,11 +85,6 @@
     </div>
 
 
-    <div class="background-comments">
-    <div class="post-comments">
-      <?php comments_template(); ?>
-    </div>
-    </div>
 
 
 </div>

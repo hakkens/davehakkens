@@ -2,6 +2,9 @@
 
 include dirname( __FILE__ ) . '/includes/meta-boxes.php';
 include_once dirname( __FILE__ ) . '/includes/pins.php';
+include_once dirname( __FILE__ ) . '/includes/latestUploads.php';
+include_once dirname( __FILE__ ) . '/includes/captcha/bbpress-newrecaptcha.php';
+include_once dirname( __FILE__ ) . '/includes/notifications.php';
 
 function login_redirect_control( $redirect_to, $request, $user ) {
   $urlParts = parse_url($request);
@@ -52,12 +55,71 @@ function bp_loggedin_register_redirect( $redirect ) {
 }
 add_filter( 'bp_loggedin_register_page_redirect_to', 'bp_loggedin_register_redirect' );
 
-//add "sort-by-likes" endpoint for reply sorting purposes
-function add_enpoint_for_reply_sorting() {
-  global $wp_rewrite;
-  add_rewrite_endpoint( 'sort-by-likes', EP_ALL );
+//add "sortbylikes" variable to wp_query vars
+function add_query_var( $vars ) {
+  $vars[] = 'sortbylikes';
+
+  return $vars;
 }
-add_action( 'init', 'add_enpoint_for_reply_sorting' );
+add_filter( 'query_vars', 'add_query_var' );
+
+//extend rewrite rules with "sortbylikes" variable for reply sorting purposes
+function add_rules_for_reply_sorting() {
+  global $wp_rewrite;
+  add_rewrite_rule( 'community/forums/topic/([^/]+)/sortbylikes/?$', 'index.php?topic=$matches[1]&sortbylikes=1', 'top');
+  add_rewrite_rule( 'community/forums/topic/([^/]+)/page/([0-9]{1,})/sortbylikes/?$', 'index.php?topic=$matches[1]&paged=$matches[2]&sortbylikes=1', 'top');
+  $wp_rewrite->flush_rules();
+}
+add_action( 'init', 'add_rules_for_reply_sorting' );
+
+//add sortbtlikes variable to pager links
+function add_sorting_variable_to_replies_pagination($pagination_links) {
+    $sort_by_likes = get_query_var( 'sortbylikes', 0 );
+
+    if ($sort_by_likes) {
+      $regex = "/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i";
+      $pagination_links = preg_replace_callback($regex, function ($matches) {
+                                                            return $matches[0].'sortbylikes/#sort-by-likes';
+                                                        }, $pagination_links);
+    }
+
+    return $pagination_links;
+}
+add_filter('bbp_get_topic_pagination_links', 'add_sorting_variable_to_replies_pagination');
+
+// edit editor content styles which can't be directly accessed because tinymce script writes an iframe
+function my_theme_add_editor_styles($content) {
+    $editor_content_styling = "
+      var observer = new MutationObserver(function(mutations, observer) {
+        mutations.forEach(function(mutation) {
+          if (jQuery('iframe').length && !jQuery('iframe').data('styling')) {
+            jQuery('iframe').data('styling', '1');
+            var x = document.getElementById('bbp_reply_content_ifr');
+            var y = (x.contentWindow || x.contentDocument);
+            if (y.document)y = y.document;
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '".get_template_directory_uri()."/style.css';
+            link.type = 'text/css';
+            y.head.appendChild(link);
+            observer.disconnect();
+          }
+        });
+      });
+
+      var observerConfig = {
+        attributes: true,
+        subtree: true
+      };
+
+      var targetNode = document.getElementById('wp-bbp_reply_content-wrap');
+      if (!targetNode) = targetNode = document.getElementById('wp-bbp_topic_content-wrap');
+      observer.observe(targetNode, observerConfig);";
+
+    echo '<script>'.$editor_content_styling.'</script>';
+    return $content;
+}
+add_filter( 'the_editor', 'my_theme_add_editor_styles' );
 
 //change the exipiration of the auth token
 function my_expiration_filter($seconds, $user_id, $remember){
@@ -444,11 +506,18 @@ add_filter('tiny_mce_before_init', 'tinymce_other_css_for_content');
 
 // Enable visual editor on tinymce in bbPress
 function bbp_enable_visual_editor( $args = array() ) {
-    $args['tinymce'] = true;
+    $args['tinymce'] = array(
+		'content_css' => get_template_directory_uri() . "/style.css",
+		'remove_linebreaks' => false,
+		'convert_newlines_to_brs' => true,
+		'remove_redundant_brs' => false,
+		'forced_root_block' => false
+	);
     $args['quicktags'] = false;
     return $args;
 }
 add_filter( 'bbp_after_get_the_content_parse_args', 'bbp_enable_visual_editor' );
+
 
 // Enable TinyMCE paste plugin
 function bbp_add_paste_plugin($args) {
@@ -524,7 +593,6 @@ if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) {
 }
 
 function davehakkens2_widgets_init() {
-  require get_template_directory() . '/includes/widgets.php';
   register_widget( 'Latest_Community_Uploads' );
 }
 
@@ -610,31 +678,176 @@ function davehakkens_theme_comment($comment, $args, $depth) {
 }
 
 /**
- * Register our sidebars and widgetized areas.
- *
- */
-function community_widgets_init() {
-
-  register_sidebar( array(
-    'name'          => 'Community info',
-    'id'            => 'community_info',
-  ) );
-
+* function to help if user has an avatar or not
+*/
+function get_user_has_avatar($user_id) {
+  return strpos(bp_core_fetch_avatar(array('item_id' => $user_id, 'html' => false)), 'www.gravatar.com') === false;
 }
-add_action( 'widgets_init', 'community_widgets_init' );
 
+/**
+* upload profile image button
+*/
 add_action('profile_pic_upload_button','show_profile_pic_button',10);
 function show_profile_pic_button(){
-  $user_id = get_current_user_id();
-  global $bp;
-  if(!empty($user_id)):
-    $profile = bp_core_get_user_domain($user_id);
-  if( !bp_get_user_has_avatar()) : ?>
-     <div class="upload_profile">
-        <a href="<?php echo $profile.'/profile/change-avatar/#avatar-upload-form'; ?>">Upload your Profile pic</a>
-    </div>
-  <?php
-     endif;
-  endif;
+    $user_id = get_current_user_id();
+    global $bp;
+
+    if(!empty($user_id)) {
+        $profile = bp_core_get_user_domain($user_id);
+
+        if(!get_user_has_avatar($user_id)) : ?>
+             <div class="dave_upload_profile">
+               <div class="upload_profile">
+                 <a href="<?php echo $profile . '/profile/change-avatar/#avatar-upload-form'?>">Upload your avatar </a>
+               </div>
+             </div>
+            <?php
+        endif;
+    }
+ }
+
+
+
+
+ function your_theme_xprofile_cover_image( $settings = array() ) {
+     $settings['width']  = 1000;
+     $settings['height'] = 500;
+
+     return $settings;
+ }
+ add_filter( 'bp_before_xprofile_cover_image_settings_parse_args', 'your_theme_xprofile_cover_image', 10, 1 );
+
+if ( !class_exists( 'ImageRotationRepair' ) ) {
+  class ImageRotationRepair {
+
+    var $orientation_fixed = array();
+
+    public function __construct() {
+      add_filter( 'wp_handle_upload_prefilter', array( $this, 'filter_wp_handle_upload_prefilter' ), 10, 1 );
+      add_filter( 'wp_handle_upload', array( $this, 'filter_wp_handle_upload' ), 1, 3 );
+    }
+
+    public function filter_wp_handle_upload( $file ) {
+      $this->fixImageOrientation( $file['file'], $file['type'] );
+      return $file;
+    }
+
+    public function filter_wp_handle_upload_prefilter( $file ) {
+      $suffix = substr( $file['name'], strrpos( $file['name'], '.' ) + 1 ); // I know there's a better way to get a file type / mime_type.
+      switch ( strtolower($suffix) ) {
+        case 'jpg':
+        case 'jpeg':
+          $type = 'image/jpeg';
+          break;
+        case 'png':
+          $type = 'image/png';
+          break;
+        case 'gif':
+          $type = 'image/gif';
+          break;
+      }
+      if ( isset( $type ) ) {
+        $this->fixImageOrientation( $file['tmp_name'], $type );
+      }
+      return $file;
+    }
+
+    public function fixImageOrientation( $file, $type ) {
+      if ( is_callable('exif_read_data') && !isset( $this->oreintation_fixed[$file] ) ) {
+        $exif = @exif_read_data( $file );
+        if ( isset($exif) && isset($exif['Orientation']) && $exif['Orientation'] > 1 ) {
+          include_once( ABSPATH . 'wp-admin/includes/image-edit.php' );
+          switch ( $exif['Orientation'] ) {
+            case 3:
+              $orientation = -180;
+              break;
+            case 6:
+              $orientation = -90;
+              break;
+            case 8:
+            case 9:
+              $orientation = -270;
+              break;
+            default:
+              $orientation = 0;
+              break;
+          }
+          switch ( $type ) {
+            case 'image/jpeg':
+              $image = imagecreatefromjpeg( $file );
+              break;
+            case 'image/png':
+              $image = imagecreatefrompng( $file );
+              break;
+            case 'image/gif':
+              $image = imagecreatefromgif( $file );
+              break;
+            default:
+              $image = false;
+              break;
+          }
+          if ($image) {
+            $image = _rotate_image_resource( $image, $orientation );
+            switch ( $type ) {
+              case 'image/jpeg':
+                imagejpeg( $image, $file, apply_filters( 'jpeg_quality', 90, 'edit_image' ) );
+                break;
+              case 'image/png':
+                imagepng($image, $file );
+                break;
+              case 'image/gif':
+                imagegif($image, $file );
+                break;
+            } // end switch
+          } // end if $image
+        } // end if $exif
+      } // end is_callable('exif_read_data')
+      $this->orientation_fixed[$file] = true;
+    }
+  }
+
+  new ImageRotationRepair();
 }
+
+//BuddyPress extra SubNav
+function bpfr_custom_profile_sub_nav() {
+  global $bp;
+  $parent_slug = 'friends';
+  bp_core_new_subnav_item( array(
+    'name'            => __( "Updates from friends" ),
+    'slug'            => "activity/friends",
+    'parent_url'      => bp_displayed_user_domain(),
+    'parent_slug'     => $parent_slug,
+    'screen_function' => "bp_activity_screen_my_activity",
+    'position'        => 15,
+  ));
+  $parent_slug = 'forums';
+  bp_core_new_subnav_item( array(
+    'name'            => __( "All activity" ),
+    'slug'            => "all_activity",
+    'parent_url'      => bp_displayed_user_domain(),
+    'parent_slug'     => $parent_slug,
+    'screen_function' => "bp_activity_screen_my_activity",
+    'position'        => 10,
+    'link'            => bp_displayed_user_domain() . "activity/"
+  ));
+  bp_core_new_subnav_item( array(
+    'name'            => __( "Images" ),
+    'slug'            => "latestU",
+    'parent_url'      => bp_displayed_user_domain(),
+    'parent_slug'     => $parent_slug,
+    'screen_function' => "bp_activity_screen_my_activity",
+    'position'        => 70,
+  ));
+}
+add_action( 'bp_setup_nav', 'bpfr_custom_profile_sub_nav' );
+
+//change name in forums user profile
+function bpcodex_rename_profile_tabs() {
+
+      buddypress()->members->nav->edit_nav( array( 'name' => __( 'Activity', 'textdomain' ) ), 'forums' );
+
+}
+add_action( 'bp_actions', 'bpcodex_rename_profile_tabs' );
+
 ?>

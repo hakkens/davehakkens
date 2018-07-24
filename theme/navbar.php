@@ -22,7 +22,16 @@
       <a class="about<?php echo $current_url == '/about/' ? ' current' : '' ; ?>" href="/about/">About</a>
       </li>
     <li>
-      <a class="community<?php echo strpos($current_url, 'community') ? ' current' : '' ; ?>" href="/community">Community</a>
+      <a class="community<?php echo strpos($current_url, 'community') ? ' current' : '' ; ?>" href="<?php
+if ( is_user_logged_in() )
+{
+   echo home_url( '/community/activity' );
+}
+else
+{
+    echo home_url( '/community' );
+}
+?>"</a></a>
     </li>
   </ul>
 

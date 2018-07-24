@@ -9,7 +9,35 @@
 
 ?>
 
+
+
 <div class="search-result">
+  <div class="bbp-topic-title">
+
+    <?php do_action( 'bbp_theme_before_topic_title' ); ?>
+
+    <h3><?php _e( 'Topic: ', 'bbpress' ); ?>
+      <a href="<?php bbp_topic_permalink(); ?>"><?php bbp_topic_title(); ?></a>
+
+
+
+      <?php if ( function_exists( 'bbp_is_forum_group_forum' ) && bbp_is_forum_group_forum( bbp_get_topic_forum_id() ) ) : ?>
+
+        <?php _e( 'in group forum ', 'bbpress' ); ?>
+
+      <?php else : ?>
+
+        <?php _e( 'in forum ', 'bbpress' ); ?>
+
+      <?php endif; ?>
+
+      <a href="<?php bbp_forum_permalink( bbp_get_topic_forum_id() ); ?>"><?php bbp_forum_title( bbp_get_topic_forum_id() ); ?></a>
+
+
+
+    <?php do_action( 'bbp_theme_after_topic_title' ); ?>
+</h3>
+  </div><!-- .bbp-topic-title -->
   <div class="avatar">
     <div class="bbp-topic-author">
 
@@ -56,32 +84,7 @@
 
     </div><!-- .bbp-meta -->
 
-    <div class="bbp-topic-title">
 
-      <?php do_action( 'bbp_theme_before_topic_title' ); ?>
-
-      <h3><?php _e( 'Topic: ', 'bbpress' ); ?>
-        <a href="<?php bbp_topic_permalink(); ?>"><?php bbp_topic_title(); ?></a></h3>
-
-      <div class="bbp-topic-title-meta">
-
-        <?php if ( function_exists( 'bbp_is_forum_group_forum' ) && bbp_is_forum_group_forum( bbp_get_topic_forum_id() ) ) : ?>
-
-          <?php _e( 'in group forum ', 'bbpress' ); ?>
-
-        <?php else : ?>
-
-          <?php _e( 'in forum ', 'bbpress' ); ?>
-
-        <?php endif; ?>
-
-        <a href="<?php bbp_forum_permalink( bbp_get_topic_forum_id() ); ?>"><?php bbp_forum_title( bbp_get_topic_forum_id() ); ?></a>
-
-      </div><!-- .bbp-topic-title-meta -->
-
-      <?php do_action( 'bbp_theme_after_topic_title' ); ?>
-
-    </div><!-- .bbp-topic-title -->
 <br />
     <div class="bbp-topic-content">
 
