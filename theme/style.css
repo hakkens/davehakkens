@@ -7917,3 +7917,7 @@ a.bbp-reply-topic-title{display: inline-block; font-size: 18px; color: #000; wid
 .dav_topic_like{display:inline-block; height: 30px;}
 .dav_topic_like span{position: relative; padding: 0px 35px 0px 28px;}
 .dav_topic_like span:before{background-image: url(/wp-content/themes/davehakkens2.3/img/icon/topic_info_likes.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
+
+#register-page iframe {
+  min-height: 0px;
+}
