@@ -569,7 +569,7 @@ if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) {
     function mycred_display_custom_users_badges( $user_id = NULL, $width = MYCRED_BADGE_WIDTH, $height = MYCRED_BADGE_HEIGHT ) {
         $user_id = absint( $user_id );
         if ( $user_id === 0 ) return;
-        $valid_badges = array(4709, 4710, 4744);
+        $valid_badges = array(4709, 4710, 4744, 133596);
         $users_badges = mycred_get_users_badges( $user_id );
 
         echo '<div class="row" id="mycred-users-badges"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">';
