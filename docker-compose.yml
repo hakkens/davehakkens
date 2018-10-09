@@ -17,6 +17,7 @@ services:
 
   wordpress:
     container_name: davehakkens_wordpress
+    image: davehakkens_wordpress:latest
     depends_on:
       - db
     build: .

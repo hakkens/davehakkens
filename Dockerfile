@@ -25,20 +25,14 @@ RUN curl https://downloads.wordpress.org/plugin/bbpress.2.5.14.zip -o /usr/src/w
     && curl https://downloads.wordpress.org/plugin/buddypress.3.2.0.zip -o /usr/src/wordpress/wp-content/plugins/buddypress.zip \
     && curl https://downloads.wordpress.org/plugin/mycred.1.7.9.7.zip -o /usr/src/wordpress/wp-content/plugins/mycred.zip \
     && curl https://downloads.wordpress.org/plugin/gd-bbpress-attachments.zip -o /usr/src/wordpress/wp-content/plugins/gd-bbpress-attachments.zip \
-    && curl -L -k https://github.com/hakkens/davehakkens/archive/master.zip -o /usr/src/wordpress/wp-content/themes/master.zip \
     && unzip -d /usr/src/wordpress/wp-content/plugins/ /usr/src/wordpress/wp-content/plugins/bbpress.zip \
     && unzip -d /usr/src/wordpress/wp-content/plugins/ /usr/src/wordpress/wp-content/plugins/buddypress.zip \
     && unzip -d /usr/src/wordpress/wp-content/plugins/ /usr/src/wordpress/wp-content/plugins/mycred.zip \
     && unzip -d /usr/src/wordpress/wp-content/plugins/ /usr/src/wordpress/wp-content/plugins/gd-bbpress-attachments.zip \
-    && unzip -d /usr/src/wordpress/wp-content/themes/ /usr/src/wordpress/wp-content/themes/master.zip \
-    && mv /usr/src/wordpress/wp-content/themes/davehakkens-master/theme/ /usr/src/wordpress/wp-content/themes/ \
     && rm -r /usr/src/wordpress/wp-content/plugins/akismet \
-    /usr/src/wordpress/wp-content/themes/davehakkens-master \
     && rm /usr/src/wordpress/wp-content/plugins/hello.php \
     /usr/src/wordpress/wp-content/plugins/bbpress.zip \
     /usr/src/wordpress/wp-content/plugins/buddypress.zip \
     /usr/src/wordpress/wp-content/plugins/mycred.zip \
     /usr/src/wordpress/wp-content/plugins/gd-bbpress-attachments.zip \
-    /usr/src/wordpress/wp-content/themes/master.zip \
-    && chown -R www-data:www-data /usr/src/wordpress/wp-content/plugins/ \
-    /usr/src/wordpress/wp-content/themes/
+    && chown -R www-data:www-data /usr/src/wordpress/wp-content/plugins/
