@@ -240,6 +240,11 @@
     padding-bottom: 1600px;
   }
 
+	.donate-left, .donate-right{
+		width: 100%;
+		display: inherit;
+	}
+	
 
   #buddypress #header-cover-image {
       height: 100%!important;

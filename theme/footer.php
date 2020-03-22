@@ -11,6 +11,10 @@
 
   <?php wp_footer(); ?>
 
+<div id="note-topbar">
+    <a href="https://www.patreon.com/davehakkens ">Support our projects on Patreon so we can keep developing 💪</a>
+</div>
+
   <script>
     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;

@@ -28,7 +28,7 @@
        */
       do_action( 'bp_before_registration_disabled' ); ?>
 
-        <p><?php _e( 'User registration is currently not allowed.', 'buddypress' ); ?></p>
+        <p><?php _e( 'Hey. just to late. We closed down our forums. <br>read here why <br> https://davehakkens.nl/community/our-online-community-plan-explained/ <br><br> <br>Join our Discord for Chat 🤙<br> https://discordapp.com/invite/zmf98dw <br>  ', 'buddypress' ); ?></p>
 
       <?php
 

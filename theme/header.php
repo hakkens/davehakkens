@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html class="no-js" lang="">
 <head>
+	<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-5188091709191403",
+    enable_page_level_ads: true
+  });
+</script>
 
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -21,7 +27,7 @@
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/normalize.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/main.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/fullpage.css">
-  <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
+  <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?update=2">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/rwd.css">
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/js/vendor/fancybox/jquery.fancybox.css">
   <!-- <script src="<?php bloginfo('template_url'); ?>/js/vendor/modernizr-2.8.3.min.js"></script>-->

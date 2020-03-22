@@ -32,7 +32,10 @@
     </div>
 
     <div class="smallHalf">
+ <div class="dashboard-user"> 
+<iframe src="https://discordapp.com/widget?id=586676777334865928&theme=dark" width="300" height="300" allowtransparency="true" frameborder="0"></iframe>
 
+ </div> 
      <div class="tabbed upload-block">
 		<?php do_action('profile_pic_upload_button'); ?>
 
@@ -47,6 +50,7 @@
 				<strong><?php echo esc_html( $stats['user_count'] ); ?></strong>
 
 					</dd></div>
+	
 					<div class="community-content">
 				<dt><?php _e( '📓 Topics', 'bbpress' ); ?></dt>
 				<dd>
@@ -74,9 +78,6 @@
 
 </div>
 
-<!-- <div class="dashboard-user"> -->
-
-<!-- </div> -->
       <?php the_widget('Latest_Community_Uploads', "max=12");?>
             <div class="sidebar-footer"><a href="http://davehakkens.nl/community/images">Show all images</a></div>
       <div class="tabbed"><div class="posttab">

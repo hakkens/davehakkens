@@ -8,6 +8,7 @@
   License: GNU General Public License v2 or later
   License URI: http://www.gnu.org/licenses/gpl-2.0.html
   Text Domain: davehakkens
+	...
 */
 
 @import '//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700';
@@ -27,6 +28,8 @@
 
 
 
+
+
 html, body {
   font-family: 'Open Sans', sans-serif;
   height: 100%;
@@ -41,6 +44,20 @@ body.home-page{
 
 body.archive.tag {
   background: #edefed;
+}
+
+
+#note-topbar {
+	top: 0;
+	right: 0;
+	background: #f0968a;
+	text-align: center;
+	line-height: 2.5;
+	overflow: hidden;
+}
+
+#note-topbar a {
+	color: black!important;
 }
 
 .topic-tag .bbp-topic-title a {
@@ -155,7 +172,7 @@ img.aligncenter {
   padding: 50px 0px 50px 0px;
 }
 .page-id-72953,
-.bbp-search, {
+.bbp-search {
     padding-top: 100px;
 }
 
@@ -1557,7 +1574,10 @@ a.wp_ulike_btn.wp_ulike_put_image:hover {
 .topic-reply .wpulike {
     display: inline-block;
     float: right;
-    margin-top: -6px;
+    margin-top: -21px;
+}
+.wpulike-heart .wp_ulike_general_class {
+	box-shadow: none !important;
 }
 
 
@@ -1927,6 +1947,18 @@ a.wp_ulike_btn.wp_ulike_put_image:hover {
 .activity .activity-content img {
     width: 100%;
     height: auto;
+}
+
+.activity .dashboard-user {
+
+    margin-bottom: 10px;
+
+}
+.smallHalf > .dashboard-user {
+
+    background-color: inherit;
+    padding: 0px !important;
+
 }
 
 .davekha-activity-avatar .activity-avatar > a img {
@@ -3074,6 +3106,27 @@ display:inline;
 
 .bbp-view .topics-with-no-replies .bbp-forum-content {
     display: none;
+}
+.page-id-151969 form[id*="give-form"] .give-btn.give-btn-modal,
+.page-id-151969 form[id*="give-form"] .give-donation-amount .give-currency-symbol {
+
+    background-color: #8ab580 !important;
+}
+
+
+.donate-button-back a {
+    border: 4px solid black;
+	padding: 16px 16px;
+	color: black;
+    font-size: 18px;
+    letter-spacing: 1px;
+    border-radius: 9px;
+    margin-top: 0px;
+    display: inline-block;
+    font-family: varela round;
+    text-transform: uppercase;
+    margin-bottom: 100px;
+    text-align: center;
 }
 
 
@@ -6514,6 +6567,24 @@ div#topic-cloud {
   font-size: 15px;
 }
 
+.give-recurring-donors-choice .profile-edit .standard-form input, select {
+    padding: 0px !important;
+    border: 0px !important;
+    border-radius: 4px;
+	background-color: #b9b9b9;
+}
+
+[id*="give-form"] .give-recurring-donors-choice input[type="checkbox"] {
+    margin: inherit !important;
+    width: 30px !important;
+   vertical-align: text-top;
+}
+#give-recurring-modal-period {
+    background-color: #fee77b;
+    padding: 7px 16px;
+    border-radius: 4px;
+}
+
 .give-input  {
   padding: 10px;
   background-color: #FFFFFF;
@@ -6550,13 +6621,17 @@ form[id*=give-form] #give-final-total-wrap .give-final-total-amount {
   border: none!important;
 }
 
+[id*="give-form"] .give-recurring-donors-choice label {
+    font-family: 'medium' ,Verdana ,sans-serif;
+}
+
 .give-form-content-wrap p {
   text-align: center!important;
 }
 
 .give-form-title {
-  text-align: center!important;
-  display: none;
+  padding-bottom:30px!important;
+  padding-top:15px!important;
 }
 
 #buddypress.member-filter,
@@ -6666,16 +6741,22 @@ form#bps_shortcode72769 .submit:hover {
 }
 
 button.give-btn.give-btn-reveal, .give-btn.give-btn-modal {
-  background-color: #9FCEB7;
-  border: 0px;
-  padding: 19px;
-  color: white;
-  font-size: 18px;
-  letter-spacing: 1px;
-  border-radius: 5px;
-  margin: 0 auto!important;
-  margin-bottom: 50px!important;
-  display: block;
+background-color:#fee77b;
+border: 3px solid black;
+padding: 16px 16px;
+color: black;
+font-size: 18px;
+letter-spacing: 1px;
+border-radius: 5px;
+margin: 0 auto !important;
+display: block;
+font-family: varela round;
+text-transform: uppercase;
+margin-top: 40px !important;
+}
+
+form[id*="give-form"] .give-donation-amount{
+	margin: 0px;
 }
 
 #bps_shortcode72769.standard-form div.submit input {
@@ -6689,18 +6770,44 @@ button.give-btn.give-btn-reveal, .give-btn.give-btn-modal {
   text-indent: -99999999px;
 }
 
-.give-donation-amount.form-row-wide {
-  width: 200px;
-  margin-left: auto!important;
-  margin-right: auto!important;
-  box-sizing: inherit!important;
+
+#give-donation-level-radio-list {
+    display: inline-block;
+    width: auto;
+
+}
+/* hide patreon */
+
+.page-id-62742 #note-topbar{
+	display:none;
 }
 
+
+.donate-left,
+.donate-right {
+  width: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+	min-height: 10em;
+    display: table-cell;
+    vertical-align: middle
+}
+
+/* Clear floats after the columns */
+.donate-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
 input#give-amount {
-  margin-bottom: 10px!important;
   text-align: center!important;
   border-radius: 0px!important;
   box-sizing: inherit!important;
+  border:inherit!important;
+	height: 55px !important;
 }
 
 span#give-amount-text {
@@ -6710,14 +6817,49 @@ span#give-amount-text {
 span.give-currency-symbol.give-currency-position-before {
   padding: 0 12px!important;
   box-sizing: inherit!important;
+
+	
+}
+
+.round-edges {
+    border-radius: 10px;
 }
 
 .give-modal .mfp-inline-holder .mfp-content{
   width:auto!important;
 }
 
-.give-form {
-  text-align: center;
+form[id*="give-form"] .give-donation-amount .give-currency-symbol{
+	border: 0px solid white!important;
+	height: 55px !important;
+	line-height: 55px !important;
+	background-color: #fee77b !important;
+	width: 20px;
+}
+.give-form-wrap {
+    background-color: #e8e8e8;
+    padding: 15px;
+    border-radius: 10px;
+    border: 4px solid #313131;
+	max-width: 350px;
+	margin: 0 auto;
+}
+
+.parent-pageid-61817 .post-content {
+    width: 100% !important;
+    max-width: 1200px;
+}
+
+#give-donation-level-radio-list > li:hover {
+    background-color: #cecece;
+}
+
+form[id*="give-form"] .give-donation-amount {
+    margin: 0px!important;
+	border-radius: 10px;
+	overflow: hidden;
+	display: inherit;
+	border: inherit !important;
 }
 
 p.give-custom-amount-text {
@@ -7401,15 +7543,38 @@ color: black;
 
 
 #give-donation-level-radio-list>li {
-    list-style-type: none;
-    list-style-image: none;
-    background-color: #e6e6e6;
-    padding: 15px 40px!important;
-    margin-bottom: 5px!important;
-    width: 300px;
-    margin: 0 auto!important;
-    border-bottom: 4px white solid;
-    font-family: 'medium' ,Verdana ,sans-serif;
+	background-color:#FFF;
+	margin: 4px !important;
+	font-family: 'medium' ,Verdana ,sans-serif;
+	display: inline-block;
+	padding: 5px 10px !important;
+	border-radius: 5PX;
+	font-size: 14px;
+	
+}
+
+.mfp-content.give-responsive-mfp-content {
+    border-radius: 10px;
+    border: 4px solid black;
+
+}
+
+.give-form-content-wrap a {
+	 text-decoration: underline;
+    color:#3e3e3e;
+    font-size: 14px;
+}
+
+.give-total-wrap,
+#give-donation-level-radio-list{
+    display: inline-block;
+	width:100%;
+	font-family: 'medium' ,Verdana ,sans-serif;
+}
+
+.give-form-wrap input[type=radio] {
+    display:none; 
+    margin:10px;
 }
 
 #give-donation-level-radio-list>li input[type=radio] {
@@ -7919,5 +8084,13 @@ a.bbp-reply-topic-title{display: inline-block; font-size: 18px; color: #000; wid
 .dav_topic_like span:before{background-image: url(/wp-content/themes/davehakkens2.3/img/icon/topic_info_likes.png); background-repeat: no-repeat; width: 20px; height: 20px; content:''; background-size: cover; position: absolute; left: 0; top: 50%; -webkit-transform: translateY(-50%);-ms-transform: translateY(-50%);transform: translateY(-50%);}
 
 #register-page iframe {
-  min-height: 0px;
+	min-height: 0px;
+}
+
+.category-footer .wpulike {
+	display: inline-block;
+	opacity: 0.75;
+}
+.wpulike-heart .wp_ulike_btn.wp_ulike_put_image {
+	transform: scale(0.8);
 }

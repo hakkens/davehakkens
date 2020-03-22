@@ -295,7 +295,7 @@ add_filter('user_contactmethods','hide_profile_fields',10,1);
   $output = preg_replace( '/, .*[^ago]/', ' ', $output );
   return $output;
 }
-add_filter( 'bbp_get_time_since', 'short_freshness_time' );
+add_filter( 'bbp_get_time_since', 'short_freshness_time', 10, 3 );
 
 
 //Add extra class for topic lead
@@ -569,7 +569,7 @@ if ( ! function_exists( 'mycred_display_custom_users_badges' ) ) {
     function mycred_display_custom_users_badges( $user_id = NULL, $width = MYCRED_BADGE_WIDTH, $height = MYCRED_BADGE_HEIGHT ) {
         $user_id = absint( $user_id );
         if ( $user_id === 0 ) return;
-        $valid_badges = array(4709, 4710, 4744, 133596);
+        $valid_badges = array(4709, 4710, 4744, 133596, 146383);
         $users_badges = mycred_get_users_badges( $user_id );
 
         echo '<div class="row" id="mycred-users-badges"><div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">';
@@ -849,5 +849,30 @@ function bpcodex_rename_profile_tabs() {
 
 }
 add_action( 'bp_actions', 'bpcodex_rename_profile_tabs' );
+
+//hide new users from activity stream
+function swa_remove_new_member_activity( $a, $activities ) {
+ 
+ 
+	foreach ( $activities->activities as $key => $activity ) {
+		// activity type name is new_member
+		if ( $activity->type =='new_member') {
+		unset( $activities->activities[$key] );
+		 
+				// recalculate activity items for pagination
+				$activities->activity_count = $activities->activity_count-1;
+				$activities->total_activity_count = $activities->total_activity_count-1;
+				$activities->pag_num = $activities->pag_num -1;
+		}
+	}
+ 
+	// Renumber the array keys to account for missing items 
+	$activities_new = array_values( $activities->activities );
+	$activities->activities = $activities_new;
+	
+	// output
+	return $activities;
+}
+add_action('bp_has_activities','swa_remove_new_member_activity', 10, 2 );
 
 ?>

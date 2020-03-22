@@ -51,7 +51,7 @@ do_action( 'bp_before_profile_loop_content' ); ?>
 
                   <tr>
 
-                    <div class="data profile-about"><p><?php echo wp_kses($about); ?></p></div>
+                    <div class="data profile-about"><p><?php echo wp_kses($about, array(), array()); ?></p></div>
 
                   </tr>
 

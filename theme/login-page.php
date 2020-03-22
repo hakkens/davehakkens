@@ -48,7 +48,7 @@ get_template_part( 'navbar' );
         </div>
 
         <div class="forgot_password">
-          <a href="/community/register">Register</a>
+          <a href="/community/register">R̶e̶g̶i̶s̶t̶e̶r̶ (we're closed, click for info)</a>
         </div>
 
       </div>
